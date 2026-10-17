@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+
+import '../data/offline_bundle.dart';
+import '../features/settings/app_settings.dart';
+import '../platform/location/location_source.dart';
+import 'app_services.dart';
+import 'shell.dart';
+import 'theme.dart';
+
+class TciBeachBuddiesApp extends StatefulWidget {
+  /// Injection points for tests (bundle and location source).
+  final OfflineBundle? bundle;
+  final LocationSource? liveSource;
+  const TciBeachBuddiesApp({super.key, this.bundle, this.liveSource});
+
+  @override
+  State<TciBeachBuddiesApp> createState() => _TciBeachBuddiesAppState();
+}
+
+class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
+  late final Future<AppServices> _boot = _init();
+  AppServices? _services;
+
+  @override
+  void dispose() {
+    _services?.dispose();
+    super.dispose();
+  }
+
+  Future<AppServices> _init() async {
+    final settings = AppSettings();
+    await settings.load();
+    final health = await (widget.bundle ?? OfflineBundle()).verifyAndLoad();
+    final services = await AppServices.create(
+      bundle: health,
+      settings: settings,
+      liveSource: widget.liveSource,
+    );
+    // Location is requested in context: the permission prompt appears once
+    // the visitor is on Home, and declining never blocks browsing (J-01).
+    services.location.start();
+    _services = services;
+    return services;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'TCI Beach Buddies',
+      debugShowCheckedModeBanner: false,
+      theme: buildTheme(),
+      home: FutureBuilder<AppServices>(
+        future: _boot,
+        builder: (context, snap) {
+          if (snap.hasError) {
+            return _FatalScreen(error: '${snap.error}');
+          }
+          if (!snap.hasData) return const _Splash();
+          return AppScope(services: snap.data!, child: const MainShell());
+        },
+      ),
+    );
+  }
+}
+
+class _Splash extends StatelessWidget {
+  const _Splash();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Image.asset('assets/images/logo.png', width: 260, semanticLabel: 'TCI Beach Buddies'),
+          const SizedBox(height: 24),
+          const CircularProgressIndicator(color: BB.teal),
+          const SizedBox(height: 12),
+          const Text('Checking offline Grand Turk data…', style: TextStyle(color: BB.muted)),
+        ]),
+      ),
+    );
+  }
+}
+
+class _FatalScreen extends StatelessWidget {
+  final String error;
+  const _FatalScreen({required this.error});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Icon(Icons.error_outline, size: 56, color: BB.danger),
+            const SizedBox(height: 12),
+            const Text('The app could not start', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+            const SizedBox(height: 8),
+            Text(error, textAlign: TextAlign.center),
+          ]),
+        ),
+      ),
+    );
+  }
+}

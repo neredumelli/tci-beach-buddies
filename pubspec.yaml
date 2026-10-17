@@ -1,0 +1,41 @@
+name: tci_beach_buddies
+description: TCI Beach Buddies - offline Grand Turk tourist navigation (Android + iOS).
+publish_to: 'none'
+
+# App version. The offline data bundle carries its own versions in
+# assets/manifest/manifest.json; both are shown on the Settings screen.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+# Dependency policy (TDD 2.2): keep native plugins to the minimum.
+#  - flutter_map renders the bundled vector basemap. NO tile layer / no URLs.
+#  - geolocator is the only location plugin (foreground only).
+#  - shared_preferences stores settings + favourites locally.
+#  - crypto verifies SHA-256 hashes of the offline bundle at start-up.
+# Run `flutter pub get` and COMMIT the generated pubspec.lock to freeze versions.
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_map: ^8.0.0
+  latlong2: ^0.9.1
+  geolocator: ^14.0.0
+  shared_preferences: ^2.3.0
+  crypto: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/manifest/
+    - assets/map/
+    - assets/graph/
+    - assets/pois/

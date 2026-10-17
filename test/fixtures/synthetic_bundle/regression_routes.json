@@ -1,0 +1,70 @@
+{
+  "graphVersion": "foot-0b3a3b29ec",
+  "vectors": [
+    {
+      "name": "R1 Cruise Center -> Governor's Beach",
+      "origin": [
+        21.425014,
+        -71.140411
+      ],
+      "destPoiId": "governors-beach",
+      "expectRoutable": true,
+      "expectedDistanceM": 2358.014,
+      "expectedSnappedOrigin": [
+        21.425013700384167,
+        -71.14041101152499
+      ]
+    },
+    {
+      "name": "R2 Governor's Beach -> Lighthouse (live fix at Governor's)",
+      "origin": [
+        21.441,
+        -71.146
+      ],
+      "destPoiId": "grand-turk-lighthouse",
+      "expectRoutable": true,
+      "expectedDistanceM": 7737.609,
+      "expectedSnappedOrigin": [
+        21.441,
+        -71.146
+      ]
+    },
+    {
+      "name": "R3 Lighthouse -> Return to Ship",
+      "origin": [
+        21.505,
+        -71.14
+      ],
+      "destPoiId": "grand-turk-cruise-center",
+      "expectRoutable": true,
+      "expectedDistanceM": 8938.178,
+      "expectedSnappedOrigin": [
+        21.505,
+        -71.14
+      ]
+    },
+    {
+      "name": "R4 Governor's Beach -> nearby Jack's Shack (live fix at A)",
+      "origin": [
+        21.441,
+        -71.146
+      ],
+      "destPoiId": "jacks-shack",
+      "expectRoutable": true,
+      "expectedDistanceM": 277.988,
+      "expectedSnappedOrigin": [
+        21.441,
+        -71.146
+      ]
+    },
+    {
+      "name": "R5 Gibbs Cay is browse-only (no route over water)",
+      "origin": [
+        21.425014,
+        -71.140411
+      ],
+      "destPoiId": "gibbs-cay",
+      "expectRoutable": false
+    }
+  ]
+}
