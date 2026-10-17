@@ -39,7 +39,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
     // Location is requested in context: the permission prompt appears once
     // the visitor is on Home, and declining never blocks browsing (J-01).
     services.location.start();
-    _services = services;
+    if (mounted) setState(() => _services = services);
     return services;
   }
 
@@ -49,14 +49,20 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
       title: 'TCI Beach Buddies',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
+      // AppScope sits ABOVE the Navigator so every pushed route (details,
+      // navigation, arrival, pickers) can reach the services.
+      builder: (context, child) {
+        final s = _services;
+        return s == null ? child! : AppScope(services: s, child: child!);
+      },
       home: FutureBuilder<AppServices>(
         future: _boot,
         builder: (context, snap) {
           if (snap.hasError) {
             return _FatalScreen(error: '${snap.error}');
           }
-          if (!snap.hasData) return const _Splash();
-          return AppScope(services: snap.data!, child: const MainShell());
+          if (!snap.hasData || _services == null) return const _Splash();
+          return const MainShell();
         },
       ),
     );

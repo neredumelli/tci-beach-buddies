@@ -72,4 +72,24 @@ void main() {
     expect(find.text('Map data attribution'), findsOneWidget);
     expect(find.text('© OpenStreetMap contributors'), findsWidgets);
   });
+
+  testWidgets('Pushed screens (Details -> Navigation) can reach app services', (t) async {
+    await boot(t);
+    await t.tap(find.text('Destinations').last);
+    await t.pump(const Duration(milliseconds: 300));
+    await t.enterText(find.byType(TextField), 'governor');
+    await t.pump();
+    await t.tap(find.text("Governor's Beach"));
+    await t.pump(const Duration(milliseconds: 600));
+    expect(t.takeException(), isNull);
+    expect(find.text('Navigate Here'), findsOneWidget);
+    await t.ensureVisible(find.text('Navigate Here'));
+    await t.tap(find.text('Navigate Here'));
+    await t.pump(const Duration(milliseconds: 600));
+    expect(t.takeException(), isNull);
+    expect(find.text('End Navigation'), findsOneWidget);
+    expect(find.text('Waiting for GPS'), findsOneWidget); // no fix -> no fabricated route
+    await t.pump(const Duration(seconds: 9)); // let the GPS wait time out
+    expect(t.takeException(), isNull);
+  });
 }
