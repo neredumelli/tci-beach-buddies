@@ -121,10 +121,23 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ),
               SwitchListTile(
+                secondary: const Icon(Icons.record_voice_over, color: BB.ocean),
+                title: const Text('Voice guidance'),
+                subtitle: const Text('Spoken turns, alerts and arrival (works offline)'),
+                value: s.settings.voiceGuidance,
+                onChanged: s.settings.setVoiceGuidance,
+              ),
+              SwitchListTile(
                 secondary: const Icon(Icons.volume_up, color: BB.ocean),
-                title: const Text('Arrival sound'),
-                value: s.settings.arrivalSound,
-                onChanged: s.settings.setArrivalSound,
+                title: const Text('Read description on arrival'),
+                value: s.settings.narrateArrival,
+                onChanged: s.settings.voiceGuidance ? s.settings.setNarrateArrival : null,
+              ),
+              ListTile(
+                leading: const Icon(Icons.campaign_outlined, color: BB.ocean),
+                title: const Text('Test voice'),
+                subtitle: const Text('If silent: raise media volume, or install an offline voice in the phone\'s text-to-speech settings'),
+                onTap: () => s.voice.speak('Welcome to Grand Turk. Voice guidance is working.'),
               ),
               SwitchListTile(
                 secondary: const Icon(Icons.vibration, color: BB.ocean),

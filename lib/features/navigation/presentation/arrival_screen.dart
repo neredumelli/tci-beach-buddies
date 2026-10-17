@@ -76,6 +76,13 @@ class ArrivalScreen extends StatelessWidget {
                     textAlign: TextAlign.center, style: const TextStyle(color: BB.muted)),
                 const SizedBox(height: 14),
                 Text(poi.description, textAlign: TextAlign.center),
+                Center(
+                  child: TextButton.icon(
+                    onPressed: () => s.voice.speak(poi.description),
+                    icon: const Icon(Icons.volume_up),
+                    label: const Text('Listen'),
+                  ),
+                ),
                 const SizedBox(height: 20),
                 FilledButton.icon(
                   style: FilledButton.styleFrom(backgroundColor: BB.ocean),

@@ -94,6 +94,14 @@ class DestinationDetailsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(poi.description, style: const TextStyle(fontSize: 15.5)),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      onPressed: () => s.voice.speak('${poi.name}. ${poi.description}'),
+                      icon: const Icon(Icons.volume_up),
+                      label: const Text('Listen'),
+                    ),
+                  ),
                   if (poi.accessNotes.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Row(crossAxisAlignment: CrossAxisAlignment.start, children: [

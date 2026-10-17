@@ -8,7 +8,11 @@ class AppSettings extends ChangeNotifier {
   SharedPreferences? _prefs;
 
   DistanceUnits units = DistanceUnits.metric;
-  bool arrivalSound = true;
+  /// Spoken turn-by-turn guidance and alerts (device text-to-speech, offline).
+  bool voiceGuidance = true;
+
+  /// Read the destination description aloud on arrival.
+  bool narrateArrival = true;
   bool vibration = true;
 
   /// Walking-time estimates are NOT an approved feature (UI spec 7); off by
@@ -26,7 +30,8 @@ class AppSettings extends ChangeNotifier {
       final p = await SharedPreferences.getInstance();
       _prefs = p;
       units = p.getString('units') == 'imperial' ? DistanceUnits.imperial : DistanceUnits.metric;
-      arrivalSound = p.getBool('arrivalSound') ?? true;
+      voiceGuidance = p.getBool('voiceGuidance') ?? true;
+      narrateArrival = p.getBool('narrateArrival') ?? true;
       vibration = p.getBool('vibration') ?? true;
       showWalkingEstimate = p.getBool('showWalkingEstimate') ?? false;
       favorites
@@ -44,9 +49,15 @@ class AppSettings extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setArrivalSound(bool v) {
-    arrivalSound = v;
-    _prefs?.setBool('arrivalSound', v);
+  void setVoiceGuidance(bool v) {
+    voiceGuidance = v;
+    _prefs?.setBool('voiceGuidance', v);
+    notifyListeners();
+  }
+
+  void setNarrateArrival(bool v) {
+    narrateArrival = v;
+    _prefs?.setBool('narrateArrival', v);
     notifyListeners();
   }
 

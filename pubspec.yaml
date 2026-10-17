@@ -23,6 +23,8 @@ dependencies:
   geolocator: ^14.0.0
   shared_preferences: ^2.3.0
   crypto: ^3.0.3
+  # Offline voice guidance via the device's built-in text-to-speech engine.
+  flutter_tts: ^4.2.0
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,8 @@ import '../core/models/poi.dart';
 import '../data/offline_bundle.dart';
 import '../features/navigation/application/location_coordinator.dart';
 import '../features/navigation/application/navigation_controller.dart';
+import '../features/navigation/application/voice_guide.dart';
+import '../platform/audio/voice_service.dart';
 import '../features/navigation/domain/route_planner.dart';
 import '../features/settings/app_settings.dart';
 import '../platform/location/demo_location_source.dart';
@@ -23,14 +25,17 @@ class AppServices {
   final LocationCoordinator location;
   final NavigationController nav;
   final LocationSource liveSource;
+  final VoiceService voice;
+  late final VoiceGuide voiceGuide = VoiceGuide(nav, voice, settings);
   DemoLocationSource? demoSource;
 
-  AppServices._(this.bundle, this.settings, this.location, this.nav, this.liveSource);
+  AppServices._(this.bundle, this.settings, this.location, this.nav, this.liveSource, this.voice);
 
   static Future<AppServices> create({
     required BundleHealth bundle,
     required AppSettings settings,
     LocationSource? liveSource,
+    VoiceService? voice,
   }) async {
     final coverage = bundle.manifest?.coverage ?? grandTurkFallbackBounds;
     final live = liveSource ?? GeolocatorLocationSource();
@@ -42,10 +47,10 @@ class AppServices {
       pois: bundle.pois,
       bundleValid: bundle.navigationAvailable,
     );
-    final s = AppServices._(bundle, settings, location, nav, live);
+    final s = AppServices._(bundle, settings, location, nav, live, voice ?? DeviceVoiceService());
+    s.voiceGuide; // start listening to navigation
     nav.onArrival = (_) {
       if (settings.vibration) HapticFeedback.heavyImpact();
-      if (settings.arrivalSound) SystemSound.play(SystemSoundType.alert);
     };
     return s;
   }
@@ -62,6 +67,8 @@ class AppServices {
   }
 
   void dispose() {
+    voiceGuide.dispose();
+    voice.stop();
     demoSource?.stop();
     nav.dispose();
     location.dispose();

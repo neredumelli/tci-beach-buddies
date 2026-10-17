@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/offline_bundle.dart';
 import '../features/settings/app_settings.dart';
+import '../platform/audio/voice_service.dart';
 import '../platform/location/location_source.dart';
 import 'app_services.dart';
 import 'shell.dart';
@@ -11,7 +12,8 @@ class TciBeachBuddiesApp extends StatefulWidget {
   /// Injection points for tests (bundle and location source).
   final OfflineBundle? bundle;
   final LocationSource? liveSource;
-  const TciBeachBuddiesApp({super.key, this.bundle, this.liveSource});
+  final VoiceService? voice;
+  const TciBeachBuddiesApp({super.key, this.bundle, this.liveSource, this.voice});
 
   @override
   State<TciBeachBuddiesApp> createState() => _TciBeachBuddiesAppState();
@@ -35,6 +37,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
       bundle: health,
       settings: settings,
       liveSource: widget.liveSource,
+      voice: widget.voice,
     );
     // Location is requested in context: the permission prompt appears once
     // the visitor is on Home, and declining never blocks browsing (J-01).

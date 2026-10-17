@@ -7,6 +7,7 @@ import 'package:tci_beach_buddies/data/offline_bundle.dart';
 import 'package:tci_beach_buddies/features/navigation/presentation/navigation_screen.dart';
 import 'package:tci_beach_buddies/features/pois/presentation/destination_details_screen.dart';
 import 'package:tci_beach_buddies/features/settings/settings_screen.dart';
+import 'package:tci_beach_buddies/platform/audio/voice_service.dart';
 import 'package:tci_beach_buddies/platform/location/location_source.dart';
 
 import '../support/fakes.dart';
@@ -16,6 +17,7 @@ Future<void> boot(WidgetTester t, {String root = syntheticRoot, LocationPermissi
   await t.pumpWidget(TciBeachBuddiesApp(
     bundle: OfflineBundle(DirectoryAssetBundle(root)),
     liveSource: FakeLocationSource(permission: perm),
+    voice: RecordingVoiceService(),
   ));
   // Bundle files are read with real IO: alternate real-time waits and pumps
   // until the app shell is up.
