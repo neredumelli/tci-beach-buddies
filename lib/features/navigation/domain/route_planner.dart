@@ -199,7 +199,12 @@ class RoutePlanner {
     for (var k = 1; k < steps.length; k++) {
       final node = steps[k].from; // junction between step k-1 and k
       if (node >= graph.nodeCount) continue;
-      if (graph.degree[node] < 3) continue; // a bend, not a decision point
+      // At a plain bend (2 edges) of the SAME road there is no decision to
+      // announce; where one road ends and a different one starts, there is.
+      if (graph.degree[node] < 3 &&
+          graph.edges[steps[k - 1].edgeId].name == graph.edges[steps[k].edgeId].name) {
+        continue;
+      }
       final idx = legStart[k];
       final at = cum[idx];
       final before = pointAlong(pts, cum, at - 12);
