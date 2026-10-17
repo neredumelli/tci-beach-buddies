@@ -343,7 +343,7 @@ def norm(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
-def feature_candidates(nodes, ways):
+def feature_candidates(nodes, ways, rels=None):
     out = []
     keys = ("name", "name:en", "alt_name", "official_name", "old_name", "short_name")
     for nid_, (la, lo, t) in nodes.items():
@@ -365,7 +365,18 @@ def feature_candidates(nodes, ways):
         else:
             ring = pts[:-1] if len(pts) > 1 and pts[0] == pts[-1] else pts
             pt = (sum(p[0] for p in ring) / len(ring), sum(p[1] for p in ring) / len(ring))
-        out.append(dict(src=f"osm:way/{wid}", names=nm, pt=pt, tags=t, highway=bool(t.get("highway"))))
+        out.append(dict(src=f"osm:way/{wid}", names=nm, pt=pt, tags=t, highway=bool(t.get("highway")),
+                        outline=pts))
+    for rid, (mem, t) in (rels or {}).items():
+        nm = [t[k] for k in keys if t.get(k)]
+        if not nm or t.get("type") not in ("multipolygon", None) or t.get("boundary"):
+            continue
+        pts = [(nodes[n][0], nodes[n][1]) for (ty, r, role) in mem if ty == "way" and r in ways
+               and role in ("outer", "") for n in ways[r][0] if n in nodes]
+        if not pts:
+            continue
+        pt = (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
+        out.append(dict(src=f"osm:relation/{rid}", names=nm, pt=pt, tags=t, highway=False, outline=pts))
     return out
 
 
@@ -397,9 +408,9 @@ def match_poi(entry, cands):
     return best
 
 
-def build_pois(register, nodes, ways, graph_json, land_rings, report):
+def build_pois(register, nodes, ways, graph_json, land_rings, report, rels=None):
     g = Graph(graph_json)
-    cands = feature_candidates(nodes, ways)
+    cands = feature_candidates(nodes, ways, rels)
     pois, rows = [], []
     entries = [dict(register["shipTerminal"], isShipTerminal=True)] + [dict(e, isShipTerminal=False) for e in register["destinations"]]
     for e in entries:
@@ -415,6 +426,15 @@ def build_pois(register, nodes, ways, graph_json, land_rings, report):
             matched_name = None
         approach, reason = None, None
         snap = g.nearest(disp, MAX_POI_TO_NETWORK_M)
+        outline = m[1].get("outline") if m else None
+        if outline and len(outline) > 2 and not m[1]["highway"]:
+            # Areas (beaches, salinas, airport): the visitor arrives at the
+            # closest point of the network to the AREA EDGE, not its centroid.
+            step = max(1, len(outline) // 200)
+            for q in outline[::step]:
+                sq = g.nearest(q, MAX_POI_TO_NETWORK_M)
+                if sq and (snap is None or sq["dist"] < snap["dist"]):
+                    snap = sq
         if not m and not verified:
             reason = "Location not yet verified on the map data"
         elif snap is None:
@@ -485,7 +505,7 @@ def main():
         register = json.load(f)
     graph = build_graph(nodes, ways, report)
     basemap, land_rings = build_basemap(nodes, ways, rels, report)
-    pois = build_pois(register, nodes, ways, graph, land_rings, report)
+    pois = build_pois(register, nodes, ways, graph, land_rings, report, rels)
 
     extract_date = (meta.get("osm_base") or report["built"])[:10]
     root = a.root

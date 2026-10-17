@@ -144,48 +144,84 @@ def main():
 
 
 def render_png(a, gj, pois, bm, routes, stale):
+    """Three panels: R1, the A->B switch (correct vs old stale origin), R3."""
     from PIL import Image, ImageDraw
-    b = gj["bounds"]
-    W = 900
     import math
+    (r1, _), (r2, _), (r3, _) = routes
+    b = gj["bounds"]
+    W = 520
     k = math.cos(math.radians((b["south"] + b["north"]) / 2))
     H = int(W * (b["north"] - b["south"]) / ((b["east"] - b["west"]) * k))
-    img = Image.new("RGB", (W, H), (169, 220, 235))
-    d = ImageDraw.Draw(img)
-
-    def xy(lat, lon):
-        return ((lon - b["west"]) / (b["east"] - b["west"]) * W, (b["north"] - lat) / (b["north"] - b["south"]) * H)
-
     colors = dict(land=(243, 240, 228), salina=(191, 227, 234), water=(169, 220, 235), beach=(246, 235, 211),
                   park=(221, 239, 211), building=(214, 205, 192), runway=(210, 210, 210), wetland=(212, 232, 208))
-    order = ["land", "park", "beach", "wetland", "salina", "water", "runway", "building"]
-    for kind in order:
-        for f in bm["features"]:
-            if f["properties"].get("kind") == kind and f["geometry"]["type"] == "Polygon":
-                d.polygon([xy(c[1], c[0]) for c in f["geometry"]["coordinates"][0]], fill=colors[kind])
-    flat = gj["nodes"]
-    for e in gj["edges"]:
-        pts = [(flat[2 * e[0]], flat[2 * e[0] + 1])] + [(e[6][i], e[6][i + 1]) for i in range(0, len(e[6]), 2)] + \
-              [(flat[2 * e[1]], flat[2 * e[1] + 1])]
-        d.line([xy(*p) for p in pts], fill=(150, 150, 150), width=1)
+
+    def xy(lat, lon):
+        return ((lon - b["west"]) / (b["east"] - b["west"]) * W, 70 + (b["north"] - lat) / (b["north"] - b["south"]) * H)
+
+    def base():
+        img = Image.new("RGB", (W, H + 150), (169, 220, 235))
+        d = ImageDraw.Draw(img)
+        for kind in ["land", "park", "beach", "wetland", "salina", "water", "runway", "building"]:
+            for f in bm["features"]:
+                if f["properties"].get("kind") == kind and f["geometry"]["type"] == "Polygon":
+                    d.polygon([xy(c[1], c[0]) for c in f["geometry"]["coordinates"][0]], fill=colors[kind])
+        flat = gj["nodes"]
+        for e in gj["edges"]:
+            pts = [(flat[2 * e[0]], flat[2 * e[0] + 1])] + [(e[6][i], e[6][i + 1]) for i in range(0, len(e[6]), 2)] + \
+                  [(flat[2 * e[1]], flat[2 * e[1] + 1])]
+            d.line([xy(*q) for q in pts], fill=(160, 160, 160), width=1)
+        return img, d
+
+    def dashed(d, poly, col, w):
+        pts = [xy(*q) for q in poly]
+        acc = 0
+        for i in range(len(pts) - 1):
+            seg = math.dist(pts[i], pts[i + 1])
+            if int(acc / 10) % 2 == 0:
+                d.line([pts[i], pts[i + 1]], fill=col, width=w)
+            acc += max(seg, 1)
+
+    def dot(d, p, col, label):
+        x, y = xy(*p)
+        d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=col, outline=(255, 255, 255), width=2)
+        d.text((x + 10, y - 6), label, fill=(0, 0, 0))
+
+    def header(d, title, lines):
+        d.rectangle([0, 0, W, 66], fill=(255, 255, 255))
+        d.text((10, 8), title, fill=(11, 42, 91))
+        for i, (txt, col) in enumerate(lines):
+            d.text((10, 26 + 16 * i), txt, fill=col)
+
+    ship = r1["polyline"][0]
+    gov = r2["polyline"][0]
+    lh = r3["polyline"][0]
+    panels = []
+    img, d = base()
+    d.line([xy(*q) for q in r1["polyline"]], fill=(31, 91, 255), width=5)
+    dot(d, ship, (91, 63, 168), "Cruise Center"); dot(d, gov, (14, 138, 158), "Governor's Beach")
+    header(d, "1. Cruise Center -> Governor's Beach", [(f"Walking route {r1['distance']/1000:.2f} km", (31, 91, 255))])
+    panels.append(img)
+    img, d = base()
     if stale:
-        pts = [xy(*p) for p in stale["polyline"]]
-        for i in range(0, len(pts) - 1, 2):
-            d.line([pts[i], pts[i + 1]], fill=(211, 47, 47), width=2)
-    for r, col in routes:
-        if r:
-            d.line([xy(*p) for p in r["polyline"]], fill=col, width=4)
-    for p in pois.values():
-        x, y = xy(p["display"][1], p["display"][0])
-        col = (91, 63, 168) if p["isShipTerminal"] else ((14, 138, 158) if p["routable"] else (120, 120, 120))
-        d.ellipse([x - 4, y - 4, x + 4, y + 4], fill=col, outline=(255, 255, 255))
-    d.rectangle([8, 8, 370, 92], fill=(255, 255, 255))
-    d.text((14, 12), "Route regression (reference router, real bundle)", fill=(0, 0, 0))
-    d.text((14, 30), "blue: R1 Cruise -> Governor's Beach", fill=(31, 91, 255))
-    d.text((14, 46), "orange: R2 Governor's -> Lighthouse (from live fix)", fill=(232, 130, 12))
-    d.text((14, 62), "purple: R3 Lighthouse -> Ship", fill=(91, 63, 168))
-    d.text((14, 78), "red dashed: OLD stale-origin route Cruise -> Lighthouse", fill=(211, 47, 47))
-    img.save(os.path.join(a.root, a.png))
+        dashed(d, stale["polyline"], (211, 47, 47), 4)
+    d.line([xy(*q) for q in r2["polyline"]], fill=(30, 158, 90), width=5)
+    dot(d, ship, (91, 63, 168), "Cruise Center (old origin)"); dot(d, gov, (14, 138, 158), "You are here (A)")
+    dot(d, lh, (232, 130, 12), "Lighthouse (B)")
+    header(d, "2. At Governor's Beach, choose Lighthouse", [
+        (f"NEW: from live GPS at A  {r2['distance']/1000:.2f} km", (30, 158, 90)),
+        (f"OLD bug: from Cruise Center {stale['distance']/1000:.2f} km (dashed)" if stale else "", (211, 47, 47))])
+    panels.append(img)
+    img, d = base()
+    d.line([xy(*q) for q in r3["polyline"]], fill=(91, 63, 168), width=5)
+    dot(d, lh, (232, 130, 12), "Lighthouse"); dot(d, ship, (91, 63, 168), "Cruise Center")
+    header(d, "3. Return to Ship from Lighthouse", [(f"Walking route {r3['distance']/1000:.2f} km", (91, 63, 168))])
+    panels.append(img)
+    out = Image.new("RGB", (W * 3 + 20, H + 150), (255, 255, 255))
+    for i, pimg in enumerate(panels):
+        out.paste(pimg, (i * (W + 10), 0))
+    ImageDraw.Draw(out).text((10, H + 125), f"Real OpenStreetMap data, graph {gj['graphVersion']}. Routes from the "
+                             "reference router (A* = Dijkstra). (c) OpenStreetMap contributors", fill=(60, 60, 60))
+    out.save(os.path.join(a.root, a.png))
     print("wrote", a.png)
 
 

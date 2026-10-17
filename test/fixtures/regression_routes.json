@@ -1,0 +1,70 @@
+{
+  "graphVersion": "foot-53d820fdb9",
+  "vectors": [
+    {
+      "name": "R1 Cruise Center -> Governor's Beach",
+      "origin": [
+        21.427325,
+        -71.145185
+      ],
+      "destPoiId": "governors-beach",
+      "expectRoutable": true,
+      "expectedDistanceM": 2437.252,
+      "expectedSnappedOrigin": [
+        21.427325,
+        -71.145185
+      ]
+    },
+    {
+      "name": "R2 Governor's Beach -> Lighthouse (live fix at Governor's)",
+      "origin": [
+        21.441503,
+        -71.15201
+      ],
+      "destPoiId": "grand-turk-lighthouse",
+      "expectRoutable": true,
+      "expectedDistanceM": 9018.835,
+      "expectedSnappedOrigin": [
+        21.441503,
+        -71.15201
+      ]
+    },
+    {
+      "name": "R3 Lighthouse -> Return to Ship",
+      "origin": [
+        21.511591,
+        -71.13354
+      ],
+      "destPoiId": "grand-turk-cruise-center",
+      "expectRoutable": true,
+      "expectedDistanceM": 10805.557,
+      "expectedSnappedOrigin": [
+        21.511590986443288,
+        -71.13354017914259
+      ]
+    },
+    {
+      "name": "R4 Governor's Beach -> nearby Waterloo (Governor's Residence) (live fix at A)",
+      "origin": [
+        21.441503,
+        -71.15201
+      ],
+      "destPoiId": "waterloo",
+      "expectRoutable": true,
+      "expectedDistanceM": 1199.375,
+      "expectedSnappedOrigin": [
+        21.441503,
+        -71.15201
+      ]
+    },
+    {
+      "name": "R5 Gibbs Cay is browse-only (no route over water)",
+      "origin": [
+        21.427325,
+        -71.145185
+      ],
+      "destPoiId": "gibbs-cay",
+      "expectRoutable": false
+    }
+  ]
+}
