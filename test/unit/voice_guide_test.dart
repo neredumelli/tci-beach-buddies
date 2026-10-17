@@ -40,7 +40,7 @@ void main() {
   test('speaks route start, turns along the way, and arrival with description', () async {
     final ship = pois['grand-turk-cruise-center']!.approach!;
     await at(ship);
-    await nav.selectDestination(pois['governors-beach']!);
+    await nav.selectDestination(pois['governors-beach']!, startGuidance: true);
     expect(voice.spoken.first, startsWith("Starting route to Governor's Beach."));
     final r = nav.route!;
     for (var s = 10.0; s < r.distanceM - 35; s += 10) {
@@ -58,7 +58,7 @@ void main() {
   test('announces GPS loss and off-route rerouting', () async {
     final ship = pois['grand-turk-cruise-center']!.approach!;
     await at(ship);
-    await nav.selectDestination(pois['grand-turk-lighthouse']!);
+    await nav.selectDestination(pois['grand-turk-lighthouse']!, startGuidance: true);
     await at(ship, acc: 500);
     expect(voice.spoken, contains('GPS signal lost. Guidance paused.'));
     final off = GeoPoint(ship.lat + metersToLatDeg(20), ship.lon + metersToLonDeg(120, ship.lat));
@@ -72,7 +72,16 @@ void main() {
   test('silent when voice guidance is switched off', () async {
     settings.setVoiceGuidance(false);
     await at(pois['grand-turk-cruise-center']!.approach!);
-    await nav.selectDestination(pois['governors-beach']!);
+    await nav.selectDestination(pois['governors-beach']!, startGuidance: true);
     expect(voice.spoken, isEmpty);
+  });
+
+  test('Route Preview is silent until Start Navigation', () async {
+    await at(pois['grand-turk-cruise-center']!.approach!);
+    await nav.selectDestination(pois['governors-beach']!);
+    expect(nav.route, isNotNull);
+    expect(voice.spoken, isEmpty);
+    nav.startGuidance();
+    expect(voice.spoken.first, startsWith("Starting route to Governor's Beach."));
   });
 }

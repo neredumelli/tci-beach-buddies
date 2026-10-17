@@ -7,6 +7,7 @@ import '../platform/location/location_source.dart';
 import 'app_services.dart';
 import 'shell.dart';
 import 'theme.dart';
+import '../shared/art.dart';
 
 class TciBeachBuddiesApp extends StatefulWidget {
   /// Injection points for tests (bundle and location source).
@@ -30,6 +31,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   }
 
   Future<AppServices> _init() async {
+    final minSplash = Future<void>.delayed(const Duration(milliseconds: 1200));
     final settings = AppSettings();
     await settings.load();
     final health = await (widget.bundle ?? OfflineBundle()).verifyAndLoad();
@@ -42,6 +44,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
     // Location is requested in context: the permission prompt appears once
     // the visitor is on Home, and declining never blocks browsing (J-01).
     services.location.start();
+    await minSplash;
     if (mounted) setState(() => _services = services);
     return services;
   }
@@ -72,20 +75,37 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   }
 }
 
+/// 01 Splash / Welcome: brand + tropical scene + loading state.
 class _Splash extends StatelessWidget {
   const _Splash();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Image.asset('assets/images/logo.png', width: 260, semanticLabel: 'TCI Beach Buddies'),
-          const SizedBox(height: 24),
-          const CircularProgressIndicator(color: BB.teal),
-          const SizedBox(height: 12),
-          const Text('Checking offline Grand Turk data…', style: TextStyle(color: BB.muted)),
-        ]),
+      body: TropicalScene(
+        kind: SceneKind.beach,
+        seed: 7,
+        child: SafeArea(
+          child: Column(children: [
+            const Spacer(flex: 2),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 36),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.85), borderRadius: BorderRadius.circular(22)),
+                child: Image.asset('assets/images/logo.png', semanticLabel: 'TCI Beach Buddies - Your guide to Grand Turk'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text('Your Guide to Grand Turk',
+                style: TextStyle(color: BB.navy, fontSize: 20, fontWeight: FontWeight.w800,
+                    shadows: [Shadow(color: Colors.white, blurRadius: 6)])),
+            const Spacer(flex: 5),
+            const SizedBox(width: 30, height: 30, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 3)),
+            const SizedBox(height: 10),
+            const Text('Loading…', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 15)),
+            const SizedBox(height: 28),
+          ]),
+        ),
       ),
     );
   }

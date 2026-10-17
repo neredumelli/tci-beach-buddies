@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app/app_services.dart';
+import '../../app/shell.dart';
 import '../../app/theme.dart';
 import '../../data/offline_bundle.dart';
 import '../../platform/location/geolocator_location_source.dart';
@@ -8,9 +9,10 @@ import '../../shared/widgets.dart';
 import '../navigation/application/location_coordinator.dart';
 import 'app_settings.dart';
 
-const appVersion = '1.0.0 (1)';
+const appVersion = '1.0.0';
 
-/// Screen 7 - Settings & Offline Status.
+/// 11 Settings: Voice Guidance, Distance Units, Offline Map, GPS Status,
+/// App Version, Privacy Policy (+ help, safety, demo mode, attribution).
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -20,135 +22,78 @@ class SettingsScreen extends StatelessWidget {
     final b = s.bundle;
     final m = b.manifest;
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings'), automaticallyImplyLeading: false),
+      appBar: AppBar(
+        title: const Text('Settings'),
+        leading: IconButton(
+          tooltip: 'Home',
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => ShellTabs.go(context, ShellTab.home),
+        ),
+        actions: [IconButton(tooltip: 'Help', icon: const Icon(Icons.help_outline), onPressed: () => _help(context))],
+      ),
       body: ListenableBuilder(
         listenable: Listenable.merge([s.settings, s.location]),
         builder: (context, _) {
           final st = s.location.status;
-          final (gIcon, gColor, gText) = GpsStatusChip.describe(st, s.location.latestFix?.accuracyM);
+          final gpsActive = st == GpsStatus.good || st == GpsStatus.poor;
+          final (_, gColor, gText) = GpsStatusChip.describe(st, s.location.latestFix?.accuracyM);
           return ListView(padding: const EdgeInsets.only(bottom: 32), children: [
             const SimulatedBanner(),
-            const _Header('Offline Maps'),
             _Card(children: [
-              ListTile(
-                leading: const Icon(Icons.map, color: BB.ocean),
-                title: const Text('Grand Turk Map', style: TextStyle(fontWeight: FontWeight.w700)),
-                subtitle: Text(m == null
-                    ? 'Not installed'
-                    : 'Installed · release ${m.releaseId}\nVerified on this launch (SHA-256)'),
-                isThreeLine: m != null,
-                trailing: Icon(
-                  b.navigationAvailable ? Icons.check_circle : Icons.error,
-                  color: b.navigationAvailable ? BB.success : BB.danger,
-                  semanticLabel: b.navigationAvailable ? 'Verified' : 'Problem',
-                ),
-              ),
-              if (m != null) ...[
-                _kv('Map version', m.mapVersion),
-                _kv('Route graph version', '${m.graphVersion} (${m.travelProfile})'),
-                _kv('Destinations version', '${m.poiVersion} · ${s.destinations.length} places'),
-                _kv('Map data', '${m.sourceName}, extracted ${m.extractDate}'),
-                _kv('Licence', m.sourceLicense),
-              ],
-              const Padding(
-                padding: EdgeInsets.fromLTRB(16, 4, 16, 12),
-                child: Text(
-                  'Updates are installed with new app releases; this screen does not check online.',
-                  style: TextStyle(color: BB.muted, fontSize: 12),
-                ),
-              ),
-            ]),
-            if (b.issues.isNotEmpty) ...[
-              const _Header('Data health'),
-              _Card(children: [
-                for (final i in b.issues)
-                  ListTile(
-                    dense: true,
-                    leading: Icon(
-                      i.severity == BundleIssueSeverity.warning ? Icons.info_outline : Icons.error_outline,
-                      color: i.severity == BundleIssueSeverity.warning ? BB.warning : BB.danger,
-                    ),
-                    title: Text(i.code, style: const TextStyle(fontWeight: FontWeight.w700)),
-                    subtitle: Text(i.message),
-                  ),
-              ]),
-            ],
-            const _Header('GPS Status'),
-            _Card(children: [
-              ListTile(
-                leading: Icon(gIcon, color: gColor),
-                title: const Text('Location'),
-                subtitle: Text(s.location.isSimulated ? 'SIMULATED (Demo mode) · $gText' : gText),
-              ),
-              if (st == GpsStatus.permissionDenied || st == GpsStatus.servicesOff)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-                  child: OutlinedButton(
-                    onPressed: () async {
-                      if (st == GpsStatus.servicesOff) {
-                        await GeolocatorLocationSource.openLocationSettings();
-                      } else {
-                        await GeolocatorLocationSource.openAppSettings();
-                      }
-                      await s.location.retryPermission();
-                    },
-                    child: const Text('Open location settings'),
-                  ),
-                ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(16, 0, 16, 12),
-                child: Text(
-                  'GPS works without mobile data. Your location stays on this phone and is never sent anywhere.',
-                  style: TextStyle(color: BB.muted, fontSize: 12),
-                ),
-              ),
-            ]),
-            const _Header('App Preferences'),
-            _Card(children: [
-              ListTile(
-                leading: const Icon(Icons.straighten, color: BB.ocean),
-                title: const Text('Units'),
-                trailing: DropdownButton<DistanceUnits>(
-                  value: s.settings.units,
-                  underline: const SizedBox.shrink(),
-                  items: const [
-                    DropdownMenuItem(value: DistanceUnits.metric, child: Text('Metric (km)')),
-                    DropdownMenuItem(value: DistanceUnits.imperial, child: Text('Imperial (mi)')),
-                  ],
-                  onChanged: (u) {
-                    if (u != null) s.settings.setUnits(u);
-                  },
-                ),
-              ),
               SwitchListTile(
-                secondary: const Icon(Icons.record_voice_over, color: BB.ocean),
-                title: const Text('Voice guidance'),
-                subtitle: const Text('Spoken turns, alerts and arrival (works offline)'),
+                secondary: const Icon(Icons.volume_up, color: BB.blue),
+                title: const Text('Voice Guidance', style: _t),
                 value: s.settings.voiceGuidance,
                 onChanged: s.settings.setVoiceGuidance,
               ),
+              _row(
+                Icons.straighten,
+                'Distance Units',
+                s.settings.units == DistanceUnits.imperial ? 'Miles (mi)' : 'Kilometres (km)',
+                BB.go,
+                () => s.settings.setUnits(
+                    s.settings.units == DistanceUnits.imperial ? DistanceUnits.metric : DistanceUnits.imperial),
+              ),
+              _row(Icons.map, 'Offline Map', b.navigationAvailable ? 'Available' : 'Problem',
+                  b.navigationAvailable ? BB.go : BB.danger, () => _offlineMap(context, b)),
+              _row(Icons.place, 'GPS Status', gpsActive ? 'Active' : gText, gpsActive ? BB.go : gColor, () async {
+                if (st == GpsStatus.permissionDenied) {
+                  await GeolocatorLocationSource.openAppSettings();
+                  await s.location.retryPermission();
+                } else if (st == GpsStatus.servicesOff) {
+                  await GeolocatorLocationSource.openLocationSettings();
+                  await s.location.retryPermission();
+                } else {
+                  _gpsInfo(context, gText);
+                }
+              }),
+              _row(Icons.info, 'App Version', 'v$appVersion', BB.muted, () => _about(context, m)),
+              _row(Icons.privacy_tip, 'Privacy Policy', '', BB.muted, () => _privacy(context)),
+            ]),
+            const _Header('Voice & display'),
+            _Card(children: [
               SwitchListTile(
-                secondary: const Icon(Icons.volume_up, color: BB.ocean),
-                title: const Text('Read description on arrival'),
+                secondary: const Icon(Icons.record_voice_over, color: BB.blue),
+                title: const Text('Read description on arrival', style: _t),
                 value: s.settings.narrateArrival,
                 onChanged: s.settings.voiceGuidance ? s.settings.setNarrateArrival : null,
               ),
               ListTile(
-                leading: const Icon(Icons.campaign_outlined, color: BB.ocean),
-                title: const Text('Test voice'),
-                subtitle: const Text('If silent: raise media volume, or install an offline voice in the phone\'s text-to-speech settings'),
+                leading: const Icon(Icons.campaign_outlined, color: BB.blue),
+                title: const Text('Test voice', style: _t),
+                subtitle: const Text("If silent: raise media volume or install an offline voice in the phone's text-to-speech settings"),
                 onTap: () => s.voice.speak('Welcome to Grand Turk. Voice guidance is working.'),
               ),
               SwitchListTile(
-                secondary: const Icon(Icons.vibration, color: BB.ocean),
-                title: const Text('Vibration'),
+                secondary: const Icon(Icons.vibration, color: BB.blue),
+                title: const Text('Vibrate on arrival', style: _t),
                 value: s.settings.vibration,
                 onChanged: s.settings.setVibration,
               ),
               SwitchListTile(
-                secondary: const Icon(Icons.timer_outlined, color: BB.ocean),
-                title: const Text('Show walking-time estimates'),
-                subtitle: const Text('Rough guide at 4.5 km/h - not a guaranteed arrival time'),
+                secondary: const Icon(Icons.schedule, color: BB.blue),
+                title: const Text('Show walking time & ETA', style: _t),
+                subtitle: const Text('Estimated at 4.5 km/h (2.8 mph)'),
                 value: s.settings.showWalkingEstimate,
                 onChanged: s.settings.setShowWalkingEstimate,
               ),
@@ -157,10 +102,9 @@ class SettingsScreen extends StatelessWidget {
             _Card(children: [
               SwitchListTile(
                 secondary: const Icon(Icons.science, color: BB.warning),
-                title: const Text('Simulated location (Demo mode)'),
-                subtitle: const Text(
-                    'For staff demonstrations only. A yellow SIMULATED banner is shown on every screen. '
-                    'Turns off when the app restarts.'),
+                title: const Text('Simulated location (Demo mode)', style: _t),
+                subtitle: const Text('For staff demonstrations only. A yellow SIMULATED banner is shown on every '
+                    'screen. Turns off when the app restarts.'),
                 value: s.settings.demoMode,
                 onChanged: (v) => s.setDemoMode(v),
               ),
@@ -169,35 +113,21 @@ class SettingsScreen extends StatelessWidget {
             const _Card(children: [
               Padding(
                 padding: EdgeInsets.all(16),
-                child: Text(
-                  'Routes follow mapped roads and paths but cannot show closures, construction or '
-                  'local conditions. Obey road signs, take care near traffic, and allow plenty of '
-                  'time to get back to your ship before all-aboard.',
-                ),
+                child: Text('Routes follow mapped roads and paths but cannot show closures or local conditions. '
+                    'Obey road signs, take care near traffic, and allow plenty of time to get back to your ship '
+                    'before all-aboard.'),
               ),
             ]),
             const _Header('About'),
             _Card(children: [
               ListTile(
                 leading: Image.asset('assets/images/emblem.png', width: 36, height: 36),
-                title: const Text('TCI Beach Buddies', style: TextStyle(fontWeight: FontWeight.w700)),
+                title: const Text('TCI Beach Buddies', style: _t),
                 subtitle: const Text('Version $appVersion'),
               ),
               ListTile(
-                leading: const Icon(Icons.help_outline, color: BB.ocean),
-                title: const Text('Help & Support'),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () => _showHelp(context),
-              ),
-              ListTile(
-                leading: const Icon(Icons.privacy_tip_outlined, color: BB.ocean),
-                title: const Text('Privacy'),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () => _showPrivacy(context),
-              ),
-              ListTile(
-                leading: const Icon(Icons.copyright, color: BB.ocean),
-                title: const Text('Map data attribution'),
+                leading: const Icon(Icons.copyright, color: BB.blue),
+                title: const Text('Map data attribution', style: _t),
                 subtitle: Text(m?.attribution ?? '© OpenStreetMap contributors'),
               ),
             ]),
@@ -207,53 +137,79 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _kv(String k, String v) => Padding(
-        padding: const EdgeInsets.fromLTRB(16, 2, 16, 2),
-        child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SizedBox(width: 150, child: Text(k, style: const TextStyle(color: BB.muted, fontSize: 13))),
-          Expanded(child: Text(v, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600))),
+  static const _t = TextStyle(fontWeight: FontWeight.w600, color: BB.navy);
+
+  Widget _row(IconData icon, String title, String value, Color valueColor, VoidCallback onTap) => ListTile(
+        leading: Icon(icon, color: BB.blue),
+        title: Text(title, style: _t),
+        trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 150),
+            child: Text(value, overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: valueColor, fontWeight: FontWeight.w600)),
+          ),
+          const Icon(Icons.chevron_right),
         ]),
+        onTap: onTap,
       );
 
-  void _showHelp(BuildContext context) => showModalBottomSheet<void>(
+  void _sheet(BuildContext context, String title, List<Widget> children) => showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
-        builder: (_) => const _TextSheet(title: 'How to use TCI Beach Buddies', body: '''
-• No internet needed: the map, destinations and routes are stored on your phone.
-• Allow location access so the app can see where you are. GPS works without mobile data, but needs open sky; under roofs it can be slow or inaccurate.
-• Choose a destination and tap Navigate Here. The route always starts from where you are right now.
-• Changed your mind? Tap Change while navigating - a new route is calculated from your current position.
-• Return to Ship is always one tap away and routes you to the Cruise Center.
-• If GPS is weak, the app tells you and pauses guidance rather than guessing.
-• Distances in lists are straight-line; while navigating, the distance shown is along the route.'''),
-      );
-
-  void _showPrivacy(BuildContext context) => showModalBottomSheet<void>(
-        context: context,
-        isScrollControlled: true,
-        builder: (_) => const _TextSheet(title: 'Privacy', body: '''
-• No account is needed.
-• Your location is used only on this phone to show your position and plan routes. It is never transmitted.
-• The app does not keep a history of where you went.
-• Settings and saved favourites are stored only on this phone.'''),
-      );
-}
-
-class _TextSheet extends StatelessWidget {
-  final String title;
-  final String body;
-  const _TextSheet({required this.title, required this.body});
-  @override
-  Widget build(BuildContext context) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(title, style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 12),
-            Text(body.trim(), style: const TextStyle(fontSize: 15, height: 1.5)),
-          ]),
+        builder: (_) => SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
+              const SizedBox(height: 12),
+              ...children,
+            ]),
+          ),
         ),
       );
+
+  void _offlineMap(BuildContext context, BundleHealth b) {
+    final m = b.manifest;
+    _sheet(context, 'Offline Map', [
+      Text(m == null ? 'Not installed' : 'Grand Turk map installed and verified on this launch (SHA-256).'),
+      if (m != null) ...[
+        const SizedBox(height: 8),
+        Text('Release ${m.releaseId}\nMap ${m.mapVersion}\nRoutes ${m.graphVersion} (walking)\nPlaces ${m.poiVersion}\n'
+            'Source: ${m.sourceName}, extracted ${m.extractDate}\nLicence: ${m.sourceLicense}'),
+      ],
+      for (final i in b.issues) Text('• ${i.code}: ${i.message}', style: const TextStyle(color: BB.warning)),
+      const SizedBox(height: 8),
+      const Text('Updates are installed with new app releases; this screen does not check online.',
+          style: TextStyle(color: BB.muted, fontSize: 12.5)),
+    ]);
+  }
+
+  void _gpsInfo(BuildContext context, String status) => _sheet(context, 'GPS Status', [
+        Text(status),
+        const SizedBox(height: 8),
+        const Text('GPS works without mobile data, but needs open sky. Your location stays on this phone.'),
+      ]);
+
+  void _about(BuildContext context, BundleManifest? m) => _sheet(context, 'TCI Beach Buddies', [
+        const Text('Version $appVersion — offline tourist navigation for Grand Turk, Turks & Caicos Islands.'),
+        const SizedBox(height: 8),
+        Text('Map data ${m?.attribution ?? '© OpenStreetMap contributors'} (ODbL).'),
+      ]);
+
+  void _privacy(BuildContext context) => _sheet(context, 'Privacy Policy', const [
+        Text('• No account is needed.\n'
+            '• Your location is used only on this phone to show your position and plan routes. It is never transmitted.\n'
+            '• The app does not keep a history of where you went.\n'
+            '• Settings and saved places are stored only on this phone.'),
+      ]);
+
+  void _help(BuildContext context) => _sheet(context, 'How to use', const [
+        Text('• No internet needed: map, places and routes are stored on your phone.\n'
+            '• Allow location access so the app can see where you are.\n'
+            '• Choose a place, tap Navigate, check the Route Preview, then Start Navigation.\n'
+            '• Every route starts from where you are right now.\n'
+            '• Return to Cruise Port is always one tap away.'),
+      ]);
 }
 
 class _Header extends StatelessWidget {
@@ -271,8 +227,7 @@ class _Card extends StatelessWidget {
   const _Card({required this.children});
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        // Material (not a coloured Container) so ListTile ink/taps stay visible.
+        padding: const EdgeInsets.fromLTRB(12, 10, 12, 0),
         child: Material(
           color: Colors.white,
           borderRadius: BorderRadius.circular(14),

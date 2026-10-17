@@ -1,57 +1,76 @@
+// Screen-to-screen flow from the v2.0 Visual Functional Walkthrough:
+//   01 Splash -> 02 Home -> 03 Places -> 04 List -> 05 Details
+//   05 Details -> 06 Map | 07 Route Preview -> 08 Navigation -> 09 Arrival
+//   Home / Map / Navigation / Arrival -> 10 Return to Cruise Port -> 07 -> 08
 import 'package:flutter/material.dart';
 
+import '../core/geo/geo.dart';
 import '../core/models/poi.dart';
+import '../features/map/presentation/map_screen.dart';
 import '../features/navigation/presentation/navigation_screen.dart';
+import '../features/navigation/presentation/route_preview_screen.dart';
 import '../features/pois/presentation/destination_details_screen.dart';
-import '../features/pois/presentation/destinations_screen.dart';
+import '../features/pois/presentation/destination_list_screen.dart';
+import '../features/pois/presentation/nearby_screen.dart';
+import '../features/pois/presentation/search_screen.dart';
 import 'app_services.dart';
 
-/// Route name used to detect whether the Navigation screen is already shown.
 const navigationRouteName = '/navigation';
 
-bool _navigationVisible(BuildContext context) => NavigationScreen.mountedCount > 0;
-
-/// Bring the Navigation screen to the front (without stacking duplicates).
-void showNavigationScreen(BuildContext context, {bool replace = false}) {
+Future<T?> _push<T>(BuildContext context, Widget page, {bool replace = false, String? name}) {
+  final route = MaterialPageRoute<T>(builder: (_) => page, settings: RouteSettings(name: name));
   final nav = Navigator.of(context);
-  if (!replace && _navigationVisible(context)) {
-    nav.popUntil((r) => r.settings.name == navigationRouteName);
+  return replace ? nav.pushReplacement<T, void>(route) : nav.push<T>(route);
+}
+
+/// 03 -> 04
+void openCategory(BuildContext context, PoiCategory category) =>
+    _push<void>(context, DestinationListScreen(category: category));
+
+/// 04 / map marker / search -> 05
+void openDetails(BuildContext context, Poi poi) => _push<void>(context, DestinationDetailsScreen(poiId: poi.id));
+
+/// 05 View on Map -> 06 centred on the destination.
+void openMapAt(BuildContext context, Poi poi) => _push<void>(context, MapScreen(focusPoiId: poi.id, pushed: true));
+
+/// 05 Navigate -> 07 Route Preview. The route is computed from the LATEST
+/// live GPS fix; guidance (and voice) start only on Start Navigation.
+void openRoutePreview(BuildContext context, Poi poi, {bool replace = false}) {
+  AppScope.of(context).nav.selectDestination(poi);
+  _push<void>(context, const RoutePreviewScreen(), replace: replace);
+}
+
+/// Any screen -> 10 Return to Cruise Port (a Route Preview for the ship).
+void openReturnToShip(BuildContext context, {bool replace = false}) {
+  AppScope.of(context).nav.returnToShip();
+  _push<void>(context, const RoutePreviewScreen(isReturn: true), replace: replace);
+}
+
+/// 07 Start Navigation -> 08 Turn-by-Turn (replaces the preview).
+void startNavigation(BuildContext context) {
+  AppScope.of(context).nav.startGuidance();
+  _push<void>(context, const NavigationScreen(), replace: true, name: navigationRouteName);
+}
+
+/// Resume an active navigation from Home/Map.
+void showNavigationScreen(BuildContext context) {
+  if (NavigationScreen.mountedCount > 0) {
+    Navigator.of(context).popUntil((r) => r.settings.name == navigationRouteName || r.isFirst);
     return;
   }
-  final route = MaterialPageRoute<void>(
-    settings: const RouteSettings(name: navigationRouteName),
-    builder: (_) => const NavigationScreen(),
-  );
-  if (replace) {
-    nav.pushReplacement(route);
-  } else {
-    nav.push(route);
-  }
+  _push<void>(context, const NavigationScreen(), name: navigationRouteName);
 }
 
-/// Start navigation to [poi] from the latest live position and show it.
-void startNavigation(BuildContext context, Poi poi, {bool replace = false}) {
-  final s = AppScope.of(context);
-  s.nav.selectDestination(poi);
-  showNavigationScreen(context, replace: replace);
-}
+/// While navigating: switch destination immediately from the latest fix.
+Future<Poi?> pickDestination(BuildContext context) =>
+    _push<Poi>(context, const SearchScreen(pickerMode: true));
 
-/// Persistent Return to Ship action (BR-06).
-void returnToShip(BuildContext context, {bool replace = false}) {
-  final s = AppScope.of(context);
-  s.nav.returnToShip();
-  showNavigationScreen(context, replace: replace);
-}
+/// 12 Search
+void openSearch(BuildContext context) => _push<void>(context, const SearchScreen());
 
-void openDetails(BuildContext context, Poi poi) {
-  Navigator.of(context).push(MaterialPageRoute<void>(
-    builder: (_) => DestinationDetailsScreen(poiId: poi.id),
-  ));
-}
+/// 09 Explore Nearby -> 12 Nearby
+void openNearby(BuildContext context, GeoPoint from, {String? excludeId}) =>
+    _push<void>(context, NearbyScreen(from: from, excludeId: excludeId));
 
-/// Destination picker used for "change destination" / "another destination".
-Future<Poi?> pickDestination(BuildContext context) {
-  return Navigator.of(context).push<Poi>(MaterialPageRoute<Poi>(
-    builder: (_) => const DestinationsScreen(pickerMode: true),
-  ));
-}
+/// Back to the Home tab from anywhere.
+void goHome(BuildContext context) => Navigator.of(context).popUntil((r) => r.isFirst);

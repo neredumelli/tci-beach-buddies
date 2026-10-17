@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../app/app_services.dart';
 import '../../../app/nav_actions.dart';
 import '../../../app/theme.dart';
-import '../../../core/geo/geo.dart';
 import '../../../core/models/poi.dart';
+import '../../../shared/art.dart';
 import '../../../shared/widgets.dart';
-import '../../navigation/application/location_coordinator.dart';
 
-/// Screen 4 - Destination Details.
+/// 05 Destination Details: image, name + distance, category chip,
+/// description, Interesting Facts, View on Map + Navigate.
 class DestinationDetailsScreen extends StatelessWidget {
   final String poiId;
   const DestinationDetailsScreen({super.key, required this.poiId});
@@ -20,147 +20,122 @@ class DestinationDetailsScreen extends StatelessWidget {
     if (poi == null) {
       return Scaffold(appBar: AppBar(), body: const Center(child: Text('Destination not found.')));
     }
-    final color = BB.category(poi.category);
     return Scaffold(
-      floatingActionButton: const ShipButton(extended: false),
+      appBar: AppBar(
+        actions: [
+          ListenableBuilder(
+            listenable: s.settings,
+            builder: (context, _) => IconButton(
+              tooltip: s.settings.isFavorite(poi.id) ? 'Remove from saved' : 'Save',
+              icon: Icon(s.settings.isFavorite(poi.id) ? Icons.favorite : Icons.favorite_border),
+              onPressed: () => s.settings.toggleFavorite(poi.id),
+            ),
+          ),
+        ],
+      ),
       body: ListenableBuilder(
         listenable: Listenable.merge([s.location, s.settings]),
         builder: (context, _) {
-          final st = s.location.status;
-          final fix = s.location.latestFix;
-          final gpsOk = st == GpsStatus.good || st == GpsStatus.poor;
-          final direct = (gpsOk && fix != null) ? haversineM(fix.position, poi.display) : null;
+          final dist = directDistance(context, poi.display);
           final navEnabled = poi.canNavigate && s.bundle.navigationAvailable;
-          return CustomScrollView(slivers: [
-            SliverAppBar(
-              pinned: true,
-              expandedHeight: 210,
-              backgroundColor: color,
-              foregroundColor: Colors.white,
-              actions: [
-                IconButton(
-                  tooltip: s.settings.isFavorite(poi.id) ? 'Remove from favourites' : 'Save to favourites',
-                  icon: Icon(s.settings.isFavorite(poi.id) ? Icons.favorite : Icons.favorite_border),
-                  onPressed: () => s.settings.toggleFavorite(poi.id),
-                ),
-              ],
-              flexibleSpace: FlexibleSpaceBar(
-                background: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [color.withValues(alpha: 0.75), color],
-                    ),
-                  ),
-                  child: Center(child: Icon(BB.categoryIcon(poi.category), size: 96, color: Colors.white24)),
-                ),
-              ),
-            ),
-            if (s.location.isSimulated) const SliverToBoxAdapter(child: SimulatedBanner()),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(18, 16, 18, 100),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(poi.name, style: Theme.of(context).textTheme.headlineSmall),
-                  const SizedBox(height: 4),
-                  Row(children: [
-                    Text(poi.category.label, style: TextStyle(color: color, fontWeight: FontWeight.w700)),
-                    const SizedBox(width: 10),
-                    if (!poi.isApproved) const ProvisionalBadge(),
-                  ]),
-                  const SizedBox(height: 16),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(14)),
-                    child: Row(children: [
-                      _Stat(
-                        icon: Icons.place,
-                        value: direct == null ? '—' : s.settings.formatDistance(direct),
-                        label: direct == null ? 'GPS needed' : 'straight-line',
+          return Column(children: [
+            const SimulatedBanner(),
+            Expanded(
+              child: ListView(padding: EdgeInsets.zero, children: [
+                PlaceArt(poi: poi, height: 210, radius: 0),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(18, 16, 18, 8),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Expanded(
+                        child: Text(poi.name,
+                            style: const TextStyle(fontSize: 23, fontWeight: FontWeight.w800, color: BB.navy)),
                       ),
-                      if (s.settings.showWalkingEstimate)
-                        _Stat(
-                          icon: Icons.directions_walk,
-                          value: direct == null ? '—' : s.settings.formatWalk(direct * 1.3),
-                          label: 'rough estimate',
-                        ),
-                      _Stat(
-                        icon: navEnabled ? Icons.directions_walk : Icons.block,
-                        value: navEnabled ? 'Walkable' : 'Browse only',
-                        label: navEnabled ? 'route available' : 'no route',
-                      ),
+                      if (dist != null) ...[
+                        const Icon(Icons.place, color: BB.blue, size: 20),
+                        Text(dist, style: const TextStyle(color: BB.blue, fontWeight: FontWeight.w700, fontSize: 15)),
+                      ],
                     ]),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(poi.description, style: const TextStyle(fontSize: 15.5)),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: TextButton.icon(
-                      onPressed: () => s.voice.speak('${poi.name}. ${poi.description}'),
+                    const SizedBox(height: 8),
+                    Wrap(spacing: 8, runSpacing: 6, children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(color: BB.category(poi.category).withValues(alpha: 0.9),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Text(poi.category.label,
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+                      ),
+                      if (!poi.isApproved) const ProvisionalBadge(),
+                    ]),
+                    const SizedBox(height: 14),
+                    Text(poi.description, style: const TextStyle(fontSize: 16, color: BB.ink, height: 1.45)),
+                    TextButton.icon(
+                      style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                      onPressed: () => s.voice.speak('${poi.name}. ${poi.description} ${poi.facts}'),
                       icon: const Icon(Icons.volume_up),
                       label: const Text('Listen'),
                     ),
-                  ),
-                  if (poi.accessNotes.isNotEmpty) ...[
-                    const SizedBox(height: 12),
-                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      const Icon(Icons.info_outline, size: 18, color: BB.teal),
-                      const SizedBox(width: 6),
-                      Expanded(child: Text(poi.accessNotes, style: const TextStyle(color: BB.muted))),
-                    ]),
-                  ],
-                  if (!poi.canNavigate) ...[
-                    const SizedBox(height: 14),
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(color: const Color(0xFFFFF3E0), borderRadius: BorderRadius.circular(12)),
-                      child: Text(
-                        'Navigation is not available for this destination'
-                        '${poi.notRoutableReason == null ? '.' : ': ${poi.notRoutableReason}'}',
-                        style: const TextStyle(fontWeight: FontWeight.w600),
+                    if (poi.facts.isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        const Icon(Icons.info, color: BB.blue),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                            const Text('Interesting Facts',
+                                style: TextStyle(color: BB.navy, fontWeight: FontWeight.w800, fontSize: 16)),
+                            const SizedBox(height: 4),
+                            Text(poi.facts, style: const TextStyle(color: BB.muted, fontSize: 14.5)),
+                          ]),
+                        ),
+                      ]),
+                    ],
+                    if (poi.accessNotes.isNotEmpty) ...[
+                      const SizedBox(height: 10),
+                      Text(poi.accessNotes, style: const TextStyle(color: BB.muted, fontSize: 13)),
+                    ],
+                    if (!poi.canNavigate) ...[
+                      const SizedBox(height: 14),
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(color: const Color(0xFFFFF3E0), borderRadius: BorderRadius.circular(12)),
+                        child: Text(
+                          'Navigation is not available for this destination'
+                          '${poi.notRoutableReason == null ? '.' : ': ${poi.notRoutableReason}'}',
+                          style: const TextStyle(fontWeight: FontWeight.w600),
+                        ),
                       ),
+                    ],
+                  ]),
+                ),
+              ]),
+            ),
+            SafeArea(
+              top: false,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 6, 16, 12),
+                child: Row(children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: () => openMapAt(context, poi),
+                      icon: const Icon(Icons.map_outlined),
+                      label: const Text('View on Map'),
                     ),
-                  ],
-                  const SizedBox(height: 20),
-                  FilledButton.icon(
-                    style: FilledButton.styleFrom(backgroundColor: BB.teal),
-                    onPressed: navEnabled ? () => startNavigation(context, poi) : null,
-                    icon: const Icon(Icons.navigation),
-                    label: const Text('Navigate Here'),
                   ),
-                  const SizedBox(height: 10),
-                  OutlinedButton.icon(
-                    onPressed: () => s.settings.toggleFavorite(poi.id),
-                    icon: Icon(s.settings.isFavorite(poi.id) ? Icons.favorite : Icons.favorite_border),
-                    label: Text(s.settings.isFavorite(poi.id) ? 'Saved to Favourites' : 'Save to Favourites'),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: FilledButton.icon(
+                      onPressed: navEnabled ? () => openRoutePreview(context, poi) : null,
+                      icon: const Icon(Icons.navigation),
+                      label: const Text('Navigate'),
+                    ),
                   ),
-                  const SizedBox(height: 14),
-                  Text('Location source: ${poi.locationSource}', style: const TextStyle(color: BB.muted, fontSize: 11.5)),
                 ]),
               ),
             ),
           ]);
         },
       ),
-    );
-  }
-}
-
-class _Stat extends StatelessWidget {
-  final IconData icon;
-  final String value;
-  final String label;
-  const _Stat({required this.icon, required this.value, required this.label});
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(children: [
-        Icon(icon, color: BB.teal),
-        const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.w800, color: BB.navy)),
-        Text(label, style: const TextStyle(fontSize: 11.5, color: BB.muted)),
-      ]),
     );
   }
 }

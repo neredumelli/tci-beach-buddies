@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import '../app/app_services.dart';
 import '../app/nav_actions.dart';
 import '../app/theme.dart';
+import '../core/geo/geo.dart';
 import '../core/models/poi.dart';
 import '../features/navigation/application/location_coordinator.dart';
+import '../platform/location/geolocator_location_source.dart';
+import 'art.dart';
 
-/// GPS status: icon + TEXT (never colour alone, UI spec 8).
+/// GPS status: icon + TEXT (never colour alone).
 class GpsStatusChip extends StatelessWidget {
   final bool compact;
   const GpsStatusChip({super.key, this.compact = false});
@@ -44,8 +47,11 @@ class GpsStatusChip extends StatelessWidget {
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               Icon(icon, size: compact ? 14 : 16, color: color),
               const SizedBox(width: 6),
-              Text(label,
-                  style: TextStyle(fontSize: compact ? 11.5 : 13, fontWeight: FontWeight.w700, color: BB.ink)),
+              Flexible(
+                child: Text(label,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: compact ? 11.5 : 13, fontWeight: FontWeight.w700, color: BB.ink)),
+              ),
             ]),
           ),
         );
@@ -56,7 +62,8 @@ class GpsStatusChip extends StatelessWidget {
 
 /// Conspicuous banner shown whenever Demo (simulated) location is active.
 class SimulatedBanner extends StatelessWidget {
-  const SimulatedBanner({super.key});
+  final bool safeTop;
+  const SimulatedBanner({super.key, this.safeTop = false});
   @override
   Widget build(BuildContext context) {
     final loc = AppScope.of(context).location;
@@ -67,17 +74,18 @@ class SimulatedBanner extends StatelessWidget {
         return Material(
           color: const Color(0xFFFFD600),
           child: SafeArea(
+            top: safeTop,
             bottom: false,
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
               child: const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Icon(Icons.science, size: 18, color: Colors.black),
+                Icon(Icons.science, size: 16, color: Colors.black),
                 SizedBox(width: 6),
                 Flexible(
-                  child: Text('SIMULATED LOCATION - DEMO MODE, NOT LIVE GPS',
+                  child: Text('SIMULATED LOCATION - DEMO MODE',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black, letterSpacing: 0.3)),
+                      style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black, fontSize: 12.5)),
                 ),
               ]),
             ),
@@ -88,11 +96,12 @@ class SimulatedBanner extends StatelessWidget {
   }
 }
 
-/// Persistent Return to Ship action (Home, Map, Details, Navigation).
-class ShipButton extends StatelessWidget {
-  final bool extended;
-  final bool replaceRoute;
-  const ShipButton({super.key, this.extended = true, this.replaceRoute = false});
+/// Navy "RETURN TO CRUISE PORT" button (Home) - critical persistent shortcut.
+class ReturnToPortButton extends StatelessWidget {
+  final Color color;
+  final bool replace;
+  final String label;
+  const ReturnToPortButton({super.key, this.color = BB.navy, this.replace = false, this.label = 'RETURN TO CRUISE PORT'});
 
   @override
   Widget build(BuildContext context) {
@@ -100,56 +109,119 @@ class ShipButton extends StatelessWidget {
     final enabled = s.bundle.navigationAvailable && s.nav.shipTerminal != null;
     return Semantics(
       button: true,
-      label: 'Return to ship',
-      child: extended
-          ? FloatingActionButton.extended(
-              heroTag: null,
-              backgroundColor: enabled ? BB.purple : Colors.grey,
-              foregroundColor: Colors.white,
-              onPressed: enabled ? () => returnToShip(context, replace: replaceRoute) : null,
-              icon: const Icon(Icons.directions_boat),
-              label: const Text('Return to Ship', style: TextStyle(fontWeight: FontWeight.w800)),
-            )
-          : FloatingActionButton(
-              heroTag: null,
-              tooltip: 'Return to Ship',
-              backgroundColor: enabled ? BB.purple : Colors.grey,
-              foregroundColor: Colors.white,
-              onPressed: enabled ? () => returnToShip(context, replace: replaceRoute) : null,
-              child: const Icon(Icons.directions_boat),
-            ),
+      label: 'Return to cruise port',
+      child: SizedBox(
+        height: 56,
+        child: FilledButton.icon(
+          style: FilledButton.styleFrom(
+            backgroundColor: color,
+            disabledBackgroundColor: Colors.grey,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, letterSpacing: 0.3),
+          ),
+          onPressed: enabled ? () => openReturnToShip(context, replace: replace) : null,
+          icon: const Icon(Icons.directions_boat, size: 26),
+          label: Text(label),
+        ),
+      ),
     );
   }
 }
 
-/// Category illustration used in place of photographs (no imagery has been
-/// rights-cleared yet - UI spec 7).
-class PoiThumb extends StatelessWidget {
-  final Poi poi;
+/// Small round ship action used on map screens.
+class ShipFab extends StatelessWidget {
+  const ShipFab({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final s = AppScope.of(context);
+    final enabled = s.bundle.navigationAvailable && s.nav.shipTerminal != null;
+    return FloatingActionButton.small(
+      heroTag: null,
+      tooltip: 'Return to Cruise Port',
+      backgroundColor: enabled ? BB.navy : Colors.grey,
+      foregroundColor: Colors.white,
+      onPressed: enabled ? () => openReturnToShip(context) : null,
+      child: const Icon(Icons.directions_boat),
+    );
+  }
+}
+
+/// Round category icon (Places list).
+class CategoryCircle extends StatelessWidget {
+  final PoiCategory category;
   final double size;
-  final double radius;
-  const PoiThumb({super.key, required this.poi, this.size = 64, this.radius = 12});
+  const CategoryCircle({super.key, required this.category, this.size = 44});
+  @override
+  Widget build(BuildContext context) => Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(color: BB.category(category), shape: BoxShape.circle),
+        child: Icon(BB.categoryIcon(category), color: Colors.white, size: size * 0.55),
+      );
+}
+
+/// Destination card row (04 Destination List / Search / Nearby).
+class PlaceCard extends StatelessWidget {
+  final Poi poi;
+  final String? distance;
+  final VoidCallback onTap;
+  final bool highlighted;
+  const PlaceCard({super.key, required this.poi, required this.distance, required this.onTap, this.highlighted = false});
 
   @override
   Widget build(BuildContext context) {
-    final c = BB.category(poi.category);
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [c.withValues(alpha: 0.85), c],
+    return Semantics(
+      button: true,
+      label: '${poi.name}${distance == null ? '' : ', $distance away'}${poi.canNavigate ? '' : ', browse only'}',
+      child: Material(
+        color: highlighted ? BB.selectedRow : Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(children: [
+              PlaceArt(poi: poi, width: 96, height: 70),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(poi.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: BB.navy)),
+                  const SizedBox(height: 4),
+                  Row(children: [
+                    if (distance != null) ...[
+                      const Icon(Icons.place, size: 15, color: BB.navy),
+                      const SizedBox(width: 2),
+                      Text(distance!, style: const TextStyle(color: BB.navy, fontSize: 13.5)),
+                      const SizedBox(width: 10),
+                    ],
+                    if (!poi.canNavigate)
+                      const Flexible(
+                        child: Text('Browse only',
+                            style: TextStyle(color: BB.warning, fontSize: 12.5, fontWeight: FontWeight.w700)),
+                      ),
+                  ]),
+                ]),
+              ),
+              const Icon(Icons.chevron_right, color: BB.muted),
+            ]),
+          ),
         ),
       ),
-      child: Icon(BB.categoryIcon(poi.category), color: Colors.white, size: size * 0.5),
     );
   }
 }
 
-/// Banner explaining offline-data problems (navigation disabled etc.).
+/// Straight-line distance from the current GOOD fix, or null (screen 04 rule:
+/// "Distance only appears when a valid GPS position is available").
+String? directDistance(BuildContext context, GeoPoint to) {
+  final s = AppScope.of(context);
+  final st = s.location.status;
+  final f = s.location.latestFix;
+  if (f == null || !(st == GpsStatus.good || st == GpsStatus.poor)) return null;
+  return s.settings.formatDistance(haversineM(f.position, to));
+}
+
 class DataHealthBanner extends StatelessWidget {
   const DataHealthBanner({super.key});
   @override
@@ -160,7 +232,7 @@ class DataHealthBanner extends StatelessWidget {
         ? 'Offline map data is missing or damaged. Navigation is disabled.'
         : 'Offline route data failed verification. You can browse, but navigation is disabled.';
     return Container(
-      margin: const EdgeInsets.all(12),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(color: const Color(0xFFFFEBEE), borderRadius: BorderRadius.circular(12)),
       child: Row(children: [
@@ -175,12 +247,93 @@ class DataHealthBanner extends StatelessWidget {
 class ProvisionalBadge extends StatelessWidget {
   const ProvisionalBadge({super.key});
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(color: const Color(0xFFFFF3E0), borderRadius: BorderRadius.circular(8)),
-      child: const Text('Provisional - pending approval',
-          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: BB.warning)),
-    );
-  }
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        decoration: BoxDecoration(color: const Color(0xFFFFF3E0), borderRadius: BorderRadius.circular(8)),
+        child: const Text('Provisional - pending approval',
+            style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: BB.warning)),
+      );
 }
+
+// ------------------------------------------------- 12 Recovery dialogs --
+
+/// "GPS Unavailable" (screen 12): explains, offers Open Settings.
+Future<void> showGpsUnavailableDialog(BuildContext context, GpsStatus status) {
+  final s = AppScope.of(context);
+  final msg = switch (status) {
+    GpsStatus.permissionDenied => 'Please allow location access for TCI Beach Buddies in your device settings.',
+    GpsStatus.servicesOff => 'Please enable location services in your device settings.',
+    GpsStatus.outsideCoverage => 'Your position is outside the Grand Turk map. Routes are only available on Grand Turk.',
+    GpsStatus.unusable => 'GPS is too inaccurate right now. Move into open sky and try again.',
+    _ => 'We could not get your current position yet. Move into open sky and try again.',
+  };
+  final canOpen = status == GpsStatus.permissionDenied || status == GpsStatus.servicesOff;
+  return showDialog<void>(
+    context: context,
+    builder: (ctx) => _StatusDialog(
+      icon: Icons.warning_rounded,
+      iconColor: BB.danger,
+      title: 'GPS Unavailable',
+      message: msg,
+      action: canOpen ? 'Open Settings' : 'OK',
+      onAction: () async {
+        Navigator.pop(ctx);
+        if (!canOpen) return;
+        if (status == GpsStatus.servicesOff) {
+          await GeolocatorLocationSource.openLocationSettings();
+        } else {
+          await GeolocatorLocationSource.openAppSettings();
+        }
+        await s.location.retryPermission();
+      },
+    ),
+  );
+}
+
+/// "No Route Found" (screen 12).
+Future<void> showNoRouteDialog(BuildContext context, String message) => showDialog<void>(
+      context: context,
+      builder: (ctx) => _StatusDialog(
+        icon: Icons.warning_rounded,
+        iconColor: BB.orange,
+        title: 'No Route Found',
+        message: message,
+        action: 'OK',
+        onAction: () => Navigator.pop(ctx),
+      ),
+    );
+
+class _StatusDialog extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final String title;
+  final String message;
+  final String action;
+  final VoidCallback onAction;
+  const _StatusDialog({required this.icon, required this.iconColor, required this.title, required this.message,
+      required this.action, required this.onAction});
+  @override
+  Widget build(BuildContext context) => AlertDialog(
+        icon: Icon(icon, color: iconColor, size: 52),
+        title: Text(title, style: const TextStyle(color: BB.navy, fontWeight: FontWeight.w800)),
+        content: Text(message, textAlign: TextAlign.center),
+        actionsAlignment: MainAxisAlignment.center,
+        actions: [
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              style: FilledButton.styleFrom(backgroundColor: BB.blue, minimumSize: const Size.fromHeight(46)),
+              onPressed: onAction,
+              child: Text(action),
+            ),
+          ),
+        ],
+      );
+}
+
+/// Navy app bar used on pushed screens (back arrow + title + optional action).
+PreferredSizeWidget navyBar(String title, {List<Widget>? actions, bool back = true}) => AppBar(
+      title: Text(title),
+      automaticallyImplyLeading: back,
+      actions: actions,
+    );

@@ -47,6 +47,11 @@ class VoiceGuide {
   void _onChange() {
     final phase = nav.phase;
     final dest = nav.destination;
+    // Route Preview: nothing is spoken until Start Navigation.
+    if (!nav.guidanceStarted && phase != NavPhase.arrived) {
+      _lastPhase = phase;
+      return;
+    }
 
     if (phase != _lastPhase) {
       switch (phase) {

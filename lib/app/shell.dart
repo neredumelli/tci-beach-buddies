@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../features/home/home_screen.dart';
 import '../features/map/presentation/map_screen.dart';
-import '../features/pois/presentation/destinations_screen.dart';
-import '../features/pois/presentation/saved_screen.dart';
+import '../features/pois/presentation/places_screen.dart';
 import '../features/settings/settings_screen.dart';
 
-enum ShellTab { home, map, destinations, saved, more }
+/// Bottom tabs from the v2.0 walkthrough: Home, Places, Map, Settings.
+enum ShellTab { home, places, map, settings }
 
-/// Lets any tab switch to another tab (e.g. Home > Explore Map).
 class ShellTabs extends InheritedNotifier<ValueNotifier<ShellTab>> {
-  const ShellTabs({super.key, required ValueNotifier<ShellTab> tab, required super.child})
-      : super(notifier: tab);
+  const ShellTabs({super.key, required ValueNotifier<ShellTab> tab, required super.child}) : super(notifier: tab);
 
   static void go(BuildContext context, ShellTab tab) {
     final w = context.getInheritedWidgetOfExactType<ShellTabs>();
@@ -40,28 +38,28 @@ class _MainShellState extends State<MainShell> {
       tab: _tab,
       child: ValueListenableBuilder<ShellTab>(
         valueListenable: _tab,
-        builder: (context, tab, _) => Scaffold(
-          body: IndexedStack(
-            index: tab.index,
-            children: const [
-              HomeScreen(),
-              MapScreen(),
-              DestinationsScreen(),
-              SavedScreen(),
-              SettingsScreen(),
-            ],
-          ),
-          bottomNavigationBar: NavigationBar(
-            selectedIndex: tab.index,
-            onDestinationSelected: (i) => _tab.value = ShellTab.values[i],
-            height: 66,
-            destinations: const [
-              NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
-              NavigationDestination(icon: Icon(Icons.map_outlined), selectedIcon: Icon(Icons.map), label: 'Map'),
-              NavigationDestination(icon: Icon(Icons.place_outlined), selectedIcon: Icon(Icons.place), label: 'Destinations'),
-              NavigationDestination(icon: Icon(Icons.favorite_border), selectedIcon: Icon(Icons.favorite), label: 'Saved'),
-              NavigationDestination(icon: Icon(Icons.menu), selectedIcon: Icon(Icons.menu_open), label: 'More'),
-            ],
+        builder: (context, tab, _) => PopScope(
+          // Android back on a non-Home tab returns to Home instead of exiting.
+          canPop: tab == ShellTab.home,
+          onPopInvokedWithResult: (didPop, _) {
+            if (!didPop) _tab.value = ShellTab.home;
+          },
+          child: Scaffold(
+            body: IndexedStack(
+              index: tab.index,
+              children: const [HomeScreen(), PlacesScreen(), MapScreen(), SettingsScreen()],
+            ),
+            bottomNavigationBar: NavigationBar(
+              selectedIndex: tab.index,
+              onDestinationSelected: (i) => _tab.value = ShellTab.values[i],
+              height: 66,
+              destinations: const [
+                NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
+                NavigationDestination(icon: Icon(Icons.place_outlined), selectedIcon: Icon(Icons.place), label: 'Places'),
+                NavigationDestination(icon: Icon(Icons.map_outlined), selectedIcon: Icon(Icons.map), label: 'Map'),
+                NavigationDestination(icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: 'Settings'),
+              ],
+            ),
           ),
         ),
       ),

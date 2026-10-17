@@ -7,7 +7,8 @@ enum DistanceUnits { metric, imperial }
 class AppSettings extends ChangeNotifier {
   SharedPreferences? _prefs;
 
-  DistanceUnits units = DistanceUnits.metric;
+  /// Miles by default (cruise visitors, v2.0 screens); switchable to km.
+  DistanceUnits units = DistanceUnits.imperial;
   /// Spoken turn-by-turn guidance and alerts (device text-to-speech, offline).
   bool voiceGuidance = true;
 
@@ -17,7 +18,7 @@ class AppSettings extends ChangeNotifier {
 
   /// Walking-time estimates are NOT an approved feature (UI spec 7); off by
   /// default and labelled as an estimate when enabled.
-  bool showWalkingEstimate = false;
+  bool showWalkingEstimate = true;
 
   /// Demo / simulated location (BR-17). Off by default; never persisted ON
   /// across restarts so a visitor cannot unknowingly start in simulation.
@@ -29,11 +30,11 @@ class AppSettings extends ChangeNotifier {
     try {
       final p = await SharedPreferences.getInstance();
       _prefs = p;
-      units = p.getString('units') == 'imperial' ? DistanceUnits.imperial : DistanceUnits.metric;
+      units = p.getString('units') == 'metric' ? DistanceUnits.metric : DistanceUnits.imperial;
       voiceGuidance = p.getBool('voiceGuidance') ?? true;
       narrateArrival = p.getBool('narrateArrival') ?? true;
       vibration = p.getBool('vibration') ?? true;
-      showWalkingEstimate = p.getBool('showWalkingEstimate') ?? false;
+      showWalkingEstimate = p.getBool('showWalkingEstimate') ?? true;
       favorites
         ..clear()
         ..addAll(p.getStringList('favorites') ?? const []);
@@ -96,9 +97,15 @@ class AppSettings extends ChangeNotifier {
     return '${(meters / 1000).toStringAsFixed(1)} km';
   }
 
-  /// Walking time at 4.5 km/h (provisional speed model).
-  String formatWalk(double meters) {
-    final min = (meters / 75.0).ceil();
-    return '~$min min walk';
+  /// Walking time at 4.5 km/h (provisional speed model, 75 m per minute).
+  int walkMinutes(double meters) => (meters / 75.0).ceil().clamp(1, 999);
+
+  String formatWalk(double meters) => '~${walkMinutes(meters)} min walk';
+
+  /// Arrival clock time for [meters] of walking from now.
+  String eta(double meters, [DateTime? now]) {
+    final t = (now ?? DateTime.now()).add(Duration(minutes: walkMinutes(meters)));
+    final h = t.hour % 12 == 0 ? 12 : t.hour % 12;
+    return '$h:${t.minute.toString().padLeft(2, '0')} ${t.hour < 12 ? 'AM' : 'PM'}';
   }
 }

@@ -1,23 +1,34 @@
 import '../geo/geo.dart';
 
-enum PoiCategory { beach, landmark, historic, dining, nature, services }
+/// Categories from the v2.0 Visual Functional Walkthrough (screen 03).
+enum PoiCategory { beach, attraction, restaurant, shopping, historical, services }
 
 extension PoiCategoryLabel on PoiCategory {
   String get label => switch (this) {
         PoiCategory.beach => 'Beach',
-        PoiCategory.landmark => 'Landmark',
-        PoiCategory.historic => 'Historic Site',
-        PoiCategory.dining => 'Dining',
-        PoiCategory.nature => 'Nature',
+        PoiCategory.attraction => 'Attraction',
+        PoiCategory.restaurant => 'Restaurant',
+        PoiCategory.shopping => 'Shopping',
+        PoiCategory.historical => 'Historical Site',
         PoiCategory.services => 'Services',
       };
 
   String get pluralLabel => switch (this) {
         PoiCategory.beach => 'Beaches',
-        PoiCategory.landmark => 'Landmarks',
-        PoiCategory.historic => 'Historic',
-        PoiCategory.dining => 'Dining',
-        PoiCategory.nature => 'Nature',
+        PoiCategory.attraction => 'Attractions',
+        PoiCategory.restaurant => 'Restaurants',
+        PoiCategory.shopping => 'Shopping & Essentials',
+        PoiCategory.historical => 'Historical Sites',
+        PoiCategory.services => 'Emergency & Services',
+      };
+
+  /// Short label for Home tiles.
+  String get tileLabel => switch (this) {
+        PoiCategory.beach => 'Beaches',
+        PoiCategory.attraction => 'Attractions',
+        PoiCategory.restaurant => 'Restaurants',
+        PoiCategory.shopping => 'Shopping',
+        PoiCategory.historical => 'Historical Sites',
         PoiCategory.services => 'Services',
       };
 }
@@ -42,6 +53,9 @@ class Poi {
   /// Human-readable reason when not routable (e.g. offshore cay).
   final String? notRoutableReason;
   final String description;
+
+  /// "Interesting facts" (screen 05); '' when none approved.
+  final String facts;
   final String accessNotes;
 
   /// 'provisional' until the business owner approves the register (OD-01/02).
@@ -63,6 +77,7 @@ class Poi {
     required this.routable,
     required this.notRoutableReason,
     required this.description,
+    this.facts = '',
     required this.accessNotes,
     required this.approvalStatus,
     required this.locationSource,
@@ -84,6 +99,7 @@ class Poi {
       routable: j['routable'] as bool,
       notRoutableReason: j['notRoutableReason'] as String?,
       description: j['description'] as String,
+      facts: (j['facts'] as String?) ?? '',
       accessNotes: (j['accessNotes'] as String?) ?? '',
       approvalStatus: j['approvalStatus'] as String,
       locationSource: j['locationSource'] as String,

@@ -83,6 +83,7 @@ class NavigationController extends ChangeNotifier {
   RouteFailureCode? _failure;
   String _failureDetail = '';
   bool _guidancePaused = false;
+  bool _guidanceStarted = false;
   int _generation = 0;
   DateTime? _lastRerouteAt;
   RouteProgressTracker? _tracker;
@@ -114,6 +115,10 @@ class NavigationController extends ChangeNotifier {
   RouteFailureCode? get failure => _failure;
   String get failureDetail => _failureDetail;
   bool get guidancePaused => _guidancePaused;
+
+  /// False while the route is shown on Route Preview; true after the visitor
+  /// taps Start Navigation (voice guidance only speaks once started).
+  bool get guidanceStarted => _guidanceStarted;
   int get generation => _generation;
   Poi? get arrivedAt => _arrivedAt;
   bool get isActive =>
@@ -132,10 +137,11 @@ class NavigationController extends ChangeNotifier {
   // ------------------------------------------------------------- actions --
 
   /// Start (or switch) navigation to [poi] from the latest live position.
-  Future<void> selectDestination(Poi poi) async {
+  Future<void> selectDestination(Poi poi, {bool startGuidance = false}) async {
     if (_phase == NavPhase.bundleError || engine == null) return;
     final gen = ++_generation;
     _retireRoute();
+    _guidanceStarted = startGuidance;
     _destination = poi;
     _arrivedAt = null;
     _failure = null;
@@ -164,7 +170,14 @@ class NavigationController extends ChangeNotifier {
   }
 
   /// Return to Ship: same pipeline, destination = approved terminal point.
-  Future<void> returnToShip() async {
+  /// Route Preview -> Start Navigation.
+  void startGuidance() {
+    if (_guidanceStarted) return;
+    _guidanceStarted = true;
+    notifyListeners();
+  }
+
+  Future<void> returnToShip({bool startGuidance = false}) async {
     final ship = shipTerminal;
     if (ship == null) {
       ++_generation;
@@ -175,13 +188,13 @@ class NavigationController extends ChangeNotifier {
       notifyListeners();
       return;
     }
-    await selectDestination(ship);
+    await selectDestination(ship, startGuidance: startGuidance);
   }
 
   /// Retry the current destination (after NoRoute / GPS failure).
   Future<void> retry() async {
     final d = _destination;
-    if (d != null) await selectDestination(d);
+    if (d != null) await selectDestination(d, startGuidance: _guidanceStarted);
   }
 
   void stop() {
@@ -191,6 +204,7 @@ class NavigationController extends ChangeNotifier {
     _arrivedAt = null;
     _failure = null;
     _failureDetail = '';
+    _guidanceStarted = false;
     if (_phase != NavPhase.bundleError) _phase = NavPhase.idle;
     notifyListeners();
   }

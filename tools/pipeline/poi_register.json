@@ -34,7 +34,8 @@
         -71.1503,
         21.447
       ],
-      "description": "A wide white-sand beach with clear turquoise water and shade trees, popular for swimming and relaxing. One of the closest beaches to the Cruise Center."
+      "description": "A wide white-sand beach with clear turquoise water and shade trees, popular for swimming and relaxing. One of the closest beaches to the Cruise Center.",
+      "facts": "The beach takes its name from Waterloo, the Governor’s residence close by."
     },
     {
       "id": "pillory-beach",
@@ -95,7 +96,7 @@
     {
       "id": "cockburn-town",
       "name": "Cockburn Town",
-      "category": "landmark",
+      "category": "attraction",
       "aliases": [
         "Cockburn Town"
       ],
@@ -103,12 +104,13 @@
         -71.1446,
         21.4612
       ],
-      "description": "The capital of the Turks and Caicos Islands, with colonial-era buildings, churches and the waterfront along Front Street and Duke Street."
+      "description": "The capital of the Turks and Caicos Islands, with colonial-era buildings, churches and the waterfront along Front Street and Duke Street.",
+      "facts": "Cockburn Town is the capital of the Turks and Caicos Islands."
     },
     {
       "id": "grand-turk-lighthouse",
       "name": "Grand Turk Lighthouse",
-      "category": "landmark",
+      "category": "attraction",
       "aliases": [
         "Grand Turk Lighthouse",
         "Lighthouse"
@@ -117,12 +119,13 @@
         -71.133,
         21.5135
       ],
-      "description": "The historic cast-iron lighthouse at the island's northern tip, overlooking the reef and the Atlantic."
+      "description": "The historic cast-iron lighthouse at the island's northern tip, overlooking the reef and the Atlantic.",
+      "facts": "The lighthouse was built in 1852 from cast-iron sections made in England, to warn ships away from the reefs off the northern tip."
     },
     {
       "id": "front-street",
       "name": "Front Street",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Front Street"
       ],
@@ -130,12 +133,13 @@
         -71.1455,
         21.463
       ],
-      "description": "The historic waterfront street of Cockburn Town, lined with old Bermudian-style buildings."
+      "description": "The historic waterfront street of Cockburn Town, lined with old Bermudian-style buildings.",
+      "facts": "Many buildings on Front Street date from the Bermudian salt-raking era."
     },
     {
       "id": "national-museum",
       "name": "Turks & Caicos National Museum",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Turks and Caicos National Museum",
         "Turks & Caicos National Museum",
@@ -146,12 +150,13 @@
         -71.1452,
         21.4658
       ],
-      "description": "The national museum on Front Street, covering the islands' natural and cultural history."
+      "description": "The national museum on Front Street, covering the islands' natural and cultural history.",
+      "facts": "The museum displays the Molasses Reef wreck, one of the oldest European shipwrecks found in the Americas."
     },
     {
       "id": "hm-prison",
       "name": "Her Majesty's Prison",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Her Majesty's Prison",
         "HM Prison",
@@ -167,7 +172,7 @@
     {
       "id": "st-marys",
       "name": "St. Mary's Pro-Cathedral",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "St. Mary's Pro-Cathedral",
         "St Mary's Pro-Cathedral",
@@ -184,7 +189,7 @@
     {
       "id": "st-thomas",
       "name": "St. Thomas Anglican Church",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "St. Thomas Anglican Church",
         "St Thomas Church",
@@ -200,7 +205,7 @@
     {
       "id": "columbus-landfall",
       "name": "Columbus Landfall National Park",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Columbus Landfall National Park",
         "Columbus Landfall Marine National Park",
@@ -210,12 +215,13 @@
         -71.147,
         21.472
       ],
-      "description": "A protected marine park along the west coast, commemorating one of the proposed landfall sites of Columbus in 1492."
+      "description": "A protected marine park along the west coast, commemorating one of the proposed landfall sites of Columbus in 1492.",
+      "facts": "Grand Turk is one of the islands proposed as Christopher Columbus’s first landfall in 1492."
     },
     {
       "id": "waterloo",
       "name": "Waterloo (Governor's Residence)",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Waterloo",
         "Governor's Residence",
@@ -225,12 +231,13 @@
         -71.1478,
         21.4505
       ],
-      "description": "The official residence of the Governor. View from outside only - not open to visitors."
+      "description": "The official residence of the Governor. View from outside only - not open to visitors.",
+      "facts": "Waterloo has served as the official residence of the Governor of the Turks and Caicos Islands."
     },
     {
       "id": "odd-fellows-lodge",
       "name": "Odd Fellows Lodge",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Odd Fellows Lodge",
         "Oddfellows Lodge"
@@ -244,7 +251,7 @@
     {
       "id": "victoria-library",
       "name": "Victoria Public Library",
-      "category": "historic",
+      "category": "historical",
       "aliases": [
         "Victoria Public Library",
         "Victoria Library"
@@ -258,7 +265,7 @@
     {
       "id": "town-salina",
       "name": "Town Salina",
-      "category": "nature",
+      "category": "attraction",
       "aliases": [
         "Town Salina",
         "Town Salinas"
@@ -267,12 +274,13 @@
         -71.142,
         21.462
       ],
-      "description": "A historic salt pond behind Cockburn Town, a reminder of the island's salt-raking past and a place to spot wading birds."
+      "description": "A historic salt pond behind Cockburn Town, a reminder of the island's salt-raking past and a place to spot wading birds.",
+      "facts": "Salt was raked from Grand Turk’s salinas for centuries, and was once the island’s main export."
     },
     {
       "id": "red-salina",
       "name": "Red Salina",
-      "category": "nature",
+      "category": "attraction",
       "aliases": [
         "Red Salina"
       ],
@@ -280,12 +288,13 @@
         -71.135,
         21.445
       ],
-      "description": "A large salt pond in the south of the island, home to shorebirds and occasionally flamingos."
+      "description": "A large salt pond in the south of the island, home to shorebirds and occasionally flamingos.",
+      "facts": "Salt was raked from Grand Turk’s salinas for centuries, and was once the island’s main export."
     },
     {
       "id": "hawks-nest-salina",
       "name": "Hawks Nest Salina",
-      "category": "nature",
+      "category": "attraction",
       "aliases": [
         "Hawks Nest Salina",
         "Hawk's Nest Salina",
@@ -300,7 +309,7 @@
     {
       "id": "north-creek",
       "name": "North Creek",
-      "category": "nature",
+      "category": "attraction",
       "aliases": [
         "North Creek"
       ],
@@ -313,7 +322,7 @@
     {
       "id": "gibbs-cay",
       "name": "Gibbs Cay",
-      "category": "nature",
+      "category": "attraction",
       "aliases": [
         "Gibbs Cay",
         "Gibb's Cay",
@@ -323,7 +332,8 @@
         -71.105,
         21.449
       ],
-      "description": "A small uninhabited cay east of Grand Turk, reached only by boat tour. Shown for information - it cannot be reached on foot."
+      "description": "A small uninhabited cay east of Grand Turk, reached only by boat tour. Shown for information - it cannot be reached on foot.",
+      "facts": "Gibbs Cay is known for boat tours where visitors can see southern stingrays in shallow water."
     },
     {
       "id": "jags-mccartney-airport",
@@ -344,7 +354,7 @@
     {
       "id": "margaritaville",
       "name": "Margaritaville Grand Turk",
-      "category": "dining",
+      "category": "restaurant",
       "aliases": [
         "Margaritaville",
         "Margaritaville Grand Turk",
@@ -359,7 +369,7 @@
     {
       "id": "jacks-shack",
       "name": "Jack's Shack",
-      "category": "dining",
+      "category": "restaurant",
       "aliases": [
         "Jack's Shack",
         "Jacks Shack"
@@ -373,7 +383,7 @@
     {
       "id": "sand-bar",
       "name": "The Sand Bar",
-      "category": "dining",
+      "category": "restaurant",
       "aliases": [
         "The Sand Bar",
         "Sand Bar",
@@ -388,7 +398,7 @@
     {
       "id": "salt-raker-inn",
       "name": "Salt Raker Inn",
-      "category": "dining",
+      "category": "restaurant",
       "aliases": [
         "Salt Raker Inn",
         "Saltraker Inn"
@@ -402,7 +412,7 @@
     {
       "id": "bohio",
       "name": "Bohio Dive Resort",
-      "category": "dining",
+      "category": "restaurant",
       "aliases": [
         "Bohio Dive Resort",
         "Bohio Dive Resort and Spa",
@@ -413,6 +423,111 @@
         21.4795
       ],
       "description": "A beachfront resort with restaurant and dive centre on Pillory Beach."
+    },
+    {
+      "id": "shoprite-grocery",
+      "name": "Shoprite Grocery",
+      "category": "shopping",
+      "aliases": [
+        "Shoprite Grocery"
+      ],
+      "fallback": [
+        -71.142,
+        21.46
+      ],
+      "description": "A grocery store for snacks, water and everyday supplies."
+    },
+    {
+      "id": "ron-jon-surf-shop",
+      "name": "Ron Jon Surf Shop",
+      "category": "shopping",
+      "aliases": [
+        "Ron Jon Surf Shop"
+      ],
+      "fallback": [
+        -71.144,
+        21.427
+      ],
+      "description": "Beachwear, souvenirs and surf gear beside the Cruise Center."
+    },
+    {
+      "id": "harbor-house",
+      "name": "Harbor House",
+      "category": "shopping",
+      "aliases": [
+        "Harbor House"
+      ],
+      "fallback": [
+        -71.146,
+        21.465
+      ],
+      "description": "A gift shop in Cockburn Town."
+    },
+    {
+      "id": "island-creations",
+      "name": "Island Creations",
+      "category": "shopping",
+      "aliases": [
+        "Island Creations"
+      ],
+      "fallback": [
+        -71.145,
+        21.466
+      ],
+      "description": "Local art and handmade island crafts."
+    },
+    {
+      "id": "medical-centre",
+      "name": "Cockburn Town Medical Centre",
+      "category": "services",
+      "aliases": [
+        "Cockburn Town Medical Centre"
+      ],
+      "fallback": [
+        -71.144,
+        21.468
+      ],
+      "description": "Medical centre in Cockburn Town. In an emergency, call 911."
+    },
+    {
+      "id": "police-station",
+      "name": "Police Station",
+      "category": "services",
+      "aliases": [
+        "\"A\" Division Police Station",
+        "A Division Police Station"
+      ],
+      "fallback": [
+        -71.141,
+        21.47
+      ],
+      "description": "The main police station on Grand Turk. In an emergency, call 911."
+    },
+    {
+      "id": "post-office",
+      "name": "General Post Office",
+      "category": "services",
+      "aliases": [
+        "General Post Office"
+      ],
+      "fallback": [
+        -71.145,
+        21.465
+      ],
+      "description": "Post office in Cockburn Town."
+    },
+    {
+      "id": "scotiabank",
+      "name": "Scotiabank",
+      "category": "services",
+      "aliases": [
+        "Scotiabank"
+      ],
+      "fallback": [
+        -71.145,
+        21.462
+      ],
+      "description": "Bank in Cockburn Town."
     }
   ]
 }

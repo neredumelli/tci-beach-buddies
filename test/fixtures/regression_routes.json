@@ -44,14 +44,14 @@
       ]
     },
     {
-      "name": "R4 Governor's Beach -> nearby Waterloo (Governor's Residence) (live fix at A)",
+      "name": "R4 Governor's Beach -> nearby Scotiabank (live fix at A)",
       "origin": [
         21.441503,
         -71.15201
       ],
-      "destPoiId": "waterloo",
+      "destPoiId": "scotiabank",
       "expectRoutable": true,
-      "expectedDistanceM": 1199.375,
+      "expectedDistanceM": 575.597,
       "expectedSnappedOrigin": [
         21.441503,
         -71.15201

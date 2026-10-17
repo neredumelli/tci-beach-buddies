@@ -36,12 +36,12 @@ class BasemapLayers {
     final buildings = <Polygon>[];
     for (final a in m.areas) {
       final (fill, border) = switch (a.kind) {
-        AreaKind.land => (BB.land, const Color(0xFFD9D2B8)),
+        AreaKind.land => (BB.land, const Color(0xFFBFD9A8)),
         AreaKind.water => (BB.sea, BB.sea),
         AreaKind.salina => (const Color(0xFFBFE3EA), const Color(0xFF9CCFD9)),
         AreaKind.wetland => (const Color(0xFFD4E8D0), const Color(0xFFD4E8D0)),
         AreaKind.beach => (BB.sand, BB.sand),
-        AreaKind.park => (const Color(0xFFDDEFD3), const Color(0xFFDDEFD3)),
+        AreaKind.park => (const Color(0xFFCFE8BE), const Color(0xFFCFE8BE)),
         AreaKind.runway => (const Color(0xFFD6D6D6), const Color(0xFFC4C4C4)),
         AreaKind.building => (const Color(0xFFE1D8CB), const Color(0xFFCBBFAE)),
       };
@@ -91,6 +91,7 @@ class IslandMap extends StatelessWidget {
   final bool showBuildings;
   final GeoPoint? initialCenter;
   final double initialZoom;
+  final VoidCallback? onReady;
 
   const IslandMap({
     super.key,
@@ -107,6 +108,7 @@ class IslandMap extends StatelessWidget {
     this.showBuildings = true,
     this.initialCenter,
     this.initialZoom = 13.2,
+    this.onReady,
   });
 
   @override
@@ -129,6 +131,7 @@ class IslandMap extends StatelessWidget {
           flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
         ),
         onTap: (_, __) => onMapTap?.call(),
+        onMapReady: onReady,
       ),
       children: [
         PolygonLayer(polygons: layers.base),

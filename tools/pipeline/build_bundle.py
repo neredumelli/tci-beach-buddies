@@ -447,7 +447,7 @@ def build_pois(register, nodes, ways, graph_json, land_rings, report, rels=None)
             display=[r6(disp[1]), r6(disp[0])],
             approach=None if approach is None else [r6(approach[1]), r6(approach[0])],
             routable=approach is not None, notRoutableReason=reason,
-            description=e["description"], accessNotes=e.get("accessNotes", ""),
+            description=e["description"], facts=e.get("facts", ""), accessNotes=e.get("accessNotes", ""),
             approvalStatus="provisional", locationSource=src, isShipTerminal=e["isShipTerminal"],
         ))
         rows.append(dict(id=e["id"], name=e["name"], matched=matched_name, source=src,

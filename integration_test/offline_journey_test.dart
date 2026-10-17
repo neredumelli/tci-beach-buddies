@@ -1,9 +1,8 @@
-// On-device journey test (run with the phone in AIRPLANE MODE, GPS on):
+// On-device journey through the v2.0 screens (run in AIRPLANE MODE):
 //   flutter test integration_test/offline_journey_test.dart -d <device>
-//
-// Uses the REAL bundled assets and the clearly-labelled Demo location source
-// to drive Cruise -> Governor's Beach -> Lighthouse -> Return to Ship through
-// the real UI, asserting route origins at every step.
+// Uses the REAL bundle and the clearly-labelled Demo location source:
+// Home -> Beaches -> Governor's Beach -> Navigate -> Route Preview ->
+// Start Navigation -> Arrival -> (search) Lighthouse -> Navigate ... -> Return.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -22,67 +21,74 @@ void main() {
     }
   }
 
-  testWidgets('offline Cruise -> A -> B -> Ship through the UI (Demo location)', (t) async {
+  Future<void> tapText(WidgetTester t, String text, {bool last = false}) async {
+    final f = last ? find.text(text).last : find.text(text).first;
+    await t.ensureVisible(f);
+    await settle(t, 1);
+    await t.tap(f);
+    await settle(t);
+  }
+
+  testWidgets('offline Cruise -> A -> B -> Return to Cruise Port through the UI', (t) async {
     await t.pumpWidget(const TciBeachBuddiesApp());
-    await settle(t, 5);
+    await settle(t, 6);
     expect(find.byType(MainShell), findsOneWidget);
     expect(find.text('Offline ready'), findsOneWidget, reason: 'bundle must verify on device');
+    expect(find.text('RETURN TO CRUISE PORT'), findsOneWidget);
 
     final s = AppScope.of(t.element(find.byType(MainShell)));
     await s.setDemoMode(true);
     await settle(t);
-    expect(find.textContaining('SIMULATED'), findsWidgets);
-
     final demo = s.demoSource!;
     final ship = s.nav.shipTerminal!.approach!;
     final gov = s.poiById('governors-beach')!;
     final lh = s.poiById('grand-turk-lighthouse')!;
 
-    // Cruise -> Governor's Beach via Destinations > Details > Navigate Here.
+    // 02 Home -> 04 Beaches -> 05 Governor's Beach -> 07 Preview -> 08 Navigation
     demo.placeAt(ship);
     await settle(t);
-    await t.tap(find.text('Destinations').last);
-    await settle(t);
-    await t.enterText(find.byType(TextField).last, 'governor');
-    await settle(t, 1);
-    await t.tap(find.text(gov.name));
-    await settle(t);
-    await t.ensureVisible(find.text('Navigate Here'));
-    await settle(t, 1);
-    await t.tap(find.text('Navigate Here'));
-    await settle(t, 3);
+    await tapText(t, 'Beaches');
+    await tapText(t, gov.name);
+    await tapText(t, 'Navigate');
+    await settle(t, 2);
+    expect(find.text('Route Preview'), findsOneWidget);
     expect(s.nav.phase, NavPhase.navigating);
     expect(haversineM(s.nav.route!.originFix, ship), lessThan(1));
-    expect(find.textContaining('to go along route'), findsOneWidget);
+    await tapText(t, 'Start Navigation');
+    expect(s.nav.guidanceStarted, isTrue);
+    expect(find.textContaining('ETA'), findsOneWidget);
 
-    // Arrive at A.
+    // 09 Arrival at A
     demo.placeAt(gov.approach!);
     await settle(t, 4);
-    expect(find.text('You Have Arrived!'), findsOneWidget);
+    expect(find.text("You've Arrived!"), findsOneWidget);
+    expect(find.text('Explore Nearby'), findsOneWidget);
 
-    // A -> B from the arrival screen; route must start at A.
-    await t.ensureVisible(find.text('Navigate to Another Destination'));
-    await settle(t, 1);
-    await t.tap(find.text('Navigate to Another Destination'));
+    // A -> B: Home, search Lighthouse, Navigate. Route must start at A.
+    await tapText(t, 'Home', last: true);
+    await t.tap(find.byTooltip('Search destinations'));
     await settle(t);
     await t.enterText(find.byType(TextField).last, 'lighthouse');
     await settle(t, 1);
-    await t.tap(find.text(lh.name).last);
-    await settle(t, 3);
+    await tapText(t, lh.name, last: true);
+    await tapText(t, 'Navigate');
+    await settle(t, 2);
     expect(s.nav.destination!.id, lh.id);
     expect(haversineM(s.nav.route!.originFix, gov.approach!), lessThan(1));
+    await tapText(t, 'Start Navigation');
 
-    // Return to Ship from mid-route.
+    // 10 Return to Cruise Port from mid-route.
     final r = s.nav.route!;
-    demo.placeAt(r.polyline[r.polyline.length ~/ 2]);
+    final mid = r.polyline[r.polyline.length ~/ 2];
+    demo.placeAt(mid);
     await settle(t);
-    await t.tap(find.text('To Ship'));
-    await settle(t, 3);
+    await tapText(t, 'Return');
+    await settle(t, 2);
+    expect(find.text('Return to Cruise Port'), findsOneWidget);
     expect(s.nav.destination!.isShipTerminal, isTrue);
-    expect(haversineM(s.nav.route!.originFix, r.polyline[r.polyline.length ~/ 2]), lessThan(1));
-
-    await t.tap(find.text('End Navigation'));
-    await settle(t);
+    expect(haversineM(s.nav.route!.originFix, mid), lessThan(1));
+    await tapText(t, 'Start Navigation');
+    await tapText(t, 'Stop');
     expect(s.nav.phase, NavPhase.idle);
     await s.setDemoMode(false);
     await settle(t);
