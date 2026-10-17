@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tci_beach_buddies/app/app.dart';
 import 'package:tci_beach_buddies/app/shell.dart';
 import 'package:tci_beach_buddies/data/offline_bundle.dart';
+import 'package:tci_beach_buddies/features/navigation/presentation/navigation_screen.dart';
 import 'package:tci_beach_buddies/features/pois/presentation/destination_details_screen.dart';
 import 'package:tci_beach_buddies/features/settings/settings_screen.dart';
 import 'package:tci_beach_buddies/platform/location/location_source.dart';
@@ -96,8 +97,16 @@ void main() {
         scrollable: find.descendant(of: find.byType(DestinationDetailsScreen), matching: find.byType(Scrollable)).first);
     await t.ensureVisible(find.text('Navigate Here'));
     await t.tap(find.text('Navigate Here'));
-    await t.pump(const Duration(milliseconds: 600));
+    for (var i = 0; i < 10; i++) {
+      await t.pump(const Duration(milliseconds: 100));
+    }
     expect(t.takeException(), isNull);
+    if (find.text('End Navigation').evaluate().isEmpty) {
+      // ignore: avoid_print
+      print('NAVSCREEN=${find.byType(NavigationScreen).evaluate().length} TEXTS=' +
+          find.byType(Text).evaluate().map((e) => (e.widget as Text).data).whereType<String>().take(40).join(' | '));
+    }
+    expect(find.byType(NavigationScreen), findsOneWidget);
     expect(find.text('End Navigation'), findsOneWidget);
     expect(find.text('Waiting for GPS'), findsOneWidget); // no fix -> no fabricated route
     await t.pump(const Duration(seconds: 9)); // let the GPS wait time out
