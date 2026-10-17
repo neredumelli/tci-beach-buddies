@@ -32,10 +32,13 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(18, 12, 18, 24),
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                    const _OfflineChip(),
-                    const GpsStatusChip(compact: true),
-                  ]),
+                  // Wrap (not Row): chips flow onto two lines on narrow phones.
+                  const Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    spacing: 8,
+                    runSpacing: 6,
+                    children: [_OfflineChip(), GpsStatusChip(compact: true)],
+                  ),
                   const SizedBox(height: 18),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),

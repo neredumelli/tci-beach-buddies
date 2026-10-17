@@ -43,8 +43,12 @@ void main() {
     await settle(t);
     await t.tap(find.text('Destinations').last);
     await settle(t);
+    await t.enterText(find.byType(TextField).last, 'governor');
+    await settle(t, 1);
     await t.tap(find.text(gov.name));
     await settle(t);
+    await t.ensureVisible(find.text('Navigate Here'));
+    await settle(t, 1);
     await t.tap(find.text('Navigate Here'));
     await settle(t, 3);
     expect(s.nav.phase, NavPhase.navigating);
@@ -57,9 +61,13 @@ void main() {
     expect(find.text('You Have Arrived!'), findsOneWidget);
 
     // A -> B from the arrival screen; route must start at A.
+    await t.ensureVisible(find.text('Navigate to Another Destination'));
+    await settle(t, 1);
     await t.tap(find.text('Navigate to Another Destination'));
     await settle(t);
-    await t.tap(find.text(lh.name));
+    await t.enterText(find.byType(TextField).last, 'lighthouse');
+    await settle(t, 1);
+    await t.tap(find.text(lh.name).last);
     await settle(t, 3);
     expect(s.nav.destination!.id, lh.id);
     expect(haversineM(s.nav.route!.originFix, gov.approach!), lessThan(1));
