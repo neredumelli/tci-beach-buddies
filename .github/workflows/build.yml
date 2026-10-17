@@ -119,7 +119,14 @@ jobs:
           target: google_apis
           script: |
             adb shell svc wifi disable; adb shell svc data disable
-            flutter test integration_test/offline_journey_test.dart -d emulator-5554
+            mkdir -p emu-logs; flutter test integration_test/offline_journey_test.dart -d emulator-5554 > emu-logs/journey.txt 2>&1; echo $? > emu-logs/status.txt; tail -80 emu-logs/journey.txt; exit $(cat emu-logs/status.txt)
+      - name: Publish emulator logs
+        if: always()
+        run: |
+          mkdir -p emu-logs && cd emu-logs && git init -q && git checkout -q -b ci-logs-emulator
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -q --allow-empty -m "emulator logs run ${{ github.run_number }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-logs-emulator
 
   ios-build:
     needs: data-and-android
