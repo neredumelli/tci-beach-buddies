@@ -257,9 +257,14 @@ class _Card extends StatelessWidget {
   final List<Widget> children;
   const _Card({required this.children});
   @override
-  Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(14)),
-        child: Column(children: children),
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        // Material (not a coloured Container) so ListTile ink/taps stay visible.
+        child: Material(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          clipBehavior: Clip.antiAlias,
+          child: Column(children: children),
+        ),
       );
 }

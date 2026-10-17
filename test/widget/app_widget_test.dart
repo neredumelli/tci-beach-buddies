@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tci_beach_buddies/app/app.dart';
 import 'package:tci_beach_buddies/app/shell.dart';
 import 'package:tci_beach_buddies/data/offline_bundle.dart';
+import 'package:tci_beach_buddies/features/settings/settings_screen.dart';
 import 'package:tci_beach_buddies/platform/location/location_source.dart';
 
 import '../support/fakes.dart';
@@ -55,6 +56,9 @@ void main() {
     expect(find.text('Location permission off'), findsWidgets);
     await t.tap(find.text('Destinations').last);
     await t.pump(const Duration(milliseconds: 300));
+    expect(find.text('Distance unknown until GPS is good.'), findsOneWidget);
+    await t.enterText(find.byType(TextField), 'governor');
+    await t.pump();
     expect(find.text("Governor's Beach"), findsOneWidget);
   });
 
@@ -63,7 +67,9 @@ void main() {
     await t.tap(find.text('More'));
     await t.pump(const Duration(milliseconds: 300));
     expect(find.textContaining('Verified on this launch'), findsOneWidget);
-    expect(find.text('Map data attribution', skipOffstage: false), findsOneWidget);
-    expect(find.text('© OpenStreetMap contributors', skipOffstage: false), findsWidgets);
+    final settingsList = find.descendant(of: find.byType(SettingsScreen), matching: find.byType(Scrollable)).first;
+    await t.scrollUntilVisible(find.text('Map data attribution'), 300, scrollable: settingsList);
+    expect(find.text('Map data attribution'), findsOneWidget);
+    expect(find.text('© OpenStreetMap contributors'), findsWidgets);
   });
 }

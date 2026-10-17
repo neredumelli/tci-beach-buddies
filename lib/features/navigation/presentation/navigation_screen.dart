@@ -182,7 +182,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                           Expanded(child: _TopBanner(nav: _nav, loc: _loc)),
                         ]),
                         const SizedBox(height: 8),
-                        Align(alignment: Alignment.centerLeft, child: const GpsStatusChip(compact: true)),
+                        const Align(alignment: Alignment.centerLeft, child: GpsStatusChip(compact: true)),
                       ]),
                     ),
                   ),

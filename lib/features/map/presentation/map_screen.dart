@@ -30,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
     final st = s.location.status;
     if (f == null || !(st == GpsStatus.good || st == GpsStatus.poor)) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(GpsStatusChip.describe(st, null).$3 + ' - cannot centre on your location.'),
+        content: Text('${GpsStatusChip.describe(st, null).$3} - cannot centre on your location.'),
       ));
       return;
     }
