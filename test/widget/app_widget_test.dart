@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tci_beach_buddies/app/app.dart';
 import 'package:tci_beach_buddies/app/shell.dart';
 import 'package:tci_beach_buddies/data/offline_bundle.dart';
+import 'package:tci_beach_buddies/features/pois/presentation/destination_details_screen.dart';
 import 'package:tci_beach_buddies/features/settings/settings_screen.dart';
 import 'package:tci_beach_buddies/platform/location/location_source.dart';
 
@@ -80,9 +81,19 @@ void main() {
     await t.enterText(find.byType(TextField), 'governor');
     await t.pump();
     await t.tap(find.text("Governor's Beach"));
-    await t.pump(const Duration(milliseconds: 600));
+    for (var i = 0; i < 10; i++) {
+      await t.pump(const Duration(milliseconds: 100));
+    }
     expect(t.takeException(), isNull);
-    expect(find.text('Navigate Here'), findsOneWidget);
+    if (find.text('Navigate Here').evaluate().isEmpty) {
+      // Diagnostics for CI logs.
+      // ignore: avoid_print
+      print('DETAILS=${find.byType(DestinationDetailsScreen).evaluate().length} TEXTS=' +
+          find.byType(Text).evaluate().map((e) => (e.widget as Text).data).whereType<String>().take(40).join(' | '));
+    }
+    expect(find.byType(DestinationDetailsScreen), findsOneWidget);
+    await t.scrollUntilVisible(find.text('Navigate Here'), 200,
+        scrollable: find.descendant(of: find.byType(DestinationDetailsScreen), matching: find.byType(Scrollable)).first);
     await t.ensureVisible(find.text('Navigate Here'));
     await t.tap(find.text('Navigate Here'));
     await t.pump(const Duration(milliseconds: 600));
