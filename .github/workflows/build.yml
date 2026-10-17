@@ -1,0 +1,114 @@
+# CI: downloads the real Grand Turk OSM extract, builds + verifies the offline
+# bundle, runs every test, builds Android APK/AAB, runs the journey test on an
+# Android emulator, and builds iOS (unsigned) on macOS.
+name: build-and-verify
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  data-and-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pillow
+
+      - name: Download Grand Turk OpenStreetMap extract
+        run: |
+          mkdir -p data/raw
+          BBOX="-71.17,21.40,-71.10,21.53"
+          curl -fsSL --retry 3 -o data/raw/grand_turk.osm \
+            "https://api.openstreetmap.org/api/0.6/map?bbox=${BBOX}" \
+          || curl -fsSL --retry 3 -o data/raw/grand_turk.osm \
+            "https://overpass-api.de/api/map?bbox=${BBOX}"
+          ls -la data/raw
+
+      - name: Gate 0-2 - build bundle, pipeline tests, route regression
+        run: |
+          python3 -I tools/pipeline/build_bundle.py --osm data/raw/grand_turk.osm
+          python3 -m unittest discover -s tools/pipeline/tests -v
+          python3 -I tools/pipeline/regression.py
+
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: subosito/flutter-action@v2
+        with: { channel: stable, cache: true }
+
+      - name: Gate 3 - analyze and test
+        run: |
+          flutter --version
+          flutter pub get
+          flutter analyze --no-fatal-infos
+          flutter test --reporter expanded
+
+      - name: Gate 4 - Android release builds
+        run: |
+          flutter build apk --release
+          flutter build appbundle --release
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-and-data
+          path: |
+            build/data_report.md
+            build/route_regression.json
+            build/route_regression.png
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
+            assets/
+            test/fixtures/regression_routes.json
+            pubspec.lock
+
+  android-emulator-journey:
+    needs: data-and-android
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: android-and-data, path: artifact }
+      - run: cp -r artifact/assets/* assets/
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: subosito/flutter-action@v2
+        with: { channel: stable, cache: true }
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: Journey test on emulator with networking disabled
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          script: |
+            adb shell svc wifi disable; adb shell svc data disable
+            flutter test integration_test/offline_journey_test.dart -d emulator-5554
+
+  ios-build:
+    needs: data-and-android
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: android-and-data, path: artifact }
+      - run: cp -r artifact/assets/* assets/
+      - uses: subosito/flutter-action@v2
+        with: { channel: stable, cache: true }
+      - name: iOS build (unsigned - signing needs an Apple Developer team)
+        run: |
+          flutter pub get
+          cd ios && pod install && cd ..
+          flutter build ios --release --no-codesign
+          cd build/ios/iphoneos && mkdir Payload && cp -r Runner.app Payload/ && zip -qr ../TCI_Beach_Buddies_unsigned.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-unsigned
+          path: build/ios/TCI_Beach_Buddies_unsigned.ipa
