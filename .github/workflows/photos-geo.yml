@@ -1,0 +1,22 @@
+name: fetch-photo-candidates-geo
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [tools/photos/fetch_geo.py]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/photos/fetch_geo.py photo-candidates
+      - name: Publish
+        if: always()
+        run: |
+          cd photo-candidates && git init -q && git checkout -q -b photo-candidates-geo
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -q -m "geo candidates ${{ github.run_number }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" photo-candidates-geo
