@@ -601,14 +601,16 @@
       "category": "shopping",
       "aliases": [
         "Graceway Grand Turk",
-        "Graceway"
+        "Graceway",
+        "Cee's Supermarket"
       ],
       "fallback": [
-        -71.143,
-        21.462
+        -71.1443791,
+        21.4678873
       ],
       "description": "A full-service supermarket on Church Folly, Cockburn Town.",
-      "accessNotes": "Map position not yet verified (address: Church Folly, near the salinas)."
+      "accessNotes": "Location from Google Maps (Graceway Grand Turk, formerly Cee's Supermarket).",
+      "verifiedCoordinate": true
     },
     {
       "id": "grace-bay-pharmacy",
@@ -618,11 +620,12 @@
         "Grace Bay Pharmacy Grand Turk"
       ],
       "fallback": [
-        -71.143,
-        21.462
+        -71.1443603,
+        21.4677465
       ],
       "description": "A dispensing pharmacy next to Graceway on Church Folly, Cockburn Town.",
-      "accessNotes": "Map position not yet verified (address: Church Folly, near the salinas)."
+      "accessNotes": "Next to Graceway Supermarket. Location from Google Maps.",
+      "verifiedCoordinate": true
     },
     {
       "id": "clock-tower-park",
