@@ -52,17 +52,28 @@ QUERIES = {
     "_generic_island": ["Grand Turk Island", "Grand Turk Turks and Caicos"],
 }
 
-def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
+LOG = []
+
+def get(url, tries=5):
+    delay = 3.0
+    for attempt in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Encoding": "identity"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return r.read()
+        except Exception as e:
+            LOG.append(f"{type(e).__name__} {getattr(e, 'code', '')} attempt {attempt + 1}: {url[:140]}")
+            if attempt == tries - 1:
+                raise
+            time.sleep(delay)
+            delay *= 2
 
 def strip_html(s):
     return re.sub(r"<[^>]+>", "", s or "").strip()
 
 def search(q):
     params = dict(action="query", format="json", generator="search", gsrsearch=q, gsrnamespace="6",
-                  gsrlimit="10", prop="imageinfo", iiprop="url|mime|size|extmetadata", iiurlwidth="1024")
+                  gsrlimit="10", prop="imageinfo", iiprop="url|mime|size|extmetadata", iiurlwidth="960")
     data = json.loads(get(API + "?" + urllib.parse.urlencode(params)))
     pages = (data.get("query") or {}).get("pages") or {}
     out = []
@@ -97,8 +108,8 @@ def main(outdir):
                     if c["title"] not in seen:
                         seen.add(c["title"]); cands.append(c)
             except Exception as e:
-                print("search failed", pid, q, e)
-            time.sleep(0.5)
+                LOG.append(f"search failed {pid} {q}: {e}")
+            time.sleep(2.0)
         cands = cands[:4]
         os.makedirs(os.path.join(outdir, pid), exist_ok=True)
         for i, c in enumerate(cands):
@@ -109,9 +120,11 @@ def main(outdir):
                 c["file"] = f"{pid}/{i}.jpg"
             except Exception as e:
                 print("download failed", c["thumb"], e)
-            time.sleep(0.3)
+            time.sleep(1.5)
         result[pid] = cands
         print(pid, len(cands))
+    with open(os.path.join(outdir, "log.txt"), "w") as f:
+        f.write("\n".join(LOG))
     with open(os.path.join(outdir, "candidates.json"), "w") as f:
         json.dump(result, f, indent=1, ensure_ascii=False)
 

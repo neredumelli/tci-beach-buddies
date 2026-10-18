@@ -82,7 +82,19 @@ class SettingsScreen extends StatelessWidget {
                 leading: const Icon(Icons.campaign_outlined, color: BB.blue),
                 title: const Text('Test voice', style: _t),
                 subtitle: const Text("If silent: raise media volume or install an offline voice in the phone's text-to-speech settings"),
-                onTap: () => s.voice.speak('Welcome to Grand Turk. Voice guidance is working.'),
+                onTap: () async {
+                  final r = await s.voice.check();
+                  if (!context.mounted) return;
+                  showDialog<void>(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      icon: Icon(r.ok ? Icons.volume_up : Icons.volume_off, color: r.ok ? BB.go : BB.danger, size: 44),
+                      title: Text(r.ok ? 'Voice OK' : 'Voice not available'),
+                      content: Text(r.message),
+                      actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('OK'))],
+                    ),
+                  );
+                },
               ),
               SwitchListTile(
                 secondary: const Icon(Icons.vibration, color: BB.blue),
