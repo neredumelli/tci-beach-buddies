@@ -66,6 +66,9 @@ void main() {
 
     // A -> B: Home, search Lighthouse, Navigate. Route must start at A.
     await tapText(t, 'Home', last: true);
+    // Home keeps its scroll position (it was scrolled to reach Beaches).
+    await t.ensureVisible(find.byTooltip('Search destinations'));
+    await settle(t, 1);
     await t.tap(find.byTooltip('Search destinations'));
     await settle(t);
     await t.enterText(find.byType(TextField).last, 'lighthouse');

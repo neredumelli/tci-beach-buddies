@@ -30,7 +30,8 @@ class ArrivalScreen extends StatelessWidget {
           Expanded(
             child: ListView(padding: EdgeInsets.zero, children: [
               Stack(children: [
-                PlaceArt(poi: poi, height: 230, radius: 0),
+                // Full-width hero photo, ~40% of the screen height.
+                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.40).clamp(240.0, 420.0), radius: 0),
                 SafeArea(
                   child: IconButton(
                     tooltip: 'Home',

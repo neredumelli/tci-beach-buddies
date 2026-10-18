@@ -43,7 +43,7 @@ class DestinationDetailsScreen extends StatelessWidget {
             const SimulatedBanner(),
             Expanded(
               child: ListView(padding: EdgeInsets.zero, children: [
-                PlaceArt(poi: poi, height: 210, radius: 0),
+                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.36).clamp(220.0, 380.0), radius: 0),
                 if (Photos.of(poi.id) != null)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
