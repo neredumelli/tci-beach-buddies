@@ -1,0 +1,22 @@
+# Fetch Wikimedia Commons photo candidates (free licences) for review.
+name: fetch-photo-candidates
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [tools/photos/fetch_candidates.py]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/photos/fetch_candidates.py photo-candidates
+      - name: Publish candidates branch
+        run: |
+          cd photo-candidates && git init -q && git checkout -q -b photo-candidates
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -q -m "photo candidates run ${{ github.run_number }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" photo-candidates

@@ -7,7 +7,6 @@ import '../platform/location/location_source.dart';
 import 'app_services.dart';
 import 'shell.dart';
 import 'theme.dart';
-import '../shared/art.dart';
 
 class TciBeachBuddiesApp extends StatefulWidget {
   /// Injection points for tests (bundle and location source).
@@ -75,37 +74,32 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   }
 }
 
-/// 01 Splash / Welcome: brand + tropical scene + loading state.
+/// 01 Splash / Welcome - the approved design image from the v2.0
+/// walkthrough, used as-is (logo, tagline, beach and "Loading..." text);
+/// only the loading ring is drawn live so it animates.
 class _Splash extends StatelessWidget {
   const _Splash();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TropicalScene(
-        kind: SceneKind.beach,
-        seed: 7,
-        child: SafeArea(
-          child: Column(children: [
-            const Spacer(flex: 2),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 36),
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.85), borderRadius: BorderRadius.circular(22)),
-                child: Image.asset('assets/images/logo.png', semanticLabel: 'TCI Beach Buddies - Your guide to Grand Turk'),
+      backgroundColor: const Color(0xFF3FA2E6),
+      body: Semantics(
+        label: 'TCI Beach Buddies. Your guide to Grand Turk. Loading',
+        child: Stack(fit: StackFit.expand, children: [
+          Image.asset('assets/images/splash.jpg', fit: BoxFit.cover, alignment: Alignment.center),
+          // Ring sits where the design's ring was (88% down the image).
+          LayoutBuilder(builder: (context, c) {
+            final d = c.maxHeight * 0.058;
+            return Align(
+              alignment: const Alignment(0, 0.762),
+              child: SizedBox(
+                width: d,
+                height: d,
+                child: const CircularProgressIndicator(color: Colors.white, strokeWidth: 3),
               ),
-            ),
-            const SizedBox(height: 10),
-            const Text('Your Guide to Grand Turk',
-                style: TextStyle(color: BB.navy, fontSize: 20, fontWeight: FontWeight.w800,
-                    shadows: [Shadow(color: Colors.white, blurRadius: 6)])),
-            const Spacer(flex: 5),
-            const SizedBox(width: 30, height: 30, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 3)),
-            const SizedBox(height: 10),
-            const Text('Loading…', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 15)),
-            const SizedBox(height: 28),
-          ]),
-        ),
+            );
+          }),
+        ]),
       ),
     );
   }
