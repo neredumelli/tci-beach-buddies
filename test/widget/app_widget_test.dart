@@ -48,7 +48,7 @@ void main() {
     ));
     await t.pump();
     // Splash = the approved design image (logo, tagline, "Loading..." baked in) + live ring.
-    expect(find.bySemanticsLabel(RegExp('Your guide to Grand Turk')), findsOneWidget);
+    expect(find.byWidgetPredicate((w) => w is Image && w.image is AssetImage && (w.image as AssetImage).assetName == 'assets/images/splash.jpg'), findsOneWidget);
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
     await boot(t, pump: false);
     expect(find.text('Welcome to\nGrand Turk'), findsOneWidget);
