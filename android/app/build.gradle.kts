@@ -38,6 +38,15 @@ android {
     }
 
     signingConfigs {
+        // Fixed QA key so every CI build can be installed OVER the previous one
+        // (a fresh random debug key per build makes Android refuse the update).
+        // QA/testing only - store releases use android/key.properties.
+        getByName("debug") {
+            storeFile = rootProject.file("qa-debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
         if (keystoreProperties.containsKey("storeFile")) {
             create("release") {
                 keyAlias = keystoreProperties["keyAlias"] as String

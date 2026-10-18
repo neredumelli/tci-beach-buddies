@@ -20,3 +20,4 @@ tools/pipeline/tests/__pycache__/
 android/key.properties
 *.jks
 *.keystore
+!android/qa-debug.keystore
