@@ -113,7 +113,7 @@
     },
     {
       "id": "grand-turk-lighthouse",
-      "name": "Lighthouse",
+      "name": "Grand Turk Lighthouse",
       "category": "attraction",
       "aliases": [
         "Grand Turk Lighthouse",
@@ -142,7 +142,7 @@
     },
     {
       "id": "national-museum",
-      "name": "Turks and Caicos National Museum",
+      "name": "Turks & Caicos National Museum",
       "category": "historical",
       "aliases": [
         "Turks and Caicos National Museum",
@@ -175,14 +175,15 @@
     },
     {
       "id": "st-marys",
-      "name": "St. Mary’s Anglican Pro-Cathedral",
+      "name": "St. Mary's Anglican Church Pro-Cathedral",
       "category": "historical",
       "aliases": [
         "St. Mary's Pro-Cathedral",
         "St Mary's Pro-Cathedral",
         "St. Mary's Anglican Church",
         "St Mary's Church",
-        "St. Mary's"
+        "St. Mary's",
+        "St. Mary’s Anglican Pro-Cathedral"
       ],
       "fallback": [
         -71.145,
@@ -373,11 +374,12 @@
     },
     {
       "id": "jacks-shack",
-      "name": "Jack’s Shack Beach Bar & Grill",
+      "name": "Jack's Shack",
       "category": "restaurant",
       "aliases": [
         "Jack's Shack",
-        "Jacks Shack"
+        "Jacks Shack",
+        "Jack’s Shack Beach Bar & Grill"
       ],
       "fallback": [
         -71.1468,
@@ -496,11 +498,12 @@
     },
     {
       "id": "police-station",
-      "name": "Royal Turks and Caicos Police Station",
+      "name": "Royal Turks & Caicos Police Station",
       "category": "services",
       "aliases": [
         "\"A\" Division Police Station",
-        "A Division Police Station"
+        "A Division Police Station",
+        "Royal Turks and Caicos Police Station"
       ],
       "fallback": [
         -71.141,
@@ -536,12 +539,13 @@
     },
     {
       "id": "cibc-bank",
-      "name": "CIBC Caribbean (Bank)",
+      "name": "CIBC Bank",
       "category": "services",
       "aliases": [
         "FirstCaribbean",
         "CIBC FirstCaribbean",
-        "CIBC"
+        "CIBC",
+        "CIBC Caribbean (Bank)"
       ],
       "fallback": [
         -71.1465,
@@ -551,12 +555,13 @@
     },
     {
       "id": "barbies",
-      "name": "Barbie’s Bar & Restaurant",
+      "name": "Barbie's Bar & Restaurant",
       "category": "restaurant",
       "aliases": [
         "Barbies Restaurant",
         "Barbie's Restaurant",
-        "Barbies Bar"
+        "Barbies Bar",
+        "Barbie’s Bar & Restaurant"
       ],
       "fallback": [
         -71.145,
@@ -582,10 +587,11 @@
     },
     {
       "id": "john-glenn-exhibit",
-      "name": "John Glenn Splashdown Exhibit",
+      "name": "John Glenn Splashdown Monument",
       "category": "attraction",
       "aliases": [
-        "Splashdown Grand Turk"
+        "Splashdown Grand Turk",
+        "John Glenn Splashdown Exhibit"
       ],
       "fallback": [
         -71.144569,
@@ -597,12 +603,13 @@
     },
     {
       "id": "graceway-supermarket",
-      "name": "Graceway Supermarket",
+      "name": "Graceway Smart Supermarket",
       "category": "shopping",
       "aliases": [
         "Graceway Grand Turk",
         "Graceway",
-        "Cee's Supermarket"
+        "Cee's Supermarket",
+        "Graceway Supermarket"
       ],
       "fallback": [
         -71.1443791,
@@ -614,10 +621,11 @@
     },
     {
       "id": "grace-bay-pharmacy",
-      "name": "Grace Bay Pharmacy",
+      "name": "Gracebay Pharmacy",
       "category": "services",
       "aliases": [
-        "Grace Bay Pharmacy Grand Turk"
+        "Grace Bay Pharmacy Grand Turk",
+        "Grace Bay Pharmacy"
       ],
       "fallback": [
         -71.1443603,
@@ -633,14 +641,16 @@
       "category": "attraction",
       "aliases": [
         "Millennium Clock Tower",
-        "Clock Tower"
+        "Clock Tower",
+        "Clockhouse Public Park"
       ],
       "fallback": [
-        -71.146,
-        21.464
+        -71.145797,
+        21.469863
       ],
-      "description": "A small park with the Millennium Clock Tower in Cockburn Town.",
-      "accessNotes": "Map position not yet verified."
+      "description": "A small public park with a clock tower on Hospital Road, Cockburn Town.",
+      "accessNotes": "Listed on Google Maps as Clockhouse Public Park (plus code FV93+WMW).",
+      "verifiedCoordinate": true
     },
     {
       "id": "cockburn-town-liquors",
