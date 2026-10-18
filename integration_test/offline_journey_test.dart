@@ -31,7 +31,7 @@ void main() {
 
   testWidgets('offline Cruise -> A -> B -> Return to Cruise Port through the UI', (t) async {
     await t.pumpWidget(const TciBeachBuddiesApp());
-    await settle(t, 6);
+    await settle(t, 10);
     expect(find.byType(MainShell), findsOneWidget);
     expect(find.text('Offline ready'), findsOneWidget, reason: 'bundle must verify on device');
     expect(find.text('RETURN TO CRUISE PORT'), findsOneWidget);

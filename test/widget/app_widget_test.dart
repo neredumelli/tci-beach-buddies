@@ -24,7 +24,7 @@ Future<void> boot(WidgetTester t, {String root = syntheticRoot, LocationPermissi
   }
   // 01 Splash: bundle files are read with real IO; the splash also has a
   // minimum display time. Alternate real waits and fake-time pumps.
-  for (var i = 0; i < 60 && find.byType(MainShell).evaluate().isEmpty; i++) {
+  for (var i = 0; i < 120 && find.byType(MainShell).evaluate().isEmpty; i++) {
     await t.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 30)));
     await t.pump(const Duration(milliseconds: 100));
   }

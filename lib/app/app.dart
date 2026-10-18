@@ -31,7 +31,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   }
 
   Future<AppServices> _init() async {
-    final minSplash = Future<void>.delayed(const Duration(milliseconds: 1200));
+    final minSplash = Future<void>.delayed(const Duration(seconds: 5));
     final settings = AppSettings();
     await settings.load();
     await Photos.load(widget.bundle?.assets); // same asset source as the offline bundle
