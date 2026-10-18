@@ -214,7 +214,8 @@ class PlaceCard extends StatelessWidget {
 
 /// Straight-line distance from the current GOOD fix, or null (screen 04 rule:
 /// "Distance only appears when a valid GPS position is available").
-String? directDistance(BuildContext context, GeoPoint to) {
+String? directDistance(BuildContext context, GeoPoint to, {bool verified = true}) {
+  if (!verified) return null;
   final s = AppScope.of(context);
   final st = s.location.status;
   final f = s.location.latestFix;

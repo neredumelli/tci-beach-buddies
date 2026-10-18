@@ -23,7 +23,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
   @override
   Widget build(BuildContext context) {
     final s = AppScope.of(context);
-    final list = s.destinations.where((p) => p.id != widget.excludeId && (_cat == null || p.category == _cat)).toList()
+    final list = s.destinations.where((p) => p.locationVerified && p.id != widget.excludeId && (_cat == null || p.category == _cat)).toList()
       ..sort((a, b) => haversineM(widget.from, a.display).compareTo(haversineM(widget.from, b.display)));
     return Scaffold(
       appBar: AppBar(title: const Text('Nearby Places')),

@@ -79,7 +79,7 @@ class _MapScreenState extends State<MapScreen> {
                         controller: _map,
                         basemap: basemap,
                         bounds: s.coverage,
-                        pois: s.pois,
+                        pois: s.pois.where((p) => p.locationVerified).toList(),
                         selectedPoiId: _selected?.id,
                         onPoiTap: (p) => setState(() => _selected = p),
                         onMapTap: () => setState(() => _selected = null),

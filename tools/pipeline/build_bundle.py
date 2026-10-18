@@ -389,12 +389,16 @@ def match_poi(entry, cands):
         for c in cands:
             if c["highway"] and not allow_hw:
                 continue
+            if c["tags"].get("place") in ("island", "islet", "archipelago") or c["tags"].get("boundary"):
+                continue
             ok = False
             for n in c["names"]:
                 nn = norm(n)
                 if tier == 1 and nn in aliases:
                     ok = True
-                if tier == 2 and any(len(a) >= 6 and (a in nn or nn in a) and len(nn) >= 6 for a in aliases):
+                # Partial match only when the OSM name CONTAINS the alias (never the
+                # reverse: "Graceway Grand Turk" must not match the island "Grand Turk").
+                if tier == 2 and any(len(a) >= 6 and a in nn for a in aliases):
                     ok = True
             if not ok:
                 continue

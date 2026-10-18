@@ -37,7 +37,7 @@ class DestinationDetailsScreen extends StatelessWidget {
       body: ListenableBuilder(
         listenable: Listenable.merge([s.location, s.settings]),
         builder: (context, _) {
-          final dist = directDistance(context, poi.display);
+          final dist = directDistance(context, poi.display, verified: poi.locationVerified);
           final navEnabled = poi.canNavigate && s.bundle.navigationAvailable;
           return Column(children: [
             const SimulatedBanner(),

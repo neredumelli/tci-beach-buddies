@@ -86,7 +86,7 @@ void main() {
     await settle(t);
     await t.enterText(find.byType(TextField), 'lighthouse');
     await t.pump();
-    expect(find.text('Grand Turk Lighthouse'), findsOneWidget);
+    expect(find.text('Lighthouse'), findsOneWidget);
     await t.enterText(find.byType(TextField), 'zzzz');
     await t.pump();
     expect(find.text('No destinations match your search.'), findsOneWidget);

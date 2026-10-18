@@ -82,7 +82,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         final p = results[i];
                         return PlaceCard(
                           poi: p,
-                          distance: gps ? s.settings.formatDistance(haversineM(here!, p.display)) : null,
+                          distance: (gps && p.locationVerified) ? s.settings.formatDistance(haversineM(here!, p.display)) : null,
                           onTap: () => widget.pickerMode ? Navigator.pop(context, p) : openDetails(context, p),
                         );
                       },

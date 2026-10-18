@@ -51,7 +51,7 @@ class DestinationListScreen extends StatelessWidget {
               final p = items[i - 1];
               return PlaceCard(
                 poi: p,
-                distance: gps ? s.settings.formatDistance(haversineM(here!, p.display)) : null,
+                distance: (gps && p.locationVerified) ? s.settings.formatDistance(haversineM(here!, p.display)) : null,
                 onTap: () => openDetails(context, p),
               );
             },

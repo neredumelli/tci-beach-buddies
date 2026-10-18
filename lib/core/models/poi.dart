@@ -88,6 +88,10 @@ class Poi {
   bool get isApproved => approvalStatus == 'approved';
   bool get canNavigate => routable && approach != null;
 
+  /// False when the map position is a placeholder awaiting verification:
+  /// such places are listed but never pinned on the map or given a distance.
+  bool get locationVerified => locationSource != 'register-unverified';
+
   factory Poi.fromJson(Map<String, dynamic> j) {
     final ap = j['approach'];
     return Poi(

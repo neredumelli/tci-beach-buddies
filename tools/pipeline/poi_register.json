@@ -39,16 +39,20 @@
     },
     {
       "id": "pillory-beach",
-      "name": "Pillory Beach",
+      "name": "Guanahani Beach (Pillory Beach)",
       "category": "beach",
       "aliases": [
-        "Pillory Beach"
+        "Pillory Beach",
+        "Guanahani Beach"
       ],
       "fallback": [
-        -71.1478,
-        21.479
+        -71.1486,
+        21.4731
       ],
-      "description": "A calm, sandy beach north of Cockburn Town with good snorkelling close to shore."
+      "description": "A calm white-sand beach north of Cockburn Town, officially renamed Guanahani Beach in 1992. Good snorkelling close to shore.",
+      "verifiedCoordinate": true,
+      "accessNotes": "Access: the small parking area at the north end of Front Street (source: visittci.com).",
+      "facts": "Guanahani was the Taíno name for the island where Columbus first landed in 1492."
     },
     {
       "id": "osprey-beach",
@@ -109,7 +113,7 @@
     },
     {
       "id": "grand-turk-lighthouse",
-      "name": "Grand Turk Lighthouse",
+      "name": "Lighthouse",
       "category": "attraction",
       "aliases": [
         "Grand Turk Lighthouse",
@@ -138,7 +142,7 @@
     },
     {
       "id": "national-museum",
-      "name": "Turks & Caicos National Museum",
+      "name": "Turks and Caicos National Museum",
       "category": "historical",
       "aliases": [
         "Turks and Caicos National Museum",
@@ -155,7 +159,7 @@
     },
     {
       "id": "hm-prison",
-      "name": "Her Majesty's Prison",
+      "name": "H.M. Prison Museum",
       "category": "historical",
       "aliases": [
         "Her Majesty's Prison",
@@ -167,11 +171,11 @@
         -71.144,
         21.4598
       ],
-      "description": "A historic former prison building in Cockburn Town."
+      "description": "The 19th-century Her Majesty’s Prison, now a museum where visitors can see the old cells and courtyard."
     },
     {
       "id": "st-marys",
-      "name": "St. Mary's Pro-Cathedral",
+      "name": "St. Mary’s Anglican Pro-Cathedral",
       "category": "historical",
       "aliases": [
         "St. Mary's Pro-Cathedral",
@@ -184,7 +188,7 @@
         -71.145,
         21.464
       ],
-      "description": "A historic Anglican church near the Cockburn Town waterfront."
+      "description": "St. Mary’s Anglican Pro-Cathedral, a historic church on the Cockburn Town waterfront."
     },
     {
       "id": "st-thomas",
@@ -194,7 +198,8 @@
         "St. Thomas Anglican Church",
         "St Thomas Church",
         "St. Thomas Church",
-        "St Thomas Anglican Church"
+        "St Thomas Anglican Church",
+        "Saint Thomas Rectory"
       ],
       "fallback": [
         -71.1425,
@@ -368,7 +373,7 @@
     },
     {
       "id": "jacks-shack",
-      "name": "Jack's Shack",
+      "name": "Jack’s Shack Beach Bar & Grill",
       "category": "restaurant",
       "aliases": [
         "Jack's Shack",
@@ -382,7 +387,7 @@
     },
     {
       "id": "sand-bar",
-      "name": "The Sand Bar",
+      "name": "Sandbar Restaurant",
       "category": "restaurant",
       "aliases": [
         "The Sand Bar",
@@ -478,7 +483,7 @@
     },
     {
       "id": "medical-centre",
-      "name": "Cockburn Town Medical Centre",
+      "name": "Hospital",
       "category": "services",
       "aliases": [
         "Cockburn Town Medical Centre"
@@ -487,11 +492,11 @@
         -71.144,
         21.468
       ],
-      "description": "Medical centre in Cockburn Town. In an emergency, call 911."
+      "description": "Grand Turk’s hospital (Cockburn Town Medical Centre), with emergency care. In an emergency, call 911."
     },
     {
       "id": "police-station",
-      "name": "Police Station",
+      "name": "Royal Turks and Caicos Police Station",
       "category": "services",
       "aliases": [
         "\"A\" Division Police Station",
@@ -528,6 +533,111 @@
         21.462
       ],
       "description": "Bank in Cockburn Town."
+    },
+    {
+      "id": "cibc-bank",
+      "name": "CIBC Caribbean (Bank)",
+      "category": "services",
+      "aliases": [
+        "FirstCaribbean",
+        "CIBC FirstCaribbean",
+        "CIBC"
+      ],
+      "fallback": [
+        -71.1465,
+        21.4655
+      ],
+      "description": "CIBC Caribbean (FirstCaribbean) bank branch with ATM in Cockburn Town."
+    },
+    {
+      "id": "barbies",
+      "name": "Barbie’s Bar & Restaurant",
+      "category": "restaurant",
+      "aliases": [
+        "Barbies Restaurant",
+        "Barbie's Restaurant",
+        "Barbies Bar"
+      ],
+      "fallback": [
+        -71.145,
+        21.46
+      ],
+      "description": "A local bar and restaurant serving island food."
+    },
+    {
+      "id": "freemason-lodge",
+      "name": "Freemason Lodge",
+      "category": "historical",
+      "aliases": [
+        "Masonic Lodge"
+      ],
+      "fallback": [
+        -71.147385,
+        21.470794
+      ],
+      "verifiedCoordinate": true,
+      "description": "The historic Grand Turk Masonic Lodge on Front Street at Freemason Alley, built of hand-cut limestone.",
+      "facts": "The lodge opened in 1855 and was founded by Frederick Forth, the first president of the Turks and Caicos Islands.",
+      "accessNotes": "View from outside - meetings are closed to the public."
+    },
+    {
+      "id": "john-glenn-exhibit",
+      "name": "John Glenn Splashdown Exhibit",
+      "category": "attraction",
+      "aliases": [
+        "Splashdown Grand Turk"
+      ],
+      "fallback": [
+        -71.144569,
+        21.426599
+      ],
+      "verifiedCoordinate": true,
+      "description": "An exhibit at the Cruise Center about NASA’s Mercury programme and John Glenn’s Friendship 7 flight.",
+      "facts": "After the first American orbital flight in February 1962, John Glenn’s Friendship 7 capsule splashed down near Grand Turk."
+    },
+    {
+      "id": "graceway-supermarket",
+      "name": "Graceway Supermarket",
+      "category": "shopping",
+      "aliases": [
+        "Graceway Grand Turk",
+        "Graceway"
+      ],
+      "fallback": [
+        -71.143,
+        21.462
+      ],
+      "description": "A full-service supermarket on Church Folly, Cockburn Town.",
+      "accessNotes": "Map position not yet verified (address: Church Folly, near the salinas)."
+    },
+    {
+      "id": "grace-bay-pharmacy",
+      "name": "Grace Bay Pharmacy",
+      "category": "services",
+      "aliases": [
+        "Grace Bay Pharmacy Grand Turk"
+      ],
+      "fallback": [
+        -71.143,
+        21.462
+      ],
+      "description": "A dispensing pharmacy next to Graceway on Church Folly, Cockburn Town.",
+      "accessNotes": "Map position not yet verified (address: Church Folly, near the salinas)."
+    },
+    {
+      "id": "clock-tower-park",
+      "name": "Clock Tower Park",
+      "category": "attraction",
+      "aliases": [
+        "Millennium Clock Tower",
+        "Clock Tower"
+      ],
+      "fallback": [
+        -71.146,
+        21.464
+      ],
+      "description": "A small park with the Millennium Clock Tower in Cockburn Town.",
+      "accessNotes": "Map position not yet verified."
     }
   ]
 }
