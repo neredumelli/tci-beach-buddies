@@ -121,7 +121,9 @@ jobs:
           target: google_apis
           script: |
             adb shell svc wifi disable; adb shell svc data disable
-            mkdir -p emu-logs; flutter test integration_test/offline_journey_test.dart -d emulator-5554 > emu-logs/journey.txt 2>&1; echo $? > emu-logs/status.txt; tail -80 emu-logs/journey.txt; exit $(cat emu-logs/status.txt)
+            mkdir -p emu-logs; (adb shell settings get secure tts_default_synth; adb shell pm list packages | grep -i -E 'tts|speech') > emu-logs/tts-device.txt 2>&1 || true
+            flutter test integration_test/voice_check_test.dart -d emulator-5554 > emu-logs/voice.txt 2>&1 || true; grep VOICE emu-logs/voice.txt || tail -30 emu-logs/voice.txt
+            flutter test integration_test/offline_journey_test.dart -d emulator-5554 > emu-logs/journey.txt 2>&1; echo $? > emu-logs/status.txt; tail -80 emu-logs/journey.txt; exit $(cat emu-logs/status.txt)
       - name: Publish emulator logs
         if: always()
         run: |
