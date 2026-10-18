@@ -97,10 +97,14 @@ def search(q):
         ))
     return out
 
+ONLY = [x for x in os.environ.get("ONLY_IDS", "").split(",") if x]
+
 def main(outdir):
     os.makedirs(outdir, exist_ok=True)
     result = {}
     for pid, qs in QUERIES.items():
+        if ONLY and pid not in ONLY:
+            continue
         seen, cands = set(), []
         for q in qs:
             try:
@@ -109,7 +113,7 @@ def main(outdir):
                         seen.add(c["title"]); cands.append(c)
             except Exception as e:
                 LOG.append(f"search failed {pid} {q}: {e}")
-            time.sleep(2.0)
+            time.sleep(6.0)
         cands = cands[:4]
         os.makedirs(os.path.join(outdir, pid), exist_ok=True)
         for i, c in enumerate(cands):

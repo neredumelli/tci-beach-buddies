@@ -1,1 +1,72 @@
-{}
+{
+ "grand-turk-lighthouse": {
+  "file": "grand-turk-lighthouse.jpg",
+  "title": "Grand Turk Lighthouse - 51364031267.jpg",
+  "author": "Stabbur's Master",
+  "license": "CC BY-SA 2.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg"
+ },
+ "front-street": {
+  "file": "front-street.jpg",
+  "title": "Cockburn Town, Grand Turk.jpg",
+  "author": "Peacemonger",
+  "license": "Public domain",
+  "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk.jpg"
+ },
+ "national-museum": {
+  "file": "national-museum.jpg",
+  "title": "Turks & Caicos National Museum.jpg",
+  "author": "TampAGS, for AGS Media",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Turks_%26_Caicos_National_Museum.jpg"
+ },
+ "columbus-landfall": {
+  "file": "columbus-landfall.jpg",
+  "title": "Columbus Landfall Beach.jpg",
+  "author": "Drdread66",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Columbus_Landfall_Beach.jpg"
+ },
+ "north-creek": {
+  "file": "north-creek.jpg",
+  "title": "North Creek, Grand Turk - panoramio.jpg",
+  "author": "socaltraveler",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:North_Creek,_Grand_Turk_-_panoramio.jpg"
+ },
+ "margaritaville": {
+  "file": "margaritaville.jpg",
+  "title": "Margaritaville, Grand Turk (8623236047).jpg",
+  "author": "Jonathan Palombo",
+  "license": "CC BY 2.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Margaritaville,_Grand_Turk_(8623236047).jpg"
+ },
+ "jags-mccartney-airport": {
+  "file": "jags-mccartney-airport.jpg",
+  "title": "Grand Turk Friendship 7 replica.jpg",
+  "author": "[en:User:Rickyrab], adapted User:Hogweard",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Friendship_7_replica.jpg"
+ },
+ "grand-turk-cruise-center": {
+  "file": "grand-turk-cruise-center.jpg",
+  "title": "Grand Turk Cruise Center - panoramio.jpg",
+  "author": "socaltraveler",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg"
+ },
+ "cockburn-town": {
+  "file": "cockburn-town.jpg",
+  "title": "Cockburn Town, Grand Turk - panoramio (9).jpg",
+  "author": "socaltraveler",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg"
+ },
+ "osprey-beach": {
+  "file": "osprey-beach.jpg",
+  "title": "Cockburn Town Beach.jpg",
+  "author": "Drdread66",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town_Beach.jpg"
+ }
+}
