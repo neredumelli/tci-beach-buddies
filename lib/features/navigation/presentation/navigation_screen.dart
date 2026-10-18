@@ -142,11 +142,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       WidgetsBinding.instance.addPostFrameCallback((_) => _onNav());
                     },
                   ),
-                SafeArea(
-                  bottom: false,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
-                    child: _ManeuverBanner(nav: _nav, loc: _loc, onBack: () => Navigator.of(context).maybePop()),
+                // Pinned to the top and sized to its content, so the map stays visible.
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: SafeArea(
+                    bottom: false,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
+                      child: _ManeuverBanner(nav: _nav, loc: _loc, onBack: () => Navigator.of(context).maybePop()),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -267,7 +273,7 @@ class _ManeuverBanner extends StatelessWidget {
             Icon(icon, color: Colors.white, size: 50),
           const SizedBox(width: 12),
           Expanded(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(big, maxLines: 2, overflow: TextOverflow.ellipsis,
                   style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w800)),
               if (small.isNotEmpty)
