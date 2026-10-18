@@ -641,6 +641,22 @@
       ],
       "description": "A small park with the Millennium Clock Tower in Cockburn Town.",
       "accessNotes": "Map position not yet verified."
+    },
+    {
+      "id": "cockburn-town-liquors",
+      "name": "Cockburn Town Liquors",
+      "category": "shopping",
+      "aliases": [
+        "Grand Turk Liquors",
+        "Liquor store"
+      ],
+      "fallback": [
+        -71.1461789,
+        21.4616945
+      ],
+      "verifiedCoordinate": true,
+      "description": "A liquor store in Cockburn Town.",
+      "accessNotes": "Listed on Google Maps as Grand Turk Liquors. Location from Google Maps."
     }
   ]
 }
