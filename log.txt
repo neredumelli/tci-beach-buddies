@@ -1,0 +1,9 @@
+HTTPError 429 attempt 1: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Grand+Turk+prison&gsrnamespace=6&gsrlimit=10&pro
+HTTPError 429 attempt 2: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Grand+Turk+prison&gsrnamespace=6&gsrlimit=10&pro
+HTTPError 429 attempt 1: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Town+Salina+Grand+Turk&gsrnamespace=6&gsrlimit=1
+HTTPError 429 attempt 2: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Town+Salina+Grand+Turk&gsrnamespace=6&gsrlimit=1
+HTTPError 429 attempt 3: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Town+Salina+Grand+Turk&gsrnamespace=6&gsrlimit=1
+HTTPError 429 attempt 4: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Town+Salina+Grand+Turk&gsrnamespace=6&gsrlimit=1
+HTTPError 429 attempt 1: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Grand+Turk+hospital&gsrnamespace=6&gsrlimit=10&p
+HTTPError 429 attempt 2: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Grand+Turk+hospital&gsrnamespace=6&gsrlimit=10&p
+HTTPError 429 attempt 3: https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Grand+Turk+hospital&gsrnamespace=6&gsrlimit=10&p
