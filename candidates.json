@@ -1,0 +1,1895 @@
+{
+ "pillory-beach": [
+  {
+   "source": "openverse:flickr",
+   "title": "Shells on Pillory Beach Grand Turk",
+   "url": "https://live.staticflickr.com/1526/24972026113_108367ff5b_b.jpg",
+   "landing": "https://www.flickr.com/photos/22590293@N03/24972026113",
+   "license": "BY 2.0",
+   "creator": "kanu101",
+   "description": "beach, grandturk, sand, sea, shells",
+   "coord": null,
+   "why": "openverse: Pillory Beach Grand Turk",
+   "distanceM": null,
+   "file": "pillory-beach/0.jpg"
+  }
+ ],
+ "boaby-rock-beach": [
+  {
+   "source": "commons",
+   "title": "File:Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Grand_Turk_-_panoramio_%281%29.jpg/960px-Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "James Willamor",
+   "description": "Grand Turk",
+   "coord": [
+    21.422984,
+    -71.14222
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 118,
+   "file": "boaby-rock-beach/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%284%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(4).jpg",
+   "license": "CC BY 3.0",
+   "creator": "Dameon Hudson",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.4225,
+    -71.1425
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 178,
+   "file": "boaby-rock-beach/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%285%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(5).jpg",
+   "license": "CC BY 3.0",
+   "creator": "Dameon Hudson",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.4225,
+    -71.143056
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 218,
+   "file": "boaby-rock-beach/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, South Beach - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Grand_Turk%2C_South_Beach_-_panoramio.jpg/960px-Grand_Turk%2C_South_Beach_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_South_Beach_-_panoramio.jpg",
+   "license": "CC BY 3.0",
+   "creator": "Banja-Frans Mulder",
+   "description": "Grand Turk, South Beach",
+   "coord": [
+    21.427414,
+    -71.145186
+   ],
+   "why": "commons: Grand Turk south beach",
+   "distanceM": 557,
+   "file": "boaby-rock-beach/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Columbus Landfall Beach.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Columbus_Landfall_Beach.jpg/960px-Columbus_Landfall_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Columbus_Landfall_Beach.jpg",
+   "license": "CC BY-SA 4.0",
+   "creator": "Drdread66",
+   "description": "Looking east at Columbus Landfall Beach, on the south side of Grand Turk",
+   "coord": null,
+   "why": "commons: Grand Turk south beach",
+   "distanceM": null,
+   "file": "boaby-rock-beach/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town Beach.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Cockburn_Town_Beach.jpg/960px-Cockburn_Town_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town_Beach.jpg",
+   "license": "CC BY-SA 4.0",
+   "creator": "Drdread66",
+   "description": "Looking north along Cockburn Town Beach, near the south end of Duke Rd.",
+   "coord": null,
+   "why": "commons: Grand Turk south beach",
+   "distanceM": null,
+   "file": "boaby-rock-beach/5.jpg"
+  },
+  {
+   "source": "openverse:wikimedia",
+   "title": "Grand Turk, South Beach - panoramio",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Grand_Turk%2C_South_Beach_-_panoramio.jpg",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=59695606",
+   "license": "BY 3.0",
+   "creator": "Banja-Frans Mulder",
+   "description": "",
+   "coord": null,
+   "why": "openverse: Grand Turk south beach",
+   "distanceM": null,
+   "file": "boaby-rock-beach/6.jpg"
+  },
+  {
+   "source": "openverse:flickr",
+   "title": "San Salvador Island welcome sign",
+   "url": "https://live.staticflickr.com/8585/15784299310_f89d8d8443_b.jpg",
+   "landing": "https://www.flickr.com/photos/47445767@N05/15784299310",
+   "license": "BY 2.0",
+   "creator": "James St. John",
+   "description": "bahamas, christopher, columbus, island, landfall, salvador, san, beach, building, guidance, outdoors, road, signal, signalise, street",
+   "coord": null,
+   "why": "openverse: Grand Turk south beach",
+   "distanceM": null,
+   "file": "boaby-rock-beach/7.jpg"
+  },
+  {
+   "source": "openverse:wikimedia",
+   "title": "Columbus Landfall Beach",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Columbus_Landfall_Beach.jpg",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=107987287",
+   "license": "BY-SA 4.0",
+   "creator": "Drdread66",
+   "description": "",
+   "coord": null,
+   "why": "openverse: Grand Turk south beach",
+   "distanceM": null,
+   "file": "boaby-rock-beach/8.jpg"
+  }
+ ],
+ "white-sands-beach": [
+  {
+   "source": "openverse:flickr",
+   "title": "Pier on Horsestable Beach",
+   "url": "https://live.staticflickr.com/1487/25303115820_3817feb90a_b.jpg",
+   "landing": "https://www.flickr.com/photos/22590293@N03/25303115820",
+   "license": "BY 2.0",
+   "creator": "kanu101",
+   "description": "caribbean, grandturk, pier, sea",
+   "coord": null,
+   "why": "openverse: White Sands Beach Grand Turk",
+   "distanceM": null,
+   "file": "white-sands-beach/0.jpg"
+  }
+ ],
+ "hm-prison": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468416,
+    -71.146823
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 78,
+   "file": "hm-prison/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (8).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(8).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46875,
+    -71.146833
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 80,
+   "file": "hm-prison/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468525,
+    -71.14686
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 80,
+   "file": "hm-prison/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (6).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(6).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468356,
+    -71.146855
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 83,
+   "file": "hm-prison/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(4).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46883,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 88,
+   "file": "hm-prison/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(5).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46876,
+    -71.146941
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 91,
+   "file": "hm-prison/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (9).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468715,
+    -71.147021
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 98,
+   "file": "hm-prison/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468845,
+    -71.146989
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 98,
+   "file": "hm-prison/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (7).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(7).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469124,
+    -71.147005
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 114,
+   "file": "hm-prison/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469149,
+    -71.147026
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 117,
+   "file": "hm-prison/9.jpg"
+  }
+ ],
+ "st-marys": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (6).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(6).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468356,
+    -71.146855
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 100,
+   "file": "st-marys/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468416,
+    -71.146823
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 105,
+   "file": "st-marys/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468525,
+    -71.14686
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 118,
+   "file": "st-marys/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (8).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(8).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46875,
+    -71.146833
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 140,
+   "file": "st-marys/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (9).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468715,
+    -71.147021
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 144,
+   "file": "st-marys/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(5).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46876,
+    -71.146941
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 145,
+   "file": "st-marys/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(4).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46883,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 151,
+   "file": "st-marys/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468845,
+    -71.146989
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 156,
+   "file": "st-marys/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (7).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(7).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469124,
+    -71.147005
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 185,
+   "file": "st-marys/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469149,
+    -71.147026
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 189,
+   "file": "st-marys/9.jpg"
+  }
+ ],
+ "waterloo": [],
+ "odd-fellows-lodge": [],
+ "victoria-library": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468416,
+    -71.146823
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 29,
+   "file": "victoria-library/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468525,
+    -71.14686
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 29,
+   "file": "victoria-library/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (6).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(6).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468356,
+    -71.146855
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 35,
+   "file": "victoria-library/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (8).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(8).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46875,
+    -71.146833
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 35,
+   "file": "victoria-library/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(5).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46876,
+    -71.146941
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 45,
+   "file": "victoria-library/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(4).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46883,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 46,
+   "file": "victoria-library/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (9).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468715,
+    -71.147021
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 50,
+   "file": "victoria-library/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468845,
+    -71.146989
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 54,
+   "file": "victoria-library/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (7).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(7).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469124,
+    -71.147005
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 79,
+   "file": "victoria-library/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469149,
+    -71.147026
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 82,
+   "file": "victoria-library/9.jpg"
+  }
+ ],
+ "town-salina": [
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos (MODIS 2025-01-28).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Turks_and_Caicos_%28MODIS_2025-01-28%29.jpg/960px-Turks_and_Caicos_%28MODIS_2025-01-28%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_(MODIS_2025-01-28).jpg",
+   "license": "Public domain",
+   "creator": "MODIS Land Rapid Response Team, NASA GSFC",
+   "description": "Sandwiched between the islands of Hispaniola, Cuba, and The Bahamas sits a cluster of islands known as the Turks and Caicos. The group, which is a British Overseas Territory, is made up of more than 40 islands, islets, and cays, most of which remain uninhabited. The islands, which altogether cover a",
+   "coord": null,
+   "why": "commons: Town Salina Grand Turk",
+   "distanceM": null,
+   "file": "town-salina/0.jpg"
+  }
+ ],
+ "red-salina": [
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos (MODIS 2025-01-28).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Turks_and_Caicos_%28MODIS_2025-01-28%29.jpg/960px-Turks_and_Caicos_%28MODIS_2025-01-28%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_(MODIS_2025-01-28).jpg",
+   "license": "Public domain",
+   "creator": "MODIS Land Rapid Response Team, NASA GSFC",
+   "description": "Sandwiched between the islands of Hispaniola, Cuba, and The Bahamas sits a cluster of islands known as the Turks and Caicos. The group, which is a British Overseas Territory, is made up of more than 40 islands, islets, and cays, most of which remain uninhabited. The islands, which altogether cover a",
+   "coord": null,
+   "why": "commons: salt pond Grand Turk",
+   "distanceM": null,
+   "file": "red-salina/0.jpg"
+  }
+ ],
+ "hawks-nest-salina": [],
+ "gibbs-cay": [
+  {
+   "source": "commons",
+   "title": "File:ISS-50 Grand Turk Island.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/ISS-50_Grand_Turk_Island.jpg/960px-ISS-50_Grand_Turk_Island.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:ISS-50_Grand_Turk_Island.jpg",
+   "license": "Public domain",
+   "creator": "NASA",
+   "description": "The Grand Turk Island in the Turks and Caicos Islands is photographed by crew members aboard the International Space Station. Photographs from the station record how the planet is changing over time, from human-caused changes like urban growth and reservoir construction, to natural dynamic events su",
+   "coord": null,
+   "why": "commons: Gibbs Cay",
+   "distanceM": null,
+   "file": "gibbs-cay/0.jpg"
+  }
+ ],
+ "jacks-shack": [
+  {
+   "source": "commons",
+   "title": "File:Governor's Beach - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Governor%27s_Beach_-_panoramio_%282%29.jpg/960px-Governor%27s_Beach_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Governor%27s_Beach_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Governor's Beach",
+   "coord": [
+    21.431888,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 120,
+   "file": "jacks-shack/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Governor's Beach - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Governor%27s_Beach_-_panoramio_%281%29.jpg/960px-Governor%27s_Beach_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Governor%27s_Beach_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Governor's Beach",
+   "coord": [
+    21.431219,
+    -71.146656
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 198,
+   "file": "jacks-shack/1.jpg"
+  },
+  {
+   "source": "openverse:flickr",
+   "title": "Topher, the Famous Mascot of Jack’s Shack, Grand Turk",
+   "url": "https://live.staticflickr.com/4749/39589560184_1c128c2d86_b.jpg",
+   "landing": "https://www.flickr.com/photos/106134999@N08/39589560184",
+   "license": "BY 2.0",
+   "creator": "Michael Au Photography",
+   "description": "beach, caribbean, carnival, dog, grandturk, jacksshack, mascot, sand, topher, vista",
+   "coord": null,
+   "why": "openverse: Jack's Shack Grand Turk",
+   "distanceM": null,
+   "file": "jacks-shack/2.jpg"
+  }
+ ],
+ "sand-bar": [],
+ "salt-raker-inn": [
+  {
+   "source": "commons",
+   "title": "File:Salter Rake Gate near Hey Head Green - geograph.org.uk - 430850.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Salter_Rake_Gate_near_Hey_Head_Green_-_geograph.org.uk_-_430850.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "landing": "https://commons.wikimedia.org/wiki/File:Salter_Rake_Gate_near_Hey_Head_Green_-_geograph.org.uk_-_430850.jpg",
+   "license": "CC BY-SA 2.0",
+   "creator": "Phil Champion",
+   "description": "Salter Rake Gate near Hey Head Green Salter Rake Gate is an ancient packhorse track and forms part of the Pennine Bridleway. The building top left is the Shepherd's Rest pub",
+   "coord": [
+    53.7039,
+    -2.084
+   ],
+   "why": "commons: Salt Raker Inn",
+   "distanceM": 6732240,
+   "file": "salt-raker-inn/0.jpg"
+  }
+ ],
+ "shoprite-grocery": [],
+ "ron-jon-surf-shop": [
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%283%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(3).jpg",
+   "license": "CC BY 3.0",
+   "creator": "Dameon Hudson",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.426944,
+    -71.144167
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 38,
+   "file": "ron-jon-surf-shop/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Grand_Turk_Cruise_Center_-_panoramio.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427538,
+    -71.145034
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 91,
+   "file": "ron-jon-surf-shop/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Grand_Turk_Cruise_Center_-_panoramio_%281%29.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427638,
+    -71.145042
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 100,
+   "file": "ron-jon-surf-shop/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Grand_Turk_Cruise_Center_-_panoramio_%282%29.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427616,
+    -71.145079
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 101,
+   "file": "ron-jon-surf-shop/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach (14788700443).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_%2814788700443%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_%2814788700443%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_(14788700443).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach",
+   "coord": [
+    21.42777778,
+    -71.14515
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 120,
+   "file": "ron-jon-surf-shop/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach - Panorama (14788709783) (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_(14788709783)_(2).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 120,
+   "file": "ron-jon-surf-shop/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Wikivoyage Banner.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Grand_Turk_Wikivoyage_Banner.jpg/960px-Grand_Turk_Wikivoyage_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Wikivoyage_Banner.jpg",
+   "license": "CC BY 2.0",
+   "creator": "Turks and Caicos Islands - Grand Turk - Beach - Panorama (14788709783) (2).jpg Jared\nderivative work: ויקיג'אנקי",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 120,
+   "file": "ron-jon-surf-shop/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Grand_Turk_Cruise_Center_-_panoramio_%283%29.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427314,
+    -71.146034
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 164,
+   "file": "ron-jon-surf-shop/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Grand_Turk_-_panoramio_%282%29.jpg/960px-Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk",
+   "coord": [
+    21.427828,
+    -71.146597
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 239,
+   "file": "ron-jon-surf-shop/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Governor's Beach - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Governor%27s_Beach_-_panoramio.jpg/960px-Governor%27s_Beach_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Governor%27s_Beach_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Governor's Beach",
+   "coord": [
+    21.427873,
+    -71.146613
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 243,
+   "file": "ron-jon-surf-shop/9.jpg"
+  }
+ ],
+ "harbor-house": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (7).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(7).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469124,
+    -71.147005
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 30,
+   "file": "harbor-house/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469149,
+    -71.147026
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 32,
+   "file": "harbor-house/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(4).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46883,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 39,
+   "file": "harbor-house/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468845,
+    -71.146989
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 43,
+   "file": "harbor-house/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (8).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(8).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46875,
+    -71.146833
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 45,
+   "file": "harbor-house/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(5).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46876,
+    -71.146941
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 48,
+   "file": "harbor-house/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (9).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468715,
+    -71.147021
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 57,
+   "file": "harbor-house/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468525,
+    -71.14686
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 70,
+   "file": "harbor-house/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468416,
+    -71.146823
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 81,
+   "file": "harbor-house/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (6).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(6).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468356,
+    -71.146855
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 88,
+   "file": "harbor-house/9.jpg"
+  }
+ ],
+ "island-creations": [
+  {
+   "source": "commons",
+   "title": "File:Grand Turk and Salt Cay Islands.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Grand_Turk_and_Salt_Cay_Islands.jpg/960px-Grand_Turk_and_Salt_Cay_Islands.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_and_Salt_Cay_Islands.jpg",
+   "license": "Public domain",
+   "creator": "NASA image courtesy of the NASA/GSFC/METI/ERSDAC/JAROS and U.S./Japan ASTER Science Team",
+   "description": "The Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER) on NASA’s Terra satellite captured this approximately true-color image of part of the island chain. Shown here are Grand Turk, its southerly neighbor Salt Cay, and several smaller islands. The coral surrounding the landmasses",
+   "coord": [
+    21.39941667,
+    -71.15844444
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 7314,
+   "file": "island-creations/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach - Panorama (14788709783) (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_(14788709783)_(2).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 4053,
+   "file": "island-creations/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach (14788700443).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_%2814788700443%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_%2814788700443%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_(14788700443).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach",
+   "coord": [
+    21.42777778,
+    -71.14515
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 4053,
+   "file": "island-creations/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "James Willamor",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.450136,
+    -71.127959
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 2461,
+   "file": "island-creations/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%281%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "James Willamor",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.450226,
+    -71.127792
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 2468,
+   "file": "island-creations/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%282%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "James Willamor",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.450071,
+    -71.12777
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 2480,
+   "file": "island-creations/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%285%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(5).jpg",
+   "license": "CC BY 3.0",
+   "creator": "Dameon Hudson",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.4225,
+    -71.143056
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 4650,
+   "file": "island-creations/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Island, UK.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Grand_Turk_Island%2C_UK.jpg/960px-Grand_Turk_Island%2C_UK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Island,_UK.jpg",
+   "license": "CC BY-SA 4.0",
+   "creator": "Axelspace Corporation",
+   "description": "Grand Turk Island, UK, as viewed by Hodoyoshi-1 satellite.",
+   "coord": [
+    21.467458,
+    -71.13891
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 846,
+   "file": "island-creations/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk (cropped).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Grand_Turk_%28cropped%29.jpg/960px-Grand_Turk_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_(cropped).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 4053,
+   "file": "island-creations/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach - Panorama (14788709783) (2) (carnival).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29_%28carnival%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29_%28carnival%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_(14788709783)_(2)_(carnival).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "commons: Island Creations Grand Turk",
+   "distanceM": 4053,
+   "file": "island-creations/9.jpg"
+  }
+ ],
+ "medical-centre": [
+  {
+   "source": "commons",
+   "title": "File:The Grand Turk, 207 Sutton Road, Kidderminster - geograph.org.uk - 1103907.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/The_Grand_Turk%2C_207_Sutton_Road%2C_Kidderminster_-_geograph.org.uk_-_1103907.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "landing": "https://commons.wikimedia.org/wiki/File:The_Grand_Turk,_207_Sutton_Road,_Kidderminster_-_geograph.org.uk_-_1103907.jpg",
+   "license": "CC BY-SA 2.0",
+   "creator": "P L Chadwick",
+   "description": "The Grand Turk, 207 Sutton Road, Kidderminster The Grand Turk is a Marstons pub and one of the two pubs in Sutton Road. It is opposite to Kidderminster Hospital. It is named after the replica frigate \"The Grand Turk\" which was constructed in Turkey in 1996, primarily for TV and film work.",
+   "coord": [
+    52.38413,
+    -2.2613
+   ],
+   "why": "commons: Grand Turk hospital",
+   "distanceM": 6710724,
+   "file": "medical-centre/0.jpg"
+  },
+  {
+   "source": "openverse:flickr",
+   "title": "Jean de Valette Grand Master of the Order of Malta",
+   "url": "https://live.staticflickr.com/65535/52636870130_c93727e1bd_b.jpg",
+   "landing": "https://www.flickr.com/photos/62608635@N04/52636870130",
+   "license": "PDM 1.0",
+   "creator": "Miroslaw Magola alias Magneticman",
+   "description": "catholic, crusade, de, grandmaster, hero, history, jean, jerusalem, malta, military, nobleman, order, parisot, valette",
+   "coord": null,
+   "why": "openverse: Grand Turk hospital",
+   "distanceM": null,
+   "file": "medical-centre/1.jpg"
+  },
+  {
+   "source": "openverse:geographorguk",
+   "title": "Grand Turk : Whitby Harbour",
+   "url": "https://s0.geograph.org.uk/photos/15/91/159184_c9b5e964.jpg",
+   "landing": "https://www.geograph.org.uk/photo/159184",
+   "license": "BY-SA 2.0",
+   "creator": "Hugh Mortimer",
+   "description": "boat, harbor, nautical, pier, port, sail, sailboat, sea, ship, transportation system, travel, vehicle, water, watercraft",
+   "coord": null,
+   "why": "openverse: Grand Turk hospital",
+   "distanceM": null,
+   "file": "medical-centre/2.jpg"
+  },
+  {
+   "source": "openverse:wikimedia",
+   "title": "File:The Grand Turk, 207 Sutton Road, Kidderminster - geograph.org.uk - 1103907.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/The_Grand_Turk%2C_207_Sutton_Road%2C_Kidderminster_-_geograph.org.uk_-_1103907.jpg",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=13817645",
+   "license": "BY-SA 2.0",
+   "creator": "P L Chadwick",
+   "description": "",
+   "coord": null,
+   "why": "openverse: Grand Turk hospital",
+   "distanceM": null,
+   "file": "medical-centre/3.jpg"
+  }
+ ],
+ "police-station": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469149,
+    -71.147026
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 193,
+   "file": "police-station/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (7).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(7).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469124,
+    -71.147005
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 193,
+   "file": "police-station/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(4).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46883,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 212,
+   "file": "police-station/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468845,
+    -71.146989
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 216,
+   "file": "police-station/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (8).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(8).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46875,
+    -71.146833
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 217,
+   "file": "police-station/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(5).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46876,
+    -71.146941
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 221,
+   "file": "police-station/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (9).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468715,
+    -71.147021
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 230,
+   "file": "police-station/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468525,
+    -71.14686
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 240,
+   "file": "police-station/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468416,
+    -71.146823
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 249,
+   "file": "police-station/8.jpg"
+  }
+ ],
+ "post-office": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (6).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(6).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468356,
+    -71.146855
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 221,
+   "file": "post-office/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468416,
+    -71.146823
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 227,
+   "file": "post-office/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468525,
+    -71.14686
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 239,
+   "file": "post-office/2.jpg"
+  }
+ ],
+ "scotiabank": [
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, Replica of Friendship 7 - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Grand_Turk%2C_Replica_of_Friendship_7_-_panoramio.jpg/960px-Grand_Turk%2C_Replica_of_Friendship_7_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_Replica_of_Friendship_7_-_panoramio.jpg",
+   "license": "CC BY 3.0",
+   "creator": "Banja-Frans Mulder",
+   "description": "Grand Turk, Replica of Friendship 7",
+   "coord": [
+    21.441041,
+    -71.147547
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 111,
+   "file": "scotiabank/0.jpg"
+  }
+ ],
+ "cibc-bank": [
+  {
+   "source": "commons",
+   "title": "File:Stamp 1969 TC MiNr0223 mt B002a.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Stamp_1969_TC_MiNr0223_mt_B002a.jpg/960px-Stamp_1969_TC_MiNr0223_mt_B002a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Stamp_1969_TC_MiNr0223_mt_B002a.jpg",
+   "license": "Public domain",
+   "creator": "\"Philatelic Bureau\" of the \"Grand Turk Post Office\", Cockburn-Town as part of the \"British Royal Mail Service\"",
+   "description": "Stamp of the Turks and Caicos Islands; 1969; definitive stamp of the issue \"Local Motives and Queen Elisabeth II\"; stamp motive with the coat os arms of the state of islands and the (British) Queen Elisabeth II in standing oval with view to left; The Turks- and Caicos Islands are located near the Be",
+   "coord": null,
+   "why": "commons: FirstCaribbean Cockburn Town",
+   "distanceM": null,
+   "file": "cibc-bank/0.jpg"
+  }
+ ],
+ "barbies": [],
+ "freemason-lodge": [
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469149,
+    -71.147026
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 187,
+   "file": "freemason-lodge/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (7).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(7).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.469124,
+    -71.147005
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 190,
+   "file": "freemason-lodge/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468845,
+    -71.146989
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 221,
+   "file": "freemason-lodge/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (4).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(4).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46883,
+    -71.146892
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 224,
+   "file": "freemason-lodge/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (5).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(5).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46876,
+    -71.146941
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 231,
+   "file": "freemason-lodge/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (9).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%289%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.468715,
+    -71.147021
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 234,
+   "file": "freemason-lodge/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Cockburn Town, Grand Turk - panoramio (8).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg/960px-Cockburn_Town%2C_Grand_Turk_-_panoramio_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(8).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Cockburn Town, Grand Turk",
+   "coord": [
+    21.46875,
+    -71.146833
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 234,
+   "file": "freemason-lodge/6.jpg"
+  }
+ ],
+ "john-glenn-exhibit": [
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, TKCA 1ZZ, Turks and Caicos Islands - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%283%29.jpg/960px-Grand_Turk%2C_TKCA_1ZZ%2C_Turks_and_Caicos_Islands_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_TKCA_1ZZ,_Turks_and_Caicos_Islands_-_panoramio_(3).jpg",
+   "license": "CC BY 3.0",
+   "creator": "Dameon Hudson",
+   "description": "Grand Turk, TKCA 1ZZ, Turks and Caicos Islands",
+   "coord": [
+    21.426944,
+    -71.144167
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 57,
+   "file": "john-glenn-exhibit/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, Cruise Terminal - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Grand_Turk%2C_Cruise_Terminal_-_panoramio.jpg/960px-Grand_Turk%2C_Cruise_Terminal_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_Cruise_Terminal_-_panoramio.jpg",
+   "license": "CC BY 3.0",
+   "creator": "Banja-Frans Mulder",
+   "description": "Grand Turk, Cruise Terminal",
+   "coord": [
+    21.426949,
+    -71.144977
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 57,
+   "file": "john-glenn-exhibit/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk, South Beach - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Grand_Turk%2C_South_Beach_-_panoramio.jpg/960px-Grand_Turk%2C_South_Beach_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_South_Beach_-_panoramio.jpg",
+   "license": "CC BY 3.0",
+   "creator": "Banja-Frans Mulder",
+   "description": "Grand Turk, South Beach",
+   "coord": [
+    21.427414,
+    -71.145186
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 111,
+   "file": "john-glenn-exhibit/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Grand_Turk_Cruise_Center_-_panoramio.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427538,
+    -71.145034
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 115,
+   "file": "john-glenn-exhibit/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Grand_Turk_Cruise_Center_-_panoramio_%282%29.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio_(2).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427616,
+    -71.145079
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 125,
+   "file": "john-glenn-exhibit/4.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio (1).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Grand_Turk_Cruise_Center_-_panoramio_%281%29.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio_(1).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427638,
+    -71.145042
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 125,
+   "file": "john-glenn-exhibit/5.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach (14788700443).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_%2814788700443%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_%2814788700443%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_(14788700443).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach",
+   "coord": [
+    21.42777778,
+    -71.14515
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 144,
+   "file": "john-glenn-exhibit/6.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Turks and Caicos Islands - Grand Turk - Beach - Panorama (14788709783) (2).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29.jpg/960px-Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_%2814788709783%29_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Turks_and_Caicos_Islands_-_Grand_Turk_-_Beach_-_Panorama_(14788709783)_(2).jpg",
+   "license": "CC BY 2.0",
+   "creator": "Jared",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 144,
+   "file": "john-glenn-exhibit/7.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Wikivoyage Banner.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Grand_Turk_Wikivoyage_Banner.jpg/960px-Grand_Turk_Wikivoyage_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Wikivoyage_Banner.jpg",
+   "license": "CC BY 2.0",
+   "creator": "Turks and Caicos Islands - Grand Turk - Beach - Panorama (14788709783) (2).jpg Jared\nderivative work: ויקיג'אנקי",
+   "description": "Turks and Caicos Islands - Grand Turk - Beach - Panorama",
+   "coord": [
+    21.42777778,
+    -71.14515556
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 144,
+   "file": "john-glenn-exhibit/8.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Grand Turk Cruise Center - panoramio (3).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Grand_Turk_Cruise_Center_-_panoramio_%283%29.jpg/960px-Grand_Turk_Cruise_Center_-_panoramio_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio_(3).jpg",
+   "license": "CC BY-SA 3.0",
+   "creator": "socaltraveler",
+   "description": "Grand Turk Cruise Center",
+   "coord": [
+    21.427314,
+    -71.146034
+   ],
+   "why": "geotagged within 250 m",
+   "distanceM": 171,
+   "file": "john-glenn-exhibit/9.jpg"
+  }
+ ],
+ "graceway-supermarket": [],
+ "grace-bay-pharmacy": [],
+ "clock-tower-park": [
+  {
+   "source": "commons",
+   "title": "File:Kamianets-Podilskyi map 1691.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Kamianets-Podilskyi_map_1691.jpg/960px-Kamianets-Podilskyi_map_1691.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Kamianets-Podilskyi_map_1691.jpg",
+   "license": "Public domain",
+   "creator": "Nicolas de Fer",
+   "description": "An 1691 French map of the city of Kamianets-Podilskyi, located in western Ukraine.",
+   "coord": null,
+   "why": "commons: clock tower Grand Turk",
+   "distanceM": null,
+   "file": "clock-tower-park/0.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:The Great Umayyed Mosque of Damascus, Syria - 6.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/The_Great_Umayyed_Mosque_of_Damascus%2C_Syria_-_6.jpg/960px-The_Great_Umayyed_Mosque_of_Damascus%2C_Syria_-_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:The_Great_Umayyed_Mosque_of_Damascus,_Syria_-_6.jpg",
+   "license": "CC BY 2.0",
+   "creator": "James Gordon from Los Angeles, California, USA",
+   "description": "The Umayyad Mosque, also known as the Great Mosque of Damascus (Arabic transliteration: Ğām' Banī 'Umayya al-Kabīr) or formerly the Basilica of Saint John the Baptist (Greek transliteration: Vasilikí tou Agíou Ioánni tou Vaptistí), located within the circuit walls of the old city of Damascus, is one",
+   "coord": null,
+   "why": "commons: clock tower Grand Turk",
+   "distanceM": null,
+   "file": "clock-tower-park/1.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:Bronze doors, The Great Umayyed Mosque of Damascus, Syria.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Bronze_doors%2C_The_Great_Umayyed_Mosque_of_Damascus%2C_Syria.jpg/960px-Bronze_doors%2C_The_Great_Umayyed_Mosque_of_Damascus%2C_Syria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:Bronze_doors,_The_Great_Umayyed_Mosque_of_Damascus,_Syria.jpg",
+   "license": "CC BY 2.0",
+   "creator": "James Gordon from Los Angeles, California, USA",
+   "description": "The Umayyad Mosque, also known as the Great Mosque of Damascus (Arabic transliteration: Ğām' Banī 'Umayya al-Kabīr) or formerly the Basilica of Saint John the Baptist (Greek transliteration: Vasilikí tou Agíou Ioánni tou Vaptistí), located within the circuit walls of the old city of Damascus, is one",
+   "coord": null,
+   "why": "commons: clock tower Grand Turk",
+   "distanceM": null,
+   "file": "clock-tower-park/2.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:The Great Umayyed Mosque of Damascus, Syria - 8.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/The_Great_Umayyed_Mosque_of_Damascus%2C_Syria_-_8.jpg/960px-The_Great_Umayyed_Mosque_of_Damascus%2C_Syria_-_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:The_Great_Umayyed_Mosque_of_Damascus,_Syria_-_8.jpg",
+   "license": "CC BY 2.0",
+   "creator": "James Gordon from Los Angeles, California, USA",
+   "description": "The Umayyad Mosque, also known as the Great Mosque of Damascus (Arabic transliteration: Ğām' Banī 'Umayya al-Kabīr) or formerly the Basilica of Saint John the Baptist (Greek transliteration: Vasilikí tou Agíou Ioánni tou Vaptistí), located within the circuit walls of the old city of Damascus, is one",
+   "coord": null,
+   "why": "commons: clock tower Grand Turk",
+   "distanceM": null,
+   "file": "clock-tower-park/3.jpg"
+  },
+  {
+   "source": "commons",
+   "title": "File:The Great Umayyed Mosque of Damascus, Syria - 10.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/The_Great_Umayyed_Mosque_of_Damascus%2C_Syria_-_10.jpg/960px-The_Great_Umayyed_Mosque_of_Damascus%2C_Syria_-_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "landing": "https://commons.wikimedia.org/wiki/File:The_Great_Umayyed_Mosque_of_Damascus,_Syria_-_10.jpg",
+   "license": "CC BY 2.0",
+   "creator": "James Gordon from Los Angeles, California, USA",
+   "description": "The Umayyad Mosque, also known as the Great Mosque of Damascus (Arabic transliteration: Ğām' Banī 'Umayya al-Kabīr) or formerly the Basilica of Saint John the Baptist (Greek transliteration: Vasilikí tou Agíou Ioánni tou Vaptistí), located within the circuit walls of the old city of Damascus, is one",
+   "coord": null,
+   "why": "commons: clock tower Grand Turk",
+   "distanceM": null,
+   "file": "clock-tower-park/4.jpg"
+  },
+  {
+   "source": "openverse:flickr",
+   "title": "Bab Al Faraj Clock Tower (برج ساعة باب الفرج), Aleppo",
+   "url": "https://live.staticflickr.com/2248/2254206070_a1797d3519_b.jpg",
+   "landing": "https://www.flickr.com/photos/21013862@N08/2254206070",
+   "license": "BY-SA 2.0",
+   "creator": "twiga_swala",
+   "description": "aleppo, architecture, babalfaraj, clock, middleeast, ottoman, period, syria, tower, u0627u0644u0641u0631u062c, u0628u0627u0628, u0628u0631u062c, u062du0644u0628, u0633u0627u0639u0629, الفرج",
+   "coord": null,
+   "why": "openverse: clock tower Grand Turk",
+   "distanceM": null,
+   "file": "clock-tower-park/5.jpg"
+  }
+ ]
+}
