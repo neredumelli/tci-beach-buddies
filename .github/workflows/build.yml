@@ -6,7 +6,7 @@ name: build-and-verify
 on:
   push:
     branches: [main]
-    paths-ignore: [tools/photos/**, .github/workflows/photos.yml, .github/workflows/photos-openverse.yml, .github/workflows/photos-geo.yml]
+    paths-ignore: [tools/photos/**, .github/workflows/photos.yml, .github/workflows/photos-openverse.yml, .github/workflows/photos-geo.yml, .github/workflows/photo-previews.yml]
   workflow_dispatch:
 
 permissions:

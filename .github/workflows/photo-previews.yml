@@ -1,0 +1,22 @@
+name: fetch-photo-previews
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [tools/photos/preview_urls.txt]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir out
+          while read -r name url; do [ -n "$name" ] && curl -sSL -A "Mozilla/5.0" -o "out/$name" "$url" || true; done < tools/photos/preview_urls.txt
+          ls -la out
+      - run: |
+          cd out && git init -q && git checkout -q -b photo-previews
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -q -m "previews"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" photo-previews
