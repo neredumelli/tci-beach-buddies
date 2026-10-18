@@ -5,6 +5,7 @@ import '../../../app/nav_actions.dart';
 import '../../../app/theme.dart';
 import '../../../core/models/poi.dart';
 import '../../../shared/art.dart';
+import '../../../shared/photos.dart';
 import '../../../shared/widgets.dart';
 
 /// 05 Destination Details: image, name + distance, category chip,
@@ -43,6 +44,12 @@ class DestinationDetailsScreen extends StatelessWidget {
             Expanded(
               child: ListView(padding: EdgeInsets.zero, children: [
                 PlaceArt(poi: poi, height: 210, radius: 0),
+                if (Photos.of(poi.id) != null)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
+                    child: Text(Photos.of(poi.id)!.line,
+                        style: const TextStyle(fontSize: 10.5, color: BB.muted), maxLines: 2),
+                  ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(18, 16, 18, 8),
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

@@ -5,7 +5,6 @@ import '../../app/nav_actions.dart';
 import '../../app/shell.dart';
 import '../../app/theme.dart';
 import '../../core/models/poi.dart';
-import '../../shared/art.dart';
 import '../../shared/widgets.dart';
 import '../navigation/application/navigation_controller.dart';
 
@@ -33,9 +32,14 @@ class HomeScreen extends StatelessWidget {
           child: ListView(padding: EdgeInsets.zero, children: [
             SizedBox(
               height: 270,
-              child: TropicalScene(
-                kind: SceneKind.beach,
-                seed: 3,
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/splash.jpg'),
+                    fit: BoxFit.cover,
+                    alignment: Alignment(0, 0.55), // beach + sea part of the design image
+                  ),
+                ),
                 child: SafeArea(
                   bottom: false,
                   child: Column(children: [

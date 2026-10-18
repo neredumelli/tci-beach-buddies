@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../app/theme.dart';
 import '../core/models/poi.dart';
+import 'photos.dart';
 
 enum SceneKind { beach, lighthouse, town, salina, food, shop, service }
 
@@ -50,6 +51,18 @@ class PlaceArt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final photo = Photos.of(poi.id);
+    if (photo != null) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(radius),
+        child: SizedBox(
+          width: width,
+          height: height,
+          child: Image.asset(photo.asset, fit: BoxFit.cover, semanticLabel: 'Photo of ${poi.name}',
+              errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(poi), seed: poi.id.hashCode)),
+        ),
+      );
+    }
     final kind = sceneFor(poi);
     final showIcon = kind == SceneKind.food || kind == SceneKind.shop || kind == SceneKind.service;
     return ClipRRect(

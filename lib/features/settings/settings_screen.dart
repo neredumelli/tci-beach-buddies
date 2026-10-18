@@ -5,6 +5,7 @@ import '../../app/shell.dart';
 import '../../app/theme.dart';
 import '../../data/offline_bundle.dart';
 import '../../platform/location/geolocator_location_source.dart';
+import '../../shared/photos.dart';
 import '../../shared/widgets.dart';
 import '../navigation/application/location_coordinator.dart';
 import 'app_settings.dart';
@@ -142,6 +143,26 @@ class SettingsScreen extends StatelessWidget {
                 title: const Text('Map data attribution', style: _t),
                 subtitle: Text(m?.attribution ?? '© OpenStreetMap contributors'),
               ),
+              if (Photos.byPoi.isNotEmpty)
+                ListTile(
+                  leading: const Icon(Icons.photo_library_outlined, color: BB.blue),
+                  title: const Text('Photo credits', style: _t),
+                  subtitle: Text('${Photos.byPoi.length} photos from Wikimedia Commons'),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => _sheet(context, 'Photo credits', [
+                    SizedBox(
+                      height: 360,
+                      child: ListView(children: [
+                        for (final e in Photos.byPoi.entries)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Text('${s.poiById(e.key)?.name ?? e.key}: ${e.value.author} - ${e.value.license}\n${e.value.sourceUrl}',
+                                style: const TextStyle(fontSize: 12.5)),
+                          ),
+                      ]),
+                    ),
+                  ]),
+                ),
             ]),
           ]);
         },

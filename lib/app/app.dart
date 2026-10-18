@@ -7,6 +7,7 @@ import '../platform/location/location_source.dart';
 import 'app_services.dart';
 import 'shell.dart';
 import 'theme.dart';
+import '../shared/photos.dart';
 
 class TciBeachBuddiesApp extends StatefulWidget {
   /// Injection points for tests (bundle and location source).
@@ -33,6 +34,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
     final minSplash = Future<void>.delayed(const Duration(milliseconds: 1200));
     final settings = AppSettings();
     await settings.load();
+    await Photos.load();
     final health = await (widget.bundle ?? OfflineBundle()).verifyAndLoad();
     final services = await AppServices.create(
       bundle: health,
