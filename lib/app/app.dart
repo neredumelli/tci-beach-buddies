@@ -34,7 +34,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
     final minSplash = Future<void>.delayed(const Duration(milliseconds: 1200));
     final settings = AppSettings();
     await settings.load();
-    await Photos.load();
+    await Photos.load(widget.bundle?.assets); // same asset source as the offline bundle
     final health = await (widget.bundle ?? OfflineBundle()).verifyAndLoad();
     final services = await AppServices.create(
       bundle: health,

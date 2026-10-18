@@ -47,7 +47,9 @@ void main() {
       voice: RecordingVoiceService(),
     ));
     await t.pump();
-    expect(find.text('Loading…'), findsOneWidget);
+    // Splash = the approved design image (logo, tagline, "Loading..." baked in) + live ring.
+    expect(find.bySemanticsLabel(RegExp('Your guide to Grand Turk')), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
     await boot(t, pump: false);
     expect(find.text('Welcome to\nGrand Turk'), findsOneWidget);
     expect(find.text('RETURN TO CRUISE PORT'), findsOneWidget);

@@ -22,7 +22,7 @@ class Photos {
 
   static Future<void> load([AssetBundle? bundle]) async {
     try {
-      final raw = await (bundle ?? rootBundle).loadString('assets/photos/credits.json');
+      final raw = await (bundle ?? rootBundle).loadString('assets/photos/credits.json', cache: false);
       final j = (jsonDecode(raw) as Map).cast<String, dynamic>();
       byPoi = {
         for (final e in j.entries)
