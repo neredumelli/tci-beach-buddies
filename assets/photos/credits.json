@@ -92,10 +92,10 @@
  },
  "john-glenn-exhibit": {
   "file": "john-glenn-exhibit.jpg",
-  "title": "Grand Turk, Replica of Friendship 7 - panoramio.jpg",
-  "author": "Banja-Frans Mulder",
-  "license": "CC BY 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk,_Replica_of_Friendship_7_-_panoramio.jpg"
+  "title": "Space splash down.JPG",
+  "author": "Wilsog33",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Space_splash_down.JPG"
  },
  "boaby-rock-beach": {
   "file": "boaby-rock-beach.jpg",
@@ -110,5 +110,12 @@
   "author": "Michael Au Photography",
   "license": "CC BY 2.0",
   "url": "https://www.flickr.com/photos/106134999@N08/39589560184"
+ },
+ "st-marys": {
+  "file": "st-marys.jpg",
+  "title": "Grand Turk - Cockburn Town, St. Mary's Cathedral - panoramio.jpg",
+  "author": "Banja-Frans Mulder",
+  "license": "CC BY 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_Cockburn_Town,_St._Mary%27s_Cathedral_-_panoramio.jpg"
  }
 }
