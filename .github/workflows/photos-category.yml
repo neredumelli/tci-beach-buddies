@@ -1,0 +1,21 @@
+name: fetch-commons-category
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [tools/photos/fetch_category.py]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/photos/fetch_category.py out
+      - if: always()
+        run: |
+          cd out && git init -q && git checkout -q -b photo-commons-category
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -q -m "category ${{ github.run_number }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" photo-commons-category
