@@ -147,7 +147,9 @@ class SettingsScreen extends StatelessWidget {
                 ListTile(
                   leading: const Icon(Icons.photo_library_outlined, color: BB.blue),
                   title: const Text('Photo credits', style: _t),
-                  subtitle: Text('${Photos.byPoi.length} photos from Wikimedia Commons'),
+                  subtitle: Text(
+                      '${Photos.byPoi.values.where((p) => !p.isIllustration).length} licensed photos · '
+                      '${Photos.byPoi.values.where((p) => p.isIllustration).length} illustrations (not photos)'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => _sheet(context, 'Photo credits', [
                     SizedBox(
@@ -156,7 +158,10 @@ class SettingsScreen extends StatelessWidget {
                         for (final e in Photos.byPoi.entries)
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8),
-                            child: Text('${s.poiById(e.key)?.name ?? e.key}: ${e.value.author} - ${e.value.license}\n${e.value.sourceUrl}',
+                            child: Text(
+                                e.value.isIllustration
+                                    ? '${s.poiById(e.key)?.name ?? e.key}: original illustration, not a photo'
+                                    : '${s.poiById(e.key)?.name ?? e.key}: ${e.value.author} - ${e.value.license}\n${e.value.sourceUrl}',
                                 style: const TextStyle(fontSize: 12.5)),
                           ),
                       ]),

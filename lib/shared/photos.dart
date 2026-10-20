@@ -9,9 +9,16 @@ class PhotoCredit {
   final String author;
   final String license;
   final String sourceUrl;
-  const PhotoCredit(this.asset, this.title, this.author, this.license, this.sourceUrl);
 
-  String get line => 'Photo: ${author.isEmpty ? 'Unknown' : author} · $license · Wikimedia Commons';
+  /// True for an original drawing standing in until a real photo arrives.
+  /// It is never a picture of the actual place, and the UI must say so.
+  final bool isIllustration;
+  const PhotoCredit(this.asset, this.title, this.author, this.license, this.sourceUrl,
+      {this.isIllustration = false});
+
+  String get line => isIllustration
+      ? 'Illustration only, not a photo of this place'
+      : 'Photo: ${author.isEmpty ? 'Unknown' : author} · $license';
 }
 
 /// Registry of bundled photos keyed by destination id (loaded at start-up).
@@ -32,6 +39,7 @@ class Photos {
             (e.value as Map)['author'] as String? ?? '',
             (e.value as Map)['license'] as String? ?? '',
             (e.value as Map)['url'] as String? ?? '',
+            isIllustration: (e.value as Map)['kind'] == 'illustration',
           ),
       };
     } catch (_) {

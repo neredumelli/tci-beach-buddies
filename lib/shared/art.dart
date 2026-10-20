@@ -58,8 +58,25 @@ class PlaceArt extends StatelessWidget {
         child: SizedBox(
           width: width,
           height: height,
-          child: Image.asset(photo.asset, fit: BoxFit.cover, semanticLabel: 'Photo of ${poi.name}',
-              errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(poi), seed: poi.id.hashCode)),
+          child: Stack(fit: StackFit.expand, children: [
+            Image.asset(photo.asset, fit: BoxFit.cover,
+                semanticLabel: photo.isIllustration ? 'Illustration of ${poi.name}, not a photo' : 'Photo of ${poi.name}',
+                errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(poi), seed: poi.id.hashCode)),
+            if (photo.isIllustration && (height ?? 100) >= 56)
+              Positioned(
+                right: 6,
+                bottom: 6,
+                child: ExcludeSemantics(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                    decoration: BoxDecoration(color: const Color(0xE60B2F44), borderRadius: BorderRadius.circular(20)),
+                    child: Text('Illustration',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700,
+                            fontSize: (height ?? 100) >= 150 ? 12 : 10)),
+                  ),
+                ),
+              ),
+          ]),
         ),
       );
     }
