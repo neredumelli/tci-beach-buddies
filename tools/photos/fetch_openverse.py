@@ -54,15 +54,23 @@ def get(url, tries=4):
             time.sleep(delay)
             delay *= 2
 
+DEADLINE_S = 30 * 60  # stop cleanly and publish what we have, well inside the job timeout
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     res = {}
+    t0 = time.time()
     for pid, qs in QUERIES.items():
+        if time.time() - t0 > DEADLINE_S:
+            print("time budget reached; publishing partial results")
+            break
         seen, cands = set(), []
         for q in qs:
+            if time.time() - t0 > DEADLINE_S:
+                break
             url = API + "?" + urllib.parse.urlencode(dict(q=q, license_type="commercial,modification", page_size=20))
             try:
-                for r in json.loads(get(url)).get("results", []):
+                for r in json.loads(get(url, tries=2)).get("results", []):
                     if r["id"] in seen:
                         continue
                     blob = " ".join([r.get("title") or ""] + [t.get("name") or "" for t in (r.get("tags") or [])]).lower()
@@ -89,7 +97,25 @@ def main(out):
                 print("download failed", c["url"], e)
             time.sleep(1.5)
         res[pid] = cands
-        print(pid, len(cands))
+        print(pid, len(cands), flush=True)
+        json.dump(res, open(os.path.join(out, "candidates.json"), "w"), indent=1, ensure_ascii=False)
+    # Free Unsplash-licence photos tagged Grand Turk, found by hand (20 Oct 2026).
+    unsplash = {
+        "or-9-CMvo90": "Gray Matter - island, Grand Turk",
+        "4scl7qVXeHk": "Kelsey Powers - an island off Grand Turk",
+        "AOL-jZzuwXM": "Shinzan Murray - beach, Grand Turk",
+    }
+    os.makedirs(os.path.join(out, "_unsplash"), exist_ok=True)
+    res["_unsplash"] = []
+    for uid, title in unsplash.items():
+        c = dict(id=uid, title=title, license="Unsplash License", landing=f"https://unsplash.com/photos/{uid}")
+        try:
+            open(os.path.join(out, "_unsplash", uid + ".jpg"), "wb").write(
+                get(f"https://unsplash.com/photos/{uid}/download?force=true&w=1600"))
+            c["file"] = f"_unsplash/{uid}.jpg"
+        except Exception as e:
+            print("unsplash download failed", uid, e)
+        res["_unsplash"].append(c)
     json.dump(res, open(os.path.join(out, "candidates.json"), "w"), indent=1, ensure_ascii=False)
 
 if __name__ == "__main__":

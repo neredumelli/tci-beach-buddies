@@ -9,7 +9,7 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - run: python3 tools/photos/fetch_openverse.py photo-candidates
