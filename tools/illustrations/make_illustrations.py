@@ -466,6 +466,8 @@ SCENES = {
                                             roof="#7B3FD0", awning=("#7B3FD0", WHITE)),
     "island-creations": lambda c: town_building(c, "CRAFTS", floors=1, veranda=False, wall="#FFD6A5",
                                                 roof="#00727E", awning=("#00A3B4", WHITE)),
+    "cockburn-town-liquors": lambda c: town_building(c, "WINE & SPIRITS", floors=1, veranda=False, wall="#F8BBD0",
+                                                     roof="#7B3FD0", awning=("#E8344F", WHITE)),
     "grace-bay-pharmacy": lambda c: town_building(c, "PHARMACY", floors=1, veranda=False, wall=WHITE,
                                                   roof="#13855A", awning=("#13855A", WHITE), extra=pharmacy_extra),
     "medical-centre": lambda c: town_building(c, "HOSPITAL", floors=2, veranda=False, wall=WHITE,
@@ -487,7 +489,12 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     credits_path = Path(a.credits)
     credits = json.loads(credits_path.read_text(encoding="utf-8"))
-    pois = {p["id"]: p for p in json.loads(Path("assets/pois/pois.json").read_text(encoding="utf-8"))["pois"]}
+    # The destination register is the source of truth (assets/pois/pois.json is
+    # regenerated from it by the data pipeline and may lag behind locally).
+    reg = json.loads(Path("tools/pipeline/poi_register.json").read_text(encoding="utf-8"))
+    pois = {p["id"]: p for p in reg["destinations"]}
+    for p in json.loads(Path("assets/pois/pois.json").read_text(encoding="utf-8"))["pois"]:
+        pois.setdefault(p["id"], p)
     made = 0
     for pid, draw in SCENES.items():
         if pid not in pois:

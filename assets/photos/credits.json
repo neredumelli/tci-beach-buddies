@@ -224,7 +224,7 @@
  },
  "barbies": {
   "file": "illustration-barbies.jpg",
-  "title": "Illustration of Barbie’s Bar & Restaurant (not a photo)",
+  "title": "Illustration of Barbie's Bar & Restaurant (not a photo)",
   "author": "TCI Beach Buddies",
   "license": "Original illustration",
   "url": "",
@@ -248,7 +248,7 @@
  },
  "graceway-supermarket": {
   "file": "illustration-graceway-supermarket.jpg",
-  "title": "Illustration of Graceway Supermarket (not a photo)",
+  "title": "Illustration of Graceway Smart Supermarket (not a photo)",
   "author": "TCI Beach Buddies",
   "license": "Original illustration",
   "url": "",
@@ -280,7 +280,7 @@
  },
  "grace-bay-pharmacy": {
   "file": "illustration-grace-bay-pharmacy.jpg",
-  "title": "Illustration of Grace Bay Pharmacy (not a photo)",
+  "title": "Illustration of Gracebay Pharmacy (not a photo)",
   "author": "TCI Beach Buddies",
   "license": "Original illustration",
   "url": "",
@@ -296,7 +296,7 @@
  },
  "police-station": {
   "file": "illustration-police-station.jpg",
-  "title": "Illustration of Royal Turks and Caicos Police Station (not a photo)",
+  "title": "Illustration of Royal Turks & Caicos Police Station (not a photo)",
   "author": "TCI Beach Buddies",
   "license": "Original illustration",
   "url": "",
@@ -320,7 +320,15 @@
  },
  "cibc-bank": {
   "file": "illustration-cibc-bank.jpg",
-  "title": "Illustration of CIBC Caribbean (Bank) (not a photo)",
+  "title": "Illustration of CIBC Bank (not a photo)",
+  "author": "TCI Beach Buddies",
+  "license": "Original illustration",
+  "url": "",
+  "kind": "illustration"
+ },
+ "cockburn-town-liquors": {
+  "file": "illustration-cockburn-town-liquors.jpg",
+  "title": "Illustration of Cockburn Town Liquors (not a photo)",
   "author": "TCI Beach Buddies",
   "license": "Original illustration",
   "url": "",
