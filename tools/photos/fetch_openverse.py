@@ -8,32 +8,36 @@ import json, os, sys, time, urllib.parse, urllib.request
 UA = "TCIBeachBuddies/1.0 (offline tourist app; github.com/neredumelli/tci-beach-buddies)"
 API = "https://api.openverse.org/v1/images/"
 QUERIES = {
-    "governors-beach": ["Governor's Beach Grand Turk", "Governors Beach Turks Caicos"],
-    "pillory-beach": ["Pillory Beach Grand Turk"],
-    "boaby-rock-beach": ["Boaby Rock Grand Turk"],
-    "white-sands-beach": ["White Sands Beach Grand Turk"],
-    "hm-prison": ["Her Majesty's Prison Grand Turk", "prison Grand Turk"],
-    "st-marys": ["St Mary's Grand Turk church", "Cockburn Town church"],
-    "st-thomas": ["St Thomas church Grand Turk"],
-    "waterloo": ["Waterloo Grand Turk governor"],
-    "odd-fellows-lodge": ["Odd Fellows Lodge Grand Turk"],
-    "victoria-library": ["Victoria Public Library Grand Turk"],
-    "town-salina": ["salina Grand Turk", "salt pond Cockburn Town"],
-    "red-salina": ["Red Salina Grand Turk"],
-    "hawks-nest-salina": ["Hawks Nest Grand Turk"],
-    "gibbs-cay": ["Gibbs Cay", "Gibbs Cay stingrays"],
-    "jacks-shack": ["Jack's Shack Grand Turk"],
-    "sand-bar": ["Sand Bar Grand Turk"],
-    "salt-raker-inn": ["Salt Raker Inn Grand Turk"],
-    "bohio": ["Bohio Grand Turk"],
-    "shoprite-grocery": ["Shoprite Grand Turk"],
-    "ron-jon-surf-shop": ["Ron Jon Surf Shop Grand Turk"],
-    "harbor-house": ["Harbor House Grand Turk"],
-    "island-creations": ["Island Creations Grand Turk"],
-    "medical-centre": ["Cockburn Town Medical Centre", "Grand Turk hospital"],
-    "police-station": ["Grand Turk police station"],
-    "post-office": ["Grand Turk post office", "Philatelic Bureau Grand Turk"],
-    "scotiabank": ["Scotiabank Grand Turk"],
+    # Round 2 (20 Oct 2026): only the 27 places that still have no licensed photo,
+    # with broader wording. "_general" catches untitled street/beach shots.
+    "pillory-beach": ["Pillory Beach Grand Turk", "Pillory Beach", "Guanahani Beach Grand Turk", "beach Cockburn Town Grand Turk"],
+    "white-sands-beach": ["White Sands Beach Grand Turk", "Grand Turk beach north"],
+    "hm-prison": ["Her Majesty's Prison Grand Turk", "HM Prison Grand Turk", "Grand Turk prison museum", "old prison Turks Caicos"],
+    "waterloo": ["Waterloo Grand Turk", "Governor's residence Grand Turk", "Government House Grand Turk"],
+    "odd-fellows-lodge": ["Odd Fellows Lodge Grand Turk", "Oddfellows Turks Caicos"],
+    "freemason-lodge": ["Masonic Lodge Grand Turk", "Freemason Grand Turk"],
+    "victoria-library": ["Victoria Public Library Grand Turk", "library Cockburn Town", "Grand Turk library"],
+    "town-salina": ["Town Salina Grand Turk", "salina Cockburn Town", "salt pond Grand Turk", "salt flats Grand Turk", "Grand Turk salt"],
+    "red-salina": ["Red Salina Grand Turk", "pink salt pond Grand Turk"],
+    "hawks-nest-salina": ["Hawks Nest Salina", "Hawks Nest Grand Turk"],
+    "gibbs-cay": ["Gibbs Cay", "Gibbs Cay Grand Turk", "stingray Grand Turk", "Gibb's Cay"],
+    "clock-tower-park": ["clock tower Grand Turk", "Cockburn Town clock", "Grand Turk park"],
+    "sand-bar": ["Sand Bar Grand Turk", "Sandbar restaurant Grand Turk", "bar Duke Street Grand Turk"],
+    "salt-raker-inn": ["Salt Raker Inn", "Saltraker Grand Turk"],
+    "barbies": ["Barbie's Grand Turk", "restaurant Cockburn Town"],
+    "shoprite-grocery": ["Shoprite Grand Turk", "grocery Grand Turk"],
+    "graceway-supermarket": ["Graceway Grand Turk", "supermarket Grand Turk"],
+    "ron-jon-surf-shop": ["Ron Jon Grand Turk", "Grand Turk cruise center shops"],
+    "harbor-house": ["Harbor House Grand Turk", "Grand Turk cruise center shopping"],
+    "island-creations": ["Island Creations Grand Turk", "Grand Turk craft market"],
+    "cockburn-town-liquors": ["Grand Turk Liquors", "liquor store Grand Turk"],
+    "grace-bay-pharmacy": ["pharmacy Grand Turk"],
+    "medical-centre": ["Cockburn Town Medical Centre", "Grand Turk hospital", "Grand Turk medical"],
+    "police-station": ["Grand Turk police station", "Royal Turks and Caicos Islands Police Grand Turk"],
+    "post-office": ["Grand Turk post office", "Philatelic Bureau Grand Turk", "post office Cockburn Town"],
+    "scotiabank": ["Scotiabank Grand Turk", "bank Cockburn Town"],
+    "cibc-bank": ["CIBC Grand Turk", "FirstCaribbean Grand Turk", "bank Front Street Grand Turk"],
+    "_general": ["Front Street Grand Turk", "Duke Street Grand Turk", "Cockburn Town Grand Turk", "Cockburn Town", "Grand Turk Turks and Caicos", "Grand Turk island"],
 }
 
 def get(url, tries=4):
@@ -56,11 +60,14 @@ def main(out):
     for pid, qs in QUERIES.items():
         seen, cands = set(), []
         for q in qs:
-            url = API + "?" + urllib.parse.urlencode(dict(q=q, license_type="commercial,modification", page_size=8))
+            url = API + "?" + urllib.parse.urlencode(dict(q=q, license_type="commercial,modification", page_size=20))
             try:
                 for r in json.loads(get(url)).get("results", []):
                     if r["id"] in seen:
                         continue
+                    blob = " ".join([r.get("title") or ""] + [t.get("name") or "" for t in (r.get("tags") or [])]).lower()
+                    if not any(k in blob for k in ("grand turk", "grandturk", "cockburn", "turks", "caicos", "gibbs")):
+                        continue  # off-island noise (e.g. Grand Turk pubs in England)
                     seen.add(r["id"])
                     cands.append(dict(id=r["id"], title=r.get("title") or "", creator=r.get("creator") or "",
                                       license=f"{r.get('license','').upper()} {r.get('license_version') or ''}".strip(),
@@ -70,7 +77,7 @@ def main(out):
             except Exception as e:
                 print("search failed", pid, q, e)
             time.sleep(4)
-        cands = cands[:5]
+        cands = cands[:(12 if pid == "_general" else 6)]
         os.makedirs(os.path.join(out, pid), exist_ok=True)
         for i, c in enumerate(cands):
             try:
