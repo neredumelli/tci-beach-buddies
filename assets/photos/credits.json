@@ -1,337 +1,383 @@
 {
- "grand-turk-lighthouse": {
-  "file": "grand-turk-lighthouse.jpg",
-  "title": "Grand Turk Lighthouse - 51364031267.jpg",
-  "author": "Stabbur's Master",
-  "license": "CC BY-SA 2.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg"
- },
- "front-street": {
-  "file": "front-street.jpg",
-  "title": "Cockburn Town, Grand Turk.jpg",
-  "author": "Peacemonger",
-  "license": "Public domain",
-  "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk.jpg"
- },
- "national-museum": {
-  "file": "national-museum.jpg",
-  "title": "Turks & Caicos National Museum.jpg",
-  "author": "TampAGS, for AGS Media",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Turks_%26_Caicos_National_Museum.jpg"
- },
- "columbus-landfall": {
-  "file": "columbus-landfall.jpg",
-  "title": "Columbus Landfall Beach.jpg",
-  "author": "Drdread66",
-  "license": "CC BY-SA 4.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Columbus_Landfall_Beach.jpg"
- },
- "north-creek": {
-  "file": "north-creek.jpg",
-  "title": "North Creek, Grand Turk - panoramio.jpg",
-  "author": "socaltraveler",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:North_Creek,_Grand_Turk_-_panoramio.jpg"
- },
- "margaritaville": {
-  "file": "margaritaville.jpg",
-  "title": "Margaritaville, Grand Turk (8623236047).jpg",
-  "author": "Jonathan Palombo",
-  "license": "CC BY 2.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Margaritaville,_Grand_Turk_(8623236047).jpg"
- },
- "jags-mccartney-airport": {
-  "file": "jags-mccartney-airport.jpg",
-  "title": "Grand Turk Friendship 7 replica.jpg",
-  "author": "[en:User:Rickyrab], adapted User:Hogweard",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Friendship_7_replica.jpg"
- },
- "grand-turk-cruise-center": {
-  "file": "grand-turk-cruise-center.jpg",
-  "title": "Grand Turk Cruise Center - panoramio.jpg",
-  "author": "socaltraveler",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg"
- },
- "cockburn-town": {
-  "file": "cockburn-town.jpg",
-  "title": "Cockburn Town, Grand Turk - panoramio (9).jpg",
-  "author": "socaltraveler",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg"
- },
- "osprey-beach": {
-  "file": "osprey-beach.jpg",
-  "title": "Cockburn Town Beach.jpg",
-  "author": "Drdread66",
-  "license": "CC BY-SA 4.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town_Beach.jpg"
- },
- "governors-beach": {
-  "file": "governors-beach.jpg",
-  "title": "Mega One Triton - grounded since 2012",
-  "author": "Michael Au Photography",
-  "license": "CC BY 2.0",
-  "url": "https://www.flickr.com/photos/106134999@N08/16211966470"
- },
- "st-thomas": {
-  "file": "st-thomas.jpg",
-  "title": "Grand Turk - St. Thomas Parish Church",
-  "author": "Stabbur's Master",
-  "license": "CC BY-SA 2.0",
-  "url": "https://www.flickr.com/photos/124651729@N04/52283830383"
- },
- "bohio": {
-  "file": "bohio.jpg",
-  "title": "Grand Turk - Bohio Dive Resort",
-  "author": "kasio69",
-  "license": "CC BY 2.0",
-  "url": "https://www.flickr.com/photos/37904342@N04/8319337898"
- },
- "john-glenn-exhibit": {
-  "file": "john-glenn-exhibit.jpg",
-  "title": "Space splash down.JPG",
-  "author": "Wilsog33",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Space_splash_down.JPG"
- },
- "boaby-rock-beach": {
-  "file": "boaby-rock-beach.jpg",
-  "title": "Grand Turk - panoramio (1).jpg",
-  "author": "James Willamor",
-  "license": "CC BY-SA 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_panoramio_(1).jpg"
- },
- "jacks-shack": {
-  "file": "jacks-shack.jpg",
-  "title": "Topher, the Famous Mascot of Jack's Shack, Grand Turk",
-  "author": "Michael Au Photography",
-  "license": "CC BY 2.0",
-  "url": "https://www.flickr.com/photos/106134999@N08/39589560184"
- },
- "st-marys": {
-  "file": "st-marys.jpg",
-  "title": "Grand Turk - Cockburn Town, St. Mary's Cathedral - panoramio.jpg",
-  "author": "Banja-Frans Mulder",
-  "license": "CC BY 3.0",
-  "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_Cockburn_Town,_St._Mary%27s_Cathedral_-_panoramio.jpg"
- },
- "pillory-beach": {
-  "file": "illustration-pillory-beach.jpg",
-  "title": "Illustration of Guanahani Beach (Pillory Beach) (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "white-sands-beach": {
-  "file": "illustration-white-sands-beach.jpg",
-  "title": "Illustration of White Sands Beach (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "town-salina": {
-  "file": "illustration-town-salina.jpg",
-  "title": "Illustration of Town Salina (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "red-salina": {
-  "file": "illustration-red-salina.jpg",
-  "title": "Illustration of Red Salina (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "hawks-nest-salina": {
-  "file": "illustration-hawks-nest-salina.jpg",
-  "title": "Illustration of Hawks Nest Salina (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "gibbs-cay": {
-  "file": "illustration-gibbs-cay.jpg",
-  "title": "Illustration of Gibbs Cay (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "clock-tower-park": {
-  "file": "illustration-clock-tower-park.jpg",
-  "title": "Illustration of Clock Tower Park (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "hm-prison": {
-  "file": "illustration-hm-prison.jpg",
-  "title": "Illustration of H.M. Prison Museum (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "waterloo": {
-  "file": "illustration-waterloo.jpg",
-  "title": "Illustration of Waterloo (Governor's Residence) (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "odd-fellows-lodge": {
-  "file": "illustration-odd-fellows-lodge.jpg",
-  "title": "Illustration of Odd Fellows Lodge (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "freemason-lodge": {
-  "file": "illustration-freemason-lodge.jpg",
-  "title": "Illustration of Freemason Lodge (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "victoria-library": {
-  "file": "illustration-victoria-library.jpg",
-  "title": "Illustration of Victoria Public Library (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "sand-bar": {
-  "file": "illustration-sand-bar.jpg",
-  "title": "Illustration of Sandbar Restaurant (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "barbies": {
-  "file": "illustration-barbies.jpg",
-  "title": "Illustration of Barbie's Bar & Restaurant (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "salt-raker-inn": {
-  "file": "illustration-salt-raker-inn.jpg",
-  "title": "Illustration of Salt Raker Inn (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "shoprite-grocery": {
-  "file": "illustration-shoprite-grocery.jpg",
-  "title": "Illustration of Shoprite Grocery (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "graceway-supermarket": {
-  "file": "illustration-graceway-supermarket.jpg",
-  "title": "Illustration of Graceway Smart Supermarket (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "ron-jon-surf-shop": {
-  "file": "illustration-ron-jon-surf-shop.jpg",
-  "title": "Illustration of Ron Jon Surf Shop (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "harbor-house": {
-  "file": "illustration-harbor-house.jpg",
-  "title": "Illustration of Harbor House (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "island-creations": {
-  "file": "illustration-island-creations.jpg",
-  "title": "Illustration of Island Creations (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "grace-bay-pharmacy": {
-  "file": "illustration-grace-bay-pharmacy.jpg",
-  "title": "Illustration of Gracebay Pharmacy (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "medical-centre": {
-  "file": "illustration-medical-centre.jpg",
-  "title": "Illustration of Hospital (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "police-station": {
-  "file": "illustration-police-station.jpg",
-  "title": "Illustration of Royal Turks & Caicos Police Station (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "post-office": {
-  "file": "illustration-post-office.jpg",
-  "title": "Illustration of General Post Office (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "scotiabank": {
-  "file": "illustration-scotiabank.jpg",
-  "title": "Illustration of Scotiabank (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "cibc-bank": {
-  "file": "illustration-cibc-bank.jpg",
-  "title": "Illustration of CIBC Bank (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- },
- "cockburn-town-liquors": {
-  "file": "illustration-cockburn-town-liquors.jpg",
-  "title": "Illustration of Cockburn Town Liquors (not a photo)",
-  "author": "TCI Beach Buddies",
-  "license": "Original illustration",
-  "url": "",
-  "kind": "illustration"
- }
+  "grand-turk-lighthouse": {
+    "file": "grand-turk-lighthouse.jpg",
+    "title": "Grand Turk Lighthouse - 51364031267.jpg",
+    "author": "Stabbur's Master",
+    "license": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg"
+  },
+  "front-street": {
+    "file": "front-street.jpg",
+    "title": "Cockburn Town, Grand Turk.jpg",
+    "author": "Peacemonger",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk.jpg"
+  },
+  "national-museum": {
+    "file": "national-museum.jpg",
+    "title": "Turks & Caicos National Museum.jpg",
+    "author": "TampAGS, for AGS Media",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Turks_%26_Caicos_National_Museum.jpg"
+  },
+  "columbus-landfall": {
+    "file": "columbus-landfall.jpg",
+    "title": "Columbus Landfall Beach.jpg",
+    "author": "Drdread66",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Columbus_Landfall_Beach.jpg"
+  },
+  "north-creek": {
+    "file": "north-creek.jpg",
+    "title": "North Creek, Grand Turk - panoramio.jpg",
+    "author": "socaltraveler",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:North_Creek,_Grand_Turk_-_panoramio.jpg"
+  },
+  "margaritaville": {
+    "file": "margaritaville.jpg",
+    "title": "Margaritaville, Grand Turk (8623236047).jpg",
+    "author": "Jonathan Palombo",
+    "license": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Margaritaville,_Grand_Turk_(8623236047).jpg"
+  },
+  "jags-mccartney-airport": {
+    "file": "jags-mccartney-airport.jpg",
+    "title": "Grand Turk Friendship 7 replica.jpg",
+    "author": "[en:User:Rickyrab], adapted User:Hogweard",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Friendship_7_replica.jpg"
+  },
+  "grand-turk-cruise-center": {
+    "file": "grand-turk-cruise-center.jpg",
+    "title": "Grand Turk Cruise Center - panoramio.jpg",
+    "author": "socaltraveler",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg"
+  },
+  "cockburn-town": {
+    "file": "cockburn-town.jpg",
+    "title": "Cockburn Town, Grand Turk - panoramio (9).jpg",
+    "author": "socaltraveler",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(9).jpg"
+  },
+  "osprey-beach": {
+    "file": "osprey-beach.jpg",
+    "title": "Cockburn Town Beach.jpg",
+    "author": "Drdread66",
+    "license": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town_Beach.jpg"
+  },
+  "governors-beach": {
+    "file": "governors-beach.jpg",
+    "title": "Mega One Triton - grounded since 2012",
+    "author": "Michael Au Photography",
+    "license": "CC BY 2.0",
+    "url": "https://www.flickr.com/photos/106134999@N08/16211966470"
+  },
+  "st-thomas": {
+    "file": "st-thomas.jpg",
+    "title": "Grand Turk - St. Thomas Parish Church",
+    "author": "Stabbur's Master",
+    "license": "CC BY-SA 2.0",
+    "url": "https://www.flickr.com/photos/124651729@N04/52283830383"
+  },
+  "bohio": {
+    "file": "bohio.jpg",
+    "title": "Grand Turk - Bohio Dive Resort",
+    "author": "kasio69",
+    "license": "CC BY 2.0",
+    "url": "https://www.flickr.com/photos/37904342@N04/8319337898"
+  },
+  "john-glenn-exhibit": {
+    "file": "john-glenn-exhibit.jpg",
+    "title": "Space splash down.JPG",
+    "author": "Wilsog33",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Space_splash_down.JPG",
+    "more": [
+      {
+        "file": "john-glenn-exhibit-2.jpg",
+        "title": "Splashdown Grand Turk capsule",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "john-glenn-exhibit-3.jpg",
+        "title": "Astronaut figure at Splashdown Grand Turk",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
+  },
+  "boaby-rock-beach": {
+    "file": "boaby-rock-beach.jpg",
+    "title": "Grand Turk - panoramio (1).jpg",
+    "author": "James Willamor",
+    "license": "CC BY-SA 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_panoramio_(1).jpg"
+  },
+  "jacks-shack": {
+    "file": "jacks-shack.jpg",
+    "title": "Topher, the Famous Mascot of Jack's Shack, Grand Turk",
+    "author": "Michael Au Photography",
+    "license": "CC BY 2.0",
+    "url": "https://www.flickr.com/photos/106134999@N08/39589560184",
+    "more": [
+      {
+        "file": "jacks-shack-2.jpg",
+        "title": "Jack's Shack beach bar",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "jacks-shack-3.jpg",
+        "title": "Jack's Shack and the beach",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
+  },
+  "st-marys": {
+    "file": "st-marys.jpg",
+    "title": "Grand Turk - Cockburn Town, St. Mary's Cathedral - panoramio.jpg",
+    "author": "Banja-Frans Mulder",
+    "license": "CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_Cockburn_Town,_St._Mary%27s_Cathedral_-_panoramio.jpg",
+    "more": [
+      {
+        "file": "st-marys-2.jpg",
+        "title": "St. Mary's Pro-Cathedral, front",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
+  },
+  "pillory-beach": {
+    "file": "illustration-pillory-beach.jpg",
+    "title": "Illustration of Guanahani Beach (Pillory Beach) (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "white-sands-beach": {
+    "file": "illustration-white-sands-beach.jpg",
+    "title": "Illustration of White Sands Beach (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "town-salina": {
+    "file": "illustration-town-salina.jpg",
+    "title": "Illustration of Town Salina (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "red-salina": {
+    "file": "illustration-red-salina.jpg",
+    "title": "Illustration of Red Salina (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "hawks-nest-salina": {
+    "file": "illustration-hawks-nest-salina.jpg",
+    "title": "Illustration of Hawks Nest Salina (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "gibbs-cay": {
+    "file": "illustration-gibbs-cay.jpg",
+    "title": "Illustration of Gibbs Cay (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "clock-tower-park": {
+    "file": "illustration-clock-tower-park.jpg",
+    "title": "Illustration of Clock Tower Park (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "hm-prison": {
+    "file": "illustration-hm-prison.jpg",
+    "title": "Illustration of H.M. Prison Museum (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "waterloo": {
+    "file": "illustration-waterloo.jpg",
+    "title": "Illustration of Waterloo (Governor's Residence) (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "odd-fellows-lodge": {
+    "file": "illustration-odd-fellows-lodge.jpg",
+    "title": "Illustration of Odd Fellows Lodge (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "freemason-lodge": {
+    "file": "illustration-freemason-lodge.jpg",
+    "title": "Illustration of Freemason Lodge (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "victoria-library": {
+    "file": "illustration-victoria-library.jpg",
+    "title": "Illustration of Victoria Public Library (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "sand-bar": {
+    "file": "sand-bar.jpg",
+    "title": "Sandbar Restaurant, Duke Street",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied"
+  },
+  "barbies": {
+    "file": "illustration-barbies.jpg",
+    "title": "Illustration of Barbie's Bar & Restaurant (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "salt-raker-inn": {
+    "file": "illustration-salt-raker-inn.jpg",
+    "title": "Illustration of Salt Raker Inn (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "shoprite-grocery": {
+    "file": "illustration-shoprite-grocery.jpg",
+    "title": "Illustration of Shoprite Grocery (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "graceway-supermarket": {
+    "file": "illustration-graceway-supermarket.jpg",
+    "title": "Illustration of Graceway Smart Supermarket (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "ron-jon-surf-shop": {
+    "file": "illustration-ron-jon-surf-shop.jpg",
+    "title": "Illustration of Ron Jon Surf Shop (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "harbor-house": {
+    "file": "illustration-harbor-house.jpg",
+    "title": "Illustration of Harbor House (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "island-creations": {
+    "file": "illustration-island-creations.jpg",
+    "title": "Illustration of Island Creations (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "grace-bay-pharmacy": {
+    "file": "illustration-grace-bay-pharmacy.jpg",
+    "title": "Illustration of Gracebay Pharmacy (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "medical-centre": {
+    "file": "illustration-medical-centre.jpg",
+    "title": "Illustration of Hospital (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "police-station": {
+    "file": "illustration-police-station.jpg",
+    "title": "Illustration of Royal Turks & Caicos Police Station (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "post-office": {
+    "file": "illustration-post-office.jpg",
+    "title": "Illustration of General Post Office (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "scotiabank": {
+    "file": "illustration-scotiabank.jpg",
+    "title": "Illustration of Scotiabank (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  },
+  "cibc-bank": {
+    "file": "cibc-bank.jpg",
+    "title": "CIBC Bank, Grand Turk",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied"
+  },
+  "cockburn-town-liquors": {
+    "file": "illustration-cockburn-town-liquors.jpg",
+    "title": "Illustration of Cockburn Town Liquors (not a photo)",
+    "author": "TCI Beach Buddies",
+    "license": "Original illustration",
+    "url": "",
+    "kind": "illustration"
+  }
 }

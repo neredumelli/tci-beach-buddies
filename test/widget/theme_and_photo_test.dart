@@ -9,6 +9,7 @@ import 'package:tci_beach_buddies/app/theme.dart';
 import 'package:tci_beach_buddies/data/offline_bundle.dart';
 import 'package:tci_beach_buddies/platform/audio/voice_service.dart';
 import 'package:tci_beach_buddies/features/pois/presentation/destination_details_screen.dart';
+import 'package:tci_beach_buddies/shared/art.dart';
 import 'package:tci_beach_buddies/shared/photo_viewer.dart';
 
 import '../support/fakes.dart';
@@ -24,12 +25,26 @@ final _credits = utf8.encode(jsonEncode({
   },
 }));
 
-Future<void> _boot(WidgetTester t, {Map<String, Object>? prefs = const {}}) async {
+/// Governor's Beach with two photos, to test rotation and swiping.
+final _twoPhotos = utf8.encode(jsonEncode({
+  'governors-beach': {
+    'file': 'governors-beach.jpg',
+    'title': "Governor's Beach",
+    'author': 'Test Author',
+    'license': 'CC BY 2.0',
+    'url': '',
+    'more': [
+      {'file': 'jacks-shack-2.jpg', 'title': 'Second', 'author': 'TCI Beach Buddies', 'license': '', 'url': '', 'kind': 'supplied'},
+    ],
+  },
+}));
+
+Future<void> _boot(WidgetTester t, {Map<String, Object>? prefs = const {}, List<int>? credits}) async {
   // prefs == null: keep what earlier runs saved (simulates reopening the app).
   if (prefs != null) SharedPreferences.setMockInitialValues(prefs);
   await t.binding.setSurfaceSize(const Size(420, 900));
   await t.pumpWidget(TciBeachBuddiesApp(
-    bundle: OfflineBundle(DirectoryAssetBundle(syntheticRoot, overrides: {'assets/photos/credits.json': _credits})),
+    bundle: OfflineBundle(DirectoryAssetBundle(syntheticRoot, overrides: {'assets/photos/credits.json': credits ?? _credits})),
     liveSource: FakeLocationSource(),
     voice: RecordingVoiceService(),
   ));
@@ -132,6 +147,45 @@ void main() {
     await _settle(t);
     expect(find.byType(PhotoViewerScreen), findsNothing);
     expect(find.byType(DestinationDetailsScreen), findsOneWidget);
+    expect(t.takeException(), isNull);
+  });
+
+  testWidgets('A place with two photos rotates them, and the viewer swipes between them', (t) async {
+    await _boot(t, credits: _twoPhotos);
+    await t.tap(find.text('Beaches').first);
+    await _settle(t);
+    await t.tap(find.text("Governor's Beach"));
+    await _settle(t);
+    final slides = find.byType(PhotoSlides);
+    expect(slides, findsOneWidget);
+    PhotoSlidesState st() => t.state<PhotoSlidesState>(slides);
+    expect(st().index, 0);
+    // It moves on by itself after a few seconds...
+    for (var i = 0; i < 60 && st().index == 0; i++) {
+      await t.pump(const Duration(milliseconds: 100));
+    }
+    expect(st().index, 1);
+    await _settle(t);
+    // ...and a swipe changes it too.
+    await t.fling(slides, const Offset(-300, 0), 1000);
+    await _settle(t);
+    expect(st().index, 0);
+
+    // Full screen opens on the photo showing, and can be swiped.
+    await t.tap(find.text('Tap to enlarge'));
+    await _settle(t);
+    expect(find.byType(PhotoViewerScreen), findsOneWidget);
+    expect(find.text('1 / 2'), findsOneWidget);
+    expect(find.textContaining('Test Author'), findsWidgets);
+    await t.fling(find.byType(PageView), const Offset(-300, 0), 1000);
+    await _settle(t);
+    expect(find.text('2 / 2'), findsOneWidget);
+    expect(find.text('Photo supplied by TCI Beach Buddies'), findsOneWidget);
+    await t.tap(find.byTooltip('Close photo'));
+    await _settle(t);
+    expect(find.byType(PhotoViewerScreen), findsNothing);
+    // Back on Details, the hero shows the photo that was last viewed.
+    expect(st().index, 1);
     expect(t.takeException(), isNull);
   });
 }

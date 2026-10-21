@@ -149,22 +149,22 @@ class SettingsScreen extends StatelessWidget {
                   leading: const _IconTile(Icons.photo_library_outlined),
                   title: Text('Photo credits', style: _t),
                   subtitle: Text(
-                      '${Photos.byPoi.values.where((p) => !p.isIllustration).length} licensed photos · '
-                      '${Photos.byPoi.values.where((p) => p.isIllustration).length} illustrations (not photos)'),
+                      '${Photos.every.where((p) => !p.isIllustration).length} photos · '
+                      '${Photos.every.where((p) => p.isIllustration).length} illustrations (not photos)'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => _sheet(context, 'Photo credits', [
                     SizedBox(
                       height: 360,
                       child: ListView(children: [
-                        for (final e in Photos.byPoi.entries)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Text(
-                                e.value.isIllustration
-                                    ? '${s.poiById(e.key)?.name ?? e.key}: original illustration, not a photo'
-                                    : '${s.poiById(e.key)?.name ?? e.key}: ${e.value.author} - ${e.value.license}\n${e.value.sourceUrl}',
-                                style: const TextStyle(fontSize: 12.5)),
-                          ),
+                        for (final e in Photos.allByPoi.entries)
+                          for (final (i, ph) in e.value.indexed)
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text(
+                                  '${s.poiById(e.key)?.name ?? e.key}${e.value.length > 1 ? ' (${i + 1}/${e.value.length})' : ''}: '
+                                  '${ph.isIllustration ? 'original illustration, not a photo' : ph.isSupplied ? 'photo supplied by TCI Beach Buddies' : '${ph.author} - ${ph.license}\n${ph.sourceUrl}'}',
+                                  style: const TextStyle(fontSize: 12.5)),
+                            ),
                       ]),
                     ),
                   ]),

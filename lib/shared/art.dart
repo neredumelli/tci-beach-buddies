@@ -1,6 +1,7 @@
 // Vector "photo" artwork drawn in code: tropical sky, turquoise sea, sand,
 // palms and the lighthouse. Used for splash, home hero, destination cards,
 // details hero and arrival hero until rights-cleared photographs are approved.
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -53,9 +54,16 @@ class PlaceArt extends StatelessWidget {
   final bool expandable;
   const PlaceArt({super.key, required this.poi, this.width, this.height, this.radius = 10, this.expandable = false});
 
+  /// Smallest image that still rotates (tiny map thumbnails stay still).
+  static const double _minRotateHeight = 70;
+
   @override
   Widget build(BuildContext context) {
     final photo = Photos.of(poi.id);
+    final all = Photos.allOf(poi.id);
+    if (all.length > 1 && (expandable || height == null || height! >= _minRotateHeight)) {
+      return PhotoSlides(poi: poi, photos: all, width: width, height: height, radius: radius, expandable: expandable);
+    }
     if (photo != null && expandable) {
       return Semantics(
         button: true,
@@ -66,21 +74,7 @@ class PlaceArt extends StatelessWidget {
             tag: photoHeroTag(poi),
             child: Stack(children: [
               _framed(photo),
-              Positioned(
-                left: BB.photo ? 12 : 10,
-                bottom: BB.photo ? 44 : 10,
-                child: ExcludeSemantics(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(color: const Color(0xCC0B2F44), borderRadius: BorderRadius.circular(20)),
-                    child: const Row(mainAxisSize: MainAxisSize.min, children: [
-                      Icon(Icons.zoom_out_map, color: Colors.white, size: 15),
-                      SizedBox(width: 5),
-                      Text('Tap to enlarge', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)),
-                    ]),
-                  ),
-                ),
-              ),
+              const _EnlargeChip(),
             ]),
           ),
         ),
@@ -141,6 +135,168 @@ class PlaceArt extends StatelessWidget {
                   ),
                 )
               : null,
+        ),
+      ),
+    );
+  }
+}
+
+/// "Tap to enlarge" chip on Details and Arrival heroes.
+class _EnlargeChip extends StatelessWidget {
+  const _EnlargeChip();
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: BB.photo ? 12 : 10,
+      bottom: BB.photo ? 44 : 10,
+      child: ExcludeSemantics(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(color: const Color(0xCC0B2F44), borderRadius: BorderRadius.circular(20)),
+          child: const Row(mainAxisSize: MainAxisSize.min, children: [
+            Icon(Icons.zoom_out_map, color: Colors.white, size: 15),
+            SizedBox(width: 5),
+            Text('Tap to enlarge', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)),
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+/// A destination with two or more photos: cross-fades to the next photo
+/// every few seconds. On Details and Arrival heroes ([expandable]) it also
+/// shows dots, can be swiped, and opens the tapped photo full screen.
+/// Automatic rotation stops when the phone asks for reduced motion.
+class PhotoSlides extends StatefulWidget {
+  final Poi poi;
+  final List<PhotoCredit> photos;
+  final double? width;
+  final double? height;
+  final double radius;
+  final bool expandable;
+  static const interval = Duration(seconds: 4);
+  const PhotoSlides({super.key, required this.poi, required this.photos, this.width, this.height,
+      this.radius = 10, this.expandable = false});
+
+  @override
+  State<PhotoSlides> createState() => PhotoSlidesState();
+}
+
+class PhotoSlidesState extends State<PhotoSlides> {
+  int index = 0;
+  Timer? _timer;
+  bool _paused = false;
+
+  int get _n => widget.photos.length;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _restart();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _restart() {
+    _timer?.cancel();
+    _timer = null;
+    final reduceMotion = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
+    if (reduceMotion || _paused) return;
+    // Stagger cards so several in a list don't all change at once.
+    final offset = Duration(milliseconds: (widget.poi.id.hashCode % 5).abs() * 300);
+    _timer = Timer.periodic(PhotoSlides.interval + offset, (_) {
+      if (mounted) setState(() => index = (index + 1) % _n);
+    });
+  }
+
+  void go(int delta) {
+    setState(() => index = (index + delta) % _n);
+    _restart();
+  }
+
+  Future<void> _open() async {
+    _paused = true;
+    _restart();
+    final shown = await openPhotoViewer(context, widget.poi, index: index);
+    if (!mounted) return;
+    _paused = false;
+    setState(() => index = shown ?? index);
+    _restart();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final photo = widget.photos[index];
+    final big = widget.expandable;
+    Widget img = ClipRRect(
+      borderRadius: BorderRadius.circular(widget.radius),
+      child: SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 700),
+          layoutBuilder: (current, previous) =>
+              Stack(fit: StackFit.expand, children: [...previous, if (current != null) current]),
+          child: Image.asset(
+            photo.asset,
+            key: ValueKey(photo.asset),
+            fit: BoxFit.cover,
+            gaplessPlayback: true,
+            excludeFromSemantics: true,
+            errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(widget.poi), seed: widget.poi.id.hashCode),
+          ),
+        ),
+      ),
+    );
+    final label = 'Photo ${index + 1} of $_n of ${widget.poi.name}';
+    if (!big) return Semantics(image: true, label: label, child: img);
+    return Semantics(
+      button: true,
+      label: '$label. Open full screen',
+      hint: 'Swipe left or right for more photos',
+      onScrollLeft: () => go(1),
+      onScrollRight: () => go(-1),
+      child: GestureDetector(
+        onTap: _open,
+        onHorizontalDragEnd: (d) {
+          final v = d.primaryVelocity ?? 0;
+          if (v.abs() > 150) go(v < 0 ? 1 : -1);
+        },
+        child: Hero(
+          tag: photoHeroTag(widget.poi),
+          child: Stack(children: [
+            img,
+            const _EnlargeChip(),
+            Positioned(
+              right: BB.photo ? 12 : 10,
+              bottom: BB.photo ? 44 : 10,
+              child: ExcludeSemantics(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 7),
+                  decoration: BoxDecoration(color: const Color(0xCC0B2F44), borderRadius: BorderRadius.circular(20)),
+                  child: Row(mainAxisSize: MainAxisSize.min, children: [
+                    for (var i = 0; i < _n; i++)
+                      AnimatedContainer(
+                        duration: const Duration(milliseconds: 250),
+                        margin: const EdgeInsets.symmetric(horizontal: 3),
+                        width: i == index ? 18 : 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: i == index ? Colors.white : Colors.white54,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                  ]),
+                ),
+              ),
+            ),
+          ]),
         ),
       ),
     );

@@ -13,37 +13,60 @@ class PhotoCredit {
   /// True for an original drawing standing in until a real photo arrives.
   /// It is never a picture of the actual place, and the UI must say so.
   final bool isIllustration;
+
+  /// A real photo supplied by the client (TCI Beach Buddies) for the app.
+  final bool isSupplied;
   const PhotoCredit(this.asset, this.title, this.author, this.license, this.sourceUrl,
-      {this.isIllustration = false});
+      {this.isIllustration = false, this.isSupplied = false});
 
   String get line => isIllustration
       ? 'Illustration only, not a photo of this place'
-      : 'Photo: ${author.isEmpty ? 'Unknown' : author} · $license';
+      : isSupplied
+          ? 'Photo supplied by ${author.isEmpty ? 'TCI Beach Buddies' : author}'
+          : 'Photo: ${author.isEmpty ? 'Unknown' : author} · $license';
+
+  static PhotoCredit fromJson(Map m) => PhotoCredit(
+        'assets/photos/${m['file']}',
+        m['title'] as String? ?? '',
+        m['author'] as String? ?? '',
+        m['license'] as String? ?? '',
+        m['url'] as String? ?? '',
+        isIllustration: m['kind'] == 'illustration',
+        isSupplied: m['kind'] == 'supplied',
+      );
 }
 
 /// Registry of bundled photos keyed by destination id (loaded at start-up).
 class Photos {
+  /// Main (first) image of each destination.
   static Map<String, PhotoCredit> byPoi = const {};
 
+  /// Every image of each destination, main one first. Places with two or
+  /// more photos rotate through them on their cards, Details and Arrival.
+  static Map<String, List<PhotoCredit>> allByPoi = const {};
+
   static PhotoCredit? of(String poiId) => byPoi[poiId];
+
+  static List<PhotoCredit> allOf(String poiId) => allByPoi[poiId] ?? const [];
+
+  /// Every bundled image, for the credits list and counts.
+  static Iterable<PhotoCredit> get every => allByPoi.values.expand((l) => l);
 
   static Future<void> load([AssetBundle? bundle]) async {
     try {
       final raw = await (bundle ?? rootBundle).loadString('assets/photos/credits.json', cache: false);
       final j = (jsonDecode(raw) as Map).cast<String, dynamic>();
-      byPoi = {
+      allByPoi = {
         for (final e in j.entries)
-          e.key: PhotoCredit(
-            'assets/photos/${(e.value as Map)['file']}',
-            (e.value as Map)['title'] as String? ?? '',
-            (e.value as Map)['author'] as String? ?? '',
-            (e.value as Map)['license'] as String? ?? '',
-            (e.value as Map)['url'] as String? ?? '',
-            isIllustration: (e.value as Map)['kind'] == 'illustration',
-          ),
+          e.key: [
+            PhotoCredit.fromJson(e.value as Map),
+            for (final m in ((e.value as Map)['more'] as List? ?? const [])) PhotoCredit.fromJson(m as Map),
+          ],
       };
+      byPoi = {for (final e in allByPoi.entries) e.key: e.value.first};
     } catch (_) {
       byPoi = const {};
+      allByPoi = const {};
     }
   }
 }

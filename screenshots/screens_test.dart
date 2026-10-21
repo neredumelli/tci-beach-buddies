@@ -177,6 +177,21 @@ void main() {
       expect(t.takeException(), isNull);
     });
 
+    if (full) {
+      testWidgets('rotating photos · ${theme.id}', (t) async {
+        await _boot(t, theme.id);
+        await _tap(t, find.text('Places').last);
+        await _tap(t, find.text('Restaurants').first);
+        await _shot(t, theme.id, '04b_restaurants_list');
+        await _tap(t, find.textContaining('Jack').first);
+        await _shot(t, theme.id, '05c_multi_photo_details');
+        await _tap(t, find.text('Tap to enlarge'));
+        await _shot(t, theme.id, '05d_multi_photo_full_screen');
+        await _tap(t, find.byTooltip('Close photo'));
+        expect(t.takeException(), isNull);
+      });
+    }
+
     testWidgets('map, settings, search · ${theme.id}', (t) async {
       await _boot(t, theme.id);
       await _tap(t, find.text('Map').last);
