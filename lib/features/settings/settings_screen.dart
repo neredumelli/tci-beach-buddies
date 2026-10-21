@@ -336,7 +336,7 @@ Future<void> showThemePicker(BuildContext context) {
           child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Text('Choose a theme', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
             const SizedBox(height: 4),
-            const Text('Only the colours change. Everything works the same.', style: TextStyle(color: BB.muted)),
+            const Text('Classic or photo look, in different colours. Everything works the same.', style: TextStyle(color: BB.muted)),
             const SizedBox(height: 12),
             for (final t in AppThemes.all) ...[
               _ThemeOption(
