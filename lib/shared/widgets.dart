@@ -283,7 +283,6 @@ class PlaceCard extends StatelessWidget {
     );
   }
 }
-}
 
 /// Straight-line distance from the current GOOD fix, or null (screen 04 rule:
 /// "Distance only appears when a valid GPS position is available").
