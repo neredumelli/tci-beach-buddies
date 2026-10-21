@@ -49,6 +49,24 @@ class Photos {
 
   static List<PhotoCredit> allOf(String poiId) => allByPoi[poiId] ?? const [];
 
+  /// Credit shown under a destination's photo. With several photos it
+  /// names every source, so it stays right while the photos rotate.
+  static String? creditLine(String poiId) {
+    final all = allOf(poiId);
+    if (all.isEmpty) return null;
+    if (all.length == 1) return all.first.line;
+    final names = <String>[];
+    for (final p in all) {
+      final n = p.isIllustration
+          ? 'illustration'
+          : p.isSupplied
+              ? 'TCI Beach Buddies'
+              : '${p.author.isEmpty ? 'Unknown' : p.author} (${p.license})';
+      if (!names.contains(n)) names.add(n);
+    }
+    return '${all.length} photos: ${names.join(' · ')}';
+  }
+
   /// Every bundled image, for the credits list and counts.
   static Iterable<PhotoCredit> get every => allByPoi.values.expand((l) => l);
 

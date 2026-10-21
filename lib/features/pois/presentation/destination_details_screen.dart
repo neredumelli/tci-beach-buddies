@@ -62,7 +62,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                 if (Photos.of(poi.id) != null)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(18, 6, 18, 0),
-                    child: Text(Photos.of(poi.id)!.line,
+                    child: Text(Photos.creditLine(poi.id)!,
                         style: const TextStyle(fontSize: 10.5, color: BB.muted), maxLines: 2),
                   ),
                 Padding(
@@ -287,7 +287,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                     if (Photos.of(poi.id) != null)
                       Padding(
                         padding: const EdgeInsets.only(top: 2),
-                        child: Text(Photos.of(poi.id)!.line,
+                        child: Text(Photos.creditLine(poi.id)!,
                             style: const TextStyle(fontSize: 11, color: BB.muted, fontWeight: FontWeight.w600), maxLines: 2),
                       ),
                     const SizedBox(height: 12),
