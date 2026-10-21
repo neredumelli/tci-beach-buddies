@@ -105,10 +105,19 @@ class HomeScreen extends StatelessWidget {
                           ),
                           child: Image.asset('assets/images/logo.png', height: 48, semanticLabel: 'TCI Beach Buddies'),
                         ),
-                        const Spacer(),
-                        Text('Welcome to\nGrand Turk',
-                            style: heading(40, color: Colors.white, height: 1.0).copyWith(
-                                shadows: const [Shadow(color: Color(0x99000000), blurRadius: 10)])),
+                        // Scales down (never overflows) with large text settings.
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.bottomLeft,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: Alignment.bottomLeft,
+                              child: Text('Welcome to\nGrand Turk',
+                                  style: heading(40, color: Colors.white, height: 1.0).copyWith(
+                                      shadows: const [Shadow(color: Color(0x99000000), blurRadius: 10)])),
+                            ),
+                          ),
+                        ),
                         const SizedBox(height: 44),
                       ]),
                     ),
