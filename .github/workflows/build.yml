@@ -60,6 +60,24 @@ jobs:
           flutter build apk --release > ci-logs/build_apk.txt 2>&1 || { tail -80 ci-logs/build_apk.txt; exit 1; }
           flutter build appbundle --release > ci-logs/build_aab.txt 2>&1 || { tail -80 ci-logs/build_aab.txt; exit 1; }
 
+      - name: Screenshots of every screen in every theme
+        if: success()
+        continue-on-error: true
+        run: |
+          SCREENSHOT_DIR=$PWD/ci-screens flutter test screenshots/screens_test.dart --reporter expanded > ci-logs/screens.txt 2>&1; echo "screens=$?" | tee -a ci-logs/gate3_status.txt
+          tail -40 ci-logs/screens.txt
+          (cd ci-screens 2>/dev/null && find . -name '*.png' | sort) > ci-logs/screens_list.txt || true
+
+      - name: Publish screenshots to ci-screens branch
+        if: success()
+        continue-on-error: true
+        run: |
+          [ -d ci-screens ] || exit 0
+          cd ci-screens && git init -q && git checkout -q -b ci-screens
+          git -c user.name=ci -c user.email=ci@localhost add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -q -m "Screenshots run ${{ github.run_number }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-screens
+
       - name: Publish logs to ci-logs branch
         if: always()
         run: |

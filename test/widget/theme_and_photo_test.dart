@@ -7,6 +7,7 @@ import 'package:tci_beach_buddies/app/app.dart';
 import 'package:tci_beach_buddies/app/shell.dart';
 import 'package:tci_beach_buddies/app/theme.dart';
 import 'package:tci_beach_buddies/data/offline_bundle.dart';
+import 'package:tci_beach_buddies/platform/audio/voice_service.dart';
 import 'package:tci_beach_buddies/features/pois/presentation/destination_details_screen.dart';
 import 'package:tci_beach_buddies/shared/photo_viewer.dart';
 
