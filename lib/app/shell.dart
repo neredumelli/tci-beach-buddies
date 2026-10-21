@@ -20,12 +20,21 @@ class ShellTabs extends InheritedNotifier<ValueNotifier<ShellTab>> {
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
+
+  /// Tab shown when the shell is (re)created; used once, then back to Home.
+  static ShellTab startTab = ShellTab.home;
   @override
   State<MainShell> createState() => _MainShellState();
 }
 
 class _MainShellState extends State<MainShell> {
-  final _tab = ValueNotifier<ShellTab>(ShellTab.home);
+  final _tab = ValueNotifier<ShellTab>(MainShell.startTab);
+
+  @override
+  void initState() {
+    super.initState();
+    MainShell.startTab = ShellTab.home;
+  }
 
   @override
   void dispose() {

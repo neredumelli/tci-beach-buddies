@@ -43,8 +43,11 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   /// state): the palette is global, so every element is marked for rebuild.
   void _onSettings() {
     if (_settings.themeId == _themeId) return;
+    final wasPhoto = BB.photo;
     _themeId = _settings.themeId;
     BB.palette = AppThemes.byId(_themeId);
+    // The look changed while the app is running: reopen on Settings.
+    if (wasPhoto != BB.photo && _services != null) MainShell.startTab = ShellTab.settings;
     if (!mounted) return;
     setState(() {});
     void rebuild(Element e) {
@@ -78,6 +81,9 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // A change of look (classic <-> photo) rebuilds the screens fresh: the two
+      // looks use different fonts, which widgets cannot animate between.
+      key: ValueKey('look-${BB.photo}'),
       title: 'TCI Beach Buddies',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
@@ -96,7 +102,8 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
           if (snap.hasError) {
             return _FatalScreen(error: '${snap.error}');
           }
-          if (!snap.hasData || _services == null) return const _Splash();
+          if (_services != null) return const MainShell();
+          if (!snap.hasData) return const _Splash();
           return const MainShell();
         },
       ),
