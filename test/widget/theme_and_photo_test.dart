@@ -24,8 +24,9 @@ final _credits = utf8.encode(jsonEncode({
   },
 }));
 
-Future<void> _boot(WidgetTester t, {Map<String, Object> prefs = const {}}) async {
-  SharedPreferences.setMockInitialValues(prefs);
+Future<void> _boot(WidgetTester t, {Map<String, Object>? prefs = const {}}) async {
+  // prefs == null: keep what earlier runs saved (simulates reopening the app).
+  if (prefs != null) SharedPreferences.setMockInitialValues(prefs);
   await t.binding.setSurfaceSize(const Size(420, 900));
   await t.pumpWidget(TciBeachBuddiesApp(
     bundle: OfflineBundle(DirectoryAssetBundle(syntheticRoot, overrides: {'assets/photos/credits.json': _credits})),
@@ -83,6 +84,28 @@ void main() {
     expect(BB.palette.id, 'sunset');
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.getString('theme'), 'sunset');
+    expect(t.takeException(), isNull);
+  });
+
+  testWidgets('Chosen theme stays after closing and reopening the app', (t) async {
+    await _boot(t);
+    await t.tap(find.text('Settings').last);
+    await _settle(t);
+    await t.tap(find.text('Theme'));
+    await _settle(t);
+    await t.tap(find.text('Palm Green'));
+    await _settle(t);
+    expect(BB.palette.id, 'palm');
+    // Close the app completely...
+    await t.pumpWidget(const SizedBox());
+    BB.palette = AppThemes.islandBlue;
+    await _settle(t, 2);
+    // ...and open it again with the same phone storage.
+    await _boot(t, prefs: null);
+    expect(BB.palette.id, 'palm');
+    await t.tap(find.text('Settings').last);
+    await _settle(t);
+    expect(find.text('Palm Green'), findsOneWidget);
     expect(t.takeException(), isNull);
   });
 

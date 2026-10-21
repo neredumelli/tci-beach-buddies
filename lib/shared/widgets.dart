@@ -130,8 +130,12 @@ class ReturnToPortButton extends StatelessWidget {
             gradient: enabled ? gradient : null,
             color: enabled ? null : Colors.grey,
             borderRadius: radius,
+            border: BB.photo ? null : Border.all(color: Colors.white, width: 3),
             boxShadow: enabled
-                ? [BoxShadow(color: base.withValues(alpha: 0.35), blurRadius: 12, offset: const Offset(0, 5))]
+                ? [
+                    BoxShadow(color: base.withValues(alpha: 0.40), blurRadius: 14, offset: const Offset(0, 6)),
+                    if (!BB.photo) BoxShadow(color: base.withValues(alpha: 0.55), spreadRadius: 1.5),
+                  ]
                 : null,
           ),
           child: Material(
@@ -205,51 +209,78 @@ class PlaceCard extends StatelessWidget {
 
   /// v2.0 look as presented to the customer, brighter (classic themes).
   Widget _buildClassic(BuildContext context) {
+    final cat = BB.category(poi.category);
     return Semantics(
       button: true,
       label: '${poi.name}${distance == null ? '' : ', $distance away'}${poi.canNavigate ? '' : ', browse only'}',
-      child: Material(
-        color: highlighted ? BB.selectedRow : Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        elevation: 1.5,
-        shadowColor: const Color(0x330B2F44),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(children: [
-              PlaceArt(poi: poi, width: 100, height: 76, radius: 12),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                        color: BB.category(poi.category).withValues(alpha: 0.12), borderRadius: BorderRadius.circular(20)),
-                    child: Text(poi.category.label,
-                        style: TextStyle(color: BB.category(poi.category), fontSize: 11.5, fontWeight: FontWeight.w800)),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(poi.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: BB.navy)),
-                  const SizedBox(height: 4),
-                  Row(children: [
-                    if (distance != null) ...[
-                      Icon(Icons.place, size: 15, color: BB.navy),
-                      const SizedBox(width: 2),
-                      Text(distance!, style: TextStyle(color: BB.navy, fontSize: 13.5)),
-                      const SizedBox(width: 10),
-                    ],
-                    if (!poi.canNavigate)
-                      const Flexible(
-                        child: Text('Browse only',
-                            style: TextStyle(color: BB.warning, fontSize: 12.5, fontWeight: FontWeight.w700)),
-                      ),
+      child: Container(
+        decoration: BB.option(cat, selected: highlighted),
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(18),
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(children: [
+                // Photo in a white frame with a coloured shadow.
+                Container(
+                  decoration: BB.framed(accent: cat, radius: 14),
+                  child: PlaceArt(poi: poi, width: 104, height: 80, radius: 11),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+                      decoration: BoxDecoration(gradient: BB.categoryGradient(poi.category), borderRadius: BorderRadius.circular(20)),
+                      child: Row(mainAxisSize: MainAxisSize.min, children: [
+                        Icon(BB.categoryIcon(poi.category), size: 13, color: Colors.white),
+                        const SizedBox(width: 4),
+                        Text(poi.category.label,
+                            style: const TextStyle(color: Colors.white, fontSize: 11.5, fontWeight: FontWeight.w900)),
+                      ]),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(poi.name, style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w900, color: BB.navy)),
+                    const SizedBox(height: 4),
+                    Wrap(spacing: 8, runSpacing: 4, children: [
+                      if (distance != null)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: BB.selectedRow,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: BB.navy.withValues(alpha: 0.35)),
+                          ),
+                          child: Row(mainAxisSize: MainAxisSize.min, children: [
+                            Icon(Icons.place, size: 14, color: BB.navy),
+                            const SizedBox(width: 2),
+                            Text(distance!, style: TextStyle(color: BB.navy, fontSize: 13, fontWeight: FontWeight.w800)),
+                          ]),
+                        ),
+                      if (!poi.canNavigate)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFFF3E0),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: const Color(0xFFFFB74D)),
+                          ),
+                          child: const Text('Browse only',
+                              style: TextStyle(color: BB.warning, fontSize: 12.5, fontWeight: FontWeight.w800)),
+                        ),
+                    ]),
                   ]),
-                ]),
-              ),
-              const Icon(Icons.chevron_right, color: BB.muted),
-            ]),
+                ),
+                Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(color: cat.withValues(alpha: 0.12), shape: BoxShape.circle),
+                  child: Icon(Icons.chevron_right, color: cat),
+                ),
+              ]),
+            ),
           ),
         ),
       ),

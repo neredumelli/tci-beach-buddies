@@ -46,10 +46,22 @@ class DestinationDetailsScreen extends StatelessWidget {
             const SimulatedBanner(),
             Expanded(
               child: ListView(padding: EdgeInsets.zero, children: [
-                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.36).clamp(220.0, 380.0), radius: 0, expandable: true),
+                // Photo in a white frame with a category-coloured glow.
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                  child: Container(
+                    decoration: BB.framed(accent: BB.category(poi.category), radius: 24, width: 4),
+                    child: PlaceArt(
+                        poi: poi,
+                        width: double.infinity,
+                        height: (MediaQuery.sizeOf(context).height * 0.33).clamp(200.0, 340.0),
+                        radius: 20,
+                        expandable: true),
+                  ),
+                ),
                 if (Photos.of(poi.id) != null)
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
+                    padding: const EdgeInsets.fromLTRB(18, 6, 18, 0),
                     child: Text(Photos.of(poi.id)!.line,
                         style: const TextStyle(fontSize: 10.5, color: BB.muted), maxLines: 2),
                   ),
@@ -61,19 +73,36 @@ class DestinationDetailsScreen extends StatelessWidget {
                         child: Text(poi.name,
                             style: TextStyle(fontSize: 23, fontWeight: FontWeight.w800, color: BB.navy)),
                       ),
-                      if (dist != null) ...[
-                        Icon(Icons.place, color: BB.blue, size: 20),
-                        Text(dist, style: TextStyle(color: BB.blue, fontWeight: FontWeight.w700, fontSize: 15)),
-                      ],
+                      if (dist != null)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: BB.selectedRow,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: BB.blue.withValues(alpha: 0.5), width: 1.5),
+                          ),
+                          child: Row(mainAxisSize: MainAxisSize.min, children: [
+                            Icon(Icons.place, color: BB.blue, size: 17),
+                            Text(dist, style: TextStyle(color: BB.blue, fontWeight: FontWeight.w800, fontSize: 14)),
+                          ]),
+                        ),
                     ]),
                     const SizedBox(height: 8),
                     Wrap(spacing: 8, runSpacing: 6, children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                        decoration: BoxDecoration(color: BB.category(poi.category).withValues(alpha: 0.9),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Text(poi.category.label,
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+                        padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
+                        decoration: BoxDecoration(
+                          gradient: BB.categoryGradient(poi.category),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.white, width: 2),
+                          boxShadow: [BoxShadow(color: BB.category(poi.category).withValues(alpha: 0.35), blurRadius: 6)],
+                        ),
+                        child: Row(mainAxisSize: MainAxisSize.min, children: [
+                          Icon(BB.categoryIcon(poi.category), size: 15, color: Colors.white),
+                          const SizedBox(width: 4),
+                          Text(poi.category.label,
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+                        ]),
                       ),
                       if (!poi.isApproved) const ProvisionalBadge(),
                     ]),
@@ -87,18 +116,31 @@ class DestinationDetailsScreen extends StatelessWidget {
                     ),
                     if (poi.facts.isNotEmpty) ...[
                       const SizedBox(height: 4),
-                      Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        Icon(Icons.info, color: BB.blue),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Text('Interesting Facts',
-                                style: TextStyle(color: BB.navy, fontWeight: FontWeight.w800, fontSize: 16)),
-                            const SizedBox(height: 4),
-                            Text(poi.facts, style: const TextStyle(color: BB.muted, fontSize: 14.5)),
-                          ]),
-                        ),
-                      ]),
+                      Container(
+                        padding: const EdgeInsets.all(14),
+                        decoration: BB.option(const Color(0xFFFFA000)).copyWith(color: const Color(0xFFFFF8E1)),
+                        child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Container(
+                            width: 38,
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFC93C),
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.white, width: 2),
+                            ),
+                            child: const Icon(Icons.lightbulb, color: BB.ink, size: 22),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                              Text('Interesting Facts',
+                                  style: TextStyle(color: BB.navy, fontWeight: FontWeight.w900, fontSize: 16)),
+                              const SizedBox(height: 4),
+                              Text(poi.facts, style: const TextStyle(color: BB.ink, fontSize: 14.5, height: 1.4)),
+                            ]),
+                          ),
+                        ]),
+                      ),
                     ],
                     if (poi.accessNotes.isNotEmpty) ...[
                       const SizedBox(height: 10),
@@ -108,7 +150,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                       const SizedBox(height: 14),
                       Container(
                         padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(color: const Color(0xFFFFF3E0), borderRadius: BorderRadius.circular(12)),
+                        decoration: BB.option(const Color(0xFFFFB74D)).copyWith(color: const Color(0xFFFFF3E0)),
                         child: Text(
                           'Navigation is not available for this destination'
                           '${poi.notRoutableReason == null ? '.' : ': ${poi.notRoutableReason}'}',

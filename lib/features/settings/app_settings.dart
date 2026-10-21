@@ -78,11 +78,19 @@ class AppSettings extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setThemeId(String id) {
+  /// Saves the theme on the phone (it stays after the app is closed) and
+  /// applies it. The write is awaited and opens the store itself if start-up
+  /// could not, so a choice is never silently dropped.
+  Future<void> setThemeId(String id) async {
     if (id == themeId) return;
     themeId = id;
-    _prefs?.setString('theme', id);
     notifyListeners();
+    try {
+      final p = _prefs ??= await SharedPreferences.getInstance();
+      await p.setString('theme', id);
+    } catch (_) {
+      // Storage unavailable: the theme still applies for this session.
+    }
   }
 
   void setDemoMode(bool v) {

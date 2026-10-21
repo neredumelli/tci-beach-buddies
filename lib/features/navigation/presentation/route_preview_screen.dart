@@ -175,6 +175,10 @@ class _PreviewCard extends StatelessWidget {
     return Material(
       color: Colors.white,
       elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
+        side: BorderSide(color: BB.navy.withValues(alpha: 0.45), width: 2),
+      ),
       child: SafeArea(
         top: false,
         child: Padding(

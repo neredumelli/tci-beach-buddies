@@ -45,49 +45,38 @@ class PlacesScreen extends StatelessWidget {
                 onTap: () => openSearch(context),
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 13),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: const Color(0xFFD5DEEA)),
-                  ),
-                  child: const Row(children: [
-                    Expanded(child: Text('Search destinations…', style: TextStyle(color: BB.muted, fontSize: 15))),
-                    Icon(Icons.search, color: BB.muted),
+                  decoration: BB.option(BB.navy, radius: 16),
+                  child: Row(children: [
+                    const Expanded(
+                        child: Text('Search destinations…',
+                            style: TextStyle(color: BB.muted, fontSize: 15, fontWeight: FontWeight.w600))),
+                    Icon(Icons.search, color: BB.navy),
                   ]),
                 ),
               ),
             ),
             const SizedBox(height: 10),
-            Material(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(14),
-              clipBehavior: Clip.antiAlias,
-              child: Column(children: [
-                for (final c in PoiCategory.values) ...[
-                  ListTile(
-                    minVerticalPadding: 12,
-                    leading: CategoryCircle(category: c),
-                    title: Text(c.pluralLabel,
-                        style: TextStyle(fontWeight: FontWeight.w700, color: BB.navy, fontSize: 16)),
-                    subtitle: Text('${all.where((p) => p.category == c).length} destinations'),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () => openCategory(context, c),
-                  ),
-                  if (c != PoiCategory.values.last) const Divider(height: 1, indent: 72),
-                ],
-              ]),
-            ),
-            const SizedBox(height: 12),
-            Material(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(14),
-              clipBehavior: Clip.antiAlias,
+            for (final cat in PoiCategory.values) ...[
+              _ClassicCategoryRow(
+                category: cat,
+                count: all.where((p) => p.category == cat).length,
+                photo: _photoFor(all, cat),
+                onTap: () => openCategory(context, cat),
+              ),
+              const SizedBox(height: 10),
+            ],
+            const SizedBox(height: 4),
+            Container(
+              decoration: BB.option(const Color(0xFFE91E63)),
+              child: Material(
+              type: MaterialType.transparency,
               child: ListTile(
                 leading: const CircleAvatar(backgroundColor: Color(0xFFE91E63), child: Icon(Icons.favorite, color: Colors.white)),
                 title: Text('Saved places', style: TextStyle(fontWeight: FontWeight.w700, color: BB.navy)),
                 subtitle: Text('$saved saved'),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => openSearch(context),
+              ),
               ),
             ),
           ]);
@@ -273,6 +262,68 @@ class _CategoryCard extends StatelessWidget {
               ),
             ),
           ]),
+        ),
+      ),
+    );
+  }
+}
+
+/// Classic Places row: bordered option card in the category colour, ringed
+/// icon, count pill and a framed photo of one of its places.
+class _ClassicCategoryRow extends StatelessWidget {
+  final PoiCategory category;
+  final int count;
+  final String? photo;
+  final VoidCallback onTap;
+  const _ClassicCategoryRow({required this.category, required this.count, required this.photo, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final c = BB.category(category);
+    return Container(
+      decoration: BB.option(c),
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(18),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            child: Row(children: [
+              Container(
+                padding: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  border: Border.all(color: c.withValues(alpha: 0.5), width: 2),
+                ),
+                child: CategoryCircle(category: category, size: 46),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(category.pluralLabel, style: TextStyle(fontWeight: FontWeight.w900, color: BB.navy, fontSize: 16.5)),
+                  const SizedBox(height: 3),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+                    decoration: BoxDecoration(color: c.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(20)),
+                    child: Text('$count destinations',
+                        style: TextStyle(color: c, fontSize: 12.5, fontWeight: FontWeight.w800)),
+                  ),
+                ]),
+              ),
+              if (photo != null)
+                Container(
+                  decoration: BB.framed(accent: c, radius: 12, width: 2.5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(9.5),
+                    child: Image.asset(photo!, width: 64, height: 48, fit: BoxFit.cover, excludeFromSemantics: true),
+                  ),
+                ),
+              const SizedBox(width: 6),
+              Icon(Icons.chevron_right, color: c),
+            ]),
+          ),
         ),
       ),
     );

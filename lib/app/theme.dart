@@ -188,6 +188,29 @@ class BB {
   static const muted = Color(0xFF5B6B7A);
   static const card = Colors.white;
 
+  /// Classic look: a photo in a white frame with a soft coloured shadow.
+  static BoxDecoration framed({Color? accent, double radius = 14, double width = 3}) => BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(radius),
+        border: Border.all(color: Colors.white, width: width),
+        boxShadow: [
+          BoxShadow(color: (accent ?? navy).withValues(alpha: 0.30), blurRadius: 10, offset: const Offset(0, 4)),
+        ],
+      );
+
+  /// Classic look: a white option card with a coloured border and glow.
+  static BoxDecoration option(Color c, {double radius = 18, bool selected = false}) => BoxDecoration(
+        color: selected ? Color.alphaBlend(c.withValues(alpha: 0.10), Colors.white) : Colors.white,
+        borderRadius: BorderRadius.circular(radius),
+        border: Border.all(color: c.withValues(alpha: selected ? 0.9 : 0.55), width: 2),
+        boxShadow: [BoxShadow(color: c.withValues(alpha: 0.18), blurRadius: 10, offset: const Offset(0, 4))],
+      );
+
+  /// Sunset-to-lagoon accent stripe (classic headers and photo edges).
+  static const islandStripe = LinearGradient(
+    colors: [Color(0xFFFF8A1F), Color(0xFFFFC93C), Color(0xFF29B6F6), Color(0xFF00A3B4)],
+  );
+
   /// Text/icon colour that reads on [c] (dark on light fills, white on dark).
   static Color onColor(Color c) => c.computeLuminance() > 0.4 ? ink : Colors.white;
 
@@ -243,7 +266,17 @@ class HeaderBackground extends StatelessWidget {
   const HeaderBackground({super.key});
   @override
   Widget build(BuildContext context) => !BB.photo
-      ? DecoratedBox(decoration: BoxDecoration(gradient: BB.headerGradient))
+      ? DecoratedBox(
+          decoration: BoxDecoration(gradient: BB.headerGradient),
+          child: const Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: 4,
+              width: double.infinity,
+              child: DecoratedBox(decoration: BoxDecoration(gradient: BB.islandStripe)),
+            ),
+          ),
+        )
       : ClipRRect(
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
         child: DecoratedBox(
@@ -305,20 +338,23 @@ ThemeData _classicTheme() {
         minimumSize: const Size.fromHeight(52),
         backgroundColor: BB.go,
         foregroundColor: Colors.white,
-        elevation: 2,
-        shadowColor: BB.go.withValues(alpha: 0.5),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: tt.labelLarge!.copyWith(fontSize: 17, fontWeight: FontWeight.w800),
+        elevation: 4,
+        shadowColor: BB.go.withValues(alpha: 0.6),
+        side: const BorderSide(color: Colors.white, width: 2.5),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: tt.labelLarge!.copyWith(fontSize: 17, fontWeight: FontWeight.w900),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         minimumSize: const Size.fromHeight(52),
-        side: BorderSide(color: BB.blue, width: 1.8),
+        side: BorderSide(color: BB.blue, width: 2.2),
         foregroundColor: BB.blue,
         backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: tt.labelLarge!.copyWith(fontSize: 16, fontWeight: FontWeight.w800),
+        elevation: 2,
+        shadowColor: BB.blue.withValues(alpha: 0.3),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        textStyle: tt.labelLarge!.copyWith(fontSize: 16, fontWeight: FontWeight.w900),
       ),
     ),
     switchTheme: SwitchThemeData(

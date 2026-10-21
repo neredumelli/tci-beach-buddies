@@ -48,14 +48,20 @@ class HomeScreen extends StatelessWidget {
   Widget _buildClassic(BuildContext context) {
     final s = AppScope.of(context);
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Column(children: [
         const SimulatedBanner(safeTop: true),
         Expanded(
           child: ListView(padding: EdgeInsets.zero, children: [
-            SizedBox(
-              height: 270,
-              child: Container(
+            Container(
+              height: 276,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+                boxShadow: [BoxShadow(color: BB.navy.withValues(alpha: 0.30), blurRadius: 14, offset: const Offset(0, 6))],
+              ),
+              child: ClipRRect(
+              borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+              child: Stack(fit: StackFit.expand, children: [
+              Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/splash.jpg'),
@@ -87,16 +93,32 @@ class HomeScreen extends StatelessWidget {
                       child: Image.asset('assets/images/logo.png', height: 62, semanticLabel: 'TCI Beach Buddies'),
                     ),
                     const SizedBox(height: 10),
-                    Text('Welcome to\nGrand Turk',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: BB.navy, fontSize: 28, height: 1.1, fontWeight: FontWeight.w900,
-                            shadows: [Shadow(color: Colors.white, blurRadius: 8)])),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.80),
+                        borderRadius: BorderRadius.circular(18),
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                      child: Text('Welcome to\nGrand Turk',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: BB.navy, fontSize: 27, height: 1.1, fontWeight: FontWeight.w900)),
+                    ),
                   ]),
                 ),
               ),
+              const Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: 6,
+                child: DecoratedBox(decoration: BoxDecoration(gradient: BB.islandStripe)),
+              ),
+              ]),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+              padding: const EdgeInsets.fromLTRB(16, 18, 16, 8),
               child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
                 const DataHealthBanner(),
                 const _ActiveNavCard(),
@@ -106,9 +128,9 @@ class HomeScreen extends StatelessWidget {
                   crossAxisCount: 3,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  mainAxisSpacing: 12,
-                  crossAxisSpacing: 12,
-                  childAspectRatio: 1.0,
+                  mainAxisSpacing: 14,
+                  crossAxisSpacing: 14,
+                  childAspectRatio: 0.98,
                   children: [
                     for (final c in _tiles)
                       _ClassicTile(
@@ -452,39 +474,68 @@ class _ClassicTile extends StatelessWidget {
   const _ClassicTile({required this.color, required this.gradient, required this.icon, required this.label, required this.onTap});
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(18);
+    final radius = BorderRadius.circular(20);
     return Semantics(
       button: true,
       label: label,
-      child: DecoratedBox(
+      child: Container(
         decoration: BoxDecoration(
           gradient: gradient,
           borderRadius: radius,
-          boxShadow: [BoxShadow(color: color.withValues(alpha: 0.38), blurRadius: 10, offset: const Offset(0, 4))],
+          border: Border.all(color: Colors.white, width: 3),
+          boxShadow: [
+            BoxShadow(color: color.withValues(alpha: 0.45), blurRadius: 12, offset: const Offset(0, 5)),
+            BoxShadow(color: color.withValues(alpha: 0.35), spreadRadius: 1.5),
+          ],
         ),
-        child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            borderRadius: radius,
-            onTap: onTap,
-            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Container(
-                width: 52,
-                height: 52,
-                decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.22), shape: BoxShape.circle),
-                child: Icon(icon, color: Colors.white, size: 32),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(17),
+          child: Stack(fit: StackFit.expand, children: [
+            // Glossy highlight on the top half.
+            const Align(
+              alignment: Alignment.topCenter,
+              child: FractionallySizedBox(
+                heightFactor: 0.5,
+                widthFactor: 1,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0x40FFFFFF), Color(0x00FFFFFF)],
+                    ),
+                  ),
+                ),
               ),
-              const SizedBox(height: 6),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: Text(label,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: const TextStyle(color: Colors.white, fontSize: 13.5, fontWeight: FontWeight.w800,
-                        shadows: [Shadow(color: Color(0x55000000), blurRadius: 3)])),
+            ),
+            Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                onTap: onTap,
+                child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Container(
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.25),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2.5),
+                    ),
+                    child: Icon(icon, color: Colors.white, size: 30),
+                  ),
+                  const SizedBox(height: 6),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Text(label,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        style: const TextStyle(color: Colors.white, fontSize: 13.5, fontWeight: FontWeight.w900,
+                            shadows: [Shadow(color: Color(0x66000000), blurRadius: 3)])),
+                  ),
+                ]),
               ),
-            ]),
-          ),
+            ),
+          ]),
         ),
       ),
     );

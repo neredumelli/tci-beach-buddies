@@ -27,26 +27,44 @@ class ArrivalScreen extends StatelessWidget {
     final fromShip = ship == null ? null : s.settings.formatDistance(haversineM(ship.display, poi.display));
     // Arrived is a terminal state (not "active"), so leaving with Back is safe.
     return Scaffold(
-        backgroundColor: Colors.white,
         body: Column(children: [
           const SimulatedBanner(safeTop: true),
           Expanded(
             child: ListView(padding: EdgeInsets.zero, children: [
-              Stack(children: [
-                // Full-width hero photo, ~40% of the screen height.
-                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.40).clamp(240.0, 420.0), radius: 0, expandable: true),
-                SafeArea(
-                  child: IconButton(
-                    tooltip: 'Home',
-                    onPressed: () {
-                      s.nav.stop();
-                      goHome(context);
-                    },
-                    icon: const Icon(Icons.home, color: Colors.white, size: 28,
-                        shadows: [Shadow(color: Color(0x88000000), blurRadius: 4)]),
-                  ),
+              // Hero photo in a white frame with a green "arrived" glow.
+              SafeArea(
+                bottom: false,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                  child: Stack(children: [
+                    Container(
+                      decoration: BB.framed(accent: BB.go, radius: 26, width: 4),
+                      child: PlaceArt(
+                          poi: poi,
+                          width: double.infinity,
+                          height: (MediaQuery.sizeOf(context).height * 0.36).clamp(220.0, 380.0),
+                          radius: 22,
+                          expandable: true),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Material(
+                        color: Colors.white,
+                        shape: const CircleBorder(),
+                        elevation: 3,
+                        child: IconButton(
+                          tooltip: 'Home',
+                          onPressed: () {
+                            s.nav.stop();
+                            goHome(context);
+                          },
+                          icon: Icon(Icons.home, color: BB.navy, size: 26),
+                        ),
+                      ),
+                    ),
+                  ]),
                 ),
-              ]),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -61,12 +79,23 @@ class ArrivalScreen extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(poi.name, textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: BB.navy)),
-                  Text(
-                    poi.isShipTerminal || fromShip == null
-                        ? poi.category.label
-                        : '${poi.category.label}  •  $fromShip from the ship',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: BB.blue, fontWeight: FontWeight.w600),
+                  const SizedBox(height: 6),
+                  Center(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: BB.selectedRow,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: BB.blue.withValues(alpha: 0.5), width: 1.5),
+                      ),
+                      child: Text(
+                        poi.isShipTerminal || fromShip == null
+                            ? poi.category.label
+                            : '${poi.category.label}  •  $fromShip from the ship',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: BB.blue, fontWeight: FontWeight.w800),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Text(poi.description, textAlign: TextAlign.center, style: const TextStyle(fontSize: 15)),
@@ -81,7 +110,12 @@ class ArrivalScreen extends StatelessWidget {
                   SizedBox(
                     height: 54,
                     child: FilledButton(
-                      style: FilledButton.styleFrom(backgroundColor: BB.blue),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: BB.blue,
+                        side: const BorderSide(color: Colors.white, width: 3),
+                        elevation: 4,
+                        shadowColor: BB.blue.withValues(alpha: 0.6),
+                      ),
                       onPressed: () => openNearby(context, poi.display, excludeId: poi.id),
                       child: const Text('Explore Nearby'),
                     ),

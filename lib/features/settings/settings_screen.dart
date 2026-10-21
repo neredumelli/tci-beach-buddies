@@ -267,14 +267,24 @@ class _Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.fromLTRB(12, 10, 12, 0),
-        child: Material(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(22),
-          elevation: 2,
-          shadowColor: const Color(0x330B2F44),
-          clipBehavior: Clip.antiAlias,
-          child: Padding(padding: const EdgeInsets.symmetric(vertical: 4), child: Column(children: children)),
-        ),
+        child: BB.photo
+            ? Material(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(22),
+                elevation: 2,
+                shadowColor: const Color(0x330B2F44),
+                clipBehavior: Clip.antiAlias,
+                child: Padding(padding: const EdgeInsets.symmetric(vertical: 4), child: Column(children: children)),
+              )
+            : Container(
+                decoration: BB.option(BB.navy),
+                child: Material(
+                  type: MaterialType.transparency,
+                  borderRadius: BorderRadius.circular(18),
+                  clipBehavior: Clip.antiAlias,
+                  child: Padding(padding: const EdgeInsets.symmetric(vertical: 4), child: Column(children: children)),
+                ),
+              ),
       );
 }
 
@@ -450,7 +460,18 @@ class _IconTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!BB.photo) return Icon(icon, color: BB.blue);
+    if (!BB.photo) {
+      return Container(
+        width: 38,
+        height: 38,
+        decoration: BoxDecoration(
+          color: BB.selectedRow,
+          shape: BoxShape.circle,
+          border: Border.all(color: BB.blue.withValues(alpha: 0.6), width: 2),
+        ),
+        child: Icon(icon, color: BB.blue, size: 21),
+      );
+    }
     final c = _colors[icon] ?? BB.blue;
     return Container(
       width: 40,
