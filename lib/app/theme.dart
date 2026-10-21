@@ -217,6 +217,9 @@ ThemeData buildTheme() {
     surface: Colors.white,
     error: BB.danger,
   );
+  // Derive text styles from the platform typography (Roboto on Android,
+  // San Francisco on iOS) so overridden styles keep the system font.
+  final tt = ThemeData(useMaterial3: true, colorScheme: scheme).textTheme;
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
@@ -226,7 +229,7 @@ ThemeData buildTheme() {
       foregroundColor: Colors.white,
       elevation: 0,
       centerTitle: true,
-      titleTextStyle: const TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800),
+      titleTextStyle: tt.titleLarge!.copyWith(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800),
       iconTheme: const IconThemeData(color: Colors.white),
       actionsIconTheme: const IconThemeData(color: Colors.white),
     ),
@@ -244,7 +247,7 @@ ThemeData buildTheme() {
         elevation: 2,
         shadowColor: BB.go.withValues(alpha: 0.5),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+        textStyle: tt.labelLarge!.copyWith(fontSize: 17, fontWeight: FontWeight.w800),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -254,7 +257,7 @@ ThemeData buildTheme() {
         foregroundColor: BB.blue,
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+        textStyle: tt.labelLarge!.copyWith(fontSize: 16, fontWeight: FontWeight.w800),
       ),
     ),
     switchTheme: SwitchThemeData(
@@ -266,7 +269,7 @@ ThemeData buildTheme() {
       indicatorColor: Colors.white.withValues(alpha: 0.22),
       iconTheme: WidgetStateProperty.all(const IconThemeData(color: Colors.white)),
       labelTextStyle: WidgetStateProperty.all(
-          const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white)),
+          tt.labelMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white)),
     ),
   );
 }

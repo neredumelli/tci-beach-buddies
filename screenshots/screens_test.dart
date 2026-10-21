@@ -179,9 +179,10 @@ void main() {
       await _tap(t, find.text('Theme'));
       await _shot(t, theme.id, '11b_theme_picker');
       if (full) {
-        await t.tapAt(const Offset(195, 40)); // dismiss the sheet
+        Navigator.of(t.element(find.text('Choose a theme'))).pop(); // close the sheet
         await _settle(t);
-        await _tap(t, find.text('Home').last);
+        await t.tap(find.text('Home', skipOffstage: false).last);
+        await _settle(t);
         await _tap(t, find.byTooltip('Search destinations'));
         await t.enterText(find.byType(TextField).last, 'beach');
         await _settle(t);

@@ -54,7 +54,7 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
     final photo = widget.photo;
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Stack(children: [
+      body: Stack(fit: StackFit.expand, children: [
         Positioned.fill(
           child: GestureDetector(
             onDoubleTapDown: (d) => _tap = d,
@@ -78,18 +78,22 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
             ),
           ),
         ),
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Material(
-              color: Colors.black54,
-              shape: const CircleBorder(),
-              child: IconButton(
-                tooltip: 'Close photo',
-                iconSize: 28,
-                color: Colors.white,
-                icon: const Icon(Icons.close),
-                onPressed: () => Navigator.of(context).maybePop(),
+        Positioned(
+          top: 0,
+          left: 0,
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Material(
+                color: Colors.black54,
+                shape: const CircleBorder(),
+                child: IconButton(
+                  tooltip: 'Close photo',
+                  iconSize: 28,
+                  color: Colors.white,
+                  icon: const Icon(Icons.close),
+                  onPressed: () => Navigator.of(context).maybePop(),
+                ),
               ),
             ),
           ),
