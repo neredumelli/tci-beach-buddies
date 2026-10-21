@@ -188,14 +188,19 @@ void main() {
         await _tap(t, find.text('Tap to enlarge'));
         await _shot(t, theme.id, '05d_multi_photo_full_screen');
         await _tap(t, find.byTooltip('Close photo'));
+        expect(t.takeException(), isNull);
+      });
+
+      testWidgets('illustration rotating with a photo · ${theme.id}', (t) async {
         // A drawing rotating with a real photo keeps its Illustration label.
-        await t.tap(find.text('Home', skipOffstage: false).last);
-        await _settle(t);
+        await _boot(t, theme.id);
         await _tap(t, find.byTooltip('Search destinations'));
         await t.enterText(find.byType(TextField).last, 'Town Salina');
         await _settle(t);
         await _tap(t, find.text('Town Salina').last);
         await _shot(t, theme.id, '05e_illustration_and_photo');
+        await _settle(t, 60); // let it rotate to the donkey photo
+        await _shot(t, theme.id, '05f_rotated_to_photo');
         expect(t.takeException(), isNull);
       });
     }
