@@ -33,7 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     final s = AppScope.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(widget.pickerMode ? 'Choose destination' : 'Search')),
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), title: Text(widget.pickerMode ? 'Choose destination' : 'Search')),
       body: ListenableBuilder(
         listenable: Listenable.merge([s.location, s.settings]),
         builder: (context, _) {

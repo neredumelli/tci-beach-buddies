@@ -26,10 +26,10 @@ class _NearbyScreenState extends State<NearbyScreen> {
     final list = s.destinations.where((p) => p.locationVerified && p.id != widget.excludeId && (_cat == null || p.category == _cat)).toList()
       ..sort((a, b) => haversineM(widget.from, a.display).compareTo(haversineM(widget.from, b.display)));
     return Scaffold(
-      appBar: AppBar(title: const Text('Nearby Places')),
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), title: const Text('Nearby Places')),
       body: ListView(padding: const EdgeInsets.fromLTRB(12, 10, 12, 24), children: [
         const SimulatedBanner(),
-        const Padding(
+        Padding(
           padding: EdgeInsets.only(left: 4, bottom: 8),
           child: Text('Close to you', style: TextStyle(color: BB.go, fontWeight: FontWeight.w800, fontSize: 15)),
         ),
@@ -44,7 +44,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
                 selectedTileColor: BB.selectedRow,
                 leading: CategoryCircle(category: c, size: 38),
                 title: Text(c == PoiCategory.shopping ? 'Shops' : c.pluralLabel,
-                    style: const TextStyle(fontWeight: FontWeight.w700, color: BB.navy)),
+                    style: TextStyle(fontWeight: FontWeight.w700, color: BB.navy)),
                 trailing: Icon(_cat == c ? Icons.check : Icons.chevron_right),
                 onTap: () => setState(() => _cat = _cat == c ? null : c),
               ),

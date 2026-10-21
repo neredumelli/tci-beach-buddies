@@ -23,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
     final b = s.bundle;
     final m = b.manifest;
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), 
         title: const Text('Settings'),
         leading: IconButton(
           tooltip: 'Home',
@@ -42,8 +42,8 @@ class SettingsScreen extends StatelessWidget {
             const SimulatedBanner(),
             _Card(children: [
               SwitchListTile(
-                secondary: const Icon(Icons.volume_up, color: BB.blue),
-                title: const Text('Voice Guidance', style: _t),
+                secondary: Icon(Icons.volume_up, color: BB.blue),
+                title: Text('Voice Guidance', style: _t),
                 value: s.settings.voiceGuidance,
                 onChanged: s.settings.setVoiceGuidance,
               ),
@@ -55,6 +55,7 @@ class SettingsScreen extends StatelessWidget {
                 () => s.settings.setUnits(
                     s.settings.units == DistanceUnits.imperial ? DistanceUnits.metric : DistanceUnits.imperial),
               ),
+              _ThemeRow(onTap: () => showThemePicker(context)),
               _row(Icons.map, 'Offline Map', b.navigationAvailable ? 'Available' : 'Problem',
                   b.navigationAvailable ? BB.go : BB.danger, () => _offlineMap(context, b)),
               _row(Icons.place, 'GPS Status', gpsActive ? 'Active' : gText, gpsActive ? BB.go : gColor, () async {
@@ -74,14 +75,14 @@ class SettingsScreen extends StatelessWidget {
             const _Header('Voice & display'),
             _Card(children: [
               SwitchListTile(
-                secondary: const Icon(Icons.record_voice_over, color: BB.blue),
-                title: const Text('Read description on arrival', style: _t),
+                secondary: Icon(Icons.record_voice_over, color: BB.blue),
+                title: Text('Read description on arrival', style: _t),
                 value: s.settings.narrateArrival,
                 onChanged: s.settings.voiceGuidance ? s.settings.setNarrateArrival : null,
               ),
               ListTile(
-                leading: const Icon(Icons.campaign_outlined, color: BB.blue),
-                title: const Text('Test voice', style: _t),
+                leading: Icon(Icons.campaign_outlined, color: BB.blue),
+                title: Text('Test voice', style: _t),
                 subtitle: const Text("If silent: raise media volume or install an offline voice in the phone's text-to-speech settings"),
                 onTap: () async {
                   final r = await s.voice.check();
@@ -98,14 +99,14 @@ class SettingsScreen extends StatelessWidget {
                 },
               ),
               SwitchListTile(
-                secondary: const Icon(Icons.vibration, color: BB.blue),
-                title: const Text('Vibrate on arrival', style: _t),
+                secondary: Icon(Icons.vibration, color: BB.blue),
+                title: Text('Vibrate on arrival', style: _t),
                 value: s.settings.vibration,
                 onChanged: s.settings.setVibration,
               ),
               SwitchListTile(
-                secondary: const Icon(Icons.schedule, color: BB.blue),
-                title: const Text('Show walking time & ETA', style: _t),
+                secondary: Icon(Icons.schedule, color: BB.blue),
+                title: Text('Show walking time & ETA', style: _t),
                 subtitle: const Text('Estimated at 4.5 km/h (2.8 mph)'),
                 value: s.settings.showWalkingEstimate,
                 onChanged: s.settings.setShowWalkingEstimate,
@@ -115,7 +116,7 @@ class SettingsScreen extends StatelessWidget {
             _Card(children: [
               SwitchListTile(
                 secondary: const Icon(Icons.science, color: BB.warning),
-                title: const Text('Simulated location (Demo mode)', style: _t),
+                title: Text('Simulated location (Demo mode)', style: _t),
                 subtitle: const Text('For staff demonstrations only. A yellow SIMULATED banner is shown on every '
                     'screen. Turns off when the app restarts.'),
                 value: s.settings.demoMode,
@@ -135,18 +136,18 @@ class SettingsScreen extends StatelessWidget {
             _Card(children: [
               ListTile(
                 leading: Image.asset('assets/images/emblem.png', width: 36, height: 36),
-                title: const Text('TCI Beach Buddies', style: _t),
+                title: Text('TCI Beach Buddies', style: _t),
                 subtitle: const Text('Version $appVersion'),
               ),
               ListTile(
-                leading: const Icon(Icons.copyright, color: BB.blue),
-                title: const Text('Map data attribution', style: _t),
+                leading: Icon(Icons.copyright, color: BB.blue),
+                title: Text('Map data attribution', style: _t),
                 subtitle: Text(m?.attribution ?? '© OpenStreetMap contributors'),
               ),
               if (Photos.byPoi.isNotEmpty)
                 ListTile(
-                  leading: const Icon(Icons.photo_library_outlined, color: BB.blue),
-                  title: const Text('Photo credits', style: _t),
+                  leading: Icon(Icons.photo_library_outlined, color: BB.blue),
+                  title: Text('Photo credits', style: _t),
                   subtitle: Text(
                       '${Photos.byPoi.values.where((p) => !p.isIllustration).length} licensed photos · '
                       '${Photos.byPoi.values.where((p) => p.isIllustration).length} illustrations (not photos)'),
@@ -175,7 +176,7 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  static const _t = TextStyle(fontWeight: FontWeight.w600, color: BB.navy);
+  static TextStyle get _t => TextStyle(fontWeight: FontWeight.w600, color: BB.navy);
 
   Widget _row(IconData icon, String title, String value, Color valueColor, VoidCallback onTap) => ListTile(
         leading: Icon(icon, color: BB.blue),
@@ -198,7 +199,7 @@ class SettingsScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
+              Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
               const SizedBox(height: 12),
               ...children,
             ]),
@@ -256,7 +257,7 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.fromLTRB(18, 18, 18, 6),
-        child: Text(text, style: const TextStyle(fontWeight: FontWeight.w800, color: BB.navy, fontSize: 15)),
+        child: Text(text, style: TextStyle(fontWeight: FontWeight.w800, color: BB.navy, fontSize: 15)),
       );
 }
 
@@ -272,5 +273,153 @@ class _Card extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Column(children: children),
         ),
+      );
+}
+
+/// Settings › Theme: shows the active theme as swatches.
+class _ThemeRow extends StatelessWidget {
+  final VoidCallback onTap;
+  const _ThemeRow({required this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    final p = BB.palette;
+    return ListTile(
+      leading: Icon(Icons.palette_outlined, color: BB.blue),
+      title: Text('Theme', style: TextStyle(fontWeight: FontWeight.w600, color: BB.navy)),
+      trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 120),
+          child: Text(p.name, overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: BB.blue, fontWeight: FontWeight.w600)),
+        ),
+        const SizedBox(width: 6),
+        _Swatch(palette: p, size: 22),
+        const Icon(Icons.chevron_right),
+      ]),
+      onTap: onTap,
+    );
+  }
+}
+
+class _Swatch extends StatelessWidget {
+  final AppPalette palette;
+  final double size;
+  const _Swatch({required this.palette, required this.size});
+  @override
+  Widget build(BuildContext context) => Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          gradient: SweepGradient(colors: [palette.primary, palette.primaryLight, palette.port, palette.go, palette.primary]),
+          border: Border.all(color: Colors.white, width: 2),
+          boxShadow: const [BoxShadow(color: Color(0x33000000), blurRadius: 3)],
+        ),
+      );
+}
+
+/// Bottom sheet listing the predefined themes; picking one restyles the
+/// whole app at once and is remembered on this phone.
+Future<void> showThemePicker(BuildContext context) {
+  final settings = AppScope.of(context).settings;
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    showDragHandle: true,
+    builder: (ctx) => SafeArea(
+      child: ListenableBuilder(
+        listenable: settings,
+        builder: (ctx, _) => SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            Text('Choose a theme', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
+            const SizedBox(height: 4),
+            const Text('Only the colours change. Everything works the same.', style: TextStyle(color: BB.muted)),
+            const SizedBox(height: 12),
+            for (final t in AppThemes.all) ...[
+              _ThemeOption(
+                palette: t,
+                selected: settings.themeId == t.id,
+                onTap: () => settings.setThemeId(t.id),
+              ),
+              const SizedBox(height: 10),
+            ],
+          ]),
+        ),
+      ),
+    ),
+  );
+}
+
+class _ThemeOption extends StatelessWidget {
+  final AppPalette palette;
+  final bool selected;
+  final VoidCallback onTap;
+  const _ThemeOption({required this.palette, required this.selected, required this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    final radius = BorderRadius.circular(16);
+    return Semantics(
+      button: true,
+      selected: selected,
+      label: '${palette.name} theme. ${palette.description}${selected ? '. Selected' : ''}',
+      excludeSemantics: true,
+      child: Material(
+        color: Colors.white,
+        borderRadius: radius,
+        child: InkWell(
+          borderRadius: radius,
+          onTap: onTap,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: radius,
+              border: Border.all(color: selected ? palette.primary : const Color(0xFFD5DEEA), width: selected ? 3 : 1.2),
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+              // Mini preview: header bar, a Return button and a Go button.
+              Container(
+                height: 34,
+                decoration: BoxDecoration(gradient: palette.header),
+                alignment: Alignment.center,
+                child: const Text('Grand Turk',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 14)),
+              ),
+              Container(
+                color: palette.bg,
+                padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+                child: Row(children: [
+                  Expanded(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text(palette.name,
+                          style: TextStyle(fontSize: 16.5, fontWeight: FontWeight.w800, color: palette.primary)),
+                      Text(palette.description, style: const TextStyle(fontSize: 13, color: BB.muted)),
+                      const SizedBox(height: 8),
+                      Row(children: [
+                        _pill(palette.primary, Icons.directions_boat, 'Return'),
+                        const SizedBox(width: 6),
+                        _pill(palette.go, Icons.navigation, 'Navigate'),
+                      ]),
+                    ]),
+                  ),
+                  Icon(selected ? Icons.check_circle : Icons.radio_button_unchecked,
+                      color: selected ? palette.primary : BB.muted, size: 30),
+                ]),
+              ),
+            ]),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _pill(Color c, IconData icon, String label) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: BoxDecoration(color: c, borderRadius: BorderRadius.circular(20)),
+        child: Row(mainAxisSize: MainAxisSize.min, children: [
+          Icon(icon, size: 14, color: BB.onColor(c)),
+          const SizedBox(width: 4),
+          Text(label, style: TextStyle(color: BB.onColor(c), fontSize: 12.5, fontWeight: FontWeight.w800)),
+        ]),
       );
 }

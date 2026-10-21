@@ -19,10 +19,10 @@ class DestinationDetailsScreen extends StatelessWidget {
     final s = AppScope.of(context);
     final poi = s.poiById(poiId);
     if (poi == null) {
-      return Scaffold(appBar: AppBar(), body: const Center(child: Text('Destination not found.')));
+      return Scaffold(appBar: AppBar(flexibleSpace: const HeaderBackground()), body: const Center(child: Text('Destination not found.')));
     }
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), 
         actions: [
           ListenableBuilder(
             listenable: s.settings,
@@ -43,7 +43,7 @@ class DestinationDetailsScreen extends StatelessWidget {
             const SimulatedBanner(),
             Expanded(
               child: ListView(padding: EdgeInsets.zero, children: [
-                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.36).clamp(220.0, 380.0), radius: 0),
+                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.36).clamp(220.0, 380.0), radius: 0, expandable: true),
                 if (Photos.of(poi.id) != null)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
@@ -56,11 +56,11 @@ class DestinationDetailsScreen extends StatelessWidget {
                     Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Expanded(
                         child: Text(poi.name,
-                            style: const TextStyle(fontSize: 23, fontWeight: FontWeight.w800, color: BB.navy)),
+                            style: TextStyle(fontSize: 23, fontWeight: FontWeight.w800, color: BB.navy)),
                       ),
                       if (dist != null) ...[
-                        const Icon(Icons.place, color: BB.blue, size: 20),
-                        Text(dist, style: const TextStyle(color: BB.blue, fontWeight: FontWeight.w700, fontSize: 15)),
+                        Icon(Icons.place, color: BB.blue, size: 20),
+                        Text(dist, style: TextStyle(color: BB.blue, fontWeight: FontWeight.w700, fontSize: 15)),
                       ],
                     ]),
                     const SizedBox(height: 8),
@@ -85,11 +85,11 @@ class DestinationDetailsScreen extends StatelessWidget {
                     if (poi.facts.isNotEmpty) ...[
                       const SizedBox(height: 4),
                       Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        const Icon(Icons.info, color: BB.blue),
+                        Icon(Icons.info, color: BB.blue),
                         const SizedBox(width: 10),
                         Expanded(
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            const Text('Interesting Facts',
+                            Text('Interesting Facts',
                                 style: TextStyle(color: BB.navy, fontWeight: FontWeight.w800, fontSize: 16)),
                             const SizedBox(height: 4),
                             Text(poi.facts, style: const TextStyle(color: BB.muted, fontSize: 14.5)),

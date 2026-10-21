@@ -96,32 +96,60 @@ class SimulatedBanner extends StatelessWidget {
   }
 }
 
-/// Navy "RETURN TO CRUISE PORT" button (Home) - critical persistent shortcut.
+/// "RETURN TO CRUISE PORT" button (Home: theme header colours; Arrival:
+/// the theme's port colour) - critical persistent shortcut.
 class ReturnToPortButton extends StatelessWidget {
-  final Color color;
+  /// Fill colour; null = the theme's header gradient.
+  final Color? color;
   final bool replace;
   final String label;
-  const ReturnToPortButton({super.key, this.color = BB.navy, this.replace = false, this.label = 'RETURN TO CRUISE PORT'});
+  const ReturnToPortButton({super.key, this.color, this.replace = false, this.label = 'RETURN TO CRUISE PORT'});
 
   @override
   Widget build(BuildContext context) {
     final s = AppScope.of(context);
     final enabled = s.bundle.navigationAvailable && s.nav.shipTerminal != null;
+    final base = color ?? BB.navy;
+    final fg = enabled ? BB.onColor(base) : Colors.white;
+    final gradient = color == null
+        ? BB.headerGradient
+        : LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color.lerp(base, Colors.white, 0.22)!, base],
+          );
+    final radius = BorderRadius.circular(14);
     return Semantics(
       button: true,
+      enabled: enabled,
       label: 'Return to cruise port',
       child: SizedBox(
-        height: 56,
-        child: FilledButton.icon(
-          style: FilledButton.styleFrom(
-            backgroundColor: color,
-            disabledBackgroundColor: Colors.grey,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, letterSpacing: 0.3),
+        height: 58,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: enabled ? gradient : null,
+            color: enabled ? null : Colors.grey,
+            borderRadius: radius,
+            boxShadow: enabled
+                ? [BoxShadow(color: base.withValues(alpha: 0.35), blurRadius: 12, offset: const Offset(0, 5))]
+                : null,
           ),
-          onPressed: enabled ? () => openReturnToShip(context, replace: replace) : null,
-          icon: const Icon(Icons.directions_boat, size: 26),
-          label: Text(label),
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              borderRadius: radius,
+              onTap: enabled ? () => openReturnToShip(context, replace: replace) : null,
+              child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Icon(Icons.directions_boat, size: 26, color: fg),
+                const SizedBox(width: 10),
+                Flexible(
+                  child: Text(label,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: fg, fontSize: 16, fontWeight: FontWeight.w800, letterSpacing: 0.3)),
+                ),
+              ]),
+            ),
+          ),
         ),
       ),
     );
@@ -155,7 +183,11 @@ class CategoryCircle extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         width: size,
         height: size,
-        decoration: BoxDecoration(color: BB.category(category), shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          gradient: BB.categoryGradient(category),
+          shape: BoxShape.circle,
+          boxShadow: [BoxShadow(color: BB.category(category).withValues(alpha: 0.35), blurRadius: 6, offset: const Offset(0, 2))],
+        ),
         child: Icon(BB.categoryIcon(category), color: Colors.white, size: size * 0.55),
       );
 }
@@ -175,24 +207,34 @@ class PlaceCard extends StatelessWidget {
       label: '${poi.name}${distance == null ? '' : ', $distance away'}${poi.canNavigate ? '' : ', browse only'}',
       child: Material(
         color: highlighted ? BB.selectedRow : Colors.white,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(16),
+        elevation: 1.5,
+        shadowColor: const Color(0x330B2F44),
         child: InkWell(
           borderRadius: BorderRadius.circular(14),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Row(children: [
-              PlaceArt(poi: poi, width: 96, height: 70),
+              PlaceArt(poi: poi, width: 100, height: 76, radius: 12),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(poi.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: BB.navy)),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                        color: BB.category(poi.category).withValues(alpha: 0.12), borderRadius: BorderRadius.circular(20)),
+                    child: Text(poi.category.label,
+                        style: TextStyle(color: BB.category(poi.category), fontSize: 11.5, fontWeight: FontWeight.w800)),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(poi.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: BB.navy)),
                   const SizedBox(height: 4),
                   Row(children: [
                     if (distance != null) ...[
-                      const Icon(Icons.place, size: 15, color: BB.navy),
+                      Icon(Icons.place, size: 15, color: BB.navy),
                       const SizedBox(width: 2),
-                      Text(distance!, style: const TextStyle(color: BB.navy, fontSize: 13.5)),
+                      Text(distance!, style: TextStyle(color: BB.navy, fontSize: 13.5)),
                       const SizedBox(width: 10),
                     ],
                     if (!poi.canNavigate)
@@ -316,7 +358,7 @@ class _StatusDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AlertDialog(
         icon: Icon(icon, color: iconColor, size: 52),
-        title: Text(title, style: const TextStyle(color: BB.navy, fontWeight: FontWeight.w800)),
+        title: Text(title, style: TextStyle(color: BB.navy, fontWeight: FontWeight.w800)),
         content: Text(message, textAlign: TextAlign.center),
         actionsAlignment: MainAxisAlignment.center,
         actions: [
@@ -333,7 +375,7 @@ class _StatusDialog extends StatelessWidget {
 }
 
 /// Navy app bar used on pushed screens (back arrow + title + optional action).
-PreferredSizeWidget navyBar(String title, {List<Widget>? actions, bool back = true}) => AppBar(
+PreferredSizeWidget navyBar(String title, {List<Widget>? actions, bool back = true}) => AppBar(flexibleSpace: const HeaderBackground(), 
       title: Text(title),
       automaticallyImplyLeading: back,
       actions: actions,

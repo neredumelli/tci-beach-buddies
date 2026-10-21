@@ -31,7 +31,7 @@ class ArrivalScreen extends StatelessWidget {
             child: ListView(padding: EdgeInsets.zero, children: [
               Stack(children: [
                 // Full-width hero photo, ~40% of the screen height.
-                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.40).clamp(240.0, 420.0), radius: 0),
+                PlaceArt(poi: poi, width: double.infinity, height: (MediaQuery.sizeOf(context).height * 0.40).clamp(240.0, 420.0), radius: 0, expandable: true),
                 SafeArea(
                   child: IconButton(
                     tooltip: 'Home',
@@ -48,22 +48,22 @@ class ArrivalScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    const Icon(Icons.check_circle, color: BB.go, size: 44, semanticLabel: 'Arrived'),
+                    Icon(Icons.check_circle, color: BB.go, size: 44, semanticLabel: 'Arrived'),
                     const SizedBox(width: 10),
                     Flexible(
                       child: Text(poi.isShipTerminal ? 'Welcome Back!' : "You've Arrived!",
-                          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: BB.go)),
+                          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: BB.go)),
                     ),
                   ]),
                   const SizedBox(height: 8),
                   Text(poi.name, textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: BB.navy)),
+                      style: TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: BB.navy)),
                   Text(
                     poi.isShipTerminal || fromShip == null
                         ? poi.category.label
                         : '${poi.category.label}  •  $fromShip from the ship',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: BB.blue, fontWeight: FontWeight.w600),
+                    style: TextStyle(color: BB.blue, fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 12),
                   Text(poi.description, textAlign: TextAlign.center, style: const TextStyle(fontSize: 15)),

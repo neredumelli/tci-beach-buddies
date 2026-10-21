@@ -23,16 +23,41 @@ class TciBeachBuddiesApp extends StatefulWidget {
 class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
   late final Future<AppServices> _boot = _init();
   AppServices? _services;
+  final _settings = AppSettings();
+  String? _themeId;
+
+  @override
+  void initState() {
+    super.initState();
+    _settings.addListener(_onSettings);
+  }
 
   @override
   void dispose() {
+    _settings.removeListener(_onSettings);
     _services?.dispose();
     super.dispose();
   }
 
+  /// A new theme repaints every screen in place (open screens keep their
+  /// state): the palette is global, so every element is marked for rebuild.
+  void _onSettings() {
+    if (_settings.themeId == _themeId) return;
+    _themeId = _settings.themeId;
+    BB.palette = AppThemes.byId(_themeId);
+    if (!mounted) return;
+    setState(() {});
+    void rebuild(Element e) {
+      e.markNeedsBuild();
+      e.visitChildren(rebuild);
+    }
+
+    (context as Element).visitChildren(rebuild);
+  }
+
   Future<AppServices> _init() async {
     final minSplash = Future<void>.delayed(const Duration(seconds: 5));
-    final settings = AppSettings();
+    final settings = _settings;
     await settings.load();
     await Photos.load(widget.bundle?.assets); // same asset source as the offline bundle
     final health = await (widget.bundle ?? OfflineBundle()).verifyAndLoad();

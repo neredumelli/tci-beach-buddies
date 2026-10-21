@@ -56,7 +56,7 @@ class _MapScreenState extends State<MapScreen> {
     final s = AppScope.of(context);
     final basemap = s.bundle.basemap;
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), 
         title: const Text('Grand Turk Map'),
         leading: IconButton(
           tooltip: 'Back',
@@ -174,7 +174,7 @@ class _PoiCard extends StatelessWidget {
               const SizedBox(width: 12),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(poi.name, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: BB.navy)),
+                  Text(poi.name, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: BB.navy)),
                   Text(dist == null ? poi.category.label : '${poi.category.label} · $dist',
                       style: TextStyle(color: BB.category(poi.category), fontWeight: FontWeight.w600)),
                 ]),

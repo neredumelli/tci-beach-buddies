@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                       child: Image.asset('assets/images/logo.png', height: 62, semanticLabel: 'TCI Beach Buddies'),
                     ),
                     const SizedBox(height: 10),
-                    const Text('Welcome to\nGrand Turk',
+                    Text('Welcome to\nGrand Turk',
                         textAlign: TextAlign.center,
                         style: TextStyle(color: BB.navy, fontSize: 28, height: 1.1, fontWeight: FontWeight.w900,
                             shadows: [Shadow(color: Colors.white, blurRadius: 8)])),
@@ -90,12 +90,14 @@ class HomeScreen extends StatelessWidget {
                     for (final c in _tiles)
                       _Tile(
                         color: BB.category(c),
+                        gradient: BB.categoryGradient(c),
                         icon: BB.categoryIcon(c),
                         label: c.tileLabel,
                         onTap: () => openCategory(context, c),
                       ),
                     _Tile(
                       color: BB.navy,
+                      gradient: BB.headerGradient,
                       icon: Icons.more_horiz,
                       label: 'More',
                       onTap: () => ShellTabs.go(context, ShellTab.places),
@@ -129,33 +131,46 @@ class HomeScreen extends StatelessWidget {
 
 class _Tile extends StatelessWidget {
   final Color color;
+  final Gradient gradient;
   final IconData icon;
   final String label;
   final VoidCallback onTap;
-  const _Tile({required this.color, required this.icon, required this.label, required this.onTap});
+  const _Tile({required this.color, required this.gradient, required this.icon, required this.label, required this.onTap});
   @override
   Widget build(BuildContext context) {
+    final radius = BorderRadius.circular(18);
     return Semantics(
       button: true,
       label: label,
-      child: Material(
-        color: color,
-        borderRadius: BorderRadius.circular(14),
-        elevation: 2,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: onTap,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Icon(icon, color: Colors.white, size: 38),
-            const SizedBox(height: 6),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Text(label,
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  style: const TextStyle(color: Colors.white, fontSize: 13.5, fontWeight: FontWeight.w700)),
-            ),
-          ]),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: radius,
+          boxShadow: [BoxShadow(color: color.withValues(alpha: 0.38), blurRadius: 10, offset: const Offset(0, 4))],
+        ),
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            borderRadius: radius,
+            onTap: onTap,
+            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Container(
+                width: 52,
+                height: 52,
+                decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.22), shape: BoxShape.circle),
+                child: Icon(icon, color: Colors.white, size: 32),
+              ),
+              const SizedBox(height: 6),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(label,
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: const TextStyle(color: Colors.white, fontSize: 13.5, fontWeight: FontWeight.w800,
+                        shadows: [Shadow(color: Color(0x55000000), blurRadius: 3)])),
+              ),
+            ]),
+          ),
         ),
       ),
     );

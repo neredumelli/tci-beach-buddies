@@ -24,6 +24,9 @@ class AppSettings extends ChangeNotifier {
   /// across restarts so a visitor cannot unknowingly start in simulation.
   bool demoMode = false;
 
+  /// Predefined colour theme (see AppThemes); the default is the v2.0 look.
+  String themeId = 'island-blue';
+
   final Set<String> favorites = {};
 
   Future<void> load() async {
@@ -35,6 +38,7 @@ class AppSettings extends ChangeNotifier {
       narrateArrival = p.getBool('narrateArrival') ?? true;
       vibration = p.getBool('vibration') ?? true;
       showWalkingEstimate = p.getBool('showWalkingEstimate') ?? true;
+      themeId = p.getString('theme') ?? themeId;
       favorites
         ..clear()
         ..addAll(p.getStringList('favorites') ?? const []);
@@ -71,6 +75,13 @@ class AppSettings extends ChangeNotifier {
   void setShowWalkingEstimate(bool v) {
     showWalkingEstimate = v;
     _prefs?.setBool('showWalkingEstimate', v);
+    notifyListeners();
+  }
+
+  void setThemeId(String id) {
+    if (id == themeId) return;
+    themeId = id;
+    _prefs?.setString('theme', id);
     notifyListeners();
   }
 

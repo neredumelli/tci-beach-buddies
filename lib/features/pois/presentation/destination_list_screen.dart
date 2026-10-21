@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/app_services.dart';
 import '../../../app/nav_actions.dart';
+import '../../../app/theme.dart';
 import '../../../core/geo/geo.dart';
 import '../../../core/models/poi.dart';
 import '../../../shared/widgets.dart';
@@ -16,7 +17,7 @@ class DestinationListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = AppScope.of(context);
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), 
         title: Text(category.pluralLabel),
         actions: [IconButton(tooltip: 'Search', icon: const Icon(Icons.search), onPressed: () => openSearch(context))],
       ),

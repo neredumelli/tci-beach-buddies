@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../app/theme.dart';
 import '../core/models/poi.dart';
+import 'photo_viewer.dart';
 import 'photos.dart';
 
 enum SceneKind { beach, lighthouse, town, salina, food, shop, service }
@@ -47,12 +48,49 @@ class PlaceArt extends StatelessWidget {
   final double? width;
   final double? height;
   final double radius;
-  const PlaceArt({super.key, required this.poi, this.width, this.height, this.radius = 10});
+
+  /// Tapping opens the image full screen (Details and Arrival heroes).
+  final bool expandable;
+  const PlaceArt({super.key, required this.poi, this.width, this.height, this.radius = 10, this.expandable = false});
 
   @override
   Widget build(BuildContext context) {
     final photo = Photos.of(poi.id);
-    if (photo != null) {
+    if (photo != null && expandable) {
+      return Semantics(
+        button: true,
+        label: 'Open ${photo.isIllustration ? 'illustration' : 'photo'} of ${poi.name} full screen',
+        child: GestureDetector(
+          onTap: () => openPhotoViewer(context, poi),
+          child: Hero(
+            tag: photoHeroTag(poi),
+            child: Stack(children: [
+              _framed(photo),
+              Positioned(
+                left: 10,
+                bottom: 10,
+                child: ExcludeSemantics(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(color: const Color(0xCC0B2F44), borderRadius: BorderRadius.circular(20)),
+                    child: const Row(mainAxisSize: MainAxisSize.min, children: [
+                      Icon(Icons.zoom_out_map, color: Colors.white, size: 15),
+                      SizedBox(width: 5),
+                      Text('Tap to enlarge', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)),
+                    ]),
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        ),
+      );
+    }
+    if (photo != null) return _framed(photo);
+    return _scene();
+  }
+
+  Widget _framed(PhotoCredit photo) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(radius),
         child: SizedBox(
@@ -79,7 +117,9 @@ class PlaceArt extends StatelessWidget {
           ]),
         ),
       );
-    }
+  }
+
+  Widget _scene() {
     final kind = sceneFor(poi);
     final showIcon = kind == SceneKind.food || kind == SceneKind.shop || kind == SceneKind.service;
     return ClipRRect(

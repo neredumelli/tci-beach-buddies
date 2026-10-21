@@ -4,6 +4,7 @@ import '../features/home/home_screen.dart';
 import '../features/map/presentation/map_screen.dart';
 import '../features/pois/presentation/places_screen.dart';
 import '../features/settings/settings_screen.dart';
+import 'theme.dart';
 
 /// Bottom tabs from the v2.0 walkthrough: Home, Places, Map, Settings.
 enum ShellTab { home, places, map, settings }
@@ -49,7 +50,11 @@ class _MainShellState extends State<MainShell> {
               index: tab.index,
               children: const [HomeScreen(), PlacesScreen(), MapScreen(), SettingsScreen()],
             ),
-            bottomNavigationBar: NavigationBar(
+            bottomNavigationBar: DecoratedBox(
+              decoration: BoxDecoration(gradient: BB.headerGradient),
+              child: NavigationBar(
+              backgroundColor: Colors.transparent,
+              surfaceTintColor: Colors.transparent,
               selectedIndex: tab.index,
               onDestinationSelected: (i) => _tab.value = ShellTab.values[i],
               height: 66,
@@ -59,6 +64,7 @@ class _MainShellState extends State<MainShell> {
                 NavigationDestination(icon: Icon(Icons.map_outlined), selectedIcon: Icon(Icons.map), label: 'Map'),
                 NavigationDestination(icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: 'Settings'),
               ],
+            ),
             ),
           ),
         ),

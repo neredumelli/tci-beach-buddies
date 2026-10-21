@@ -16,7 +16,7 @@ class PlacesScreen extends StatelessWidget {
     final s = AppScope.of(context);
     final all = s.destinations;
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(flexibleSpace: const HeaderBackground(), 
         title: const Text('Places'),
         leading: IconButton(
           tooltip: 'Home',
@@ -64,7 +64,7 @@ class PlacesScreen extends StatelessWidget {
                     minVerticalPadding: 12,
                     leading: CategoryCircle(category: c),
                     title: Text(c.pluralLabel,
-                        style: const TextStyle(fontWeight: FontWeight.w700, color: BB.navy, fontSize: 16)),
+                        style: TextStyle(fontWeight: FontWeight.w700, color: BB.navy, fontSize: 16)),
                     subtitle: Text('${all.where((p) => p.category == c).length} destinations'),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => openCategory(context, c),
@@ -80,7 +80,7 @@ class PlacesScreen extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               child: ListTile(
                 leading: const CircleAvatar(backgroundColor: Color(0xFFE91E63), child: Icon(Icons.favorite, color: Colors.white)),
-                title: const Text('Saved places', style: TextStyle(fontWeight: FontWeight.w700, color: BB.navy)),
+                title: Text('Saved places', style: TextStyle(fontWeight: FontWeight.w700, color: BB.navy)),
                 subtitle: Text('$saved saved'),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => openSearch(context),

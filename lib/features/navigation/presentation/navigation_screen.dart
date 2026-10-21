@@ -257,6 +257,7 @@ class _ManeuverBanner extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(4, 10, 14, 10),
         decoration: BoxDecoration(
           color: bg,
+          gradient: bg == BB.navy ? BB.headerGradient : null,
           borderRadius: BorderRadius.circular(16),
           boxShadow: const [BoxShadow(color: Color(0x55000000), blurRadius: 10, offset: Offset(0, 3))],
         ),
@@ -349,7 +350,7 @@ class _StatsBar extends StatelessWidget {
             style: const TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800)));
     Widget sep() => Container(width: 1, height: 26, color: Colors.white30);
     return Container(
-      color: BB.navy,
+      decoration: BoxDecoration(gradient: BB.headerGradient),
       child: SafeArea(
         top: false,
         child: Padding(

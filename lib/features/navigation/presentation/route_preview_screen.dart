@@ -75,7 +75,7 @@ class _RoutePreviewScreenState extends State<RoutePreviewScreen> {
         if (didPop && !_nav.guidanceStarted) _nav.stop();
       },
       child: Scaffold(
-        appBar: AppBar(
+        appBar: AppBar(flexibleSpace: const HeaderBackground(), 
           title: Text(widget.isReturn ? 'Return to Cruise Port' : 'Route Preview'),
           actions: [
             if (!widget.isReturn)
@@ -138,11 +138,11 @@ class _PreviewCard extends StatelessWidget {
     Widget body;
     if (phase == NavPhase.navigating && r != null) {
       body = Row(children: [
-        const Icon(Icons.place, color: BB.navy, size: 18),
+        Icon(Icons.place, color: BB.navy, size: 18),
         const SizedBox(width: 4),
         Text(s.settings.formatDistance(r.distanceM), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
         const SizedBox(width: 22),
-        const Icon(Icons.schedule, color: BB.navy, size: 18),
+        Icon(Icons.schedule, color: BB.navy, size: 18),
         const SizedBox(width: 4),
         Text('${s.settings.walkMinutes(r.distanceM)} min (walk)',
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
@@ -182,7 +182,7 @@ class _PreviewCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: Text(dest == null ? '—' : (isReturn ? 'Cruise Center' : dest.name),
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
               ),
             ]),
             const SizedBox(height: 8),
