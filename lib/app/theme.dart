@@ -202,11 +202,38 @@ class BB {
       };
 }
 
-/// The theme-coloured gradient behind every app bar.
+/// Heading type (Baloo 2, bundled) - friendly, bold and rounded.
+TextStyle heading(double size, {Color? color, FontWeight weight = FontWeight.w800, double height = 1.08}) =>
+    TextStyle(fontFamily: 'Baloo2', fontSize: size, fontWeight: weight, height: height, color: color ?? BB.navy);
+
+/// The theme-coloured header behind every app bar: a gradient with a curved
+/// bottom edge and soft "sun and sea" circles.
 class HeaderBackground extends StatelessWidget {
   const HeaderBackground({super.key});
   @override
-  Widget build(BuildContext context) => DecoratedBox(decoration: BoxDecoration(gradient: BB.headerGradient));
+  Widget build(BuildContext context) => ClipRRect(
+        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
+        child: DecoratedBox(
+          decoration: BoxDecoration(gradient: BB.headerGradient),
+          child: const Stack(fit: StackFit.expand, children: [
+            Positioned(right: -30, top: -40, child: _Bubble(size: 130, alpha: 0.14)),
+            Positioned(right: 70, bottom: -46, child: _Bubble(size: 90, alpha: 0.10)),
+            Positioned(left: -24, bottom: -30, child: _Bubble(size: 70, alpha: 0.10)),
+          ]),
+        ),
+      );
+}
+
+class _Bubble extends StatelessWidget {
+  final double size;
+  final double alpha;
+  const _Bubble({required this.size, required this.alpha});
+  @override
+  Widget build(BuildContext context) => Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withValues(alpha: alpha)),
+      );
 }
 
 ThemeData buildTheme() {
@@ -217,59 +244,81 @@ ThemeData buildTheme() {
     surface: Colors.white,
     error: BB.danger,
   );
-  // Derive text styles from the platform typography (Roboto on Android,
-  // San Francisco on iOS) so overridden styles keep the system font.
-  final tt = ThemeData(useMaterial3: true, colorScheme: scheme).textTheme;
+  final tt = ThemeData(useMaterial3: true, colorScheme: scheme, fontFamily: 'Nunito').textTheme;
+  final pill = RoundedRectangleBorder(borderRadius: BorderRadius.circular(18));
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
+    fontFamily: 'Nunito',
     scaffoldBackgroundColor: BB.bg,
     appBarTheme: AppBarTheme(
-      backgroundColor: BB.navy,
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
       foregroundColor: Colors.white,
       elevation: 0,
+      scrolledUnderElevation: 0,
       centerTitle: true,
-      titleTextStyle: tt.titleLarge!.copyWith(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800),
-      iconTheme: const IconThemeData(color: Colors.white),
-      actionsIconTheme: const IconThemeData(color: Colors.white),
+      toolbarHeight: 66,
+      titleTextStyle: heading(24, color: Colors.white),
+      iconTheme: const IconThemeData(color: Colors.white, size: 26),
+      actionsIconTheme: const IconThemeData(color: Colors.white, size: 26),
     ),
-    textTheme: TextTheme(
-      headlineSmall: TextStyle(color: BB.navy, fontWeight: FontWeight.w800),
-      titleLarge: TextStyle(color: BB.navy, fontWeight: FontWeight.w700),
-      titleMedium: TextStyle(color: BB.navy, fontWeight: FontWeight.w700),
-      bodyMedium: const TextStyle(color: BB.ink, height: 1.4),
+    textTheme: tt.copyWith(
+      headlineSmall: heading(26),
+      titleLarge: heading(22),
+      titleMedium: tt.titleMedium!.copyWith(color: BB.navy, fontWeight: FontWeight.w800),
+      bodyMedium: tt.bodyMedium!.copyWith(color: BB.ink, height: 1.45, fontWeight: FontWeight.w600),
+      bodySmall: tt.bodySmall!.copyWith(fontWeight: FontWeight.w600),
+    ),
+    listTileTheme: ListTileThemeData(
+      titleTextStyle: tt.titleMedium!.copyWith(fontWeight: FontWeight.w800, color: BB.navy),
+      subtitleTextStyle: tt.bodyMedium!.copyWith(color: BB.muted, fontWeight: FontWeight.w600),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        minimumSize: const Size.fromHeight(52),
+        minimumSize: const Size.fromHeight(56),
         backgroundColor: BB.go,
         foregroundColor: Colors.white,
-        elevation: 2,
-        shadowColor: BB.go.withValues(alpha: 0.5),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: tt.labelLarge!.copyWith(fontSize: 17, fontWeight: FontWeight.w800),
+        elevation: 4,
+        shadowColor: BB.go.withValues(alpha: 0.55),
+        shape: pill,
+        textStyle: tt.labelLarge!.copyWith(fontSize: 17.5, fontWeight: FontWeight.w900, letterSpacing: 0.2),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        minimumSize: const Size.fromHeight(52),
-        side: BorderSide(color: BB.blue, width: 1.8),
+        minimumSize: const Size.fromHeight(56),
+        side: BorderSide(color: BB.blue, width: 2),
         foregroundColor: BB.blue,
         backgroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: tt.labelLarge!.copyWith(fontSize: 16, fontWeight: FontWeight.w800),
+        shape: pill,
+        textStyle: tt.labelLarge!.copyWith(fontSize: 16.5, fontWeight: FontWeight.w900),
       ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: BB.blue,
+        textStyle: tt.labelLarge!.copyWith(fontSize: 15.5, fontWeight: FontWeight.w800),
+      ),
+    ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+      titleTextStyle: heading(24),
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
+    ),
+    chipTheme: ChipThemeData(
+      shape: const StadiumBorder(),
+      side: BorderSide.none,
+      backgroundColor: Colors.white,
+      labelStyle: tt.labelLarge!.copyWith(fontWeight: FontWeight.w800),
     ),
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? Colors.white : null),
       trackColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? BB.go : null),
-    ),
-    navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: BB.navy,
-      indicatorColor: Colors.white.withValues(alpha: 0.22),
-      iconTheme: WidgetStateProperty.all(const IconThemeData(color: Colors.white)),
-      labelTextStyle: WidgetStateProperty.all(
-          tt.labelMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white)),
     ),
   );
 }

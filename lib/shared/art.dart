@@ -67,8 +67,8 @@ class PlaceArt extends StatelessWidget {
             child: Stack(children: [
               _framed(photo),
               Positioned(
-                left: 10,
-                bottom: 10,
+                left: 12,
+                bottom: 44,
                 child: ExcludeSemantics(
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -102,8 +102,8 @@ class PlaceArt extends StatelessWidget {
                 errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(poi), seed: poi.id.hashCode)),
             if (photo.isIllustration && (height ?? 100) >= 56)
               Positioned(
-                right: 6,
-                bottom: 6,
+                right: (height ?? 100) >= 150 ? 12 : 6,
+                bottom: (height ?? 100) >= 150 ? 44 : 6,
                 child: ExcludeSemantics(
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),

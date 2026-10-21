@@ -46,6 +46,14 @@ Future<void> _loadFonts() async {
     roboto.addFont(Future.value(bytes(f)));
   }
   await roboto.load();
+  // The app's bundled fonts (pubspec: Baloo2, Nunito).
+  for (final fam in ['Baloo2', 'Nunito']) {
+    final l = FontLoader(fam);
+    for (final f in Directory('assets/fonts').listSync().whereType<File>().where((f) => f.path.contains('/$fam-'))) {
+      l.addFont(Future.value(bytes(f)));
+    }
+    await l.load();
+  }
   final icons = files.where((f) => f.path.endsWith('MaterialIcons-Regular.otf'));
   if (icons.isNotEmpty) {
     await (FontLoader('MaterialIcons')..addFont(Future.value(bytes(icons.first)))).load();

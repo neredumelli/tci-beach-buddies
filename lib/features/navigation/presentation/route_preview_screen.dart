@@ -137,15 +137,27 @@ class _PreviewCard extends StatelessWidget {
     final phase = nav.phase;
     Widget body;
     if (phase == NavPhase.navigating && r != null) {
+      Widget stat(IconData icon, String value, String label, Color tint) => Expanded(
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+              decoration: BoxDecoration(color: tint, borderRadius: BorderRadius.circular(18)),
+              child: Row(children: [
+                Icon(icon, color: BB.navy, size: 22),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Text(value, style: heading(22, color: BB.ink, height: 1.0)),
+                    Text(label, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w800, color: BB.muted)),
+                  ]),
+                ),
+              ]),
+            ),
+          );
       body = Row(children: [
-        Icon(Icons.place, color: BB.navy, size: 18),
-        const SizedBox(width: 4),
-        Text(s.settings.formatDistance(r.distanceM), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-        const SizedBox(width: 22),
-        Icon(Icons.schedule, color: BB.navy, size: 18),
-        const SizedBox(width: 4),
-        Text('${s.settings.walkMinutes(r.distanceM)} min (walk)',
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+        stat(Icons.straighten_rounded, s.settings.formatDistance(r.distanceM), 'walking route', BB.selectedRow),
+        const SizedBox(width: 10),
+        stat(Icons.schedule_rounded, '${s.settings.walkMinutes(r.distanceM)} min (walk)', 'at 4.5 km/h',
+            const Color(0xFFFFEBD6)),
       ]);
     } else if (phase == NavPhase.waitingForFix) {
       body = Text(
@@ -169,23 +181,44 @@ class _PreviewCard extends StatelessWidget {
       body = const SizedBox.shrink();
     }
     final canStart = phase == NavPhase.navigating && r != null;
-    return Material(
-      color: Colors.white,
-      elevation: 10,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
+        boxShadow: [BoxShadow(color: BB.navy.withValues(alpha: 0.16), blurRadius: 18, offset: const Offset(0, -4))],
+      ),
       child: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
           child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            Center(
+              child: Container(
+                width: 42,
+                height: 5,
+                margin: const EdgeInsets.only(bottom: 10),
+                decoration: BoxDecoration(color: const Color(0xFFD5DEE4), borderRadius: BorderRadius.circular(5)),
+              ),
+            ),
             Row(children: [
-              Icon(isReturn ? Icons.directions_boat : Icons.place, color: BB.go),
-              const SizedBox(width: 8),
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  gradient: isReturn
+                      ? BB.headerGradient
+                      : (dest == null ? BB.headerGradient : BB.categoryGradient(dest.category)),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(isReturn ? Icons.directions_boat_rounded : Icons.place_rounded, color: Colors.white),
+              ),
+              const SizedBox(width: 12),
               Expanded(
                 child: Text(dest == null ? '—' : (isReturn ? 'Cruise Center' : dest.name),
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
+                    maxLines: 2, overflow: TextOverflow.ellipsis, style: heading(24)),
               ),
             ]),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             body,
             if (r != null && r.originSnapDistanceM > 25) ...[
               const SizedBox(height: 4),

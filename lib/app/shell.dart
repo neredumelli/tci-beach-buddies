@@ -50,24 +50,81 @@ class _MainShellState extends State<MainShell> {
               index: tab.index,
               children: const [HomeScreen(), PlacesScreen(), MapScreen(), SettingsScreen()],
             ),
-            bottomNavigationBar: DecoratedBox(
-              decoration: BoxDecoration(gradient: BB.headerGradient),
-              child: NavigationBar(
-              backgroundColor: Colors.transparent,
-              surfaceTintColor: Colors.transparent,
-              selectedIndex: tab.index,
-              onDestinationSelected: (i) => _tab.value = ShellTab.values[i],
-              height: 66,
-              destinations: const [
-                NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
-                NavigationDestination(icon: Icon(Icons.place_outlined), selectedIcon: Icon(Icons.place), label: 'Places'),
-                NavigationDestination(icon: Icon(Icons.map_outlined), selectedIcon: Icon(Icons.map), label: 'Map'),
-                NavigationDestination(icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: 'Settings'),
-              ],
-            ),
+            bottomNavigationBar: _TabBar(
+              selected: tab,
+              onSelect: (t) => _tab.value = t,
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+/// Floating rounded tab bar; the selected tab sits in a theme-gradient pill.
+class _TabBar extends StatelessWidget {
+  final ShellTab selected;
+  final ValueChanged<ShellTab> onSelect;
+  const _TabBar({required this.selected, required this.onSelect});
+
+  static const _items = [
+    (ShellTab.home, Icons.home_rounded, 'Home'),
+    (ShellTab.places, Icons.place_rounded, 'Places'),
+    (ShellTab.map, Icons.map_rounded, 'Map'),
+    (ShellTab.settings, Icons.settings_rounded, 'Settings'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      top: false,
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(12, 4, 12, 10),
+        height: 70,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(26),
+          boxShadow: [BoxShadow(color: BB.navy.withValues(alpha: 0.22), blurRadius: 18, offset: const Offset(0, 6))],
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+        child: Row(children: [
+          for (final (tab, icon, label) in _items)
+            Expanded(
+              child: Semantics(
+                button: true,
+                selected: tab == selected,
+                label: '$label tab',
+                excludeSemantics: true,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () => onSelect(tab),
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 220),
+                    margin: const EdgeInsets.symmetric(horizontal: 3),
+                    decoration: BoxDecoration(
+                      gradient: tab == selected ? BB.headerGradient : null,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Icon(icon, size: 26, color: tab == selected ? Colors.white : BB.muted),
+                      const SizedBox(height: 2),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(label,
+                            maxLines: 1,
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              fontWeight: FontWeight.w800,
+                              color: tab == selected ? Colors.white : BB.muted,
+                            )),
+                      ),
+                    ]),
+                  ),
+                ),
+              ),
+            ),
+        ]),
       ),
     );
   }

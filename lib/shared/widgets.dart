@@ -118,13 +118,13 @@ class ReturnToPortButton extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [Color.lerp(base, Colors.white, 0.22)!, base],
           );
-    final radius = BorderRadius.circular(14);
+    final radius = BorderRadius.circular(20);
     return Semantics(
       button: true,
       enabled: enabled,
       label: 'Return to cruise port',
       child: SizedBox(
-        height: 58,
+        height: 62,
         child: DecoratedBox(
           decoration: BoxDecoration(
             gradient: enabled ? gradient : null,
@@ -145,7 +145,7 @@ class ReturnToPortButton extends StatelessWidget {
                 Flexible(
                   child: Text(label,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: fg, fontSize: 16, fontWeight: FontWeight.w800, letterSpacing: 0.3)),
+                      style: TextStyle(color: fg, fontSize: 17, fontWeight: FontWeight.w900, letterSpacing: 0.3)),
                 ),
               ]),
             ),
@@ -202,56 +202,87 @@ class PlaceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cat = BB.category(poi.category);
+    final radius = BorderRadius.circular(24);
     return Semantics(
       button: true,
       label: '${poi.name}${distance == null ? '' : ', $distance away'}${poi.canNavigate ? '' : ', browse only'}',
-      child: Material(
-        color: highlighted ? BB.selectedRow : Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        elevation: 1.5,
-        shadowColor: const Color(0x330B2F44),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(14),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(children: [
-              PlaceArt(poi: poi, width: 100, height: 76, radius: 12),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                        color: BB.category(poi.category).withValues(alpha: 0.12), borderRadius: BorderRadius.circular(20)),
-                    child: Text(poi.category.label,
-                        style: TextStyle(color: BB.category(poi.category), fontSize: 11.5, fontWeight: FontWeight.w800)),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(poi.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: BB.navy)),
-                  const SizedBox(height: 4),
-                  Row(children: [
-                    if (distance != null) ...[
-                      Icon(Icons.place, size: 15, color: BB.navy),
-                      const SizedBox(width: 2),
-                      Text(distance!, style: TextStyle(color: BB.navy, fontSize: 13.5)),
-                      const SizedBox(width: 10),
-                    ],
-                    if (!poi.canNavigate)
-                      const Flexible(
-                        child: Text('Browse only',
-                            style: TextStyle(color: BB.warning, fontSize: 12.5, fontWeight: FontWeight.w700)),
-                      ),
-                  ]),
+      child: Container(
+        height: 168,
+        decoration: BoxDecoration(
+          borderRadius: radius,
+          border: highlighted ? Border.all(color: BB.navy, width: 3) : null,
+          boxShadow: [BoxShadow(color: cat.withValues(alpha: 0.28), blurRadius: 14, offset: const Offset(0, 6))],
+        ),
+        child: ClipRRect(
+          borderRadius: radius,
+          child: Stack(fit: StackFit.expand, children: [
+            PlaceArt(poi: poi, radius: 0),
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0x33000000), Color(0x00000000), Color(0xCC0B2F44)],
+                  stops: [0, 0.35, 1],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 12,
+              top: 12,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(gradient: BB.categoryGradient(poi.category), borderRadius: BorderRadius.circular(20)),
+                child: Row(mainAxisSize: MainAxisSize.min, children: [
+                  Icon(BB.categoryIcon(poi.category), size: 14, color: Colors.white),
+                  const SizedBox(width: 4),
+                  Text(poi.category.label,
+                      style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w900)),
                 ]),
               ),
-              const Icon(Icons.chevron_right, color: BB.muted),
-            ]),
-          ),
+            ),
+            if (distance != null)
+              Positioned(
+                right: 12,
+                top: 12,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                  child: Row(mainAxisSize: MainAxisSize.min, children: [
+                    Icon(Icons.place_rounded, size: 15, color: BB.navy),
+                    const SizedBox(width: 2),
+                    Text(distance!, style: TextStyle(color: BB.navy, fontSize: 13, fontWeight: FontWeight.w900)),
+                  ]),
+                ),
+              ),
+            Positioned(
+              left: 14,
+              right: 86,
+              bottom: 12,
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
+                if (!poi.canNavigate)
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(color: const Color(0xFFFFE08A), borderRadius: BorderRadius.circular(20)),
+                    child: const Text('Browse only',
+                        style: TextStyle(color: Color(0xFF6B4300), fontSize: 12, fontWeight: FontWeight.w900)),
+                  ),
+                Text(poi.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: heading(22, color: Colors.white, height: 1.05)
+                        .copyWith(shadows: const [Shadow(color: Color(0x99000000), blurRadius: 6)])),
+              ]),
+            ),
+            Material(type: MaterialType.transparency, child: InkWell(onTap: onTap, child: const SizedBox.expand())),
+          ]),
         ),
       ),
     );
   }
+}
 }
 
 /// Straight-line distance from the current GOOD fix, or null (screen 04 rule:
@@ -358,7 +389,7 @@ class _StatusDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AlertDialog(
         icon: Icon(icon, color: iconColor, size: 52),
-        title: Text(title, style: TextStyle(color: BB.navy, fontWeight: FontWeight.w800)),
+        title: Text(title, style: heading(24)),
         content: Text(message, textAlign: TextAlign.center),
         actionsAlignment: MainAxisAlignment.center,
         actions: [
