@@ -295,11 +295,11 @@ class _ActionRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final isShip = nav.destination?.isShipTerminal ?? false;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: BB.photo ? const BorderRadius.vertical(top: Radius.circular(24)) : null,
       ),
-      padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
+      padding: BB.photo ? const EdgeInsets.fromLTRB(12, 12, 12, 10) : const EdgeInsets.fromLTRB(10, 8, 10, 8),
       child: Row(children: [
         Expanded(
           child: _ActionBtn(icon: Icons.stop_circle_outlined, label: 'Stop', color: BB.danger, onTap: nav.stop),
@@ -327,7 +327,19 @@ class _ActionBtn extends StatelessWidget {
   final VoidCallback? onTap;
   const _ActionBtn({required this.icon, required this.label, required this.color, this.onTap});
   @override
-  Widget build(BuildContext context) => FilledButton.icon(
+  Widget build(BuildContext context) => !BB.photo
+      ? OutlinedButton.icon(
+          style: OutlinedButton.styleFrom(
+            minimumSize: const Size.fromHeight(46),
+            foregroundColor: color,
+            side: BorderSide(color: onTap == null ? Colors.black12 : color, width: 1.6),
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+          ),
+          onPressed: onTap,
+          icon: Icon(icon, size: 20),
+          label: Text(label, style: const TextStyle(fontSize: 14.5)),
+        )
+      : FilledButton.icon(
         style: FilledButton.styleFrom(
           minimumSize: const Size.fromHeight(50),
           backgroundColor: color.withValues(alpha: 0.12),

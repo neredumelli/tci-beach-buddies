@@ -450,6 +450,7 @@ class _IconTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (!BB.photo) return Icon(icon, color: BB.blue);
     final c = _colors[icon] ?? BB.blue;
     return Container(
       width: 40,

@@ -42,7 +42,117 @@ class HomeScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => BB.photo ? _buildPhoto(context) : _buildClassic(context);
+
+  /// v2.0 Home as presented to the customer, brighter (default themes).
+  Widget _buildClassic(BuildContext context) {
+    final s = AppScope.of(context);
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(children: [
+        const SimulatedBanner(safeTop: true),
+        Expanded(
+          child: ListView(padding: EdgeInsets.zero, children: [
+            SizedBox(
+              height: 270,
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/splash.jpg'),
+                    fit: BoxFit.cover,
+                    alignment: Alignment(0, 0.55), // beach + sea part of the design image
+                  ),
+                ),
+                child: SafeArea(
+                  bottom: false,
+                  child: Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(12, 6, 12, 0),
+                      child: Row(children: [
+                        const _OfflineChip(),
+                        const Spacer(),
+                        IconButton(
+                          tooltip: 'Search destinations',
+                          onPressed: () => openSearch(context),
+                          icon: const Icon(Icons.search, color: Colors.white, size: 28,
+                              shadows: [Shadow(color: Color(0x88000000), blurRadius: 4)]),
+                        ),
+                      ]),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 70),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.85),
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Image.asset('assets/images/logo.png', height: 62, semanticLabel: 'TCI Beach Buddies'),
+                    ),
+                    const SizedBox(height: 10),
+                    Text('Welcome to\nGrand Turk',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: BB.navy, fontSize: 28, height: 1.1, fontWeight: FontWeight.w900,
+                            shadows: [Shadow(color: Colors.white, blurRadius: 8)])),
+                  ]),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                const DataHealthBanner(),
+                const _ActiveNavCard(),
+                const ReturnToPortButton(),
+                const SizedBox(height: 14),
+                GridView.count(
+                  crossAxisCount: 3,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 1.0,
+                  children: [
+                    for (final c in _tiles)
+                      _ClassicTile(
+                        color: BB.category(c),
+                        gradient: BB.categoryGradient(c),
+                        icon: BB.categoryIcon(c),
+                        label: c.tileLabel,
+                        onTap: () => openCategory(context, c),
+                      ),
+                    _ClassicTile(
+                      color: BB.navy,
+                      gradient: BB.headerGradient,
+                      icon: Icons.more_horiz,
+                      label: 'More',
+                      onTap: () => ShellTabs.go(context, ShellTab.places),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Row(children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(46)),
+                      onPressed: () => ShellTabs.go(context, ShellTab.map),
+                      icon: const Icon(Icons.map),
+                      label: const Text('Map'),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const Expanded(child: Center(child: GpsStatusChip(compact: true))),
+                ]),
+                const SizedBox(height: 10),
+                Text('${s.destinations.length} places to explore · works without internet',
+                    textAlign: TextAlign.center, style: const TextStyle(color: BB.muted, fontSize: 12.5)),
+              ]),
+            ),
+          ]),
+        ),
+      ]),
+    );
+  }
+
+  /// Bold photo Home (photo themes).
+  Widget _buildPhoto(BuildContext context) {
     final s = AppScope.of(context);
     final ship = s.nav.shipTerminal;
     final featured = ship == null
@@ -327,6 +437,54 @@ class _Tile extends StatelessWidget {
               ),
             ),
           ]),
+        ),
+      ),
+    );
+  }
+}
+
+class _ClassicTile extends StatelessWidget {
+  final Color color;
+  final Gradient gradient;
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+  const _ClassicTile({required this.color, required this.gradient, required this.icon, required this.label, required this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    final radius = BorderRadius.circular(18);
+    return Semantics(
+      button: true,
+      label: label,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: radius,
+          boxShadow: [BoxShadow(color: color.withValues(alpha: 0.38), blurRadius: 10, offset: const Offset(0, 4))],
+        ),
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            borderRadius: radius,
+            onTap: onTap,
+            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Container(
+                width: 52,
+                height: 52,
+                decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.22), shape: BoxShape.circle),
+                child: Icon(icon, color: Colors.white, size: 32),
+              ),
+              const SizedBox(height: 6),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(label,
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: const TextStyle(color: Colors.white, fontSize: 13.5, fontWeight: FontWeight.w800,
+                        shadows: [Shadow(color: Color(0x55000000), blurRadius: 3)])),
+              ),
+            ]),
+          ),
         ),
       ),
     );

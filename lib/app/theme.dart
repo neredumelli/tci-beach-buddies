@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../core/models/poi.dart';
 
-/// One predefined colour theme. The screen layouts never change between
-/// themes (they are the approved v2.0 Visual Functional Walkthrough screens);
-/// only the colours do.
+/// One predefined theme: a colour palette plus a look.
+/// Every theme has the same screens and flows (the v2.0 Visual Functional
+/// Walkthrough); [photo] picks the look:
+///  - classic (false): the v2.0 screens as presented to the customer, brighter;
+///  - photo (true): bold photo-led cards, rounded fonts, curved headers.
 class AppPalette {
   final String id;
   final String name;
   final String description;
+  final bool photo;
 
   /// Headers, bottom bar, navigation banner, Home "Return to Cruise Port".
   final Color primary;
@@ -34,6 +37,7 @@ class AppPalette {
     required this.id,
     required this.name,
     required this.description,
+    this.photo = false,
     required this.primary,
     required this.primaryDark,
     required this.primaryLight,
@@ -57,8 +61,24 @@ class AppThemes {
   /// Default: the v2.0 walkthrough's blue headers, made brighter.
   static const islandBlue = AppPalette(
     id: 'island-blue',
-    name: 'Island Blue',
-    description: 'The original look, brighter',
+    name: 'Classic Blue',
+    description: 'The approved v2.0 look, brighter',
+    primary: Color(0xFF0B4FC2),
+    primaryDark: Color(0xFF073584),
+    primaryLight: Color(0xFF1E7FD8),
+    accent: Color(0xFF1565D8),
+    go: Color(0xFF167A36),
+    port: Color(0xFFFF9800),
+    bg: Color(0xFFEDF5FF),
+    selected: Color(0xFFDCEBFF),
+  );
+
+  /// The bold photo look in the classic blue.
+  static const islandPhoto = AppPalette(
+    id: 'island-photo',
+    name: 'Island Photo',
+    description: 'Big photos, rounded type',
+    photo: true,
     primary: Color(0xFF0B4FC2),
     primaryDark: Color(0xFF073584),
     primaryLight: Color(0xFF1E7FD8),
@@ -72,7 +92,8 @@ class AppThemes {
   static const lagoon = AppPalette(
     id: 'lagoon',
     name: 'Turquoise Lagoon',
-    description: 'Clear Caribbean water',
+    description: 'Photo look, clear Caribbean water',
+    photo: true,
     primary: Color(0xFF00747F),
     primaryDark: Color(0xFF00525A),
     primaryLight: Color(0xFF00939F),
@@ -86,7 +107,8 @@ class AppThemes {
   static const sunset = AppPalette(
     id: 'sunset',
     name: 'Sunset Coral',
-    description: 'Warm evening colours',
+    description: 'Photo look, warm evening colours',
+    photo: true,
     primary: Color(0xFFC63B12),
     primaryDark: Color(0xFF962A0B),
     primaryLight: Color(0xFFE5531F),
@@ -100,7 +122,7 @@ class AppThemes {
   static const palm = AppPalette(
     id: 'palm',
     name: 'Palm Green',
-    description: 'Fresh and leafy',
+    description: 'Classic look, fresh and leafy',
     primary: Color(0xFF17703A),
     primaryDark: Color(0xFF0E4D27),
     primaryLight: Color(0xFF26904B),
@@ -115,7 +137,7 @@ class AppThemes {
   static const highContrast = AppPalette(
     id: 'high-contrast',
     name: 'High Contrast',
-    description: 'Easiest to read in bright sun',
+    description: 'Classic look, easiest to read in bright sun',
     primary: Color(0xFF0A1E44),
     primaryDark: Color(0xFF050F26),
     primaryLight: Color(0xFF16346B),
@@ -126,7 +148,7 @@ class AppThemes {
     selected: Color(0xFFE1E8F5),
   );
 
-  static const all = [islandBlue, lagoon, sunset, palm, highContrast];
+  static const all = [islandBlue, islandPhoto, lagoon, sunset, palm, highContrast];
 
   static AppPalette byId(String? id) => all.firstWhere((p) => p.id == id, orElse: () => islandBlue);
 }
@@ -136,6 +158,9 @@ class AppThemes {
 /// meaning stays the same in every theme.
 class BB {
   static AppPalette palette = AppThemes.islandBlue;
+
+  /// True when the active theme uses the bold photo look.
+  static bool get photo => palette.photo;
 
   static Color get navy => palette.primary; // headers, bottom bar, nav banner
   static Color get navyDark => palette.primaryDark;
@@ -203,15 +228,23 @@ class BB {
 }
 
 /// Heading type (Baloo 2, bundled) - friendly, bold and rounded.
+/// Photo themes use Baloo 2; classic themes keep the system font (as v2.0).
 TextStyle heading(double size, {Color? color, FontWeight weight = FontWeight.w800, double height = 1.08}) =>
-    TextStyle(fontFamily: 'Baloo2', fontSize: size, fontWeight: weight, height: height, color: color ?? BB.navy);
+    TextStyle(
+        fontFamily: BB.photo ? 'Baloo2' : null,
+        fontSize: BB.photo ? size : size * 0.9,
+        fontWeight: BB.photo ? weight : FontWeight.w800,
+        height: height,
+        color: color ?? BB.navy);
 
 /// The theme-coloured header behind every app bar: a gradient with a curved
 /// bottom edge and soft "sun and sea" circles.
 class HeaderBackground extends StatelessWidget {
   const HeaderBackground({super.key});
   @override
-  Widget build(BuildContext context) => ClipRRect(
+  Widget build(BuildContext context) => !BB.photo
+      ? DecoratedBox(decoration: BoxDecoration(gradient: BB.headerGradient))
+      : ClipRRect(
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
         child: DecoratedBox(
           decoration: BoxDecoration(gradient: BB.headerGradient),
@@ -236,7 +269,74 @@ class _Bubble extends StatelessWidget {
       );
 }
 
-ThemeData buildTheme() {
+ThemeData buildTheme() => BB.photo ? _photoTheme() : _classicTheme();
+
+/// v2.0 look, brighter: blue gradient headers, system font, solid tab bar.
+ThemeData _classicTheme() {
+  final scheme = ColorScheme.fromSeed(
+    seedColor: BB.navy,
+    primary: BB.navy,
+    secondary: BB.blue,
+    surface: Colors.white,
+    error: BB.danger,
+  );
+  final tt = ThemeData(useMaterial3: true, colorScheme: scheme).textTheme;
+  return ThemeData(
+    useMaterial3: true,
+    colorScheme: scheme,
+    scaffoldBackgroundColor: BB.bg,
+    appBarTheme: AppBarTheme(
+      backgroundColor: BB.navy,
+      foregroundColor: Colors.white,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: tt.titleLarge!.copyWith(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800),
+      iconTheme: const IconThemeData(color: Colors.white),
+      actionsIconTheme: const IconThemeData(color: Colors.white),
+    ),
+    textTheme: tt.copyWith(
+      headlineSmall: tt.headlineSmall!.copyWith(color: BB.navy, fontWeight: FontWeight.w800),
+      titleLarge: tt.titleLarge!.copyWith(color: BB.navy, fontWeight: FontWeight.w700),
+      titleMedium: tt.titleMedium!.copyWith(color: BB.navy, fontWeight: FontWeight.w700),
+      bodyMedium: tt.bodyMedium!.copyWith(color: BB.ink, height: 1.4),
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        minimumSize: const Size.fromHeight(52),
+        backgroundColor: BB.go,
+        foregroundColor: Colors.white,
+        elevation: 2,
+        shadowColor: BB.go.withValues(alpha: 0.5),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        textStyle: tt.labelLarge!.copyWith(fontSize: 17, fontWeight: FontWeight.w800),
+      ),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size.fromHeight(52),
+        side: BorderSide(color: BB.blue, width: 1.8),
+        foregroundColor: BB.blue,
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        textStyle: tt.labelLarge!.copyWith(fontSize: 16, fontWeight: FontWeight.w800),
+      ),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? Colors.white : null),
+      trackColor: WidgetStateProperty.resolveWith((s) => s.contains(WidgetState.selected) ? BB.go : null),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: BB.navy,
+      indicatorColor: Colors.white.withValues(alpha: 0.22),
+      iconTheme: WidgetStateProperty.all(const IconThemeData(color: Colors.white)),
+      labelTextStyle: WidgetStateProperty.all(
+          tt.labelMedium!.copyWith(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white)),
+    ),
+  );
+}
+
+/// Bold photo look: rounded fonts, curved headers, pill buttons.
+ThemeData _photoTheme() {
   final scheme = ColorScheme.fromSeed(
     seedColor: BB.navy,
     primary: BB.navy,

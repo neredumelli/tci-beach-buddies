@@ -130,7 +130,90 @@ class _PreviewCard extends StatelessWidget {
   const _PreviewCard({required this.nav, required this.isReturn});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => BB.photo ? _buildPhoto(context) : _buildClassic(context);
+
+  /// v2.0 look as presented to the customer, brighter (classic themes).
+  Widget _buildClassic(BuildContext context) {
+    final s = AppScope.of(context);
+    final dest = nav.destination;
+    final r = nav.route;
+    final phase = nav.phase;
+    Widget body;
+    if (phase == NavPhase.navigating && r != null) {
+      body = Row(children: [
+        Icon(Icons.place, color: BB.navy, size: 18),
+        const SizedBox(width: 4),
+        Text(s.settings.formatDistance(r.distanceM), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+        const SizedBox(width: 22),
+        Icon(Icons.schedule, color: BB.navy, size: 18),
+        const SizedBox(width: 4),
+        Text('${s.settings.walkMinutes(r.distanceM)} min (walk)',
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+      ]);
+    } else if (phase == NavPhase.waitingForFix) {
+      body = Text(
+          nav.failure == RouteFailureCode.noFreshFix
+              ? 'Waiting for your GPS position. The route always starts where you are now.'
+              : 'Finding your GPS position…',
+          style: const TextStyle(color: BB.muted));
+    } else if (phase == NavPhase.calculating) {
+      body = const Row(children: [
+        SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2.5)),
+        SizedBox(width: 10),
+        Text('Calculating walking route…'),
+      ]);
+    } else if (phase == NavPhase.noRoute) {
+      body = Text(nav.failure == null ? 'No route available.' : failureMessage(nav.failure!),
+          style: const TextStyle(color: BB.danger, fontWeight: FontWeight.w600));
+    } else if (phase == NavPhase.arrived) {
+      body = Text(isReturn ? 'You are already at the Cruise Center.' : 'You are already at this destination.',
+          style: const TextStyle(color: BB.success, fontWeight: FontWeight.w700));
+    } else {
+      body = const SizedBox.shrink();
+    }
+    final canStart = phase == NavPhase.navigating && r != null;
+    return Material(
+      color: Colors.white,
+      elevation: 10,
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+          child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            Row(children: [
+              Icon(isReturn ? Icons.directions_boat : Icons.place, color: BB.go),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(dest == null ? '—' : (isReturn ? 'Cruise Center' : dest.name),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: BB.navy)),
+              ),
+            ]),
+            const SizedBox(height: 8),
+            body,
+            if (r != null && r.originSnapDistanceM > 25) ...[
+              const SizedBox(height: 4),
+              Text('Start: walk ${s.settings.formatDistance(r.originSnapDistanceM)} to the nearest path (dotted line)',
+                  style: const TextStyle(fontSize: 12.5, color: BB.muted)),
+            ],
+            const SizedBox(height: 12),
+            if (phase == NavPhase.noRoute || (phase == NavPhase.waitingForFix && nav.failure != null))
+              OutlinedButton.icon(onPressed: nav.retry, icon: const Icon(Icons.refresh), label: const Text('Retry'))
+            else if (phase == NavPhase.arrived)
+              FilledButton(onPressed: () => goHome(context), child: const Text('Home'))
+            else
+              FilledButton.icon(
+                onPressed: canStart ? () => startNavigation(context) : null,
+                icon: const Icon(Icons.navigation),
+                label: const Text('Start Navigation'),
+              ),
+          ]),
+        ),
+      ),
+    );
+  }
+
+  /// Bold photo look (photo themes).
+  Widget _buildPhoto(BuildContext context) {
     final s = AppScope.of(context);
     final dest = nav.destination;
     final r = nav.route;

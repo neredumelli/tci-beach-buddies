@@ -50,10 +50,25 @@ class _MainShellState extends State<MainShell> {
               index: tab.index,
               children: const [HomeScreen(), PlacesScreen(), MapScreen(), SettingsScreen()],
             ),
-            bottomNavigationBar: _TabBar(
-              selected: tab,
-              onSelect: (t) => _tab.value = t,
-            ),
+            bottomNavigationBar: BB.photo
+                ? _TabBar(selected: tab, onSelect: (t) => _tab.value = t)
+                : DecoratedBox(
+                    decoration: BoxDecoration(gradient: BB.headerGradient),
+                    child: NavigationBar(
+                      backgroundColor: Colors.transparent,
+                      surfaceTintColor: Colors.transparent,
+                      selectedIndex: tab.index,
+                      onDestinationSelected: (i) => _tab.value = ShellTab.values[i],
+                      height: 66,
+                      destinations: const [
+                        NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
+                        NavigationDestination(icon: Icon(Icons.place_outlined), selectedIcon: Icon(Icons.place), label: 'Places'),
+                        NavigationDestination(icon: Icon(Icons.map_outlined), selectedIcon: Icon(Icons.map), label: 'Map'),
+                        NavigationDestination(
+                            icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: 'Settings'),
+                      ],
+                    ),
+                  ),
           ),
         ),
       ),

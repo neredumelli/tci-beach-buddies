@@ -71,7 +71,7 @@ void main() {
     expect(BB.palette.id, 'island-blue');
     await t.tap(find.text('Settings').last);
     await _settle(t);
-    expect(find.text('Island Blue'), findsOneWidget);
+    expect(find.text('Classic Blue'), findsOneWidget);
     await t.tap(find.text('Theme'));
     await _settle(t);
     expect(find.text('Choose a theme'), findsOneWidget);

@@ -129,7 +129,7 @@ void main() {
   tearDown(() => BB.palette = AppThemes.islandBlue);
 
   for (final theme in AppThemes.all) {
-    final full = theme.id == AppThemes.islandBlue.id;
+    final full = theme.id == AppThemes.islandBlue.id || theme.id == AppThemes.islandPhoto.id;
 
     testWidgets('journey screens · ${theme.id}', (t) async {
       final (gps, s) = await _boot(t, theme.id);
