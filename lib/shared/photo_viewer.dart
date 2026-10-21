@@ -135,6 +135,10 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
                     child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
                       Text(widget.poi.name,
                           style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800)),
+                      if (photo.isSupplied && photo.title.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(photo.title, style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600)),
+                      ],
                       const SizedBox(height: 4),
                       Text(photo.line, style: const TextStyle(color: Colors.white70, fontSize: 13)),
                       const SizedBox(height: 6),

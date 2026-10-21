@@ -243,18 +243,33 @@ class PhotoSlidesState extends State<PhotoSlides> {
           duration: const Duration(milliseconds: 700),
           layoutBuilder: (current, previous) =>
               Stack(fit: StackFit.expand, children: [...previous, if (current != null) current]),
-          child: Image.asset(
-            photo.asset,
-            key: ValueKey(photo.asset),
-            fit: BoxFit.cover,
-            gaplessPlayback: true,
-            excludeFromSemantics: true,
-            errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(widget.poi), seed: widget.poi.id.hashCode),
-          ),
+          child: Stack(key: ValueKey(photo.asset), fit: StackFit.expand, children: [
+            Image.asset(
+              photo.asset,
+              fit: BoxFit.cover,
+              gaplessPlayback: true,
+              excludeFromSemantics: true,
+              errorBuilder: (_, __, ___) => TropicalScene(kind: sceneFor(widget.poi), seed: widget.poi.id.hashCode),
+            ),
+            // Drawings stay labelled while they rotate with real photos.
+            if (photo.isIllustration && (widget.height ?? 100) >= 56)
+              Positioned(
+                right: big ? null : 6,
+                left: big ? (BB.photo ? 12 : 10) : null,
+                top: big ? (BB.photo ? 64 : 10) : null,
+                bottom: big ? null : 6,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  decoration: BoxDecoration(color: const Color(0xE60B2F44), borderRadius: BorderRadius.circular(20)),
+                  child: Text('Illustration',
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: big ? 12 : 10)),
+                ),
+              ),
+          ]),
         ),
       ),
     );
-    final label = 'Photo ${index + 1} of $_n of ${widget.poi.name}';
+    final label = '${photo.isIllustration ? 'Illustration, not a photo' : 'Photo'} ${index + 1} of $_n of ${widget.poi.name}';
     if (!big) return Semantics(image: true, label: label, child: img);
     return Semantics(
       button: true,

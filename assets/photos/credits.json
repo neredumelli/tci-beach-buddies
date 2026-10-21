@@ -4,7 +4,17 @@
     "title": "Grand Turk Lighthouse - 51364031267.jpg",
     "author": "Stabbur's Master",
     "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg"
+    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg",
+    "more": [
+      {
+        "file": "donkey-lighthouse.jpg",
+        "title": "Wild donkeys roam the north of the island near the lighthouse",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "front-street": {
     "file": "front-street.jpg",
@@ -186,7 +196,17 @@
     "author": "TCI Beach Buddies",
     "license": "Original illustration",
     "url": "",
-    "kind": "illustration"
+    "kind": "illustration",
+    "more": [
+      {
+        "file": "donkey-town-salina.jpg",
+        "title": "Grand Turk's wild donkeys descend from the donkeys that once hauled salt",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "red-salina": {
     "file": "illustration-red-salina.jpg",
@@ -194,7 +214,17 @@
     "author": "TCI Beach Buddies",
     "license": "Original illustration",
     "url": "",
-    "kind": "illustration"
+    "kind": "illustration",
+    "more": [
+      {
+        "file": "donkey-red-salina.jpg",
+        "title": "Grand Turk's wild donkeys descend from the donkeys that once hauled salt",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "hawks-nest-salina": {
     "file": "illustration-hawks-nest-salina.jpg",
@@ -213,12 +243,12 @@
     "kind": "illustration"
   },
   "clock-tower-park": {
-    "file": "illustration-clock-tower-park.jpg",
-    "title": "Illustration of Clock Tower Park (not a photo)",
+    "file": "clock-tower-park.jpg",
+    "title": "Clock Tower Park and the waterfront, Cockburn Town",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied"
   },
   "hm-prison": {
     "file": "illustration-hm-prison.jpg",
