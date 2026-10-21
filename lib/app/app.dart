@@ -81,6 +81,9 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
       title: 'TCI Beach Buddies',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
+      // Themes switch instantly: classic and photo looks use different fonts,
+      // which cannot be blended in an animated transition.
+      themeAnimationStyle: AnimationStyle.noAnimation,
       // AppScope sits ABOVE the Navigator so every pushed route (details,
       // navigation, arrival, pickers) can reach the services.
       builder: (context, child) {
