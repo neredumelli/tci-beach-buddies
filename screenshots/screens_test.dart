@@ -195,9 +195,9 @@ void main() {
         // A drawing rotating with a real photo keeps its Illustration label.
         await _boot(t, theme.id);
         await _tap(t, find.byTooltip('Search destinations'));
-        await t.enterText(find.byType(TextField).last, 'Town Salina');
+        await t.enterText(find.byType(TextField).last, 'Red Salina');
         await _settle(t);
-        await _tap(t, find.text('Town Salina').last);
+        await _tap(t, find.text('Red Salina').last);
         await _shot(t, theme.id, '05e_illustration_and_photo');
         await _settle(t, 60); // let it rotate to the donkey photo
         await _shot(t, theme.id, '05f_rotated_to_photo');

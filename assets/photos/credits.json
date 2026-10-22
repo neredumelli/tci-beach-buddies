@@ -225,12 +225,30 @@
     ]
   },
   "pillory-beach": {
-    "file": "illustration-pillory-beach.jpg",
-    "title": "Illustration of Guanahani Beach (Pillory Beach) (not a photo)",
+    "file": "pillory-beach.jpg",
+    "title": "Guanahani (Pillory) Beach",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "pillory-beach-2.jpg",
+        "title": "Guanahani Beach shoreline",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "pillory-beach-3.jpg",
+        "title": "Guanahani Beach and the houses behind it",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "white-sands-beach": {
     "file": "illustration-white-sands-beach.jpg",
@@ -241,13 +259,21 @@
     "kind": "illustration"
   },
   "town-salina": {
-    "file": "illustration-town-salina.jpg",
-    "title": "Illustration of Town Salina (not a photo)",
+    "file": "town-salina.jpg",
+    "title": "Gazebo beside Town Salina",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration",
+    "kind": "supplied",
     "more": [
+      {
+        "file": "town-salina-2.jpg",
+        "title": "The road beside Town Salina",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
       {
         "file": "donkey-town-salina.jpg",
         "title": "Grand Turk's wild donkeys descend from the donkeys that once hauled salt",
@@ -421,12 +447,12 @@
     ]
   },
   "salt-raker-inn": {
-    "file": "illustration-salt-raker-inn.jpg",
-    "title": "Illustration of Salt Raker Inn (not a photo)",
+    "file": "salt-raker-inn.jpg",
+    "title": "Salt Raker Inn, Duke Street",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied"
   },
   "shoprite-grocery": {
     "file": "illustration-shoprite-grocery.jpg",
