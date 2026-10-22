@@ -1,11 +1,27 @@
 {
   "grand-turk-lighthouse": {
-    "file": "grand-turk-lighthouse.jpg",
-    "title": "Grand Turk Lighthouse - 51364031267.jpg",
-    "author": "Stabbur's Master",
-    "license": "CC BY-SA 2.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg",
+    "file": "grand-turk-lighthouse-2.jpg",
+    "title": "Grand Turk Lighthouse",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied",
     "more": [
+      {
+        "file": "grand-turk-lighthouse-3.jpg",
+        "title": "Lighthouse park entrance",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "grand-turk-lighthouse.jpg",
+        "title": "Grand Turk Lighthouse - 51364031267.jpg",
+        "author": "Stabbur's Master",
+        "license": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg"
+      },
       {
         "file": "donkey-lighthouse.jpg",
         "title": "Wild donkeys roam the north of the island near the lighthouse",
@@ -24,11 +40,37 @@
     "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk.jpg"
   },
   "national-museum": {
-    "file": "national-museum.jpg",
-    "title": "Turks & Caicos National Museum.jpg",
-    "author": "TampAGS, for AGS Media",
-    "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Turks_%26_Caicos_National_Museum.jpg"
+    "file": "national-museum-2.jpg",
+    "title": "Turks & Caicos National Museum, front",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "national-museum-3.jpg",
+        "title": "The museum wall and Front Street",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "national-museum-4.jpg",
+        "title": "Red telephone box and mosaic wall at the museum",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "national-museum.jpg",
+        "title": "Turks & Caicos National Museum.jpg",
+        "author": "TampAGS, for AGS Media",
+        "license": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Turks_%26_Caicos_National_Museum.jpg"
+      }
+    ]
   },
   "columbus-landfall": {
     "file": "columbus-landfall.jpg",
@@ -243,20 +285,64 @@
     "kind": "illustration"
   },
   "clock-tower-park": {
-    "file": "clock-tower-park.jpg",
-    "title": "Clock Tower Park and the waterfront, Cockburn Town",
+    "file": "clock-tower-park-2.jpg",
+    "title": "Clock Tower Park",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
-    "kind": "supplied"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "clock-tower-park-3.jpg",
+        "title": "\"Welcome to Over Back\" sign and the clock tower",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "clock-tower-park.jpg",
+        "title": "Clock Tower Park and the waterfront, Cockburn Town",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "hm-prison": {
-    "file": "illustration-hm-prison.jpg",
-    "title": "Illustration of H.M. Prison Museum (not a photo)",
+    "file": "hm-prison.jpg",
+    "title": "H.M. Prison museum gate (\"Prison Tales\")",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "hm-prison-2.jpg",
+        "title": "The old prison wall",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "hm-prison-3.jpg",
+        "title": "The prison bell tower",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "hm-prison-4.jpg",
+        "title": "Donkey Bites snack bar inside the prison grounds",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "waterloo": {
     "file": "illustration-waterloo.jpg",
@@ -275,12 +361,22 @@
     "kind": "illustration"
   },
   "freemason-lodge": {
-    "file": "illustration-freemason-lodge.jpg",
-    "title": "Illustration of Freemason Lodge (not a photo)",
+    "file": "freemason-lodge.jpg",
+    "title": "Freemason Lodge, front",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "freemason-lodge-2.jpg",
+        "title": "Freemason Lodge from the corner",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "victoria-library": {
     "file": "illustration-victoria-library.jpg",
@@ -299,12 +395,22 @@
     "kind": "supplied"
   },
   "barbies": {
-    "file": "illustration-barbies.jpg",
-    "title": "Illustration of Barbie's Bar & Restaurant (not a photo)",
+    "file": "barbies.jpg",
+    "title": "Barbie's Bar & Restaurant",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "barbies-2.jpg",
+        "title": "Barbie's and the neighbouring shops",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "salt-raker-inn": {
     "file": "illustration-salt-raker-inn.jpg",
@@ -355,28 +461,48 @@
     "kind": "illustration"
   },
   "grace-bay-pharmacy": {
-    "file": "illustration-grace-bay-pharmacy.jpg",
-    "title": "Illustration of Gracebay Pharmacy (not a photo)",
+    "file": "pharmacy.jpg",
+    "title": "Gracebay Pharmacy",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "pharmacy-2.jpg",
+        "title": "The pharmacy across the water",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "medical-centre": {
-    "file": "illustration-medical-centre.jpg",
-    "title": "Illustration of Hospital (not a photo)",
+    "file": "hospital.jpg",
+    "title": "Hospital entrance",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "hospital-2.jpg",
+        "title": "Hospital buildings",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      }
+    ]
   },
   "police-station": {
-    "file": "illustration-police-station.jpg",
-    "title": "Illustration of Royal Turks & Caicos Police Station (not a photo)",
+    "file": "police-station.jpg",
+    "title": "\"A\" Division Police Station",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied"
   },
   "post-office": {
     "file": "illustration-post-office.jpg",
