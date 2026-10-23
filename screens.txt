@@ -1,0 +1,208 @@
+00:00 +0: loading /home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: journey screens · ocean-pearl
+
+Warning: A call to tap() with finder "Found 1 widget with text "Governor's Beach" (ignoring all but first): [
+  Text("Governor's Beach", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(116.0, 334.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#40a42 relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#7a373@Offset(104.0, 166.5), RenderSemanticsAnnotations#9cb95@Offset(104.0, 166.5), RenderMouseRegion#82763@Offset(104.0, 166.5), RenderSemanticsAnnotations#6db8f@Offset(104.0, 166.5), _RenderInkFeatures#9a9a6@Offset(104.0, 166.5), RenderCustomPaint#dc2b1@Offset(104.0, 166.5), RenderClipPath#db099@Offset(104.0, 166.5), RenderStack#c94f2@Offset(104.0, 166.5), RenderClipRRect#8c8cf@Offset(104.0, 166.5), RenderPadding#740a7@Offset(104.0, 166.5), RenderDecoratedBox#2362d@Offset(104.0, 166.5), RenderConstrainedBox#b827a@Offset(104.0, 166.5), RenderSemanticsAnnotations#26adf@Offset(104.0, 166.5), RenderRepaintBoundary#6a7e0@Offset(104.0, 166.5), RenderIndexedSemantics#827ac@Offset(104.0, 166.5), RenderSliverList@(mainAxis: 268.5, crossAxis: 104.01130676269531), RenderSliverPadding@(mainAxis: 268.5, crossAxis: 116.01130676269531), RenderViewport#70e6a@Offset(116.0, 268.5), RenderIgnorePointer#27186@Offset(116.0, 268.5), RenderSemanticsAnnotations#40e34@Offset(116.0, 268.5), RenderPointerListener#b9d9e@Offset(116.0, 268.5), RenderSemanticsGestureHandler#3965e@Offset(116.0, 268.5), RenderPointerListener#1a794@Offset(116.0, 268.5), _RenderScrollSemantics#a3085@Offset(116.0, 268.5), RenderClipRect#06da6@Offset(116.0, 268.5), RenderCustomMultiChildLayoutBox#374a0@Offset(116.0, 334.5), _RenderInkFeatures#b2a8e@Offset(116.0, 334.5), RenderPhysicalModel#ffd14@Offset(116.0, 334.5), RenderSemanticsAnnotations#e9261@Offset(116.0, 334.5), RenderRepaintBoundary#5a78a@Offset(116.0, 334.5), RenderIgnorePointer#1b2d0@Offset(116.0, 334.5), RenderAnimatedOpacity#e2aa1@Offset(116.0, 334.5), RenderAnimatedOpacity#6399f@Offset(116.0, 334.5), _RenderColoredBox#34991@Offset(116.0, 334.5), RenderAnimatedOpacity#70047@Offset(116.0, 334.5), RenderIgnorePointer#8ddae@Offset(116.0, 334.5), RenderAnimatedOpacity#af48d@Offset(116.0, 334.5), RenderRepaintBoundary#ecf1c@Offset(116.0, 334.5), RenderSemanticsAnnotations#dbe7a@Offset(116.0, 334.5), RenderOffstage#35995@Offset(116.0, 334.5), RenderSemanticsAnnotations#525af@Offset(116.0, 334.5), _RenderTheater#cb7b9@Offset(116.0, 334.5), RenderAbsorbPointer#63ad3@Offset(116.0, 334.5), RenderPointerListener#0cd49@Offset(116.0, 334.5), RenderSemanticsAnnotations#8fe4d@Offset(116.0, 334.5), RenderSemanticsAnnotations#417f4@Offset(116.0, 334.5), RenderSemanticsAnnotations#69d90@Offset(116.0, 334.5), RenderSemanticsAnnotations#0662f@Offset(116.0, 334.5), RenderTapRegionSurface#ae165@Offset(116.0, 334.5), RenderSemanticsAnnotations#a1287@Offset(116.0, 334.5), RenderSemanticsAnnotations#218c9@Offset(116.0, 334.5), RenderRepaintBoundary#4518f@Offset(116.0, 334.5), HitTestEntry<HitTestTarget>#68a70(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#ac743(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:143:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:10 +1: rotating photos · ocean-pearl
+
+Warning: A call to tap() with finder "Found 1 widget with text containing Jack (ignoring all but first): [
+  Text("Jack's Shack", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(89.5, 77.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#24480 relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#fad0b@Offset(77.5, 166.5), RenderSemanticsAnnotations#97642@Offset(77.5, 166.5), RenderMouseRegion#9254b@Offset(77.5, 166.5), RenderSemanticsAnnotations#67ad3@Offset(77.5, 166.5), _RenderInkFeatures#09009@Offset(77.5, 166.5), RenderCustomPaint#fa34b@Offset(77.5, 166.5), RenderClipPath#fc2fe@Offset(77.5, 166.5), RenderStack#bfba7@Offset(77.5, 166.5), RenderClipRRect#c0e2a@Offset(77.5, 166.5), RenderPadding#f422a@Offset(77.5, 166.5), RenderDecoratedBox#63969@Offset(77.5, 166.5), RenderConstrainedBox#920dc@Offset(77.5, 166.5), RenderSemanticsAnnotations#cc091@Offset(77.5, 166.5), RenderRepaintBoundary#227d7@Offset(77.5, 166.5), RenderIndexedSemantics#59713@Offset(77.5, 166.5), RenderSliverList@(mainAxis: 11.5, crossAxis: 77.48521423339844), RenderSliverPadding@(mainAxis: 11.5, crossAxis: 89.48521423339844), RenderViewport#d5a0e@Offset(89.5, 11.5), RenderIgnorePointer#26d3d@Offset(89.5, 11.5), RenderSemanticsAnnotations#90963@Offset(89.5, 11.5), RenderPointerListener#4f6a6@Offset(89.5, 11.5), RenderSemanticsGestureHandler#5ce7f@Offset(89.5, 11.5), RenderPointerListener#89c4e@Offset(89.5, 11.5), _RenderScrollSemantics#e0840@Offset(89.5, 11.5), RenderClipRect#67de0@Offset(89.5, 11.5), RenderCustomMultiChildLayoutBox#4cbe4@Offset(89.5, 77.5), _RenderInkFeatures#38d02@Offset(89.5, 77.5), RenderPhysicalModel#2507f@Offset(89.5, 77.5), RenderSemanticsAnnotations#07653@Offset(89.5, 77.5), RenderRepaintBoundary#0d2bf@Offset(89.5, 77.5), RenderIgnorePointer#53e5a@Offset(89.5, 77.5), RenderAnimatedOpacity#0a818@Offset(89.5, 77.5), RenderAnimatedOpacity#7b9fb@Offset(89.5, 77.5), _RenderColoredBox#1a862@Offset(89.5, 77.5), RenderAnimatedOpacity#52916@Offset(89.5, 77.5), RenderIgnorePointer#d2f94@Offset(89.5, 77.5), RenderAnimatedOpacity#3c73a@Offset(89.5, 77.5), RenderRepaintBoundary#56835@Offset(89.5, 77.5), RenderSemanticsAnnotations#2126a@Offset(89.5, 77.5), RenderOffstage#dc136@Offset(89.5, 77.5), RenderSemanticsAnnotations#b6fe4@Offset(89.5, 77.5), _RenderTheater#8454b@Offset(89.5, 77.5), RenderAbsorbPointer#3886b@Offset(89.5, 77.5), RenderPointerListener#cd79c@Offset(89.5, 77.5), RenderSemanticsAnnotations#e23cf@Offset(89.5, 77.5), RenderSemanticsAnnotations#3c24b@Offset(89.5, 77.5), RenderSemanticsAnnotations#9ef0c@Offset(89.5, 77.5), RenderSemanticsAnnotations#ce977@Offset(89.5, 77.5), RenderTapRegionSurface#242c6@Offset(89.5, 77.5), RenderSemanticsAnnotations#0ac94@Offset(89.5, 77.5), RenderSemanticsAnnotations#6690d@Offset(89.5, 77.5), RenderRepaintBoundary#1ec6a@Offset(89.5, 77.5), HitTestEntry<HitTestTarget>#ae8c3(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#69360(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:189:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:15 +2: illustration rotating with a photo · ocean-pearl
+
+Warning: A call to tap() with finder "Found 1 widget with text "Red Salina" (ignoring all but last): [
+  Text("Red Salina", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(79.2, 376.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#834a8 relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#c2a99@Offset(67.2, 188.5), RenderSemanticsAnnotations#296a5@Offset(67.2, 188.5), RenderMouseRegion#454c1@Offset(67.2, 188.5), RenderSemanticsAnnotations#38820@Offset(67.2, 188.5), _RenderInkFeatures#c63d8@Offset(67.2, 188.5), RenderCustomPaint#fe7a7@Offset(67.2, 188.5), RenderClipPath#9b4cf@Offset(67.2, 188.5), RenderStack#07408@Offset(67.2, 188.5), RenderClipRRect#e023b@Offset(67.2, 188.5), RenderPadding#bc4e9@Offset(67.2, 188.5), RenderDecoratedBox#3117c@Offset(67.2, 188.5), RenderConstrainedBox#ab173@Offset(67.2, 188.5), RenderSemanticsAnnotations#12b7c@Offset(67.2, 188.5), RenderRepaintBoundary#01ea7@Offset(67.2, 188.5), RenderIndexedSemantics#26e4a@Offset(67.2, 188.5), RenderSliverList@(mainAxis: 188.5, crossAxis: 67.24717712402344), RenderSliverPadding@(mainAxis: 192.5, crossAxis: 79.24717712402344), RenderViewport#98778@Offset(79.2, 192.5), RenderIgnorePointer#40845@Offset(79.2, 192.5), RenderSemanticsAnnotations#cc1ef@Offset(79.2, 192.5), RenderPointerListener#3d8c2@Offset(79.2, 192.5), RenderSemanticsGestureHandler#fca52@Offset(79.2, 192.5), RenderPointerListener#06dae@Offset(79.2, 192.5), _RenderScrollSemantics#65176@Offset(79.2, 192.5), RenderClipRect#91292@Offset(79.2, 192.5), RenderFlex#2e6dc@Offset(79.2, 310.5), RenderCustomMultiChildLayoutBox#16992@Offset(79.2, 376.5), _RenderInkFeatures#61876@Offset(79.2, 376.5), RenderPhysicalModel#8bdcb@Offset(79.2, 376.5), RenderSemanticsAnnotations#b3fd4@Offset(79.2, 376.5), RenderRepaintBoundary#14a68@Offset(79.2, 376.5), RenderIgnorePointer#07e02@Offset(79.2, 376.5), RenderAnimatedOpacity#d0f9b@Offset(79.2, 376.5), RenderAnimatedOpacity#20f2b@Offset(79.2, 376.5), _RenderColoredBox#96e88@Offset(79.2, 376.5), RenderAnimatedOpacity#0b480@Offset(79.2, 376.5), RenderIgnorePointer#d5d78@Offset(79.2, 376.5), RenderAnimatedOpacity#d8694@Offset(79.2, 376.5), RenderRepaintBoundary#0ec67@Offset(79.2, 376.5), RenderSemanticsAnnotations#65fca@Offset(79.2, 376.5), RenderOffstage#48492@Offset(79.2, 376.5), RenderSemanticsAnnotations#4b204@Offset(79.2, 376.5), _RenderTheater#56542@Offset(79.2, 376.5), RenderAbsorbPointer#6439f@Offset(79.2, 376.5), RenderPointerListener#59508@Offset(79.2, 376.5), RenderSemanticsAnnotations#26957@Offset(79.2, 376.5), RenderSemanticsAnnotations#c97d1@Offset(79.2, 376.5), RenderSemanticsAnnotations#c8e5f@Offset(79.2, 376.5), RenderSemanticsAnnotations#62cc0@Offset(79.2, 376.5), RenderTapRegionSurface#bdb30@Offset(79.2, 376.5), RenderSemanticsAnnotations#b6c08@Offset(79.2, 376.5), RenderSemanticsAnnotations#9c6f0@Offset(79.2, 376.5), RenderRepaintBoundary#1c17d@Offset(79.2, 376.5), HitTestEntry<HitTestTarget>#52c66(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#dc84f(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:206:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:20 +3: map, settings, search · ocean-pearl
+00:26 +4: journey screens · island-blue
+00:34 +5: rotating photos · island-blue
+00:39 +6: illustration rotating with a photo · island-blue
+00:43 +7: map, settings, search · island-blue
+00:48 +8: journey screens · island-photo
+
+Warning: A call to tap() with finder "Found 1 widget with text "Governor's Beach" (ignoring all but first): [
+  Text("Governor's Beach", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(116.0, 334.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#bfb7a relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#0c6ce@Offset(104.0, 166.5), RenderSemanticsAnnotations#85d80@Offset(104.0, 166.5), RenderMouseRegion#09531@Offset(104.0, 166.5), RenderSemanticsAnnotations#f4e44@Offset(104.0, 166.5), _RenderInkFeatures#4deda@Offset(104.0, 166.5), RenderCustomPaint#acc1e@Offset(104.0, 166.5), RenderClipPath#350c3@Offset(104.0, 166.5), RenderStack#fe6bc@Offset(104.0, 166.5), RenderClipRRect#d628a@Offset(104.0, 166.5), RenderPadding#e226f@Offset(104.0, 166.5), RenderDecoratedBox#edbea@Offset(104.0, 166.5), RenderConstrainedBox#1a92c@Offset(104.0, 166.5), RenderSemanticsAnnotations#7a977@Offset(104.0, 166.5), RenderRepaintBoundary#ae2a1@Offset(104.0, 166.5), RenderIndexedSemantics#bc965@Offset(104.0, 166.5), RenderSliverList@(mainAxis: 268.5, crossAxis: 104.01130676269531), RenderSliverPadding@(mainAxis: 268.5, crossAxis: 116.01130676269531), RenderViewport#ed4c6@Offset(116.0, 268.5), RenderIgnorePointer#fd1cb@Offset(116.0, 268.5), RenderSemanticsAnnotations#4999a@Offset(116.0, 268.5), RenderPointerListener#05d52@Offset(116.0, 268.5), RenderSemanticsGestureHandler#56fe3@Offset(116.0, 268.5), RenderPointerListener#cb348@Offset(116.0, 268.5), _RenderScrollSemantics#f9015@Offset(116.0, 268.5), RenderClipRect#b8a57@Offset(116.0, 268.5), RenderCustomMultiChildLayoutBox#22bbf@Offset(116.0, 334.5), _RenderInkFeatures#22771@Offset(116.0, 334.5), RenderPhysicalModel#62fbe@Offset(116.0, 334.5), RenderSemanticsAnnotations#0e9d1@Offset(116.0, 334.5), RenderRepaintBoundary#8dc80@Offset(116.0, 334.5), RenderIgnorePointer#54dc7@Offset(116.0, 334.5), RenderAnimatedOpacity#2b70b@Offset(116.0, 334.5), RenderAnimatedOpacity#eac03@Offset(116.0, 334.5), _RenderColoredBox#4614b@Offset(116.0, 334.5), RenderAnimatedOpacity#354a7@Offset(116.0, 334.5), RenderIgnorePointer#23bd4@Offset(116.0, 334.5), RenderAnimatedOpacity#a60eb@Offset(116.0, 334.5), RenderRepaintBoundary#2e9cc@Offset(116.0, 334.5), RenderSemanticsAnnotations#fd8c7@Offset(116.0, 334.5), RenderOffstage#9c1db@Offset(116.0, 334.5), RenderSemanticsAnnotations#05cdb@Offset(116.0, 334.5), _RenderTheater#b6151@Offset(116.0, 334.5), RenderAbsorbPointer#96b55@Offset(116.0, 334.5), RenderPointerListener#45aa0@Offset(116.0, 334.5), RenderSemanticsAnnotations#7e0d5@Offset(116.0, 334.5), RenderSemanticsAnnotations#28500@Offset(116.0, 334.5), RenderSemanticsAnnotations#073fc@Offset(116.0, 334.5), RenderSemanticsAnnotations#55830@Offset(116.0, 334.5), RenderTapRegionSurface#924a5@Offset(116.0, 334.5), RenderSemanticsAnnotations#c3dae@Offset(116.0, 334.5), RenderSemanticsAnnotations#fce30@Offset(116.0, 334.5), RenderRepaintBoundary#c4192@Offset(116.0, 334.5), HitTestEntry<HitTestTarget>#c0665(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#a3dd9(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:143:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:57 +9: rotating photos · island-photo
+
+Warning: A call to tap() with finder "Found 1 widget with text containing Jack (ignoring all but first): [
+  Text("Jack's Shack", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(89.5, 77.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#7f895 relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#38dd3@Offset(77.5, 166.5), RenderSemanticsAnnotations#d1444@Offset(77.5, 166.5), RenderMouseRegion#6cfb8@Offset(77.5, 166.5), RenderSemanticsAnnotations#52277@Offset(77.5, 166.5), _RenderInkFeatures#d7782@Offset(77.5, 166.5), RenderCustomPaint#d1675@Offset(77.5, 166.5), RenderClipPath#ef13e@Offset(77.5, 166.5), RenderStack#5773d@Offset(77.5, 166.5), RenderClipRRect#39ba7@Offset(77.5, 166.5), RenderPadding#9b27f@Offset(77.5, 166.5), RenderDecoratedBox#5e744@Offset(77.5, 166.5), RenderConstrainedBox#13a4f@Offset(77.5, 166.5), RenderSemanticsAnnotations#715f0@Offset(77.5, 166.5), RenderRepaintBoundary#8fe29@Offset(77.5, 166.5), RenderIndexedSemantics#8f95f@Offset(77.5, 166.5), RenderSliverList@(mainAxis: 11.5, crossAxis: 77.48521423339844), RenderSliverPadding@(mainAxis: 11.5, crossAxis: 89.48521423339844), RenderViewport#f7e7b@Offset(89.5, 11.5), RenderIgnorePointer#edc11@Offset(89.5, 11.5), RenderSemanticsAnnotations#8b06d@Offset(89.5, 11.5), RenderPointerListener#d6fce@Offset(89.5, 11.5), RenderSemanticsGestureHandler#5875c@Offset(89.5, 11.5), RenderPointerListener#cd25f@Offset(89.5, 11.5), _RenderScrollSemantics#eb70f@Offset(89.5, 11.5), RenderClipRect#c1f1f@Offset(89.5, 11.5), RenderCustomMultiChildLayoutBox#a36fb@Offset(89.5, 77.5), _RenderInkFeatures#e3dcb@Offset(89.5, 77.5), RenderPhysicalModel#ebdb4@Offset(89.5, 77.5), RenderSemanticsAnnotations#bc300@Offset(89.5, 77.5), RenderRepaintBoundary#590e9@Offset(89.5, 77.5), RenderIgnorePointer#278a6@Offset(89.5, 77.5), RenderAnimatedOpacity#7e77a@Offset(89.5, 77.5), RenderAnimatedOpacity#742e6@Offset(89.5, 77.5), _RenderColoredBox#41aa1@Offset(89.5, 77.5), RenderAnimatedOpacity#ed7a0@Offset(89.5, 77.5), RenderIgnorePointer#a3fca@Offset(89.5, 77.5), RenderAnimatedOpacity#b3e01@Offset(89.5, 77.5), RenderRepaintBoundary#7e59a@Offset(89.5, 77.5), RenderSemanticsAnnotations#5ac5c@Offset(89.5, 77.5), RenderOffstage#95c68@Offset(89.5, 77.5), RenderSemanticsAnnotations#4b724@Offset(89.5, 77.5), _RenderTheater#31d69@Offset(89.5, 77.5), RenderAbsorbPointer#34533@Offset(89.5, 77.5), RenderPointerListener#30fa4@Offset(89.5, 77.5), RenderSemanticsAnnotations#0b5d3@Offset(89.5, 77.5), RenderSemanticsAnnotations#2071d@Offset(89.5, 77.5), RenderSemanticsAnnotations#85640@Offset(89.5, 77.5), RenderSemanticsAnnotations#c6b55@Offset(89.5, 77.5), RenderTapRegionSurface#36f1a@Offset(89.5, 77.5), RenderSemanticsAnnotations#54cf1@Offset(89.5, 77.5), RenderSemanticsAnnotations#05c5d@Offset(89.5, 77.5), RenderRepaintBoundary#aba49@Offset(89.5, 77.5), HitTestEntry<HitTestTarget>#6ca3b(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#c7cb6(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:189:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+01:02 +10: illustration rotating with a photo · island-photo
+
+Warning: A call to tap() with finder "Found 1 widget with text "Red Salina" (ignoring all but last): [
+  Text("Red Salina", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(79.2, 376.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#88b4b relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#6a4a7@Offset(67.2, 188.5), RenderSemanticsAnnotations#9c697@Offset(67.2, 188.5), RenderMouseRegion#d613c@Offset(67.2, 188.5), RenderSemanticsAnnotations#555e5@Offset(67.2, 188.5), _RenderInkFeatures#48e91@Offset(67.2, 188.5), RenderCustomPaint#73d11@Offset(67.2, 188.5), RenderClipPath#0da36@Offset(67.2, 188.5), RenderStack#bdefd@Offset(67.2, 188.5), RenderClipRRect#2e18d@Offset(67.2, 188.5), RenderPadding#d3898@Offset(67.2, 188.5), RenderDecoratedBox#70334@Offset(67.2, 188.5), RenderConstrainedBox#ec246@Offset(67.2, 188.5), RenderSemanticsAnnotations#57fd3@Offset(67.2, 188.5), RenderRepaintBoundary#9e02e@Offset(67.2, 188.5), RenderIndexedSemantics#e8743@Offset(67.2, 188.5), RenderSliverList@(mainAxis: 188.5, crossAxis: 67.24717712402344), RenderSliverPadding@(mainAxis: 192.5, crossAxis: 79.24717712402344), RenderViewport#010aa@Offset(79.2, 192.5), RenderIgnorePointer#0cceb@Offset(79.2, 192.5), RenderSemanticsAnnotations#d6252@Offset(79.2, 192.5), RenderPointerListener#fcf19@Offset(79.2, 192.5), RenderSemanticsGestureHandler#7333a@Offset(79.2, 192.5), RenderPointerListener#0038c@Offset(79.2, 192.5), _RenderScrollSemantics#0aa29@Offset(79.2, 192.5), RenderClipRect#d3dcd@Offset(79.2, 192.5), RenderFlex#7440d@Offset(79.2, 310.5), RenderCustomMultiChildLayoutBox#c43c2@Offset(79.2, 376.5), _RenderInkFeatures#f710d@Offset(79.2, 376.5), RenderPhysicalModel#216c7@Offset(79.2, 376.5), RenderSemanticsAnnotations#1a133@Offset(79.2, 376.5), RenderRepaintBoundary#10c3a@Offset(79.2, 376.5), RenderIgnorePointer#eebec@Offset(79.2, 376.5), RenderAnimatedOpacity#f6ad2@Offset(79.2, 376.5), RenderAnimatedOpacity#34999@Offset(79.2, 376.5), _RenderColoredBox#b4621@Offset(79.2, 376.5), RenderAnimatedOpacity#fef8b@Offset(79.2, 376.5), RenderIgnorePointer#901d1@Offset(79.2, 376.5), RenderAnimatedOpacity#6309b@Offset(79.2, 376.5), RenderRepaintBoundary#ee0ba@Offset(79.2, 376.5), RenderSemanticsAnnotations#5f30b@Offset(79.2, 376.5), RenderOffstage#8d6c4@Offset(79.2, 376.5), RenderSemanticsAnnotations#f0e77@Offset(79.2, 376.5), _RenderTheater#b7ff4@Offset(79.2, 376.5), RenderAbsorbPointer#3419a@Offset(79.2, 376.5), RenderPointerListener#14674@Offset(79.2, 376.5), RenderSemanticsAnnotations#02981@Offset(79.2, 376.5), RenderSemanticsAnnotations#c9fd3@Offset(79.2, 376.5), RenderSemanticsAnnotations#97ebf@Offset(79.2, 376.5), RenderSemanticsAnnotations#c79a0@Offset(79.2, 376.5), RenderTapRegionSurface#40443@Offset(79.2, 376.5), RenderSemanticsAnnotations#884ec@Offset(79.2, 376.5), RenderSemanticsAnnotations#751f9@Offset(79.2, 376.5), RenderRepaintBoundary#dda92@Offset(79.2, 376.5), HitTestEntry<HitTestTarget>#06c85(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#a2c5d(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:206:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+01:06 +11: map, settings, search · island-photo
+01:12 +12: journey screens · lagoon
+
+Warning: A call to tap() with finder "Found 1 widget with text "Governor's Beach" (ignoring all but first): [
+  Text("Governor's Beach", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(116.0, 334.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#6758b relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#3bb83@Offset(104.0, 166.5), RenderSemanticsAnnotations#c9882@Offset(104.0, 166.5), RenderMouseRegion#0808d@Offset(104.0, 166.5), RenderSemanticsAnnotations#a5928@Offset(104.0, 166.5), _RenderInkFeatures#5e189@Offset(104.0, 166.5), RenderCustomPaint#dabcc@Offset(104.0, 166.5), RenderClipPath#91d6c@Offset(104.0, 166.5), RenderStack#f8dc9@Offset(104.0, 166.5), RenderClipRRect#41c3c@Offset(104.0, 166.5), RenderPadding#1dc4d@Offset(104.0, 166.5), RenderDecoratedBox#334d6@Offset(104.0, 166.5), RenderConstrainedBox#2af0f@Offset(104.0, 166.5), RenderSemanticsAnnotations#0dc67@Offset(104.0, 166.5), RenderRepaintBoundary#ef0d4@Offset(104.0, 166.5), RenderIndexedSemantics#72384@Offset(104.0, 166.5), RenderSliverList@(mainAxis: 268.5, crossAxis: 104.01130676269531), RenderSliverPadding@(mainAxis: 268.5, crossAxis: 116.01130676269531), RenderViewport#9b0a0@Offset(116.0, 268.5), RenderIgnorePointer#f428a@Offset(116.0, 268.5), RenderSemanticsAnnotations#209c5@Offset(116.0, 268.5), RenderPointerListener#48508@Offset(116.0, 268.5), RenderSemanticsGestureHandler#5d582@Offset(116.0, 268.5), RenderPointerListener#ffd96@Offset(116.0, 268.5), _RenderScrollSemantics#78452@Offset(116.0, 268.5), RenderClipRect#13e9d@Offset(116.0, 268.5), RenderCustomMultiChildLayoutBox#f4c85@Offset(116.0, 334.5), _RenderInkFeatures#de356@Offset(116.0, 334.5), RenderPhysicalModel#36cd2@Offset(116.0, 334.5), RenderSemanticsAnnotations#07361@Offset(116.0, 334.5), RenderRepaintBoundary#0eb92@Offset(116.0, 334.5), RenderIgnorePointer#0f076@Offset(116.0, 334.5), RenderAnimatedOpacity#507a5@Offset(116.0, 334.5), RenderAnimatedOpacity#c129b@Offset(116.0, 334.5), _RenderColoredBox#da692@Offset(116.0, 334.5), RenderAnimatedOpacity#62ce7@Offset(116.0, 334.5), RenderIgnorePointer#15293@Offset(116.0, 334.5), RenderAnimatedOpacity#50f95@Offset(116.0, 334.5), RenderRepaintBoundary#cab95@Offset(116.0, 334.5), RenderSemanticsAnnotations#a8eaa@Offset(116.0, 334.5), RenderOffstage#e8ffc@Offset(116.0, 334.5), RenderSemanticsAnnotations#ed645@Offset(116.0, 334.5), _RenderTheater#8bda2@Offset(116.0, 334.5), RenderAbsorbPointer#0659a@Offset(116.0, 334.5), RenderPointerListener#fdafe@Offset(116.0, 334.5), RenderSemanticsAnnotations#8a70d@Offset(116.0, 334.5), RenderSemanticsAnnotations#35795@Offset(116.0, 334.5), RenderSemanticsAnnotations#ac6b7@Offset(116.0, 334.5), RenderSemanticsAnnotations#d39d3@Offset(116.0, 334.5), RenderTapRegionSurface#2f5d1@Offset(116.0, 334.5), RenderSemanticsAnnotations#3cc55@Offset(116.0, 334.5), RenderSemanticsAnnotations#e4d85@Offset(116.0, 334.5), RenderRepaintBoundary#ba54f@Offset(116.0, 334.5), HitTestEntry<HitTestTarget>#2cf9e(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#0778f(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:143:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+01:18 +13: map, settings, search · lagoon
+01:22 +14: journey screens · sunset
+
+Warning: A call to tap() with finder "Found 1 widget with text "Governor's Beach" (ignoring all but first): [
+  Text("Governor's Beach", inherit: true, color: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), family: Baloo2, size: 22.0, weight: 800, height: 1.1x, overflow: ellipsis, maxLines: 2, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(116.0, 334.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#08753 relayoutBoundary=up2
+The hit test result at that offset is: HitTestResult(RenderPointerListener#3edc0@Offset(104.0, 166.5), RenderSemanticsAnnotations#ec1af@Offset(104.0, 166.5), RenderMouseRegion#3bc65@Offset(104.0, 166.5), RenderSemanticsAnnotations#1a27a@Offset(104.0, 166.5), _RenderInkFeatures#8fc94@Offset(104.0, 166.5), RenderCustomPaint#e502b@Offset(104.0, 166.5), RenderClipPath#9858f@Offset(104.0, 166.5), RenderStack#2feb6@Offset(104.0, 166.5), RenderClipRRect#f3e9b@Offset(104.0, 166.5), RenderPadding#74b0d@Offset(104.0, 166.5), RenderDecoratedBox#fce55@Offset(104.0, 166.5), RenderConstrainedBox#ac5a4@Offset(104.0, 166.5), RenderSemanticsAnnotations#e91aa@Offset(104.0, 166.5), RenderRepaintBoundary#b916c@Offset(104.0, 166.5), RenderIndexedSemantics#28b02@Offset(104.0, 166.5), RenderSliverList@(mainAxis: 268.5, crossAxis: 104.01130676269531), RenderSliverPadding@(mainAxis: 268.5, crossAxis: 116.01130676269531), RenderViewport#53432@Offset(116.0, 268.5), RenderIgnorePointer#d1afd@Offset(116.0, 268.5), RenderSemanticsAnnotations#f9f52@Offset(116.0, 268.5), RenderPointerListener#cc810@Offset(116.0, 268.5), RenderSemanticsGestureHandler#2a7ff@Offset(116.0, 268.5), RenderPointerListener#b0f84@Offset(116.0, 268.5), _RenderScrollSemantics#44cc5@Offset(116.0, 268.5), RenderClipRect#fb93b@Offset(116.0, 268.5), RenderCustomMultiChildLayoutBox#05f62@Offset(116.0, 334.5), _RenderInkFeatures#69e15@Offset(116.0, 334.5), RenderPhysicalModel#c7670@Offset(116.0, 334.5), RenderSemanticsAnnotations#62653@Offset(116.0, 334.5), RenderRepaintBoundary#c3c5a@Offset(116.0, 334.5), RenderIgnorePointer#c4836@Offset(116.0, 334.5), RenderAnimatedOpacity#96e02@Offset(116.0, 334.5), RenderAnimatedOpacity#3a977@Offset(116.0, 334.5), _RenderColoredBox#5731f@Offset(116.0, 334.5), RenderAnimatedOpacity#94615@Offset(116.0, 334.5), RenderIgnorePointer#cad60@Offset(116.0, 334.5), RenderAnimatedOpacity#d0882@Offset(116.0, 334.5), RenderRepaintBoundary#52a8e@Offset(116.0, 334.5), RenderSemanticsAnnotations#d1084@Offset(116.0, 334.5), RenderOffstage#bb08b@Offset(116.0, 334.5), RenderSemanticsAnnotations#6731b@Offset(116.0, 334.5), _RenderTheater#33543@Offset(116.0, 334.5), RenderAbsorbPointer#05dc6@Offset(116.0, 334.5), RenderPointerListener#2cf46@Offset(116.0, 334.5), RenderSemanticsAnnotations#93720@Offset(116.0, 334.5), RenderSemanticsAnnotations#59182@Offset(116.0, 334.5), RenderSemanticsAnnotations#ba7cd@Offset(116.0, 334.5), RenderSemanticsAnnotations#0740e@Offset(116.0, 334.5), RenderTapRegionSurface#b5c41@Offset(116.0, 334.5), RenderSemanticsAnnotations#ab44d@Offset(116.0, 334.5), RenderSemanticsAnnotations#2994e@Offset(116.0, 334.5), RenderRepaintBoundary#81f93@Offset(116.0, 334.5), HitTestEntry<HitTestTarget>#b7e3f(_ReusableRenderView#3fb01), HitTestEntry<HitTestTarget>#794b1(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      _tap (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:115:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///home/runner/work/tci-beach-buddies/tci-beach-buddies/screenshots/screens_test.dart:143:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+01:28 +15: map, settings, search · sunset
+01:32 +16: journey screens · palm
+01:38 +17: map, settings, search · palm
+01:42 +18: journey screens · high-contrast
+01:48 +19: map, settings, search · high-contrast
+01:52 +20: (tearDownAll)
+01:52 +20: All tests passed!

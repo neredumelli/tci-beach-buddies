@@ -1,0 +1,32 @@
+Analyzing tci-beach-buddies...                                  
+
+   info • Angle brackets will be interpreted as HTML. Try using backticks around the content with angle brackets, or try replacing `<` with `&lt;` and `>` with `&gt;` • lib/core/models/poi.dart:64:12 • unintended_html_in_doc_comment
+   info • Angle brackets will be interpreted as HTML. Try using backticks around the content with angle brackets, or try replacing `<` with `&lt;` and `>` with `&gt;` • lib/core/models/poi.dart:64:19 • unintended_html_in_doc_comment
+   info • The import of 'dart:typed_data' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/services.dart'. Try removing the import directive • lib/data/offline_bundle.dart:9:8 • unnecessary_import
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/home/home_screen.dart:501:35 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/home/home_screen.dart:681:15 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/home/home_screen.dart:686:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/map/presentation/island_map.dart:173:26 • prefer_const_constructors
+warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/features/pois/presentation/destination_list_screen.dart:33:49 • unnecessary_non_null_assertion
+warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/features/pois/presentation/destination_list_screen.dart:33:88 • unnecessary_non_null_assertion
+warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/features/pois/presentation/destination_list_screen.dart:55:98 • unnecessary_non_null_assertion
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/pois/presentation/nearby_screen.dart:33:20 • prefer_const_constructors
+warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/features/pois/presentation/search_screen.dart:85:108 • unnecessary_non_null_assertion
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:445:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:446:23 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:447:29 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:448:16 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:449:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:450:17 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:451:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:452:30 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:453:30 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:454:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:455:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:456:20 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:457:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/settings_screen.dart:458:35 • prefer_const_constructors
+   info • Local variables should be final. Try making the variable final • lib/shared/art.dart:237:5 • prefer_final_locals
+warning • The member 'setMockInitialValues' can only be used within 'package:shared_preferences/src/shared_preferences_legacy.dart' or a test • screenshots/screens_test.dart:94:21 • invalid_use_of_visible_for_testing_member
+
+28 issues found. (ran in 8.4s)

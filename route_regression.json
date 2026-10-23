@@ -1,0 +1,274 @@
+{
+  "results": [
+    {
+      "name": "R1 Cruise Center -> Governor's Beach",
+      "ok": true,
+      "distance_m": 2437.3,
+      "settled_astar": 157,
+      "settled_dijkstra": 252,
+      "origin_snap_m": 0.0,
+      "detail": ""
+    },
+    {
+      "name": "R2 Governor's Beach -> Lighthouse (live fix at Governor's)",
+      "ok": true,
+      "distance_m": 9018.8,
+      "settled_astar": 841,
+      "settled_dijkstra": 1415,
+      "origin_snap_m": 0.0,
+      "detail": ""
+    },
+    {
+      "name": "R3 Lighthouse -> Return to Ship",
+      "ok": true,
+      "distance_m": 10805.6,
+      "settled_astar": 1116,
+      "settled_dijkstra": 1381,
+      "origin_snap_m": 0.0,
+      "detail": ""
+    },
+    {
+      "name": "R4 Governor's Beach -> nearby Scotiabank (live fix at A)",
+      "ok": true,
+      "distance_m": 575.6,
+      "settled_astar": 10,
+      "settled_dijkstra": 13,
+      "origin_snap_m": 0.0,
+      "detail": "closest approach to Cruise Center: 1637 m"
+    },
+    {
+      "name": "R5 Gibbs Cay is browse-only (no route over water)",
+      "ok": true,
+      "detail": "browse-only: Location not yet verified on the map data"
+    }
+  ],
+  "stale_origin_lighthouse_m": 10806,
+  "correct_lighthouse_from_governors_m": 9019,
+  "via_a_m": 11456,
+  "nearby_switch": {
+    "destination": "Scotiabank",
+    "correct_m": 576,
+    "stale_origin_m": 1910,
+    "via_cruise_center_m": 4347
+  },
+  "matrix": [
+    {
+      "id": "governors-beach",
+      "to_m": 2437,
+      "back_m": 2437,
+      "ok": true
+    },
+    {
+      "id": "pillory-beach",
+      "to_m": 5905,
+      "back_m": 5905,
+      "ok": true
+    },
+    {
+      "id": "osprey-beach",
+      "to_m": 4303,
+      "back_m": 4303,
+      "ok": true
+    },
+    {
+      "id": "boaby-rock-beach",
+      "to_m": 1443,
+      "back_m": 1443,
+      "ok": true
+    },
+    {
+      "id": "cockburn-town",
+      "to_m": 4934,
+      "back_m": 4934,
+      "ok": true
+    },
+    {
+      "id": "grand-turk-lighthouse",
+      "to_m": 10806,
+      "back_m": 10806,
+      "ok": true
+    },
+    {
+      "id": "front-street",
+      "to_m": 5465,
+      "back_m": 5465,
+      "ok": true
+    },
+    {
+      "id": "national-museum",
+      "to_m": 5685,
+      "back_m": 5685,
+      "ok": true
+    },
+    {
+      "id": "hm-prison",
+      "to_m": 5369,
+      "back_m": 5369,
+      "ok": true
+    },
+    {
+      "id": "st-marys",
+      "to_m": 5236,
+      "back_m": 5236,
+      "ok": true
+    },
+    {
+      "id": "st-thomas",
+      "to_m": 5285,
+      "back_m": 5285,
+      "ok": true
+    },
+    {
+      "id": "waterloo",
+      "to_m": 1770,
+      "back_m": 1770,
+      "ok": true
+    },
+    {
+      "id": "victoria-library",
+      "to_m": 5360,
+      "back_m": 5360,
+      "ok": true
+    },
+    {
+      "id": "town-salina",
+      "to_m": 6223,
+      "back_m": 6223,
+      "ok": true
+    },
+    {
+      "id": "north-creek",
+      "to_m": 9228,
+      "back_m": 9228,
+      "ok": true
+    },
+    {
+      "id": "jags-mccartney-airport",
+      "to_m": 2854,
+      "back_m": 2854,
+      "ok": true
+    },
+    {
+      "id": "margaritaville",
+      "to_m": 159,
+      "back_m": 159,
+      "ok": true
+    },
+    {
+      "id": "jacks-shack",
+      "to_m": 1023,
+      "back_m": 1023,
+      "ok": true
+    },
+    {
+      "id": "sand-bar",
+      "to_m": 4504,
+      "back_m": 4504,
+      "ok": true
+    },
+    {
+      "id": "salt-raker-inn",
+      "to_m": 4538,
+      "back_m": 4538,
+      "ok": true
+    },
+    {
+      "id": "shoprite-grocery",
+      "to_m": 5553,
+      "back_m": 5553,
+      "ok": true
+    },
+    {
+      "id": "ron-jon-surf-shop",
+      "to_m": 152,
+      "back_m": 152,
+      "ok": true
+    },
+    {
+      "id": "harbor-house",
+      "to_m": 5424,
+      "back_m": 5424,
+      "ok": true
+    },
+    {
+      "id": "island-creations",
+      "to_m": 4868,
+      "back_m": 4868,
+      "ok": true
+    },
+    {
+      "id": "medical-centre",
+      "to_m": 6570,
+      "back_m": 6570,
+      "ok": true
+    },
+    {
+      "id": "police-station",
+      "to_m": 5514,
+      "back_m": 5514,
+      "ok": true
+    },
+    {
+      "id": "post-office",
+      "to_m": 5119,
+      "back_m": 5119,
+      "ok": true
+    },
+    {
+      "id": "scotiabank",
+      "to_m": 1910,
+      "back_m": 1910,
+      "ok": true
+    },
+    {
+      "id": "cibc-bank",
+      "to_m": 5055,
+      "back_m": 5055,
+      "ok": true
+    },
+    {
+      "id": "barbies",
+      "to_m": 5799,
+      "back_m": 5799,
+      "ok": true
+    },
+    {
+      "id": "freemason-lodge",
+      "to_m": 5619,
+      "back_m": 5619,
+      "ok": true
+    },
+    {
+      "id": "john-glenn-exhibit",
+      "to_m": 144,
+      "back_m": 144,
+      "ok": true
+    },
+    {
+      "id": "graceway-supermarket",
+      "to_m": 5529,
+      "back_m": 5529,
+      "ok": true
+    },
+    {
+      "id": "grace-bay-pharmacy",
+      "to_m": 5417,
+      "back_m": 5417,
+      "ok": true
+    },
+    {
+      "id": "clock-tower-park",
+      "to_m": 5482,
+      "back_m": 5482,
+      "ok": true
+    },
+    {
+      "id": "cockburn-town-liquors",
+      "to_m": 4552,
+      "back_m": 4552,
+      "ok": true
+    }
+  ],
+  "failures": [],
+  "graphVersion": "foot-53d820fdb9"
+}
