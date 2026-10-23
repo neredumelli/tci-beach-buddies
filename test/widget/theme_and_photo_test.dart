@@ -34,7 +34,7 @@ final _twoPhotos = utf8.encode(jsonEncode({
     'license': 'CC BY 2.0',
     'url': '',
     'more': [
-      {'file': 'jacks-shack-2.jpg', 'title': 'Second', 'author': 'TCI Beach Buddies', 'license': '', 'url': '', 'kind': 'supplied'},
+      {'file': 'gt-jacks-shack-1.jpg', 'title': 'Second', 'author': 'TCI Beach Buddies', 'license': '', 'url': '', 'kind': 'supplied'},
     ],
   },
 }));
