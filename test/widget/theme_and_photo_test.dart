@@ -94,6 +94,8 @@ void main() {
     for (final p in AppThemes.all) {
       expect(find.text(p.name), findsWidgets, reason: p.name);
     }
+    await t.ensureVisible(find.text('Sunset Coral'));
+    await _settle(t);
     await t.tap(find.text('Sunset Coral'));
     await _settle(t);
     expect(BB.palette.id, 'sunset');
@@ -107,6 +109,8 @@ void main() {
     await t.tap(find.text('Settings').last);
     await _settle(t);
     await t.tap(find.text('Theme'));
+    await _settle(t);
+    await t.ensureVisible(find.text('Palm Green'));
     await _settle(t);
     await t.tap(find.text('Palm Green'));
     await _settle(t);
