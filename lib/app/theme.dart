@@ -89,6 +89,22 @@ class AppThemes {
     selected: Color(0xFFDCEBFF),
   );
 
+  /// Premium photo look: deep ocean blue, pearl-sand background, coral accents.
+  static const oceanPearl = AppPalette(
+    id: 'ocean-pearl',
+    name: 'Ocean Pearl',
+    description: 'Premium photo look: deep ocean and island sand',
+    photo: true,
+    primary: Color(0xFF0A4D68),
+    primaryDark: Color(0xFF062F45),
+    primaryLight: Color(0xFF0E7490),
+    accent: Color(0xFF0A6680),
+    go: Color(0xFF167A36),
+    port: Color(0xFFFFA04D),
+    bg: Color(0xFFF7F2E8),
+    selected: Color(0xFFE2F0F2),
+  );
+
   static const lagoon = AppPalette(
     id: 'lagoon',
     name: 'Turquoise Lagoon',
@@ -148,7 +164,7 @@ class AppThemes {
     selected: Color(0xFFE1E8F5),
   );
 
-  static const all = [islandBlue, islandPhoto, lagoon, sunset, palm, highContrast];
+  static const all = [islandBlue, islandPhoto, lagoon, sunset, oceanPearl, palm, highContrast];
 
   static AppPalette byId(String? id) => all.firstWhere((p) => p.id == id, orElse: () => islandBlue);
 }

@@ -9,6 +9,7 @@ import '../../core/models/poi.dart';
 import '../../shared/art.dart';
 import '../../shared/photos.dart';
 import '../../shared/place_info.dart';
+import '../../shared/showcase.dart';
 import '../../shared/widgets.dart';
 import '../navigation/application/navigation_controller.dart';
 
@@ -23,6 +24,22 @@ class HomeScreen extends StatelessWidget {
     PoiCategory.restaurant,
     PoiCategory.shopping,
     PoiCategory.historical,
+  ];
+
+  /// Photo-look Home hero: real client photos that cross-fade.
+  static const _heroIds = ['pillory-beach', 'grand-turk-cruise-center', 'grand-turk-lighthouse', 'town-salina', 'jacks-shack'];
+
+  /// Photo-look "Must-see" carousel, in this order.
+  static const _mustSeeIds = [
+    'grand-turk-lighthouse',
+    'national-museum',
+    'hm-prison',
+    'john-glenn-exhibit',
+    'jacks-shack',
+    'pillory-beach',
+    'st-marys',
+    'town-salina',
+    'freemason-lodge',
   ];
 
   /// Photo used behind each Home tile (first one with a licensed photo).
@@ -186,7 +203,14 @@ class HomeScreen extends StatelessWidget {
               ..sort((a, b) => haversineM(ship.display, a.display).compareTo(haversineM(ship.display, b.display))))
             .take(8)
             .toList();
-    final heroPhoto = Photos.of('boaby-rock-beach')?.asset;
+    final heroPhotos = [
+      for (final id in _heroIds)
+        if (Photos.of(id) case final p? when !p.isIllustration) p.asset,
+    ];
+    final mustSee = [
+      for (final id in _mustSeeIds)
+        if (s.poiById(id) case final p? when Photos.of(id) != null) p,
+    ];
     return Scaffold(
       body: Column(children: [
         const SimulatedBanner(safeTop: true),
@@ -194,14 +218,14 @@ class HomeScreen extends StatelessWidget {
           child: ListView(padding: EdgeInsets.zero, children: [
             // Hero: full-bleed beach photo, logo, big welcome.
             SizedBox(
-              height: 300,
+              height: 360,
               child: ClipRRect(
                 borderRadius: const BorderRadius.vertical(bottom: Radius.circular(36)),
                 child: Stack(fit: StackFit.expand, children: [
-                  Image.asset(heroPhoto ?? 'assets/images/splash.jpg',
-                      fit: BoxFit.cover,
-                      alignment: heroPhoto == null ? const Alignment(0, 0.55) : const Alignment(-0.3, 0),
-                      excludeFromSemantics: true),
+                  heroPhotos.isEmpty
+                      ? Image.asset('assets/images/splash.jpg',
+                          fit: BoxFit.cover, alignment: const Alignment(0, 0.55), excludeFromSemantics: true)
+                      : HeroSlides(assets: heroPhotos),
                   const DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -306,6 +330,33 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  if (mustSee.isNotEmpty) ...[
+                    const SizedBox(height: 20),
+                    Text('Must-see on Grand Turk', style: heading(23)),
+                    const SizedBox(height: 2),
+                    const Text('Hand-picked highlights, with real photos',
+                        style: TextStyle(color: BB.muted, fontSize: 13.5, fontWeight: FontWeight.w700)),
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: 300,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        clipBehavior: Clip.none,
+                        itemCount: mustSee.length,
+                        separatorBuilder: (_, __) => const SizedBox(width: 14),
+                        itemBuilder: (context, i) {
+                          final p = mustSee[i];
+                          return MustSeeCard(
+                            poi: p,
+                            distance: ship == null || !p.locationVerified
+                                ? null
+                                : '${s.settings.formatDistance(haversineM(ship.display, p.display))} from ship',
+                            onTap: () => openDetails(context, p),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                   if (featured.isNotEmpty) ...[
                     const SizedBox(height: 20),
                     Row(children: [

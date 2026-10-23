@@ -6,6 +6,7 @@ import '../../../app/theme.dart';
 import '../../../core/geo/geo.dart';
 import '../../../core/models/poi.dart';
 import '../../../shared/art.dart';
+import '../../../shared/place_info.dart';
 import '../../../shared/widgets.dart';
 
 /// 09 Arrival: image, green check "You've Arrived!", name + category,
@@ -248,6 +249,11 @@ class ArrivalScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
+                // Practical tips for the place they just reached.
+                if (PlaceInfo.of(poi.id) case final info? when info.tips.isNotEmpty) ...[
+                  PlaceExtras(poi: poi, info: PlaceInfo(tips: info.tips), photoLook: true),
+                  const SizedBox(height: 16),
+                ],
                 SizedBox(
                   height: 58,
                   child: DecoratedBox(

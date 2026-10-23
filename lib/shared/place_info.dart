@@ -94,7 +94,10 @@ class PlaceExtras extends StatelessWidget {
 
   /// Bold photo look (photo themes) uses the bundled heading font.
   final bool photoLook;
-  const PlaceExtras({super.key, required this.poi, required this.info, required this.photoLook});
+
+  /// False when the screen already shows the "Allow" time elsewhere.
+  final bool showTime;
+  const PlaceExtras({super.key, required this.poi, required this.info, required this.photoLook, this.showTime = true});
 
   @override
   Widget build(BuildContext context) {
@@ -122,10 +125,10 @@ class PlaceExtras extends StatelessWidget {
         ]);
 
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      if (info.time.isNotEmpty || info.bestFor.isNotEmpty) ...[
+      if ((showTime && info.time.isNotEmpty) || info.bestFor.isNotEmpty) ...[
         const SizedBox(height: 14),
         Wrap(spacing: 8, runSpacing: 8, children: [
-          if (info.time.isNotEmpty) _Chip(icon: Icons.schedule_rounded, label: 'Allow ${info.time}', color: BB.navy),
+          if (showTime && info.time.isNotEmpty) _Chip(icon: Icons.schedule_rounded, label: 'Allow ${info.time}', color: BB.navy),
           for (final b in info.bestFor) _Chip(icon: Icons.favorite_rounded, label: b, color: cat),
         ]),
       ],

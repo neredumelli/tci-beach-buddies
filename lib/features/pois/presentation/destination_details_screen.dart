@@ -7,6 +7,8 @@ import '../../../core/models/poi.dart';
 import '../../../shared/art.dart';
 import '../../../shared/photos.dart';
 import '../../../shared/place_info.dart';
+import '../../../shared/showcase.dart';
+import '../../../core/geo/geo.dart';
 import '../../../shared/widgets.dart';
 
 /// 05 Destination Details: image, name + distance, category chip,
@@ -162,7 +164,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                       ),
                     ],
                     if (PlaceInfo.of(poi.id) case final info? when !info.isEmpty)
-                      PlaceExtras(poi: poi, info: info, photoLook: BB.photo),
+                      PlaceExtras(poi: poi, info: info, photoLook: BB.photo, showTime: !BB.photo),
                     if (poi.accessNotes.isNotEmpty) ...[
                       const SizedBox(height: 10),
                       Text(poi.accessNotes, style: const TextStyle(color: BB.muted, fontSize: 13)),
@@ -316,6 +318,21 @@ class DestinationDetailsScreen extends StatelessWidget {
                         child: Text(Photos.creditLine(poi.id)!,
                             style: const TextStyle(fontSize: 11, color: BB.muted, fontWeight: FontWeight.w600), maxLines: 2),
                       ),
+                    Builder(builder: (context) {
+                      final ship = s.nav.shipTerminal;
+                      final info = PlaceInfo.of(poi.id);
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 14),
+                        child: StatTiles(stats: [
+                          if (ship != null && !poi.isShipTerminal && poi.locationVerified)
+                            (Icons.directions_boat_rounded, 'From the ship',
+                                s.settings.formatDistance(haversineM(ship.display, poi.display))),
+                          if (info != null && info.time.isNotEmpty) (Icons.schedule_rounded, 'Allow', info.time),
+                        ]),
+                      );
+                    }),
+                    if (Photos.allOf(poi.id).length > 1)
+                      Padding(padding: const EdgeInsets.only(top: 16), child: PhotoGalleryStrip(poi: poi)),
                     const SizedBox(height: 12),
                     Text(poi.description,
                         style: const TextStyle(fontSize: 16.5, color: BB.ink, height: 1.5, fontWeight: FontWeight.w600)),
@@ -358,7 +375,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                       ),
                     ],
                     if (PlaceInfo.of(poi.id) case final info? when !info.isEmpty)
-                      PlaceExtras(poi: poi, info: info, photoLook: BB.photo),
+                      PlaceExtras(poi: poi, info: info, photoLook: BB.photo, showTime: !BB.photo),
                     if (poi.accessNotes.isNotEmpty) ...[
                       const SizedBox(height: 10),
                       Text(poi.accessNotes, style: const TextStyle(color: BB.muted, fontSize: 13)),
