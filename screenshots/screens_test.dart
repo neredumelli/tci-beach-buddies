@@ -143,7 +143,10 @@ void main() {
       await _tap(t, find.text("Governor's Beach").first);
       await _shot(t, theme.id, '05_destination_details');
       if (full && find.text('Tap to enlarge').evaluate().isNotEmpty) {
-        await _tap(t, find.text('Tap to enlarge'));
+        // The chip is on screen when Details opens; scrolling first can tuck it
+        // under the floating back button in photo themes.
+        await t.tap(find.text('Tap to enlarge'), warnIfMissed: false);
+        await _settle(t);
         await _shot(t, theme.id, '05b_photo_full_screen');
         await _tap(t, find.byTooltip('Close photo'));
       }
@@ -185,7 +188,10 @@ void main() {
         await _shot(t, theme.id, '04b_restaurants_list');
         await _tap(t, find.textContaining('Jack').first);
         await _shot(t, theme.id, '05c_multi_photo_details');
-        await _tap(t, find.text('Tap to enlarge'));
+        // The chip is on screen when Details opens; scrolling first can tuck it
+        // under the floating back button in photo themes.
+        await t.tap(find.text('Tap to enlarge'), warnIfMissed: false);
+        await _settle(t);
         await _shot(t, theme.id, '05d_multi_photo_full_screen');
         await _tap(t, find.byTooltip('Close photo'));
         expect(t.takeException(), isNull);
