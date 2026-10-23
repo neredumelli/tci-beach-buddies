@@ -126,7 +126,7 @@ Future<void> _until(WidgetTester t, bool Function() done, {void Function()? tick
 
 void main() {
   setUpAll(_loadFonts);
-  tearDown(() => BB.palette = AppThemes.islandBlue);
+  tearDown(() => BB.palette = AppThemes.defaultTheme);
 
   for (final theme in AppThemes.all) {
     final full = theme.id == AppThemes.islandBlue.id || theme.id == AppThemes.islandPhoto.id || theme.id == AppThemes.oceanPearl.id;

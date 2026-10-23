@@ -25,7 +25,7 @@ class AppSettings extends ChangeNotifier {
   bool demoMode = false;
 
   /// Predefined colour theme (see AppThemes); the default is the v2.0 look.
-  String themeId = 'island-blue';
+  String themeId = 'ocean-pearl';
 
   final Set<String> favorites = {};
 

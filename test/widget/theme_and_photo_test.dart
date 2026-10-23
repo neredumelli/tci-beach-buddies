@@ -62,7 +62,7 @@ Future<void> _settle(WidgetTester t, [int frames = 8]) async {
 }
 
 void main() {
-  tearDown(() => BB.palette = AppThemes.islandBlue);
+  tearDown(() => BB.palette = AppThemes.defaultTheme);
 
   test('every theme keeps white header text and go buttons readable', () {
     double lum(Color c) => c.computeLuminance();
@@ -79,15 +79,15 @@ void main() {
       expect(ratio(BB.onColor(p.port), p.port), greaterThanOrEqualTo(4.5), reason: '${p.id} port button');
     }
     expect(AppThemes.all.map((p) => p.id).toSet().length, AppThemes.all.length);
-    expect(AppThemes.byId('nope').id, 'island-blue');
+    expect(AppThemes.byId('nope').id, 'ocean-pearl');
   });
 
   testWidgets('Settings › Theme: picking a theme restyles the app and is remembered', (t) async {
     await _boot(t);
-    expect(BB.palette.id, 'island-blue');
+    expect(BB.palette.id, 'ocean-pearl');
     await t.tap(find.text('Settings').last);
     await _settle(t);
-    expect(find.text('Classic Blue'), findsOneWidget);
+    expect(find.text('Ocean Pearl'), findsOneWidget);
     await t.tap(find.text('Theme'));
     await _settle(t);
     expect(find.text('Choose a theme'), findsOneWidget);
@@ -117,7 +117,7 @@ void main() {
     expect(BB.palette.id, 'palm');
     // Close the app completely...
     await t.pumpWidget(const SizedBox());
-    BB.palette = AppThemes.islandBlue;
+    BB.palette = AppThemes.defaultTheme;
     await _settle(t, 2);
     // ...and open it again with the same phone storage.
     await _boot(t, prefs: null);

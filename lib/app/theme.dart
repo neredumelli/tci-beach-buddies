@@ -164,16 +164,20 @@ class AppThemes {
     selected: Color(0xFFE1E8F5),
   );
 
-  static const all = [islandBlue, islandPhoto, lagoon, sunset, oceanPearl, palm, highContrast];
+  static const all = [oceanPearl, islandBlue, islandPhoto, lagoon, sunset, palm, highContrast];
 
-  static AppPalette byId(String? id) => all.firstWhere((p) => p.id == id, orElse: () => islandBlue);
+  /// The theme a new install opens with. Classic Blue (the approved v2.0
+  /// look) stays available in Settings › Theme.
+  static const defaultTheme = oceanPearl;
+
+  static AppPalette byId(String? id) => all.firstWhere((p) => p.id == id, orElse: () => defaultTheme);
 }
 
 /// App colours. The theme-dependent ones are getters that read the active
 /// [palette]; the rest (status, map and category colours) never change, so
 /// meaning stays the same in every theme.
 class BB {
-  static AppPalette palette = AppThemes.islandBlue;
+  static AppPalette palette = AppThemes.defaultTheme;
 
   /// True when the active theme uses the bold photo look.
   static bool get photo => palette.photo;
