@@ -8,6 +8,7 @@ import 'app_services.dart';
 import 'shell.dart';
 import 'theme.dart';
 import '../shared/photos.dart';
+import '../shared/place_info.dart';
 
 class TciBeachBuddiesApp extends StatefulWidget {
   /// Injection points for tests (bundle and location source).
@@ -63,6 +64,7 @@ class _TciBeachBuddiesAppState extends State<TciBeachBuddiesApp> {
     final settings = _settings;
     await settings.load();
     await Photos.load(widget.bundle?.assets); // same asset source as the offline bundle
+    await PlaceInfo.load(widget.bundle?.assets);
     final health = await (widget.bundle ?? OfflineBundle()).verifyAndLoad();
     final services = await AppServices.create(
       bundle: health,

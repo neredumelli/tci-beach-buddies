@@ -42,7 +42,7 @@ class ArrivalScreen extends StatelessWidget {
                       child: PlaceArt(
                           poi: poi,
                           width: double.infinity,
-                          height: (MediaQuery.sizeOf(context).height * 0.36).clamp(220.0, 380.0),
+                          height: (MediaQuery.sizeOf(context).height * 0.44).clamp(240.0, 440.0),
                           radius: 22,
                           expandable: true),
                     ),
@@ -148,7 +148,7 @@ class ArrivalScreen extends StatelessWidget {
     final ship = s.nav.shipTerminal;
     final fromShip = ship == null ? null : s.settings.formatDistance(haversineM(ship.display, poi.display));
     // Arrived is a terminal state (not "active"), so leaving with Back is safe.
-    final heroH = (MediaQuery.sizeOf(context).height * 0.40).clamp(240.0, 400.0);
+    final heroH = (MediaQuery.sizeOf(context).height * 0.48).clamp(260.0, 480.0);
     void home() {
       s.nav.stop();
       goHome(context);

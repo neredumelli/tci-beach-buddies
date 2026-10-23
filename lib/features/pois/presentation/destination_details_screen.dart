@@ -6,6 +6,7 @@ import '../../../app/theme.dart';
 import '../../../core/models/poi.dart';
 import '../../../shared/art.dart';
 import '../../../shared/photos.dart';
+import '../../../shared/place_info.dart';
 import '../../../shared/widgets.dart';
 
 /// 05 Destination Details: image, name + distance, category chip,
@@ -16,6 +17,18 @@ class DestinationDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BB.photo ? _buildPhoto(context) : _buildClassic(context);
+
+  /// What Listen reads: name, tagline, description, facts, highlights, tips.
+  static String _speech(Poi poi) {
+    final info = PlaceInfo.of(poi.id);
+    return [
+      '${poi.name}.',
+      if (info != null && info.tagline.isNotEmpty) '${info.tagline}.',
+      poi.description,
+      poi.facts,
+      if (info != null) info.spoken,
+    ].where((t) => t.trim().isNotEmpty).join(' ');
+  }
 
   /// v2.0 look as presented to the customer, brighter (classic themes).
   Widget _buildClassic(BuildContext context) {
@@ -54,7 +67,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                     child: PlaceArt(
                         poi: poi,
                         width: double.infinity,
-                        height: (MediaQuery.sizeOf(context).height * 0.33).clamp(200.0, 340.0),
+                        height: (MediaQuery.sizeOf(context).height * 0.5).clamp(260.0, 520.0),
                         radius: 20,
                         expandable: true),
                   ),
@@ -106,11 +119,17 @@ class DestinationDetailsScreen extends StatelessWidget {
                       ),
                       if (!poi.isApproved) const ProvisionalBadge(),
                     ]),
+                    if ((PlaceInfo.of(poi.id)?.tagline ?? '').isNotEmpty) ...[
+                      const SizedBox(height: 10),
+                      Text(PlaceInfo.of(poi.id)!.tagline,
+                          style: TextStyle(
+                              fontSize: 17, height: 1.3, color: BB.category(poi.category), fontWeight: FontWeight.w800)),
+                    ],
                     const SizedBox(height: 14),
                     Text(poi.description, style: const TextStyle(fontSize: 16, color: BB.ink, height: 1.45)),
                     TextButton.icon(
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                      onPressed: () => s.voice.speak('${poi.name}. ${poi.description} ${poi.facts}'),
+                      onPressed: () => s.voice.speak(_speech(poi)),
                       icon: const Icon(Icons.volume_up),
                       label: const Text('Listen'),
                     ),
@@ -142,6 +161,8 @@ class DestinationDetailsScreen extends StatelessWidget {
                         ]),
                       ),
                     ],
+                    if (PlaceInfo.of(poi.id) case final info? when !info.isEmpty)
+                      PlaceExtras(poi: poi, info: info, photoLook: BB.photo),
                     if (poi.accessNotes.isNotEmpty) ...[
                       const SizedBox(height: 10),
                       Text(poi.accessNotes, style: const TextStyle(color: BB.muted, fontSize: 13)),
@@ -208,7 +229,7 @@ class DestinationDetailsScreen extends StatelessWidget {
             child: IconButton(tooltip: tooltip, icon: Icon(icon, color: color ?? BB.navy), onPressed: onTap),
           ),
         );
-    final heroH = (MediaQuery.sizeOf(context).height * 0.42).clamp(250.0, 420.0);
+    final heroH = (MediaQuery.sizeOf(context).height * 0.62).clamp(320.0, 640.0);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -239,17 +260,16 @@ class DestinationDetailsScreen extends StatelessWidget {
                   height: heroH,
                   child: Stack(fit: StackFit.expand, children: [
                     PlaceArt(poi: poi, width: double.infinity, height: heroH, radius: 0, expandable: true),
+                    // Wave-shaped sheet edge rising over the photo.
                     Positioned(
                       left: 0,
                       right: 0,
                       bottom: -1,
-                      height: 30,
+                      height: 40,
                       child: IgnorePointer(
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: BB.bg,
-                            borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
-                          ),
+                        child: ClipPath(
+                          clipper: const WaveTopClipper(depth: 40),
+                          child: ColoredBox(color: BB.bg),
                         ),
                       ),
                     ),
@@ -284,6 +304,12 @@ class DestinationDetailsScreen extends StatelessWidget {
                     ]),
                     const SizedBox(height: 10),
                     Text(poi.name, style: heading(30)),
+                    if ((PlaceInfo.of(poi.id)?.tagline ?? '').isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(PlaceInfo.of(poi.id)!.tagline,
+                            style: heading(18, color: BB.category(poi.category), weight: FontWeight.w700, height: 1.2)),
+                      ),
                     if (Photos.of(poi.id) != null)
                       Padding(
                         padding: const EdgeInsets.only(top: 2),
@@ -300,7 +326,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 18),
                         shape: const StadiumBorder(),
                       ),
-                      onPressed: () => s.voice.speak('${poi.name}. ${poi.description} ${poi.facts}'),
+                      onPressed: () => s.voice.speak(_speech(poi)),
                       icon: const Icon(Icons.volume_up_rounded),
                       label: const Text('Listen'),
                     ),
@@ -331,6 +357,8 @@ class DestinationDetailsScreen extends StatelessWidget {
                         ]),
                       ),
                     ],
+                    if (PlaceInfo.of(poi.id) case final info? when !info.isEmpty)
+                      PlaceExtras(poi: poi, info: info, photoLook: BB.photo),
                     if (poi.accessNotes.isNotEmpty) ...[
                       const SizedBox(height: 10),
                       Text(poi.accessNotes, style: const TextStyle(color: BB.muted, fontSize: 13)),

@@ -8,6 +8,7 @@ import '../core/models/poi.dart';
 import '../features/navigation/application/location_coordinator.dart';
 import '../platform/location/geolocator_location_source.dart';
 import 'art.dart';
+import 'place_info.dart';
 
 /// GPS status: icon + TEXT (never colour alone).
 class GpsStatusChip extends StatelessWidget {
@@ -226,7 +227,7 @@ class PlaceCard extends StatelessWidget {
                 // Photo in a white frame with a coloured shadow.
                 Container(
                   decoration: BB.framed(accent: cat, radius: 14),
-                  child: PlaceArt(poi: poi, width: 104, height: 80, radius: 11),
+                  child: PlaceArt(poi: poi, width: 118, height: 96, radius: 11),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -290,12 +291,18 @@ class PlaceCard extends StatelessWidget {
   /// Bold photo look (photo themes).
   Widget _buildPhoto(BuildContext context) {
     final cat = BB.category(poi.category);
-    final radius = BorderRadius.circular(24);
+    // Leaf-shaped card: big curves top-left and bottom-right.
+    const radius = BorderRadius.only(
+      topLeft: Radius.circular(34),
+      bottomRight: Radius.circular(34),
+      topRight: Radius.circular(12),
+      bottomLeft: Radius.circular(12),
+    );
     return Semantics(
       button: true,
       label: '${poi.name}${distance == null ? '' : ', $distance away'}${poi.canNavigate ? '' : ', browse only'}',
       child: Container(
-        height: 168,
+        height: 212,
         decoration: BoxDecoration(
           borderRadius: radius,
           border: highlighted ? Border.all(color: BB.navy, width: 3) : null,
@@ -361,6 +368,18 @@ class PlaceCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: heading(22, color: Colors.white, height: 1.05)
                         .copyWith(shadows: const [Shadow(color: Color(0x99000000), blurRadius: 6)])),
+                if ((PlaceInfo.of(poi.id)?.tagline ?? '').isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 3),
+                    child: Text(PlaceInfo.of(poi.id)!.tagline,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            shadows: [Shadow(color: Color(0x99000000), blurRadius: 6)])),
+                  ),
               ]),
             ),
             Material(type: MaterialType.transparency, child: InkWell(onTap: onTap, child: const SizedBox.expand())),

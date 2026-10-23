@@ -8,6 +8,7 @@ import '../../core/geo/geo.dart';
 import '../../core/models/poi.dart';
 import '../../shared/art.dart';
 import '../../shared/photos.dart';
+import '../../shared/place_info.dart';
 import '../../shared/widgets.dart';
 import '../navigation/application/navigation_controller.dart';
 
@@ -149,7 +150,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
+                const IslandPostcard(),
+                const SizedBox(height: 14),
                 Row(children: [
                   Expanded(
                     child: OutlinedButton.icon(
@@ -311,7 +314,7 @@ class HomeScreen extends StatelessWidget {
                     ]),
                     const SizedBox(height: 4),
                     SizedBox(
-                      height: 176,
+                      height: 204,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemCount: featured.length,
@@ -327,6 +330,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ],
+                  const SizedBox(height: 20),
+                  const IslandPostcard(),
                   const SizedBox(height: 16),
                   Row(children: [
                     Expanded(
@@ -369,10 +374,10 @@ class _FeaturedCard extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: SizedBox(
-          width: 158,
+          width: 184,
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Stack(children: [
-              PlaceArt(poi: poi, width: 158, height: 112, radius: 20),
+              PlaceArt(poi: poi, width: 184, height: 136, radius: 22),
               Positioned(
                 left: 8,
                 bottom: 8,
@@ -406,7 +411,7 @@ class _Tile extends StatelessWidget {
   const _Tile({required this.color, required this.gradient, this.photo, required this.icon, required this.label, required this.onTap});
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(22);
+    final radius = leafRadius(28, 10);
     return Semantics(
       button: true,
       label: label,
@@ -586,6 +591,83 @@ class _ActiveNavCard extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+
+/// "Welcome to Grand Turk" postcard on Home: the colourful island sign and a
+/// few things every visitor should know.
+class IslandPostcard extends StatelessWidget {
+  const IslandPostcard({super.key});
+
+  static const facts = [
+    (Icons.account_balance_rounded, 'Cockburn Town is the capital of the Turks and Caicos Islands'),
+    (Icons.attach_money_rounded, 'The currency is the US dollar'),
+    (Icons.directions_car_rounded, 'Traffic drives on the left: look right first when crossing'),
+    (Icons.water_rounded, 'Salt raked from the island\'s ponds was once its main export'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final radius = leafRadius(34, 12);
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: radius,
+        boxShadow: [BoxShadow(color: BB.navy.withValues(alpha: 0.16), blurRadius: 18, offset: const Offset(0, 6))],
+      ),
+      child: ClipRRect(
+        borderRadius: radius,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          SizedBox(
+            height: 190,
+            child: Stack(fit: StackFit.expand, children: [
+              Image.asset('assets/images/grand-turk-sign.jpg',
+                  fit: BoxFit.cover,
+                  alignment: const Alignment(0, 0.1),
+                  semanticLabel: 'The colourful Grand Turk sign'),
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: -1,
+                height: 30,
+                child: ClipPath(clipper: const WaveTopClipper(depth: 30), child: const ColoredBox(color: Colors.white)),
+              ),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 2, 16, 12),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text('Good to know on Grand Turk',
+                  style: BB.photo
+                      ? heading(21, color: BB.ink)
+                      : TextStyle(color: BB.navy, fontWeight: FontWeight.w900, fontSize: 17)),
+              const SizedBox(height: 8),
+              for (final (icon, text) in facts)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Container(
+                      width: 28,
+                      height: 28,
+                      decoration: BoxDecoration(color: BB.selectedRow, borderRadius: leafRadius(12, 4)),
+                      child: Icon(icon, size: 17, color: BB.navy),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(text,
+                            style: const TextStyle(fontSize: 14, height: 1.3, color: BB.ink, fontWeight: FontWeight.w600)),
+                      ),
+                    ),
+                  ]),
+                ),
+            ]),
+          ),
+        ]),
+      ),
     );
   }
 }

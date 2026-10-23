@@ -1,0 +1,338 @@
+{
+  "_note": "Extra visitor content per destination id, shown on Destination Details. Provisional, like the register: check against the businesses before release. Avoid prices and opening hours here; they change.",
+  "grand-turk-cruise-center": {
+    "tagline": "Your ship, a lagoon pool and a white-sand beach in one place",
+    "time": "As long as you like",
+    "bestFor": ["Families", "Swimming", "Shopping"],
+    "highlights": [
+      "A huge lagoon-style pool with cabanas and a bridge, right beside the pier",
+      "The Cruise Center beach, one of the nicest port beaches in the region",
+      "Duty-free shops, art galleries, jewellers and souvenir stalls",
+      "A FlowRider surf simulator for stand-up surfing and bodyboarding"
+    ],
+    "tips": [
+      "The complex opened in 2006 and covers about 13 acres, so allow time to walk back to the gangway",
+      "Governor's Beach is under 1 km north, but you can't walk there along the sand; use the inland road",
+      "Return to Ship in this app always brings you back here"
+    ]
+  },
+  "john-glenn-exhibit": {
+    "tagline": "Where the space age splashed down",
+    "time": "15–20 min",
+    "bestFor": ["History", "Kids", "Photos"],
+    "highlights": [
+      "A Mercury rocket model standing tall over the plaza",
+      "A splashing-capsule sculpture under red-and-white canopies",
+      "A life-size astronaut figure, perfect for a photo",
+      "Information boards on Friendship 7 and the Mercury programme"
+    ],
+    "tips": [
+      "Only about 100 m from the ship: a good first or last stop",
+      "John Glenn was brought to Grand Turk for his debriefing after splashing down on 20 February 1962"
+    ]
+  },
+  "jacks-shack": {
+    "tagline": "Colourful beach bar on the sand, a short walk from the ship",
+    "time": "1–3 hours",
+    "bestFor": ["Beach day", "Food & drink", "Relaxing"],
+    "highlights": [
+      "Rows of beach loungers and umbrellas on soft white sand",
+      "A bright, open-air bar and deck with sea views",
+      "Calm, clear water on Grand Turk's sheltered west coast"
+    ],
+    "tips": [
+      "About 1 km on foot from the ship: wear sun protection for the walk",
+      "Ask at the bar about loungers and umbrellas before you settle in"
+    ]
+  },
+  "grand-turk-lighthouse": {
+    "tagline": "The 1852 cast-iron lighthouse at the island's northern tip",
+    "time": "1–2 hours (plus travel)",
+    "bestFor": ["History", "Views", "Photos"],
+    "highlights": [
+      "The white cast-iron tower, made in England and shipped out in sections",
+      "A shady park behind the white fence and the \"Grand Turk\" gate",
+      "Views over the reef and the Atlantic from the northern point",
+      "Wild donkeys often wander near the park"
+    ],
+    "tips": [
+      "It's about 11 km from the ship each way: most visitors take a taxi or a tour",
+      "Bring water: there is little shade on the road north"
+    ]
+  },
+  "national-museum": {
+    "tagline": "The islands' story, from Taíno settlers to the space race",
+    "time": "45–60 min",
+    "bestFor": ["History", "Culture", "Rainy day"],
+    "highlights": [
+      "Guinep House, one of the oldest stone buildings on the island (before 1885)",
+      "The Molasses Reef wreck, from the early 1500s, one of the oldest known shipwrecks in the Americas",
+      "A colourful mosaic wall and a classic red telephone box outside",
+      "An arboretum with marked trails next door"
+    ],
+    "tips": [
+      "On Front Street, so it pairs well with St. Mary's and the Freemason Lodge",
+      "The museum opened in 1991"
+    ]
+  },
+  "hm-prison": {
+    "tagline": "Walk through 160 years of island justice",
+    "time": "30–45 min",
+    "bestFor": ["History", "Curious minds"],
+    "highlights": [
+      "The whitewashed walls and arched gate of the 1830s prison",
+      "Rooms staged to show prisoners' daily lives",
+      "The bell tower, which was rung five times a day",
+      "Donkey Bites snack bar and a gift shop inside the grounds"
+    ],
+    "tips": [
+      "The prison was in use until 1994",
+      "Self-guided with signs throughout; usually open when a ship is in port",
+      "Tickets and booking rules can change: check before you go"
+    ]
+  },
+  "st-marys": {
+    "tagline": "A white church with red shutters, facing the sea",
+    "time": "15–20 min",
+    "bestFor": ["History", "Architecture", "Quiet"],
+    "highlights": [
+      "Gothic arched windows framed in bright red shutters",
+      "Its seafront setting on the Cockburn Town waterfront",
+      "Made a Pro-Cathedral of the Anglican diocese in the 1990s"
+    ],
+    "tips": [
+      "Originally built around 1900; St. Thomas Church (1823) nearby is older",
+      "Please dress modestly and keep quiet if a service is on"
+    ]
+  },
+  "freemason-lodge": {
+    "tagline": "A grand blue-and-white lodge from 1855",
+    "time": "10 min",
+    "bestFor": ["Architecture", "Photos"],
+    "highlights": [
+      "Bright blue shutters, doors and balcony rails under a red roof",
+      "The Masonic square-and-compasses emblem on the gable",
+      "Hand-cut limestone walls from the salt-raking era"
+    ],
+    "tips": [
+      "View from outside: lodge meetings are not open to the public",
+      "Best photographed from across the street in the morning light"
+    ]
+  },
+  "clock-tower-park": {
+    "tagline": "A tidy green park with a tall clock tower and pergolas",
+    "time": "10–15 min",
+    "bestFor": ["Photos", "A shady break"],
+    "highlights": [
+      "The green Millennium Clock Tower with its bell",
+      "White pergolas with green roofs, and a bronze bust on a plinth",
+      "The \"Welcome to Over Back\" sign and the Turks and Caicos flag"
+    ],
+    "tips": [
+      "Traffic drives on the left here: look right first when crossing"
+    ]
+  },
+  "town-salina": {
+    "tagline": "The salt ponds that built Grand Turk",
+    "time": "15–30 min",
+    "bestFor": ["History", "Birdwatching", "Photos"],
+    "highlights": [
+      "A red-roofed gazebo with picnic benches right at the water's edge",
+      "Painted planters lining the pond wall",
+      "Wading birds feeding in the shallow, still water",
+      "Banners marking 50 years of ministerial government"
+    ],
+    "tips": [
+      "Salt raked from these ponds was once the island's main export",
+      "Early morning is calmest for reflections and birds"
+    ]
+  },
+  "sand-bar": {
+    "tagline": "Waterfront bar and grill with a deck over the beach",
+    "time": "1 hour",
+    "bestFor": ["Food & drink", "Sea views"],
+    "highlights": [
+      "A covered deck looking straight out over turquoise water",
+      "Right on the beach along the Duke Street waterfront",
+      "West-facing, so it's a great spot for late-afternoon light"
+    ],
+    "tips": [
+      "In Cockburn Town, about 4.5 km from the ship",
+      "Watch the time: leave plenty of margin to walk back for all-aboard"
+    ]
+  },
+  "salt-raker-inn": {
+    "tagline": "A historic seaside inn with a garden restaurant",
+    "time": "45–60 min",
+    "bestFor": ["Food & drink", "History"],
+    "highlights": [
+      "A turquoise two-storey house with a long upstairs veranda",
+      "Picket fence and garden seating facing the sea",
+      "A classic of Duke Street's Bermudian-style architecture"
+    ],
+    "tips": [
+      "Close to Sandbar and the museum: easy to combine"
+    ]
+  },
+  "barbies": {
+    "tagline": "Local and Caribbean cooking with a covered terrace",
+    "time": "45–60 min",
+    "bestFor": ["Local food", "Casual"],
+    "highlights": [
+      "Island dishes on a menu board at the door",
+      "A shaded wooden terrace with tables",
+      "Part of a small row of local shops"
+    ],
+    "tips": [
+      "Seats are for customers only, as the signs say"
+    ]
+  },
+  "pillory-beach": {
+    "tagline": "Calm water and soft sand north of town",
+    "time": "1–3 hours",
+    "bestFor": ["Swimming", "Snorkelling", "Quiet"],
+    "highlights": [
+      "Gentle waves and clear turquoise water",
+      "Good snorkelling close to the shore",
+      "A long, uncrowded strip of white sand"
+    ],
+    "tips": [
+      "Renamed Guanahani Beach in 1992, after the Taíno name for Columbus's first landfall",
+      "Little shade: bring a hat, water and reef-safe sunscreen",
+      "Seaweed can wash up after windy days"
+    ]
+  },
+  "cibc-bank": {
+    "tagline": "Bank branch with an ATM in Cockburn Town",
+    "time": "10 min",
+    "bestFor": ["Cash"],
+    "highlights": [
+      "ATM for cash withdrawals",
+      "Modern two-storey branch with parking in front"
+    ],
+    "tips": [
+      "The Turks and Caicos Islands use the US dollar",
+      "Many small vendors prefer cash"
+    ]
+  },
+  "graceway-supermarket": {
+    "tagline": "Stock up on water, snacks and sunscreen",
+    "time": "15–20 min",
+    "bestFor": ["Supplies"],
+    "highlights": [
+      "A full-service supermarket by the salt pond",
+      "Cold drinks, snacks and everyday essentials",
+      "Gracebay Pharmacy is in the same building"
+    ],
+    "tips": [
+      "Prices are in US dollars"
+    ]
+  },
+  "grace-bay-pharmacy": {
+    "tagline": "Dispensing pharmacy next to Graceway",
+    "time": "10 min",
+    "bestFor": ["Health", "Supplies"],
+    "highlights": [
+      "Over-the-counter medicines and first aid",
+      "Sun care and after-sun products"
+    ],
+    "tips": [
+      "Bring any prescription with you",
+      "In an emergency, call 911"
+    ]
+  },
+  "medical-centre": {
+    "tagline": "Grand Turk's hospital, with emergency care",
+    "bestFor": ["Emergency"],
+    "highlights": [
+      "Emergency department",
+      "Modern single- and two-storey buildings with a drop-off entrance"
+    ],
+    "tips": [
+      "In an emergency, call 911",
+      "Tell the ship's medical centre too, so they know where you are"
+    ]
+  },
+  "police-station": {
+    "tagline": "Main police station on Grand Turk",
+    "bestFor": ["Emergency", "Help"],
+    "highlights": [
+      "The yellow \"A\" Division building",
+      "Help with lost property and reporting incidents"
+    ],
+    "tips": [
+      "In an emergency, call 911"
+    ]
+  },
+  "governors-beach": {
+    "tagline": "Wide white sand and shade trees, close to the ship",
+    "time": "1–3 hours",
+    "bestFor": ["Swimming", "Families", "Relaxing"],
+    "highlights": [
+      "Some of the island's clearest, calmest water",
+      "Casuarina trees for natural shade",
+      "Quieter than the Cruise Center beach"
+    ],
+    "tips": [
+      "Reach it by the inland road; you can't walk along the sand from the Cruise Center"
+    ]
+  },
+  "cockburn-town": {
+    "tagline": "The capital, with colonial streets by the sea",
+    "time": "2–3 hours",
+    "bestFor": ["History", "Walking", "Photos"],
+    "highlights": [
+      "Bermudian-style houses along Front Street and Duke Street",
+      "The National Museum, St. Mary's and the old prison within a short walk",
+      "Salt ponds and wading birds right behind the waterfront"
+    ],
+    "tips": [
+      "About 5 km from the ship: allow plenty of time to walk back",
+      "Traffic drives on the left: look right first when crossing"
+    ]
+  },
+  "front-street": {
+    "tagline": "The island's historic waterfront street",
+    "time": "30–60 min",
+    "bestFor": ["History", "Walking"],
+    "highlights": [
+      "Old stone walls and shuttered houses from the salt-raking era",
+      "Sea views between the buildings",
+      "The museum and churches along the way"
+    ]
+  },
+  "columbus-landfall": {
+    "tagline": "A protected marine park on the west coast",
+    "bestFor": ["Snorkelling", "History"],
+    "highlights": [
+      "Clear water over the reef",
+      "Grand Turk is one of the places proposed as Columbus's first landfall in 1492"
+    ],
+    "tips": [
+      "Protected area: don't touch or take coral, shells or sea life"
+    ]
+  },
+  "gibbs-cay": {
+    "tagline": "A tiny cay famous for friendly stingrays",
+    "bestFor": ["Boat tours", "Wildlife"],
+    "highlights": [
+      "Southern stingrays gliding in the shallows",
+      "A small, uninhabited island with clear water"
+    ],
+    "tips": [
+      "Only reachable by boat tour: book through your ship or a licensed operator"
+    ]
+  },
+  "margaritaville": {
+    "tagline": "Big beach bar with a swim-up pool beside the ship",
+    "time": "1–3 hours",
+    "bestFor": ["Food & drink", "Swimming"],
+    "highlights": [
+      "The largest Margaritaville in the Caribbean",
+      "A swim-up bar in the lagoon pool"
+    ],
+    "tips": [
+      "Open when a cruise ship is in port"
+    ]
+  }
+}

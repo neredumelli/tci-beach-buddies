@@ -1,15 +1,31 @@
 {
   "grand-turk-lighthouse": {
-    "file": "grand-turk-lighthouse-2.jpg",
-    "title": "Grand Turk Lighthouse",
+    "file": "gt-lighthouse-1.jpg",
+    "title": "Lighthouse park gate",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "grand-turk-lighthouse-3.jpg",
+        "file": "gt-lighthouse-2.jpg",
+        "title": "The lighthouse through the casuarina trees",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "gt-lighthouse-3.jpg",
         "title": "Lighthouse park entrance",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "donkey-lighthouse.jpg",
+        "title": "Wild donkeys roam the north of the island near the lighthouse",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -21,14 +37,6 @@
         "author": "Stabbur's Master",
         "license": "CC BY-SA 2.0",
         "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Lighthouse_-_51364031267.jpg"
-      },
-      {
-        "file": "donkey-lighthouse.jpg",
-        "title": "Wild donkeys roam the north of the island near the lighthouse",
-        "author": "TCI Beach Buddies",
-        "license": "Supplied by the client",
-        "url": "",
-        "kind": "supplied"
       }
     ]
   },
@@ -40,15 +48,15 @@
     "url": "https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk.jpg"
   },
   "national-museum": {
-    "file": "national-museum-2.jpg",
-    "title": "Turks & Caicos National Museum, front",
+    "file": "gt-national-museum-1.jpg",
+    "title": "Guinep House, home of the National Museum",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "national-museum-3.jpg",
+        "file": "gt-national-museum-2.jpg",
         "title": "The museum wall and Front Street",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
@@ -56,8 +64,8 @@
         "kind": "supplied"
       },
       {
-        "file": "national-museum-4.jpg",
-        "title": "Red telephone box and mosaic wall at the museum",
+        "file": "gt-national-museum-3.jpg",
+        "title": "Red telephone box and mosaic wall",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -101,11 +109,45 @@
     "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Friendship_7_replica.jpg"
   },
   "grand-turk-cruise-center": {
-    "file": "grand-turk-cruise-center.jpg",
-    "title": "Grand Turk Cruise Center - panoramio.jpg",
-    "author": "socaltraveler",
-    "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg"
+    "file": "gt-cruise-center-1.jpg",
+    "title": "The lagoon pool, with a ship alongside",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "gt-cruise-center-2.jpg",
+        "title": "Pool, cabanas and the pier",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "gt-cruise-center-3.jpg",
+        "title": "Palms and umbrellas around the pool",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "gt-cruise-center-4.jpg",
+        "title": "Dining under the deck at the Cruise Center",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "grand-turk-cruise-center.jpg",
+        "title": "Grand Turk Cruise Center - panoramio.jpg",
+        "author": "socaltraveler",
+        "license": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_Cruise_Center_-_panoramio.jpg"
+      }
+    ]
   },
   "cockburn-town": {
     "file": "cockburn-town.jpg",
@@ -143,27 +185,27 @@
     "url": "https://www.flickr.com/photos/37904342@N04/8319337898"
   },
   "john-glenn-exhibit": {
-    "file": "john-glenn-exhibit.jpg",
-    "title": "Space splash down.JPG",
-    "author": "Wilsog33",
-    "license": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Space_splash_down.JPG",
+    "file": "gt-john-glenn-1.jpg",
+    "title": "Splashdown Grand Turk plaza",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied",
     "more": [
       {
-        "file": "john-glenn-exhibit-2.jpg",
-        "title": "Splashdown Grand Turk capsule",
+        "file": "gt-john-glenn-2.jpg",
+        "title": "Astronaut figure at Splashdown Grand Turk",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
         "kind": "supplied"
       },
       {
-        "file": "john-glenn-exhibit-3.jpg",
-        "title": "Astronaut figure at Splashdown Grand Turk",
-        "author": "TCI Beach Buddies",
-        "license": "Supplied by the client",
-        "url": "",
-        "kind": "supplied"
+        "file": "john-glenn-exhibit.jpg",
+        "title": "Space splash down.JPG",
+        "author": "Wilsog33",
+        "license": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Space_splash_down.JPG"
       }
     ]
   },
@@ -175,7 +217,7 @@
     "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_panoramio_(1).jpg"
   },
   "jacks-shack": {
-    "file": "jacks-shack-2.jpg",
+    "file": "gt-jacks-shack-1.jpg",
     "title": "Jack's Shack beach bar",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
@@ -183,7 +225,7 @@
     "kind": "supplied",
     "more": [
       {
-        "file": "jacks-shack-3.jpg",
+        "file": "gt-jacks-shack-2.jpg",
         "title": "Jack's Shack and the beach",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
@@ -200,40 +242,40 @@
     ]
   },
   "st-marys": {
-    "file": "st-marys.jpg",
-    "title": "Grand Turk - Cockburn Town, St. Mary's Cathedral - panoramio.jpg",
-    "author": "Banja-Frans Mulder",
-    "license": "CC BY 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_Cockburn_Town,_St._Mary%27s_Cathedral_-_panoramio.jpg",
-    "more": [
-      {
-        "file": "st-marys-2.jpg",
-        "title": "St. Mary's Pro-Cathedral, front",
-        "author": "TCI Beach Buddies",
-        "license": "Supplied by the client",
-        "url": "",
-        "kind": "supplied"
-      },
-      {
-        "file": "st-marys-3.jpg",
-        "title": "St. Mary's Pro-Cathedral building no. 154",
-        "author": "TCI Beach Buddies",
-        "license": "Supplied by the client",
-        "url": "",
-        "kind": "supplied"
-      }
-    ]
-  },
-  "pillory-beach": {
-    "file": "pillory-beach.jpg",
-    "title": "Guanahani (Pillory) Beach",
+    "file": "gt-st-marys-1.jpg",
+    "title": "St. Mary's Pro-Cathedral",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "pillory-beach-2.jpg",
+        "file": "gt-st-marys-2.jpg",
+        "title": "Building no. 154 beside the church",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "st-marys.jpg",
+        "title": "Grand Turk - Cockburn Town, St. Mary's Cathedral - panoramio.jpg",
+        "author": "Banja-Frans Mulder",
+        "license": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Grand_Turk_-_Cockburn_Town,_St._Mary%27s_Cathedral_-_panoramio.jpg"
+      }
+    ]
+  },
+  "pillory-beach": {
+    "file": "gt-pillory-beach-1.jpg",
+    "title": "Guanahani Beach and the houses behind it",
+    "author": "TCI Beach Buddies",
+    "license": "Supplied by the client",
+    "url": "",
+    "kind": "supplied",
+    "more": [
+      {
+        "file": "gt-pillory-beach-2.jpg",
         "title": "Guanahani Beach shoreline",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
@@ -241,8 +283,8 @@
         "kind": "supplied"
       },
       {
-        "file": "pillory-beach-3.jpg",
-        "title": "Guanahani Beach and the houses behind it",
+        "file": "gt-pillory-beach-3.jpg",
+        "title": "Guanahani (Pillory) Beach",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -259,16 +301,24 @@
     "kind": "illustration"
   },
   "town-salina": {
-    "file": "town-salina.jpg",
-    "title": "Gazebo beside Town Salina",
+    "file": "gt-town-salina-1.jpg",
+    "title": "Planters along the salt ponds",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "town-salina-2.jpg",
-        "title": "The road beside Town Salina",
+        "file": "gt-town-salina-2.jpg",
+        "title": "Gazebo beside the salt ponds",
+        "author": "TCI Beach Buddies",
+        "license": "Supplied by the client",
+        "url": "",
+        "kind": "supplied"
+      },
+      {
+        "file": "gt-town-salina-3.jpg",
+        "title": "The road along the ponds",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -319,24 +369,24 @@
     "kind": "illustration"
   },
   "clock-tower-park": {
-    "file": "clock-tower-park-2.jpg",
-    "title": "Clock Tower Park",
+    "file": "gt-clock-tower-park-1.jpg",
+    "title": "\"Welcome to Over Back\" sign, flag and clock tower",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "clock-tower-park-3.jpg",
-        "title": "\"Welcome to Over Back\" sign and the clock tower",
+        "file": "gt-clock-tower-park-2.jpg",
+        "title": "The Millennium Clock Tower and pergolas",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
         "kind": "supplied"
       },
       {
-        "file": "clock-tower-park.jpg",
-        "title": "Clock Tower Park and the waterfront, Cockburn Town",
+        "file": "gt-clock-tower-park-3.jpg",
+        "title": "Clock Tower Park from the road",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -345,24 +395,24 @@
     ]
   },
   "hm-prison": {
-    "file": "hm-prison.jpg",
-    "title": "H.M. Prison museum gate (\"Prison Tales\")",
+    "file": "gt-hm-prison-1.jpg",
+    "title": "The old prison wall",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "hm-prison-2.jpg",
-        "title": "The old prison wall",
+        "file": "gt-hm-prison-2.jpg",
+        "title": "\"Prison Tales\" gate into the old prison",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
         "kind": "supplied"
       },
       {
-        "file": "hm-prison-3.jpg",
-        "title": "The prison bell tower",
+        "file": "gt-hm-prison-3.jpg",
+        "title": "The bell tower, once rung five times a day",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -395,7 +445,7 @@
     "kind": "illustration"
   },
   "freemason-lodge": {
-    "file": "freemason-lodge.jpg",
+    "file": "gt-freemason-lodge-1.jpg",
     "title": "Freemason Lodge, front",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
@@ -403,7 +453,7 @@
     "kind": "supplied",
     "more": [
       {
-        "file": "freemason-lodge-2.jpg",
+        "file": "gt-freemason-lodge-2.jpg",
         "title": "Freemason Lodge from the corner",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
@@ -421,24 +471,24 @@
     "kind": "illustration"
   },
   "sand-bar": {
-    "file": "sand-bar.jpg",
-    "title": "Sandbar Restaurant, Duke Street",
+    "file": "gt-sand-bar-1.jpg",
+    "title": "Sandbar Restaurant on the Duke Street waterfront",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied"
   },
   "barbies": {
-    "file": "barbies.jpg",
-    "title": "Barbie's Bar & Restaurant",
+    "file": "gt-barbies-1.jpg",
+    "title": "Barbie's and the neighbouring shops",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "barbies-2.jpg",
-        "title": "Barbie's and the neighbouring shops",
+        "file": "gt-barbies-2.jpg",
+        "title": "Barbie's Bar & Restaurant",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -447,7 +497,7 @@
     ]
   },
   "salt-raker-inn": {
-    "file": "salt-raker-inn.jpg",
+    "file": "gt-salt-raker-inn-1.jpg",
     "title": "Salt Raker Inn, Duke Street",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
@@ -463,12 +513,12 @@
     "kind": "illustration"
   },
   "graceway-supermarket": {
-    "file": "illustration-graceway-supermarket.jpg",
-    "title": "Illustration of Graceway Smart Supermarket (not a photo)",
+    "file": "gt-graceway-1.jpg",
+    "title": "Graceway Smart Supermarket across the salt pond",
     "author": "TCI Beach Buddies",
-    "license": "Original illustration",
+    "license": "Supplied by the client",
     "url": "",
-    "kind": "illustration"
+    "kind": "supplied"
   },
   "ron-jon-surf-shop": {
     "file": "illustration-ron-jon-surf-shop.jpg",
@@ -495,34 +545,24 @@
     "kind": "illustration"
   },
   "grace-bay-pharmacy": {
-    "file": "pharmacy.jpg",
+    "file": "gt-pharmacy-1.jpg",
     "title": "Gracebay Pharmacy",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
-    "kind": "supplied",
-    "more": [
-      {
-        "file": "pharmacy-2.jpg",
-        "title": "The pharmacy across the water",
-        "author": "TCI Beach Buddies",
-        "license": "Supplied by the client",
-        "url": "",
-        "kind": "supplied"
-      }
-    ]
+    "kind": "supplied"
   },
   "medical-centre": {
-    "file": "hospital.jpg",
-    "title": "Hospital entrance",
+    "file": "gt-hospital-1.jpg",
+    "title": "The hospital buildings",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
     "kind": "supplied",
     "more": [
       {
-        "file": "hospital-2.jpg",
-        "title": "Hospital buildings",
+        "file": "gt-hospital-2.jpg",
+        "title": "Hospital entrance",
         "author": "TCI Beach Buddies",
         "license": "Supplied by the client",
         "url": "",
@@ -531,7 +571,7 @@
     ]
   },
   "police-station": {
-    "file": "police-station.jpg",
+    "file": "gt-police-station-1.jpg",
     "title": "\"A\" Division Police Station",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
@@ -555,8 +595,8 @@
     "kind": "illustration"
   },
   "cibc-bank": {
-    "file": "cibc-bank.jpg",
-    "title": "CIBC Bank, Grand Turk",
+    "file": "gt-cibc-bank-1.jpg",
+    "title": "CIBC Caribbean, Grand Turk",
     "author": "TCI Beach Buddies",
     "license": "Supplied by the client",
     "url": "",
